@@ -2,7 +2,8 @@ export default function Home() {
   return (
     <div>
       <main>
-        <p>ciao, come stai</p>
+        <div>Eraclea</div>
+        <div>La zona archeo...</div>
       </main>
     </div>
   );
