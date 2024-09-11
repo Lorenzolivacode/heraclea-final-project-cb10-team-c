@@ -1,4 +1,4 @@
-import Button from "@/app/(components)/(atom)/Button/Button";
+import Button from "@/app/components/Atom/Button/Button";
 import React from "react";
 
 function LoginPage() {

@@ -1,7 +1,7 @@
 import React from "react";
 
-function EracleaInfo() {
+function InitialPage() {
   return <div></div>;
 }
 
-export default EracleaInfo;
+export default InitialPage;
