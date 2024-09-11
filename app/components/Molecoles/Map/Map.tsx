@@ -101,7 +101,9 @@ const Map = (Map: MapProps) => {
           draggable={false}
           icon={markerIcon}
         >
-          <Popup>{marker.popupContent}</Popup>
+          <Popup maxWidth={300} keepInView={true}>
+            {marker.popupContent}
+          </Popup>
         </Marker>
       ))}
     </MapContainer>
