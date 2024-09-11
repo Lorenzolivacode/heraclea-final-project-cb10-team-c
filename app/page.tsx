@@ -5,13 +5,9 @@ export default function Home() {
     <>
     <div>
       <main>
-<<<<<<< HEAD
-        <p>ciao, come stai?</p>
-=======
         <div>Eraclea</div>
         <div>La zona archeo...</div>
         <QrCodeGenerator/>
->>>>>>> development
       </main>
     </div>
     </>
