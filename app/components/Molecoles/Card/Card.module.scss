@@ -1,0 +1,40 @@
+.card_section {
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 10px 12px -5px var(--c-gray-stone);
+  width: 100%;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  /* background-image: url(https://www.itbeach.it/wp-content/uploads/2020/02/0070074-1.jpg);
+  background-size: cover; */
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+
+  img {
+    width: 100%;
+    z-index: -1;
+  }
+
+  .title_container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid var(--c-white);
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    line-height: 400%;
+    background-color: var(--c-gray-stone-o5);
+    color: var(--c-ivory);
+    transition: all 1s ease-in-out;
+    /* text-align: start; */
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    transform: scale(0.97);
+    box-shadow: 0 10px 20px 0 var(--c-gray-stone);
+  }
+}
