@@ -1,44 +1,9 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  gap: 20px;
+  justify-content: center;
+  /* justify-content: space-evenly; */
   min-height: 100dvh;
-  padding: 10px;
-}
-
-.section_home {
-  position: relative;
-  border-radius: 4px;
-  box-shadow: 0 10px 12px -5px var(--c-gray-stone);
-  width: 100%;
-  aspect-ratio: 3/2;
-  background-image: url(https://www.itbeach.it/wp-content/uploads/2020/02/0070074-1.jpg);
-  background-size: cover;
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-
-  h2 {
-    position: absolute;
-    bottom: 0;
-    border-top: 1px solid var(--c-white);
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    line-height: 400%;
-    background-color: var(--c-gray-stone-o5);
-    color: var(--c-ivory);
-    transition: all 1s ease-in-out;
-    text-align: start;
-  }
-
-  &:hover,
-  &:active,
-  &:focus {
-    transform: scale(0.97);
-    box-shadow: 0 10px 20px 0 var(--c-gray-stone);
-
-    h2 {
-      text-align: center;
-    }
-  }
+  padding: 20px;
 }
