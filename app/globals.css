@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,4 +11,21 @@
   --c-gray-stone: #66635b;
   --c-gray-light: #d8dada;
   --c-brown-dark: #514f48;
+
+  --c-gray-stone-o5: rgba(102, 99, 91, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 6px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1rem;
 }
