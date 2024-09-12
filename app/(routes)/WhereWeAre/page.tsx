@@ -63,8 +63,15 @@ function WhereWeAre() {
         referrerPolicy="no-referrer-when-downgrade"
       />
       <ul>
-        {contactArray.map((contact) => {
-          return <ListEl key={contact.id} el={contact} />;
+        {contactArray.map((contact, index) => {
+          return (
+            <>
+              <ListEl key={contact.id} el={contact} />
+              {/* {index + 1 !== contactArray.length && (
+                <div className={styles.line} />
+              )} */}
+            </>
+          );
         })}
       </ul>
       {descriptionArray.map((description) => {
