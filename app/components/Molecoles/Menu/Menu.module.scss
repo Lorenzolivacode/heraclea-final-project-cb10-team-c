@@ -1,6 +1,6 @@
 .menu {
     position: fixed;
-    top: 0;
+    top: -100vh;
     left: 0;
     width: 100vw;
     height: 79vh;
@@ -10,9 +10,14 @@
     padding: 40px ;
     margin-top: 100px;
     z-index: 10; 
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    transition: top 0.5s ease, opacity 0.5s ease;
     background-color: var(--c-white);
+
+    &.open {
+      top: 0; 
+      opacity: 1;
+    }
   }
   
   .menuItem {
