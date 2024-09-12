@@ -1,8 +1,8 @@
 import React from "react";
-import style from "@/app/(routes)/InitialPage/initialPage.module.scss"
-import Toggle from "@/app/components/Atom/Button/Toggle/Toggle";
+import style from "@/app/(routes)/InitialPage/initialPage.module.scss";
+import Toggle from "@/app/components/Atom/Toggle/Toggle";
 function InitialPage() {
-  return(
+  return (
     <main className={style.main}>
       <div className={style.infoContainer}>
         <h1>Benvenuti</h1>
@@ -14,10 +14,10 @@ function InitialPage() {
         <button>ENGLISH</button>
       </div>
       <div className={style.toggleContainer}>
-        <Toggle/>
+        <Toggle />
       </div>
     </main>
-  ) 
+  );
 }
 
 export default InitialPage;

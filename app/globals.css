@@ -20,7 +20,18 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
+  letter-spacing: 2px;
+  color: var(--c-brown-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   letter-spacing: 6px;
+  color: var(--c-sienna);
 }
 
 h1 {
