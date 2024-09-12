@@ -20,19 +20,19 @@ const contactArray = [
     id: crypto.randomUUID(),
     label: "Chiama",
     icon: "",
-    url: "",
+    url: "tel: +390000000000",
   },
   {
     id: crypto.randomUUID(),
     label: "Mappa",
     icon: "",
-    url: "",
+    url: "https://www.google.com/maps?ll=37.393672,13.282562&z=16&t=h&hl=en&gl=IT&mapclient=embed&cid=16706615244174831018",
   },
   {
     id: crypto.randomUUID(),
     label: "Email",
     icon: "",
-    url: "",
+    url: "https://mail.google.com",
   },
 ];
 
@@ -67,9 +67,9 @@ function WhereWeAre() {
           return (
             <>
               <ListEl key={contact.id} el={contact} />
-              {/* {index + 1 !== contactArray.length && (
-                <div className={styles.line} />
-              )} */}
+              {index + 1 !== contactArray.length && (
+                <div className={styles.lineEl} />
+              )}
             </>
           );
         })}

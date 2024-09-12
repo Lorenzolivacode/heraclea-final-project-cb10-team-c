@@ -41,8 +41,15 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <ul>
-        {listFooter.map((element) => {
-          return <ListEl key={element.id} el={element} />;
+        {listFooter.map((element, index) => {
+          return (
+            <>
+              <ListEl key={element.id} el={element} />;
+              {index + 1 !== listFooter.length && (
+                <div className={styles.lineEl} />
+              )}
+            </>
+          );
         })}
       </ul>
     </footer>
