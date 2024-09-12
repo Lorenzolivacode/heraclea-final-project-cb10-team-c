@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -17,7 +16,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header setShowHamburger={setShowHamburger} />
-        {showHamburger && <Menu />}
+        <Menu isOpen={showHamburger} />
         {children}
         <Footer />
       </body>
