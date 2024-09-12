@@ -1,13 +1,19 @@
-import React from "react";
+import { ReactNode, MouseEventHandler } from "react";
+import style from "@/app/components/Atom/Button/button.module.scss";
 
 interface ButtonProps {
-  children?: React.ReactNode;
-  label?: string;
-  btnFooter: boolean;
-  /* onclick: */
+  children?: ReactNode;
+  text?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
-function Button() {
-  return <button></button>;
-}
+
+const Button: React.FC<ButtonProps> = ({ children, text = "", onClick }) => {
+  return (
+    <button className={style.button} onClick={onClick}>
+      {text}
+      {children}
+    </button>
+  );
+};
 
 export default Button;

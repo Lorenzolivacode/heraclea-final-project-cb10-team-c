@@ -1,7 +1,10 @@
 import Link from "next/link";
 import style from "@/app/components/Molecoles/Menu/Menu.module.scss";
 
-const Menu = () => {
+interface MenuProps {
+  isOpen: boolean;
+}
+const Menu = ({ isOpen }: MenuProps) => {
   const menuItems = [
     { label: "Account", link: "/account" },
     { label: "Biglietti", link: "/biglietti" },
@@ -13,7 +16,7 @@ const Menu = () => {
   ];
 
   return (
-    <div className={style.menu}>
+    <div className={`${style.menu} ${isOpen ? style.open : ""}`}>
       {menuItems.map((item, index) => (
         <div key={index} className={style.menuItem}>
           <Link href={item.link}>
