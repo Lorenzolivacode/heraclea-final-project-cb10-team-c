@@ -1,3 +1,4 @@
+import SignIn from "./(routes)/signin/page";
 import Card from "./components/Molecoles/Card/Card";
 import styles from "./Home.module.scss";
 
