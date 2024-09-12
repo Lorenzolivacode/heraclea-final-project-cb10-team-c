@@ -1,7 +1,11 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Molecoles/Footer/Footer";
+import Header from "./components/Molecoles/Header/Header";
+import Menu from "./components/Molecoles/Menu/Menu";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,22 +18,20 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Heraclea App",
-  description: "Web app for greek's archeology site",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [showHamburger, setShowHamburger] = useState(false);
+
   return (
     <html lang="it">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header></header>
+        <Header setShowHamburger={setShowHamburger} />
+        {showHamburger && <Menu />}
         {children}
         <Footer />
       </body>
