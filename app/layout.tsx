@@ -6,6 +6,7 @@ import "./globals.css";
 import Footer from "./components/Molecoles/Footer/Footer";
 import Header from "./components/Molecoles/Header/Header";
 import Menu from "./components/Molecoles/Menu/Menu";
+import InitialPage from "./(routes)/InitialPage/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,11 +30,12 @@ export default function RootLayout({
     <html lang="it">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header setShowHamburger={setShowHamburger} />
-        {showHamburger && <Menu />}
-        {children}
-        <Footer />
+        >
+        {/* <Header setShowHamburger={setShowHamburger} showMenu={showHamburger}  /> */}
+        {/* {showHamburger && <Menu />} */}
+          <InitialPage/>
+        {/* {children} */}
+        {/* <Footer /> */}
       </body>
     </html>
   );
