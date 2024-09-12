@@ -1,0 +1,19 @@
+.nav{
+    background-color: var(--c-white);
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    position: fixed;
+    
+    .span{
+        display: flex;
+        justify-content: end;
+        
+    }
+}
+.logoContainer{
+    margin-left: 20px;
+}
