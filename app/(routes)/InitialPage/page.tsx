@@ -113,13 +113,13 @@ function InitialPage() {
 						</div>
 						<div className={style.toggleContainer}>
 							{params
-								.filter((param, index) => index !== 0) // Filtra fuori "pagina_0"
+								.filter((param, index) => index !== 0) 
 								.map((param, index) => (
 									<Toggle
 										key={param}
 										params={param}
 										selectedPage={selectedPage}
-										onToggle={() => handleToggle(param, index + 1)} // Aggiungi 1 all'indice per allineare con le pagine
+										onToggle={() => handleToggle(param, index + 1)}
 									/>
 								))}
 						</div>
