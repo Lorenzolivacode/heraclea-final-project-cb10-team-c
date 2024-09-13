@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import style from "@/app/(routes)/SignIn/SignIn.module.scss";
+import style from "@/app/(routes)/log_in/LogIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 
 const SignIn: React.FC = () => {
