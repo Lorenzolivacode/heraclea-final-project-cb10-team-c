@@ -29,11 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-        {/* <Header setShowHamburger={setShowHamburger} showMenu={showHamburger}  /> */}
-        {/* {showHamburger && <Menu />} */}
-          <InitialPage/>
-        {/* {children} */}
-        {/* <Footer /> */}
+        <Header setShowHamburger={setShowHamburger}/>
+        {showHamburger && <Menu isOpen />}
+          {/* <InitialPage/> */}
+        {children}
+        <Footer />
       </body>
     </html>
   );

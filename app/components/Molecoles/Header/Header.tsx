@@ -7,10 +7,9 @@ import Link from "next/link";
 
 interface HeaderProps {
 	setShowHamburger: Dispatch<SetStateAction<boolean>>;
-	showMenu: boolean;
 }
 
-const Header = ({ setShowHamburger, showMenu }: HeaderProps) => {
+const Header = ({ setShowHamburger,}: HeaderProps) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleMenu = () => {
@@ -26,7 +25,6 @@ const Header = ({ setShowHamburger, showMenu }: HeaderProps) => {
 					<img src="/icons/logoSienna.svg" alt="Logo" width={69} height={69} />
 				</Link>
 			</div>
-			{showMenu && (
 				<span className={style.span}>
 					<Hamburger
 						active={isMenuOpen}
@@ -34,7 +32,6 @@ const Header = ({ setShowHamburger, showMenu }: HeaderProps) => {
 						className={""}
 					/>
 				</span>
-			)}
 		</div>
 	);
 };

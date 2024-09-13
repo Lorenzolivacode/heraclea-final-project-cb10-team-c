@@ -73,7 +73,7 @@ function InitialPage() {
 			{currentPage !== 0 && (
 				<Header
 					setShowHamburger={setShowHamburger}
-					showMenu={currentPage === 0}
+					// showMenu={currentPage === 0}
 				/>
 			)}
 
