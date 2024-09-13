@@ -3,7 +3,7 @@ import { useState } from "react";
 import style from "@/app/(routes)/sign_in/SignIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 import Link from "next/link";
-
+import InitialPagemodal from "../../components/Organism/modalInitialPage/ModalInitialPage";
 const SignIn: React.FC = () => {
   const [nome, setNome] = useState("");
   const [cognome, setCognome] = useState("");
@@ -34,6 +34,8 @@ const SignIn: React.FC = () => {
   };
 
   return (
+    <>
+    <InitialPagemodal/>
     <div className={style.container}>
       <h1 className={style.title}>Sign In</h1>
       <form onSubmit={handleSubmit} className={style.form}>
@@ -104,7 +106,9 @@ const SignIn: React.FC = () => {
         </p>
       </form>
     </div>
+    </>
   );
 };
+    
 
 export default SignIn;

@@ -37,7 +37,19 @@ h6 {
 h1 {
   font-size: 1.5rem;
   font-weight: 500;
+  text-align: center;
 }
 h2 {
   font-size: 1rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: start;
+  /* justify-content: space-evenly; */
+  min-height: 100dvh;
+  padding: 120px 22px;
+  background-color: var(--c-white);
 }

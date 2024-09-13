@@ -1,16 +1,20 @@
 .main {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   min-height: 100dvh;
-  padding: 120px 20px;
+  padding: 120px 20px; */
 
-  text-align: center;
+  text-align: start;
 
   .map {
     border-radius: 8px;
     box-shadow: 0 10px 12px -5px var(--c-gray-stone), 0 -4px 0 0 var(--c-sienna);
+  }
+
+  h2 {
+    font-weight: 500;
   }
 
   /*   ul {

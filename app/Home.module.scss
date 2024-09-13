@@ -1,10 +1,28 @@
 .main {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: start;
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
   min-height: 100dvh;
   padding: 120px 22px;
-  background-color: var(--c-white);
+  background-color: var(--c-white); */
+
+  h1 {
+    text-align: start;
+  }
+}
+
+.txt_container {
+  padding: 20px 0;
+}
+
+.cit,
+.cit_label {
+  font-style: italic;
+}
+
+.cit_label {
+  text-align: end;
+  color: var(--c-sienna);
 }
