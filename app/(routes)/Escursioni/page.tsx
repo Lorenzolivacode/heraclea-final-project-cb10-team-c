@@ -1,45 +1,41 @@
-import Card from "./../../components/Molecoles/Card/Card";
-import styles from "./../../Home.module.scss";
-import style from "./Escursioni.module.scss";
+import Card from '@/app/components/Molecoles/Card/Card';
+import styles from '@/app/Home.module.scss';
+import style from './Escursioni.module.scss';
+
 
 const arrayTest = [
   {
     name: "In Bici tra Storia e Natura",
-    image: "/",
+    image: "/assets/bici.webp",
     id: "1",
-    roadmap: "#",
+    roadmap: "/escursioni/1", 
   },
   {
     name: "Passeggiata a Cavallo",
-    image: "/",
+    image: "/assets/cavallo.webp",
     id: "2",
-    roadmap: "#",
+    roadmap: "/escursioni/2", 
   },
   {
     name: "Trekking alla Foce",
-    image: "/",
+    image: "/assets/trekking.webp",
     id: "3",
-    roadmap: "#",
+    roadmap: "/escursioni/3", 
   },
 ];
 
-
 export default function Excursion() {
   return (
-    <>
-      <main className={styles.main}>
+    <main className={styles.main}>
       <h1 className={style.title}>Escursioni</h1>
-        {arrayTest.map((point) => {
-          return (
-            <Card
-              key={point.id}
-              roadmap={point.roadmap}
-              label={point.name}
-              image={point.image}
-            />
-          );
-        })}
-      </main>
-    </>
+      {arrayTest.map((point) => (
+        <Card
+          key={point.id}
+          roadmap={point.roadmap}
+          label={point.name}
+          image={point.image}
+        />
+      ))}
+    </main>
   );
 }
