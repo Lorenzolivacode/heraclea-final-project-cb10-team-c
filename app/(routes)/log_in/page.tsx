@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import style from "@/app/(routes)/log_in/LogIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 
 const SignIn: React.FC = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -46,7 +48,7 @@ const SignIn: React.FC = () => {
           />
         </div>
         <div className={style.button}>
-          <Button text="Accedi" />
+          <Button text="Accedi" onClick={() => router.push("/")} />
         </div>
       </form>
     </div>
