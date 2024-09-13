@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./WhereWeAre.module.scss";
 import ListEl from "@/app/components/Atom/ListEl/ListEl";
 import { title } from "process";
+import UlEl from "@/app/components/Molecoles/UlEl/UlEl";
 const labelTxt = {
   titleWWA: "Dove siamo",
   tell: "Chiama",
@@ -62,7 +63,9 @@ function WhereWeAre() {
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />
-      <ul>
+
+      <UlEl array={contactArray} />
+      {/* <ul>
         {contactArray.map((contact, index) => {
           return (
             <>
@@ -73,7 +76,7 @@ function WhereWeAre() {
             </>
           );
         })}
-      </ul>
+      </ul> */}
       {descriptionArray.map((description) => {
         return (
           <div key={description.id} className={styles.container_txt}>

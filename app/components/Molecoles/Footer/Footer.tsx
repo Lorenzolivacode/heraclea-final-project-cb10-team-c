@@ -4,35 +4,36 @@ import styles from "./Footer.module.scss";
 
 import imgFav from "@/app/favicon.ico";
 import ListEl from "../../Atom/ListEl/ListEl";
+import UlEl from "../UlEl/UlEl";
 
 const listFooter = [
   {
     id: crypto.randomUUID(),
-    url: "",
+    url: "/Account",
     label: "Account",
     icon: "@/app/favicon.ico",
   },
   {
     id: crypto.randomUUID(),
-    url: "",
+    url: "/audioguide",
     label: "Audioguida",
     icon: "@/app/favicon.ico",
   },
   {
     id: crypto.randomUUID(),
-    url: "",
+    url: "/tickets",
     label: "Biglietti",
     icon: "@/app/favicon.ico",
   },
   {
     id: crypto.randomUUID(),
-    url: "",
+    url: "/events",
     label: "Eventi",
     icon: "@/app/favicon.ico",
   },
   {
     id: crypto.randomUUID(),
-    url: "",
+    url: "/explora",
     label: "Esplora",
     icon: "@/app/favicon.ico",
   },
@@ -40,7 +41,8 @@ const listFooter = [
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <ul>
+      <UlEl array={listFooter} />
+      {/* <ul>
         {listFooter.map((element, index) => {
           return (
             <>
@@ -51,7 +53,7 @@ function Footer() {
             </>
           );
         })}
-      </ul>
+      </ul> */}
     </footer>
   );
 }

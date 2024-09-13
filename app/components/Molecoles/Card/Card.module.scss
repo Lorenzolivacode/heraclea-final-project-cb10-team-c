@@ -30,6 +30,10 @@
     color: var(--c-ivory);
     transition: all 1s ease-in-out;
     /* text-align: start; */
+
+    h2 {
+      color: var(--c-ivory);
+    }
   }
 
   &:hover,

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/router";
-import style from "@/app/(routes)/SignIn/SignIn.module.scss";
+import style from "@/app/(routes)/sign_in/SignIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 import Link from "next/link";
 
