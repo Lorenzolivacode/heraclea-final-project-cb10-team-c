@@ -8,7 +8,7 @@ function UlEl({ array }: { array: IElement[] }) {
       {array.map((contact, index) => {
         return (
           <>
-            <ListEl key={contact.id} el={contact} />
+            <ListEl key={contact.id || index} el={contact} />
             {index + 1 !== array.length && <div className={styles.lineEl} />}
           </>
         );

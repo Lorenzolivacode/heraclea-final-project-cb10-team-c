@@ -11,31 +11,31 @@ const listFooter = [
     id: crypto.randomUUID(),
     url: "/Account",
     label: "Account",
-    icon: "@/app/favicon.ico",
+    icon: "/icons/footer-icons/account.svg",
   },
   {
     id: crypto.randomUUID(),
     url: "/audioguide",
     label: "Audioguida",
-    icon: "@/app/favicon.ico",
+    icon: "/icons/footer-icons/Headphone.svg",
   },
   {
     id: crypto.randomUUID(),
     url: "/tickets",
     label: "Biglietti",
-    icon: "@/app/favicon.ico",
+    icon: "/icons/footer-icons/Two-Tickets.svg",
   },
   {
     id: crypto.randomUUID(),
     url: "/events",
     label: "Eventi",
-    icon: "@/app/favicon.ico",
+    icon: "/icons/footer-icons/calendar.svg",
   },
   {
     id: crypto.randomUUID(),
     url: "/explora",
     label: "Esplora",
-    icon: "@/app/favicon.ico",
+    icon: "/icons/footer-icons/Trekking.svg",
   },
 ];
 function Footer() {
