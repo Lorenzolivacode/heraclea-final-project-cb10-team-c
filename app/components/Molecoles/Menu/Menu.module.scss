@@ -1,6 +1,7 @@
 .menu {
     position: fixed;
-    top: -100vh;
+    top: 0;
+    right: -100vh;
     left: 0;
     width: 100vw;
     height: 79vh;
@@ -11,11 +12,11 @@
     margin-top: 100px;
     z-index: 10; 
     opacity: 0;
-    transition: top 0.5s ease, opacity 0.5s ease;
+    transition: right 0.5s ease, opacity 0.5s ease;
     background-color: var(--c-white);
 
     &.open {
-      top: 0; 
+      right: 0; 
       opacity: 1;
     }
   }
@@ -24,7 +25,7 @@
     border-bottom: 1px solid var(--c-sienna);
     margin: 20px 0;
     padding: 10px 0;
-    font-size: 24px;
+    font-size: 22px;
     color: var(--c-sienna);
     text-align: center;
     display: flex;
