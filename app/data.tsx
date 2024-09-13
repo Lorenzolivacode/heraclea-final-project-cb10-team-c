@@ -1,4 +1,4 @@
-const object = [
+export const eracleaData = [
   {
     id: "1",
     title: {
@@ -7,8 +7,9 @@ const object = [
       french: "Eraclea Minoa",
       spanish: "Eraclea Minoa",
     },
-    image: "path",
-    sottocategorie: [
+    image: "/assets/card_minoa.webp",
+    roadmap: "/eraclea_page",
+    subcategory: [
       {
         id: "1-1",
         title: {
@@ -17,7 +18,7 @@ const object = [
           french: "Eraclea Minoa",
           spanish: "Eraclea Minoa",
         },
-        images: ["path", "path"],
+        images: ["/assets/card_minoa.webp", "/assets/platani.webp"],
         description: {
           italian:
             "Lo storiografo greco Erodoto, nel V secolo a.C., narra dell’antica città di Minoa, che sarebbe stata fondata dagli abitanti di Selinunte e chiamata Eraclea in onore dell’eroe semidio. I ritrovamenti archeologici raccontano, però, una storia molto più antica del territorio ed estremamente affascinante. L’area archeologica è in una magnifica posizione, in una riserva naturale, sul promontorio del capo Bianco (a 75 m), di candida falesia (ripida scarpata scoscesa) di roccia calcarea che si protende sul mare, degradando a ovest verso la valle del Plàtani e a est verso la spiaggia. I frammenti rinvenuti negli strati sottostanti alla Necropoli arcaica del VI secolo a.C. farebbero risalire l’origine dell’insediamento urbano alla preistoria, e precisamente al Neolitico (dall’8000 al 3.500 a.C. circa), mentre le antiche monete ritrovate testimoniano la presenza di una colonia fenicia. Nelle prime fonti storiche, la città è indicata con tre nomi: Macara, ovvero città di Makar, l’Eracle fenicio; Minoa, appunto, che sarebbe stata fondata, secondo la leggenda, dal re di Creta Minosse, che avrebbe inseguito Dedalo fin qui; infine Eraclea, colonia spartana a conferma dell’intitolazione del luogo al grande eroe greco. Dopo i fenici e gli spartani, nel V secolo a.C., la città divenne subcolonia di Selinunte e raggiunse l’apice del suo sviluppo in epoca ellenistica (fine IV secolo a.C.). A lungo contesa tra greci e cartaginesi per la sua posizione strategica di confine, passò di mano più volte, finché, nel 210 a.C., fu conquistata dai Romani. Nel I secolo a.C. venne definitivamente abbandonata, forse a causa di una frana che trascinò in mare la parte meridionale dell’abitato e delle mura. Le indagini archeologiche, ai primi del ‘900, hanno portato alla luce una parte del quartiere residenziale, con tracce leggibili in due stratificazioni successive, della città arcaica ed ellenistica, il tratto settentrionale della cinta muraria, con resti di torri e di porte, e il bel teatro col proscenio aperto verso il mare (in parte nascosto da una struttura protettiva). Nell’Antiquarium, all’ingresso della zona archeologica, è esposto il materiale proveniente dalle abitazioni e dalle Necropoli arcaica ed ellenistica. Il paese, collocato più in basso rispetto al sito archeologico, ospita strutture turistiche e ricettive, tra cui un campeggio, all’ombra di un bosco di eucalipti. La spiaggia si allunga ad anfiteatro fino alle pareti di roccia di capo Bianco, che, con i suoi fanghi, offre ai bagnanti trattamenti cosmetici naturali e gratuiti, all’aria aperta.",
@@ -37,7 +38,7 @@ const object = [
           french: "Rivière Platani",
           spanish: "Río Platani",
         },
-        images: ["path", "path"],
+        images: ["/assets/home_platani.webp", "/assets/platani.webp"],
         description: {
           italian:
             "La Riserva Naturale Foce del fiume Platani è un’area naturale protetta della Sicilia sudoccidentale istituita per garantire la conservazione della popolazione ornitica, favorire la ricostituzione della macchia mediterranea e delle dune. La foce del fiume Platani è un luogo di incantevole bellezza naturalistica su cui domina la falesia di Capo Bianco. Quest'area rappresenta il primo approdo per molti uccelli migratori provenienti dall'Africa e, grazie alla diversificazione degli ambienti, offre rifugio ad una flora rigogliosa e variegata, quindi ad un'avifauna ricca e composita. La riserva che interseca la foce del fiume Platani nei territori di Ribera e Cattolica Eraclea (AG) comprende alcune delle spiagge sabbiose più integre della Sicilia oltre che cordoni dunali che ospitano comunità vegetali sia naturali che artificiali. Elementi caratteristici dell’area sono anche promontori e falesie costituiti da calcari marnosi e marne a globigerine, (Trubbi) oltre che calanchi argillosi. Ad est della Riserva, sul marnoso promontorio di Capo Bianco, sorgono le rovine della città greca di Eraclea-Minoa, di cui sono stati riportati alla luce i resti di un teatro e di un centro abitato. Nel complesso il sito presenta elevata valenza sia sotto l’aspetto paesaggistico che sotto quello prettamente naturalistico.",
@@ -59,8 +60,9 @@ const object = [
       french: "La zone archéologique",
       spanish: "La zona arqueológica",
     },
-    image: "path",
-    sottocategorie: [
+    image: "/assets/teatro_greco.webp",
+    roadmap: "/Percorsi",
+    subcategory: [
       {
         id: "2-1",
         title: {
@@ -124,3 +126,5 @@ const object = [
     ],
   },
 ];
+
+export default eracleaData;

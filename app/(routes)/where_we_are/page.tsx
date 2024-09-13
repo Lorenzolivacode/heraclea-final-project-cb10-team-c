@@ -51,7 +51,7 @@ const descriptionArray = [
 ];
 function WhereWeAre() {
   return (
-    <main className={styles.main}>
+    <main className="main">
       <h1>{labelTxt.titleWWA}</h1>
       <iframe
         className={styles.map}
