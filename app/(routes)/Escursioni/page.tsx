@@ -1,24 +1,24 @@
 import Card from '@/app/components/Molecoles/Card/Card';
-import styles from '@/../../Home.module.scss';
-import style from '@/app/escursioni/Escursioni.module.scss';
+import styles from '@/app/Home.module.scss';
+import style from './Escursioni.module.scss';
 
 
 const arrayTest = [
   {
     name: "In Bici tra Storia e Natura",
-    image: "/path/to/image1.jpg",
+    image: "/assets/bici.webp",
     id: "1",
     roadmap: "/escursioni/1", 
   },
   {
     name: "Passeggiata a Cavallo",
-    image: "/path/to/image2.jpg",
+    image: "/assets/cavallo.webp",
     id: "2",
     roadmap: "/escursioni/2", 
   },
   {
     name: "Trekking alla Foce",
-    image: "/path/to/image3.jpg",
+    image: "/assets/trekking.webp",
     id: "3",
     roadmap: "/escursioni/3", 
   },
