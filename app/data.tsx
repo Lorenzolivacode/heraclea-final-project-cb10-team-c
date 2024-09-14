@@ -91,7 +91,7 @@ export const eracleaData = [
           french: "Théâtre d'Héraclée",
           spanish: "Teatro de Heraclea",
         },
-        images: ["path", "path"],
+        images: ["/assets/teatro_dopo.webp", "/assets/teatro-before.webp"],
         description: {
           italian:
             "L’antico teatro greco di Eraclea, costruito alla fine del V a.C., fu riportato alla luce nel 1957. Esso si presenta con una cavea a 10 gradoni, divisa in 9 settori, che guarda verso il mare. Costruito ad incastro con conci di marna, il sito è dotato anche di antiquarium, dove sono conservati reperti archeologici rinvenuti durante le varie campagne di scavo. Gli scavi archeologici sulle rovine vennero intrapresi in modo sistematico dal 1950. La città viene considerata idonea per comprendere l’urbanistica delle città ellenistiche e romane: il teatro; il quartiere delle abitazioni ellenistiche e romane con impianto urbanistico ad “insulae”, separate da strade parallele. Si possono vedere anche i resti della cinta muraria della città costruita tra la fine del VI e la fine del IV secolo a.C., lungo circa 6 chilometri; a nord-est delle mura si riconoscono ancora otto torri quadrate. Il teatro greco fu individuato nel Settecento, ma portato alla luce soltanto nel 1953.",

@@ -16,3 +16,7 @@ background-color: var(--c-white);
     display: flex;
     gap: 30px;
 }
+
+.container:first-of-type{
+    margin-left: 65px;
+}
