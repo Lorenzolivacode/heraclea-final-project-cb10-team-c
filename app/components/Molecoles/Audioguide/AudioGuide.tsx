@@ -76,10 +76,29 @@ const CustomTTSComponent = ({ children }: CustomProps) => {
       <figure className={styles.audioPlayer}>
         <div className={styles.controls}>
           <button onClick={handlePlayPauseToggle}>
-            {isPlaying ? "⏸️" : "▶️"}
+            {isPlaying ? (
+              <img
+                src="/icons/audioguide-icons/pause.svg"
+                alt="pause icon"
+                className={styles.playerIcons}
+              />
+            ) : (
+              <img
+                src="/icons/audioguide-icons/play.svg"
+                alt="play icon"
+                className={styles.playerIcons}
+              />
+            )}
           </button>
-          <button onClick={stop}>⏹️</button>
+          <button onClick={stop}>
+            <img
+              src="/icons/audioguide-icons/stop.svg"
+              alt="play icon"
+              className={styles.playerIcons}
+            />
+          </button>
         </div>
+
         <div className={styles.caption}>
           <button onClick={toggleVisibility}>
             {!isCaptionVisible ? "Show text" : "Hide text"}

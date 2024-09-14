@@ -13,7 +13,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 2px;
+  gap: 20px;
 }
 
 .audioPlayer button {
@@ -23,13 +23,13 @@
   cursor: pointer;
 }
 
-.audioPlayer button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
 .figcaption {
   font-size: 16px;
   color: var(--c-gray-stone);
   margin-top: 10px;
+}
+
+.playerIcons {
+  width: 24px;
+  aspect-ratio: 1;
 }
