@@ -22,7 +22,7 @@ import { Key } from "react";
 const labels = {
   titleEraclea: "Uno sguardo su Eraclea...",
   citEraclea:
-    "Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.",
+    "“Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.”",
   citArchimede:
     "“Superare le proprie limitazioni e divenire signori dell'universo.”",
   citArchiLabel: "Archimede",
@@ -32,6 +32,10 @@ export default function HomePage() {
     <>
       <main className="main">
         <h1>{labels.titleEraclea}</h1>
+        <div className={styles.txt_container}>
+          <p className={styles.cit}>{labels.citEraclea}</p>
+          {/* <p className={styles.cit_label}>{labels.citArchiLabel}</p> */}
+        </div>
         {eracleaData.map(
           (point: {
             id: Key | null | undefined;
@@ -64,11 +68,6 @@ export default function HomePage() {
             />
           );
         })} */}
-
-        <div className={styles.txt_container}>
-          <p className={styles.cit}>{labels.citEraclea}</p>
-          {/* <p className={styles.cit_label}>{labels.citArchiLabel}</p> */}
-        </div>
       </main>
     </>
   );

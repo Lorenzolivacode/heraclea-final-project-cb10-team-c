@@ -1,4 +1,5 @@
 .container_slider {
+  box-shadow: 0 10px 12px -5px var(--c-gray-stone);
   width: 100%;
 
   .container_images {
@@ -22,14 +23,14 @@
     .slider_line,
     .slider_btn {
       position: absolute;
-      background-color: var(--c-ivory);
+      background-color: var(--c-sienna);
       /* z-index: 10; */
     }
 
     .slider_line {
       top: 0;
       bottom: 0;
-      width: 4px;
+      width: 2px;
       transform: translateX(-50%);
       height: 100%;
       cursor: col-resize;
