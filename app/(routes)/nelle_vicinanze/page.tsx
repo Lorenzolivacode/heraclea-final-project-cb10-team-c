@@ -1,7 +1,7 @@
 import React from "react";
 
-function Esplora() {
+function Vicinanze() {
   return <div></div>;
 }
 
-export default Esplora;
+export default Vicinanze;

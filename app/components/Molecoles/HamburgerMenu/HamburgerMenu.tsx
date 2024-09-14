@@ -3,18 +3,22 @@ import { Dispatch, SetStateAction } from "react";
 import style from "@/app/components/Molecoles/HamburgerMenu/HamburgerMenu.module.scss";
 
 interface HamburgerProps {
-  active: boolean;
-  setActive: Dispatch<SetStateAction<boolean>>;
+  isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
   className?: string;
 }
 
-const Hamburger = (props: HamburgerProps) => {
-  const { active: open, setActive: setOpen, className } = props;
-
+const Hamburger = ({
+  isMenuOpen,
+  setIsMenuOpen,
+  className,
+}: HamburgerProps) => {
   return (
     <div
-      className={`${style.main} ${open ? style.active : ""} ${className || ""}`}
-      onClick={() => setOpen((prev) => !prev)}
+      className={`${style.main} ${isMenuOpen ? style.active : ""} ${
+        className || ""
+      }`}
+      onClick={() => setIsMenuOpen((prev) => !prev)}
     >
       <div className={style.breadUp} />
       <div className={style.hamb} />

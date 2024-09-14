@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import style from "@/app/(routes)/Acquista/acquista.module.scss";
+import style from "@/app/(routes)/acquista/acquista.module.scss";
 import Button from "@/app/components/Atom/BigButton/BigButton";
 
 function Acquista() {
@@ -12,7 +12,7 @@ function Acquista() {
         <div className={style.mainButtons}>
           <Button
             text="BIGLIETTO D'INGRESSO"
-            onClick={() => router.push("/Acquista/Calendar")}
+            onClick={() => router.push("/acquista/calendar")}
           />
           <Button
             text="AUDIOGUIDE"
@@ -20,7 +20,7 @@ function Acquista() {
           />
           <Button
             text="TEATRI DI PIETRA"
-            onClick={() => router.push("/Teatri_di_Pietra")}
+            onClick={() => router.push("/teatri_di_pietra")}
           />
         </div>
       </div>

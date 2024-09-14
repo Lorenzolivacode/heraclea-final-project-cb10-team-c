@@ -1,25 +1,28 @@
 import Link from "next/link";
 import style from "@/app/components/Molecoles/Menu/Menu.module.scss";
+import { Dispatch, SetStateAction } from "react";
 
 interface MenuProps {
-  isOpen: boolean;
+  isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
-const Menu = ({ isOpen }: MenuProps) => {
+
+const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
   const menuItems = [
     { label: "Account", link: "/account" },
-    { label: "Biglietti", link: "/biglietti" },
+    { label: "Biglietti", link: "/acquista" },
     { label: "Esplora", link: "/esplora" },
-    { label: "Nelle vicinanze", link: "/vicinanze" },
-    { label: "Dove siamo", link: "/dove_siamo" },
+    { label: "Nelle vicinanze", link: "/nelle_vicinanze" },
+    { label: "Dove siamo", link: "/contatti" },
     { label: "Norme", link: "/norme" },
     { label: "Credits", link: "/credits" },
   ];
 
   return (
-    <div className={`${style.menu} ${isOpen ? style.open : ""}`}>
+    <div className={`${style.menu} ${isMenuOpen ? style.open : ""}`}>
       {menuItems.map((item, index) => (
         <div key={index} className={style.menuItem}>
-          <Link href={item.link}>
+          <Link onClick={() => setIsMenuOpen((prev) => !prev)} href={item.link}>
             <span>{item.label}</span>
             <span>{">"}</span>
           </Link>

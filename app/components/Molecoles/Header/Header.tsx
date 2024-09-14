@@ -6,34 +6,28 @@ import Hamburger from "../HamburgerMenu/HamburgerMenu";
 import Link from "next/link";
 
 interface HeaderProps {
-	setShowHamburger: Dispatch<SetStateAction<boolean>>;
+  isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const Header = ({ setShowHamburger,}: HeaderProps) => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-	const toggleMenu = () => {
-		setIsMenuOpen(!isMenuOpen);
-		setShowHamburger(!isMenuOpen);
-	};
-
-	return (
-		<div className={style.nav}>
-			<div></div>
-			<div className={style.logoContainer}>
-				<Link href="/">
-					<img src="/icons/logoSienna.svg" alt="Logo" width={69} height={69} />
-				</Link>
-			</div>
-				<span className={style.span}>
-					<Hamburger
-						active={isMenuOpen}
-						setActive={toggleMenu}
-						className={""}
-					/>
-				</span>
-		</div>
-	);
+const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
+  return (
+    <div className={style.nav}>
+      <div></div>
+      <div className={style.logoContainer}>
+        <Link href="/">
+          <img src="/icons/logoSienna.svg" alt="Logo" width={69} height={69} />
+        </Link>
+      </div>
+      <span className={style.span}>
+        <Hamburger
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          className={""}
+        />
+      </span>
+    </div>
+  );
 };
 
 export default Header;
