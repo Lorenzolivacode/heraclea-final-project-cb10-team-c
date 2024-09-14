@@ -1,5 +1,4 @@
 import Card from '@/app/components/Molecoles/Card/Card';
-import styles from '@/app/Home.module.scss';
 import style from './Escursioni.module.scss';
 
 
@@ -26,7 +25,7 @@ const arrayTest = [
 
 export default function Excursion() {
   return (
-    <main className={styles.main}>
+    <main className="main">
       <h1 className={style.title}>Escursioni</h1>
       {arrayTest.map((point) => (
         <Card
