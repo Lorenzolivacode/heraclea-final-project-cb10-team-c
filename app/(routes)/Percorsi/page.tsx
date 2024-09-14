@@ -11,9 +11,9 @@ function Itineraries() {
     []
   );
   return (
-    <div>
-      <Map posix={[37.394118, 13.28136]} zoom={18} />
-    </div>
+    <main className="main">
+      <Map posix={[37.394118, 13.28136]} zoom={17} />
+    </main>
   );
 }
 

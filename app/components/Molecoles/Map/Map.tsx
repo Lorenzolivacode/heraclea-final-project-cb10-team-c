@@ -68,7 +68,11 @@ const markers: {
     popupContent: (
       <div>
         {/* prendere img da public folder */}
-        <img src="" alt="" />
+        {/* <img
+          src="./public/assets/bici.webp"
+          style={{ width: "100%", height: "100px" }}
+          alt="ciao"
+        /> */}
         <h2>Area Archeologica di Eraclea Minoa</h2>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil,
@@ -88,12 +92,19 @@ const Map = (Map: MapProps) => {
       center={posix}
       zoom={zoom}
       scrollWheelZoom={false}
-      style={{ height: "40vh", width: "414px" }}
+      className={styles.map}
+      style={{
+        aspectRatio: "3/2",
+        width: "100%",
+        borderRadius: "5px",
+        boxShadow: "0 10px 12px -5px var(--c-gray-stone)",
+      }}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution=""
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
       {markers.map((marker, index) => (
         <Marker
           key={index}
