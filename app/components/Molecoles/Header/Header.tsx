@@ -22,7 +22,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
 
   return (
     <div className={style.nav}>
-      <div className={style.arrow}>
+      <div>
         {!isHomePage && (
           <img
             src="/icons/header/arrow-left.svg"
