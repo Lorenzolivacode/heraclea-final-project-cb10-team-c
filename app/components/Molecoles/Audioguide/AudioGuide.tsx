@@ -47,7 +47,6 @@ const CustomTTSComponent = ({ children }: CustomProps) => {
   const { ttsChildren, state, play, stop, pause } = useTts({
     children,
     voice: italianVoice ?? undefined, // Only use the voice when it's available
-    // disabled: !voicesLoaded, // Disable TTS until voices are loaded
   });
 
   // Track play/pause state
@@ -64,11 +63,7 @@ const CustomTTSComponent = ({ children }: CustomProps) => {
   };
 
   const toggleVisibility = () => {
-    if (!isCaptionVisible) {
-      setIsCaptionVisible(true);
-    } else {
-      setIsCaptionVisible(false);
-    }
+    setIsCaptionVisible((prevState) => !prevState);
   };
 
   return (
