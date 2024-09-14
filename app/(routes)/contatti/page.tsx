@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./WhereWeAre.module.scss";
+import styles from "@/app/(routes)/contatti/contatti.module.scss";
 import ListEl from "@/app/components/Atom/ListEl/ListEl";
 import { title } from "process";
 import UlEl from "@/app/components/Molecoles/UlEl/UlEl";
@@ -49,7 +49,7 @@ const descriptionArray = [
     description: labelTxt.trainTxt,
   },
 ];
-function WhereWeAre() {
+function Contacts() {
   return (
     <main className="main">
       <h1>{labelTxt.titleWWA}</h1>
@@ -89,4 +89,4 @@ function WhereWeAre() {
   );
 }
 
-export default WhereWeAre;
+export default Contacts;
