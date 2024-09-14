@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import eracleaData from "@/app/data";
 import Carousel from "@/app/components/Molecoles/Carousel/Carousel";
+import SliderBA from "@/app/components/Molecoles/SliderBA/SliderBA";
 
 interface UserProps {
   params: { id: string };
@@ -55,7 +56,11 @@ function DetailPage({ params }: UserProps) {
   }
   return (
     <main className="main">
-      {!archeo && <Carousel images={obj.images} />}
+      {!archeo ? (
+        <Carousel images={obj.images} />
+      ) : (
+        <SliderBA imgA={obj.images[0]} imgB={obj.images[1]} />
+      )}
       <h1>{obj.title.italian}</h1>
       <p>{obj.description.italian}</p>
     </main>
