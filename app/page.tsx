@@ -21,9 +21,11 @@ import { Key } from "react";
 
 const labels = {
   titleEraclea: "Uno sguardo su Eraclea...",
+  citEraclea:
+    "Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.",
   citArchimede:
     "“Superare le proprie limitazioni e divenire signori dell'universo.”",
-  citLabel: "Archimede",
+  citArchiLabel: "Archimede",
 };
 export default function HomePage() {
   return (
@@ -64,8 +66,8 @@ export default function HomePage() {
         })} */}
 
         <div className={styles.txt_container}>
-          <p className={styles.cit}>{labels.citArchimede}</p>
-          <p className={styles.cit_label}>{labels.citLabel}</p>
+          <p className={styles.cit}>{labels.citEraclea}</p>
+          {/* <p className={styles.cit_label}>{labels.citArchiLabel}</p> */}
         </div>
       </main>
     </>

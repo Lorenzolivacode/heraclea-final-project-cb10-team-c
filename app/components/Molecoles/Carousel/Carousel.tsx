@@ -14,29 +14,31 @@ function Carousel({ images }: { images: string[] }) {
     }
   };
   return (
-    <div ref={carouselRef} className={styles.carousel}>
-      {images.map((image) => {
-        return (
-          <img
-            key={crypto.randomUUID()}
-            src={image}
-            alt="Image"
-            className={styles.image}
-          />
-        );
-      })}
-      <div className={styles.btn_container}>
-        {images.map((image, index) => {
+    <div className={styles.carousel_container}>
+      <div ref={carouselRef} className={styles.carousel}>
+        {images.map((image) => {
           return (
-            <button
+            <img
               key={crypto.randomUUID()}
-              className={styles.btn}
-              onClick={() => handleCarouselBtn(index)}
-            >
-              {/* {index + 1} */}
-            </button>
+              src={image}
+              alt="Image"
+              className={styles.image}
+            />
           );
         })}
+        <div className={styles.btn_container}>
+          {images.map((image, index) => {
+            return (
+              <button
+                key={crypto.randomUUID()}
+                className={styles.btn}
+                onClick={() => handleCarouselBtn(index)}
+              >
+                {/* {index + 1} */}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
