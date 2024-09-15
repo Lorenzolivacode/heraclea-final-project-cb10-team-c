@@ -33,7 +33,7 @@ const listFooter = [
   },
   {
     id: crypto.randomUUID(),
-    url: "/explora",
+    url: "/esplora",
     label: "Esplora",
     icon: "/icons/footer-icons/Trekking.svg",
   },
