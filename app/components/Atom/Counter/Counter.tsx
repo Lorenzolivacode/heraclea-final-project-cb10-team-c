@@ -9,7 +9,7 @@ const Counter: React.FC = () => {
 
   return (
     <>
-      <form className="max-w-xs mx-auto">
+      <form className="max-w-xs mx-auto ">
         <div className="relative flex items-center">
           <button
             type="button"
@@ -18,7 +18,7 @@ const Counter: React.FC = () => {
             className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
           >
             <svg
-              className="w-2.5 h-2.5 text-gray-900 dark:text-white"
+              className="w-2.5 h-2.5 text-sienna dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -36,7 +36,7 @@ const Counter: React.FC = () => {
           <input
             type="text"
             id="counter-input"
-            className="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
+            className="flex-shrink-0 text-sienna dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
             value={count}
             readOnly
           />
@@ -47,7 +47,7 @@ const Counter: React.FC = () => {
             className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
           >
             <svg
-              className="w-2.5 h-2.5 text-gray-900 dark:text-white"
+              className="w-2.5 h-2.5 text-sienna dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

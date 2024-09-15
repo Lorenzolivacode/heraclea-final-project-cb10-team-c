@@ -143,19 +143,6 @@ const Calendar: React.FC = () => {
                 <div className="w-60 h-16 bg-white border border-sienna rounded-md">
                   <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
                     <span className="text-sienna text-sm">Intero</span>
-                    <div className="flex items-center">
-                      <input
-                        id="default-radio-1"
-                        type="radio"
-                        value=""
-                        name="default-radio"
-                        className="w-4 h-4 bg-gray-100 border-gray-300"
-                      />
-                      <label
-                        htmlFor="default-radio-1"
-                        className="ms-2 text-sm font-medium text-grayStone dark:text-gray-300"
-                      ></label>
-                    </div>
                   </div>
                   <div className="text-sienna ps-2 font-bold">€ 4,00</div>
                 </div>
@@ -168,26 +155,13 @@ const Calendar: React.FC = () => {
               <div className="flex flex-row">
                 <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
                   <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
-                    <span className="text-sienna text-xs">
+                    <span className="text-sienna text-sm">
                       Ridotto (minori di 16 anni)
                     </span>
-                    <div className="flex items-center">
-                      <input
-                        id="default-radio-1"
-                        type="radio"
-                        value=""
-                        name="default-radio"
-                        className="w-4 h-4 bg-gray-100 border-gray-300"
-                      />
-                      <label
-                        htmlFor="default-radio-1"
-                        className="ms-2 text-sm font-medium text-grayStone dark:text-gray-300"
-                      ></label>
-                    </div>
                   </div>
                   <div className="text-sienna ps-2 font-bold">€ 2,00</div>
                 </div>
-                <div className="flex justify-center items-center ms-2">
+                <div className="flex justify-center items-center ms-2 mt-3">
                   <Counter />
                 </div>
               </div>
