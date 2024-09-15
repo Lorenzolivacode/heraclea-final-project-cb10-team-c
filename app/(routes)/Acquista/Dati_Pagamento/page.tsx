@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import style from "@/app/(routes)/acquista/dati_pagamento/pagamento.module.scss";
 import HeroImage from "@/public/assets/maschera.webp";
 import ApplePay from "@/app/components/Atom/ApplepayBtn/ApplePayBtn";
@@ -8,6 +10,7 @@ import Button from "@/app/components/Atom/Button/Button";
 import SelectCarta from "@/app/components/Molecoles/SelectCarta/SelectCarta";
 
 function DataPayment() {
+  const router = useRouter();
   return (
     <>
       <div className={style.main}>
@@ -55,7 +58,10 @@ function DataPayment() {
                 </div>
               </div>
             </div>
-            <Button text="Avanti" />
+            <Button
+              text="Avanti"
+              onClick={() => router.push("/acquista/acquisto_effettuato")}
+            />
           </form>
         </div>
       </div>
