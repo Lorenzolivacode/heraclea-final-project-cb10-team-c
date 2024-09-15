@@ -5,9 +5,21 @@ import Visa from "@/public/icons/pagamenti/visa.svg";
 import Mastercard from "@/public/icons/pagamenti/mastercard.svg";
 import { useState, useEffect, useRef } from "react";
 
-function SelectCarta() {
+// Aggiungo le props per il componente
+interface SelectCartaProps {
+  cardNumber: string;
+  setCardNumber: (value: string) => void;
+  selectedCard: string | null;
+  setSelectedCard: (value: string | null) => void;
+}
+
+function SelectCarta({
+  cardNumber,
+  setCardNumber,
+  selectedCard,
+  setSelectedCard,
+}: SelectCartaProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState<string | null>(null); // Stato per la carta selezionata
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
@@ -16,7 +28,7 @@ function SelectCarta() {
 
   const handleCardSelect = (cardType: string) => {
     setSelectedCard(cardType);
-    setIsOpen(false); // Chiude il dropdown dopo la selezione
+    setIsOpen(false);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -77,7 +89,7 @@ function SelectCarta() {
           className={`z-10 absolute left-0 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 ${
             isOpen ? "block" : "hidden"
           }`}
-          style={{ top: "100%" }} // Posiziona il dropdown direttamente sotto il pulsante
+          style={{ top: "100%" }}
         >
           <ul
             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -115,10 +127,13 @@ function SelectCarta() {
             </li>
           </ul>
         </div>
+
         <input
           className={style.input_field}
           type="number"
           placeholder="0000 0000 0000 0000"
+          value={cardNumber}
+          onChange={(e) => setCardNumber(e.target.value)}
         />
       </div>
     </div>

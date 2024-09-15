@@ -1,0 +1,19 @@
+.main{
+    position: fixed;
+    top:100px;
+    background-color: var(--c-white);
+    height: 100%;
+  
+    h1{
+        margin: 10px 0;
+    }
+    p{
+        padding: 30px 80px;
+        text-align: center;
+    }
+    p:last-child{
+        color: var(--c-sienna);
+        font-weight: 600;
+        text-decoration: underline;
+    }
+ }
