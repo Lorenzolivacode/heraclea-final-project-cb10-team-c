@@ -42,7 +42,7 @@
   cursor: pointer;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-.paymentother button:active{
+.paymentother button:active, .paymentother button:focus{
     box-shadow: rgb(168, 172, 176) 1px 1px 4px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 .paymentother button svg {
@@ -160,4 +160,8 @@
 }
 .checkout:active {
   transform: scale(0.95);
+}
+.errorMessage{
+
+color: red;
 }
