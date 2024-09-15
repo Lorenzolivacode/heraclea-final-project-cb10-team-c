@@ -14,7 +14,8 @@ const AudioGuide = dynamic(
 
 function AudioGuidePage() {
   return (
-    <div className={styles.main}>
+    <main className={styles.main}>
+      <h1>Audioguide</h1>
       {audiotext.map((audio) => (
         <div className={styles.playerBox} key={audio.id}>
           <h2>{audio.label}</h2>
@@ -23,7 +24,7 @@ function AudioGuidePage() {
           </AudioGuide>
         </div>
       ))}
-    </div>
+    </main>
   );
 }
 

@@ -1,0 +1,35 @@
+.main {
+  position: fixed;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--c-white);
+  overflow: scroll;
+  padding-bottom: 80px;
+  max-height: calc(100vh - 150px);
+
+  h1 {
+    text-align: center;
+    padding-block: 10px;
+  }
+
+  img {
+    padding-block: 20px;
+  }
+
+  .textBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    gap: 20px;
+    text-wrap: pretty;
+
+    h3 {
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: var(--c-brown-dark);
+    }
+  }
+}
