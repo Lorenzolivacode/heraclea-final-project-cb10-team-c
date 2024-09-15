@@ -1,7 +1,11 @@
 import React from "react";
 
 function DataPayment() {
-  return <div></div>;
+  return (
+    <>
+      <div></div>
+    </>
+  );
 }
 
 export default DataPayment;
