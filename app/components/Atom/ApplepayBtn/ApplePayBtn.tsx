@@ -1,6 +1,6 @@
 import React from "react";
 
-function PayPalBtn() {
+function ApplePay() {
   return (
     <>
       <button name="apple-pay" type="button">
@@ -24,4 +24,4 @@ function PayPalBtn() {
   );
 }
 
-export default PayPalBtn;
+export default ApplePay;

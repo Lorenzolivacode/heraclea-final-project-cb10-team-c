@@ -36,7 +36,7 @@ function SelectCarta() {
   }, []);
 
   return (
-    <form className="max-w-sm mx-auto">
+    <div className="max-w-sm mx-auto">
       <div className="flex relative" ref={dropdownRef}>
         <button
           id="states-button"
@@ -121,7 +121,7 @@ function SelectCarta() {
           placeholder="0000 0000 0000 0000"
         />
       </div>
-    </form>
+    </div>
   );
 }
 

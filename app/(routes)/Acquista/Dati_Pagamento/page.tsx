@@ -1,10 +1,11 @@
 import Image from "next/image";
 import style from "@/app/(routes)/acquista/dati_pagamento/pagamento.module.scss";
 import HeroImage from "@/public/assets/maschera.webp";
-import PayPalBtn from "@/app/components/Atom/PayPalBtn/PayPalBtn";
+import ApplePay from "@/app/components/Atom/ApplepayBtn/ApplePayBtn";
 import GooglePayBtn from "@/app/components/Atom/GooglePayBtn/GooglePayBtn";
+import Paypal from "@/public/icons/pagamenti/paypal.svg";
 import Button from "@/app/components/Atom/Button/Button";
-import SelectCarta from "@/app/components/Atom/SelectCarta/SelectCarta";
+import SelectCarta from "@/app/components/Molecoles/SelectCarta/SelectCarta";
 
 function DataPayment() {
   return (
@@ -18,7 +19,10 @@ function DataPayment() {
         <div className={style.modal}>
           <form className={style.form}>
             <div className={style.paymentother}>
-              <PayPalBtn />
+              <ApplePay />
+              <button name="paypal" type="button">
+                <Image src={Paypal} alt="paypal" width={30} />
+              </button>
               <GooglePayBtn />
             </div>
             <div className={style.separator}>

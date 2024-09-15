@@ -23,13 +23,15 @@
 }
 .paymentother {
   display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 20px;
-  padding: 6px;
+  grid-template-columns: 33% 33% 33%;
+  gap: 12px;
+  padding: 8px;
   justify-content: center;
+  justify-items: center;
 }
 .paymentother button {
   height: 30px;
+  width: 100px;
   background: var(--c-white);
   border-radius: 11px;
   padding: 0;
