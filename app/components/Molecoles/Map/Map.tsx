@@ -1,6 +1,12 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  ZoomControl,
+} from "react-leaflet";
 import L, { LatLngExpression, LatLngTuple } from "leaflet";
 
 import "leaflet/dist/leaflet.css";
@@ -34,9 +40,7 @@ const markers: {
     position: [37.394436, 13.280645],
     popupText: "Teatro Greco di Eraclea Minoa",
     popupContent: (
-      <div>
-        {/* prendere img da public folder */}
-        <img src="" alt="" />
+      <div className={styles.popupContent}>
         <h2>Teatro Greco di Eraclea Minoa</h2>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam,
@@ -50,9 +54,7 @@ const markers: {
     position: [37.39401975385151, 13.282202399432673],
     popupText: "Antiquarium di Eraclea Minoa",
     popupContent: (
-      <div>
-        {/* prendere img da public folder */}
-        <img src="" alt="" />
+      <div className={styles.popupContent}>
         <h2>Antiquarium di Eraclea Minoa</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
@@ -66,13 +68,7 @@ const markers: {
     position: [37.393666, 13.280401],
     popupText: "Area Archeologica di Eraclea Minoa",
     popupContent: (
-      <div>
-        {/* prendere img da public folder */}
-        {/* <img
-          src="./public/assets/bici.webp"
-          style={{ width: "100%", height: "100px" }}
-          alt="ciao"
-        /> */}
+      <div className={styles.popupContent}>
         <h2>Area Archeologica di Eraclea Minoa</h2>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil,
@@ -88,36 +84,42 @@ const Map = (Map: MapProps) => {
   const { zoom = defaults.zoom, posix } = Map;
 
   return (
-    <MapContainer
-      center={posix}
-      zoom={zoom}
-      scrollWheelZoom={false}
-      className={styles.map}
-      style={{
-        aspectRatio: "3/2",
-        width: "100%",
-        borderRadius: "5px",
-        boxShadow: "0 10px 12px -5px var(--c-gray-stone)",
-      }}
-    >
-      <TileLayer
-        attribution=""
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <>
+      <h1>Percorsi</h1>
+      <MapContainer
+        center={posix}
+        zoom={zoom}
+        zoomControl={false}
+        scrollWheelZoom={"center"}
+        doubleClickZoom={true}
+        className={styles.map}
+        style={{
+          aspectRatio: "3/2",
+          width: "100%",
+          height: "40vh",
+          borderRadius: "5px",
+          boxShadow: "0 10px 12px -5px var(--c-gray-stone)",
+        }}
+      >
+        <TileLayer
+          attribution=""
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      {markers.map((marker, index) => (
-        <Marker
-          key={index}
-          position={marker.position}
-          draggable={false}
-          icon={markerIcon}
-        >
-          <Popup maxWidth={300} keepInView={true}>
-            {marker.popupContent}
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+        {markers.map((marker, index) => (
+          <Marker
+            key={index}
+            position={marker.position}
+            draggable={false}
+            icon={markerIcon}
+          >
+            <Popup maxWidth={300} keepInView={true} className={styles.popup}>
+              {marker.popupContent}
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </>
   );
 };
 
