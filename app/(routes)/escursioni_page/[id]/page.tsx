@@ -36,7 +36,7 @@ export default async function EscursioneDetail({ params }: { params: { id: strin
             +39 333 9987565
           </a>
         </p>
-        <Button>Chiama</Button>
+        <Button text="Chiama"></Button>
       </div>
     </main>
   );
