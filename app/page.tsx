@@ -1,8 +1,11 @@
+"use client";
+
 import SignIn from "./(routes)/sign_in/page";
 import Card from "./components/Molecoles/Card/Card";
 import styles from "./Home.module.scss";
 import eracleaData from "./data";
-import { Key } from "react";
+import { Key, useState } from "react";
+import Toast from "./components/Atom/Toast/Toast";
 
 const labels = {
   titleEraclea: "Uno sguardo su Eraclea...",
@@ -13,9 +16,17 @@ const labels = {
   citArchiLabel: "Archimede",
 };
 export default function HomePage() {
+  const [toastOpen, setToastOpen] = useState(true);
   return (
     <>
       <main className="main">
+        {toastOpen && (
+          <Toast
+            type="success"
+            onClose={() => setToastOpen(false)}
+            message="Toast prova Toast prova Toast prova Toast prova"
+          />
+        )}
         <h1>{labels.titleEraclea}</h1>
         <div className={styles.txt_container}>
           <p className={styles.cit}>{labels.citEraclea}</p>
