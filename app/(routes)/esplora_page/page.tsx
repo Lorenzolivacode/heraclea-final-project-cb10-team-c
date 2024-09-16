@@ -13,11 +13,11 @@ function Esplora() {
       <div className={styles.buttonContainer}>
         <BigButton
           text="ESCURSIONI"
-          onClick={() => router.push("/Escursioni")}
+          onClick={() => router.push("/escursioni_page")}
         ></BigButton>
         <BigButton
           text="PERCORSI"
-          onClick={() => router.push("/Percorsi")}
+          onClick={() => router.push("/category_home/2")}
         ></BigButton>
       </div>
     </main>

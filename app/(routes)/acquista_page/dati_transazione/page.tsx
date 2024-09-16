@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import style from "@/app/(routes)/acquista/dati_pagamento/pagamento.module.scss";
+import style from "@/app/(routes)/acquista_page/dati_pagamento/pagamento.module.scss";
 import HeroImage from "@/public/assets/maschera.webp";
 import ApplePay from "@/app/components/Atom/ApplepayBtn/ApplePayBtn";
 import GooglePayBtn from "@/app/components/Atom/GooglePayBtn/GooglePayBtn";

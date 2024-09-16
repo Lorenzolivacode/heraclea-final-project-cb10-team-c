@@ -9,7 +9,7 @@ import UlEl from "../UlEl/UlEl";
 const listFooter = [
   {
     id: crypto.randomUUID(),
-    url: "/Account",
+    url: "/account_user",
     label: "Account",
     icon: "/icons/footer-icons/account.svg",
   },
@@ -21,19 +21,19 @@ const listFooter = [
   },
   {
     id: crypto.randomUUID(),
-    url: "/tickets",
+    url: "/acquista_page",
     label: "Biglietti",
     icon: "/icons/footer-icons/Two-Tickets.svg",
   },
   {
     id: crypto.randomUUID(),
-    url: "/events",
+    url: "/teatri_pietra",
     label: "Eventi",
     icon: "/icons/footer-icons/calendar.svg",
   },
   {
     id: crypto.randomUUID(),
-    url: "/esplora",
+    url: "/esplora_page",
     label: "Esplora",
     icon: "/icons/footer-icons/Trekking.svg",
   },

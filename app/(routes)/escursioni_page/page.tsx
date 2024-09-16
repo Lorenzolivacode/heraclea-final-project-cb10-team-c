@@ -7,19 +7,19 @@ const arrayTest = [
     name: "In Bici tra Storia e Natura",
     image: "/assets/bici.webp",
     id: "1",
-    roadmap: "/escursioni/1",
+    roadmap: "/escursioni_page/1",
   },
   {
     name: "Passeggiata a Cavallo",
     image: "/assets/cavallo.webp",
     id: "2",
-    roadmap: "/escursioni/2",
+    roadmap: "/escursioni_page/2",
   },
   {
     name: "Trekking alla Foce",
     image: "/assets/trekking.webp",
     id: "3",
-    roadmap: "/escursioni/3",
+    roadmap: "/escursioni_page/3",
   },
 ];
 

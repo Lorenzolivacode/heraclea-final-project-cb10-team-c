@@ -7,11 +7,11 @@ import Button from "@/app/components/Atom/Button/Button";
 function InitialPagemodal() {
 	const [selectedPage, setSelectedPage] = useState<string>("pagina_0");
 	const [currentPage, setCurrentPage] = useState<number>(0);
-	const [isModalVisible, setIsModalVisible] = useState(true); 
+	const [isModalVisible, setIsModalVisible] = useState(true);
 
 	const pages = [
 		{
-			video: "/heraclea.mp4",
+			video: "/heraclea-logo-unscreen.gif",
 			title: "HERACLEA",
 		},
 		{
@@ -40,7 +40,7 @@ function InitialPagemodal() {
 			title: "Eventi",
 			description: "Vivi un'esperienza unica",
 			video: "/calendar.mp4",
-			label3: "INIZIA", 
+			label3: "INIZIA",
 		},
 	];
 
@@ -58,7 +58,7 @@ function InitialPagemodal() {
 			const timer = setTimeout(() => {
 				setCurrentPage(1);
 				setSelectedPage("pagina_1");
-			}, 5000);
+			}, 3000);
 
 			return () => clearTimeout(timer);
 		}
@@ -71,7 +71,7 @@ function InitialPagemodal() {
 
 	const handleButtonClick = () => {
 		if (currentPage === 5) {
-			closeModal(); 
+			closeModal();
 		}
 	};
 
@@ -93,13 +93,20 @@ function InitialPagemodal() {
 						<h1 className={currentPage === 0 ? style.titleBottom : style.title}>
 							{pages[currentPage].title}
 						</h1>
-						<video
-							src={pages[currentPage].video}
-							autoPlay
-							loop
-							muted
-							className={style.video}
-						></video>
+						{currentPage === 0 ? (
+							<img
+								src={pages[0].video}
+								alt="Heraclea Logo"
+								className={style.gif}
+							/>
+						) : (
+							<video
+								src={pages[currentPage].video}
+								autoPlay
+								muted
+								className={style.video}
+							></video>
+						)}
 
 						<p>{pages[currentPage].description}</p>
 					</div>
@@ -110,14 +117,14 @@ function InitialPagemodal() {
 							<div className={style.btnContainer}>
 								{currentPage === 1 && (
 									<>
-										<Button text="ITALIANO"/>
-										<Button text="ENGLISH"/>
+										<Button text="ITALIANO" />
+										<Button text="ENGLISH" />
 									</>
 								)}
 								{currentPage === 5 && (
 									<>
 										{/* Bottone che chiude la modale */}
-										<Button text="INIZIA" onClick={handleButtonClick}/>
+										<Button text="INIZIA" onClick={handleButtonClick} />
 									</>
 								)}
 							</div>
