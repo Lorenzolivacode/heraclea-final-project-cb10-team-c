@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import styles from '@/app/Home.module.scss';
 import style from './Id.module.scss';
 import Button from '@/app/components/Atom/Button/Button';
 
@@ -23,7 +24,7 @@ export default async function EscursioneDetail({ params }: { params: { id: strin
   }
 
   return (
-    <main className="main">
+    <main className={styles.main}>
       <h1>{escursione.title}</h1>
       <div className={style.imageContainer}>
         <img src={escursione.image} className={style.img} alt={`Escursione ${id}`} />
@@ -35,7 +36,7 @@ export default async function EscursioneDetail({ params }: { params: { id: strin
             +39 333 9987565
           </a>
         </p>
-        <Button>Chiama</Button>
+        <Button text="Chiama"></Button>
       </div>
     </main>
   );
