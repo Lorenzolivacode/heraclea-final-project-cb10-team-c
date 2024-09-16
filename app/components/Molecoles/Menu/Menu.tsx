@@ -5,8 +5,8 @@ import { Dispatch, SetStateAction } from "react";
 interface MenuProps {
   isMenuOpen: boolean;
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
-  isAuthenticated: boolean;
-  handleLogout: () => void;
+  isAuthenticated?: boolean;
+  handleLogout?: () => void;
 }
 
 const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {

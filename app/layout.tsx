@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        <Suspense fallback={<Loading />}>{children}</Suspense>
+        {children}
         <Footer />
       </body>
     </html>

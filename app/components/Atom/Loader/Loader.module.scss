@@ -1,12 +1,11 @@
 .loaderContainer {
-  position: fixed;
-  top: 100px;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 20% auto;
+  margin: auto;
 
   img {
     width: 50%;
