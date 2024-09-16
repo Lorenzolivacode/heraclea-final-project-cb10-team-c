@@ -1,11 +1,13 @@
 .main{
-    position: fixed;
-    top:100px;
+  padding-top: 100px;
     background-color: var(--c-white);
-  
+     
     h1{
         margin: 10px 0;
     }
+ }
+ .margin{
+  margin: 15px;
  }
 .modal {
   background: #FFFFFF;
@@ -13,7 +15,7 @@
   border-radius: 16px;
   border: 1px solid var(--c-sienna);
   max-width: 450px;
-  margin: 15px;
+  margin: 0 auto;
 }
 .form {
   display: flex;

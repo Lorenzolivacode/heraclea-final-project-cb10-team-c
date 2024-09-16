@@ -47,77 +47,86 @@ function DataPayment() {
   return (
     <>
       <div className={style.main}>
-        <Image src={HeroImage} alt="maschera" className={style.img} />
+        <Image
+          src={HeroImage}
+          alt="maschera"
+          priority={true}
+          className={style.img}
+        />
         <h1>Inserisci dati</h1>
 
         {/* FORM*/}
 
-        <div className={style.modal}>
-          <form className={style.form} onSubmit={handleSubmit}>
-            <div className={style.paymentother}>
-              <ApplePay />
-              <button name="paypal" type="button">
-                <Image src={Paypal} alt="paypal" width={30} />
-              </button>
-              <GooglePayBtn />
-            </div>
-            <div className={style.separator}>
-              <hr className={style.line} />
-              <p>OR</p>
-              <hr className={style.line} />
-            </div>
-            <div className={style.cardInfo}>
-              <div className={style.input_container}>
-                <label className={style.input_label}>Nome sulla carta</label>
-                <input
-                  className={style.input_field}
-                  type="text"
-                  placeholder="Inserisci il tuo nome completo"
-                  value={cardName}
-                  onChange={(e) => setCardName(e.target.value)}
-                  required
-                />
+        <div className={style.margin}>
+          <div className={style.modal}>
+            <form className={style.form} onSubmit={handleSubmit}>
+              <div className={style.paymentother}>
+                <ApplePay />
+                <button name="paypal" type="button">
+                  <Image src={Paypal} alt="paypal" width={30} />
+                </button>
+                <GooglePayBtn />
               </div>
-              <div className={style.input_container}>
-                <label className={style.input_label}>Numero della carta</label>
-                <div>
-                  <SelectCarta
-                    cardNumber={cardNumber}
-                    setCardNumber={setCardNumber}
-                    selectedCard={selectedCard}
-                    setSelectedCard={setSelectedCard}
-                  />
-                </div>
+              <div className={style.separator}>
+                <hr className={style.line} />
+                <p>OR</p>
+                <hr className={style.line} />
               </div>
-              <div className={style.input_container}>
-                <label className={style.input_label}>
-                  Data scadenza carta / CVV
-                </label>
-                <div className={style.split}>
+              <div className={style.cardInfo}>
+                <div className={style.input_container}>
+                  <label className={style.input_label}>Nome sulla carta</label>
                   <input
                     className={style.input_field}
-                    placeholder="01/23"
-                    value={expiryDate}
-                    onChange={(e) => setExpiryDate(e.target.value)}
-                    required
-                  />
-                  <input
-                    className={style.input_field}
-                    placeholder="CVV"
-                    value={cvv}
-                    onChange={(e) => setCvv(e.target.value)}
+                    type="text"
+                    placeholder="Inserisci il tuo nome completo"
+                    value={cardName}
+                    onChange={(e) => setCardName(e.target.value)}
                     required
                   />
                 </div>
+                <div className={style.input_container}>
+                  <label className={style.input_label}>
+                    Numero della carta
+                  </label>
+                  <div>
+                    <SelectCarta
+                      cardNumber={cardNumber}
+                      setCardNumber={setCardNumber}
+                      selectedCard={selectedCard}
+                      setSelectedCard={setSelectedCard}
+                    />
+                  </div>
+                </div>
+                <div className={style.input_container}>
+                  <label className={style.input_label}>
+                    Data scadenza carta / CVV
+                  </label>
+                  <div className={style.split}>
+                    <input
+                      className={style.input_field}
+                      placeholder="01/23"
+                      value={expiryDate}
+                      onChange={(e) => setExpiryDate(e.target.value)}
+                      required
+                    />
+                    <input
+                      className={style.input_field}
+                      placeholder="CVV"
+                      value={cvv}
+                      onChange={(e) => setCvv(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            {!isFormValid && (
-              <p className={style.errorMessage}>
-                Per favore, compila tutti i campi.
-              </p>
-            )}
-            <Button text="Avanti" type="submit" />
-          </form>
+              {!isFormValid && (
+                <p className={style.errorMessage}>
+                  Per favore, compila tutti i campi.
+                </p>
+              )}
+              <Button text="Avanti" type="submit" />
+            </form>
+          </div>
         </div>
       </div>
     </>

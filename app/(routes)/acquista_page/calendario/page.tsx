@@ -124,7 +124,7 @@ const Calendar: React.FC = () => {
                 </p>
                 <button
                   onClick={closeModal}
-                  className="modal-close px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300"
+                  className="modal-close px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300 text-sienna"
                 >
                   ✕
                 </button>
