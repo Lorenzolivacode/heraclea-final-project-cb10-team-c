@@ -2,12 +2,12 @@ import React from "react";
 import audiotext from "./audioguideData";
 import dynamic from "next/dynamic";
 import styles from "./audioguide.module.scss";
+import Loader from "@/app/components/Atom/Loader/Loader";
 
-// Dynamically import AudioGuide component and make ssr:false manually
 const AudioGuide = dynamic(
   () => import("@/app/components/Molecoles/Audioguide/AudioGuide"),
   {
-    loading: () => <p>A guide is loading...</p>,
+    loading: () => <Loader />,
     ssr: false,
   }
 );

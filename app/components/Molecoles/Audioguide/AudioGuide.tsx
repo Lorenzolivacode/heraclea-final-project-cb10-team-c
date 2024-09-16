@@ -54,6 +54,15 @@ const CustomTTSComponent = ({ children }: CustomProps) => {
     setIsPlaying(state.isPlaying);
   }, [state.isPlaying]);
 
+  //bug navigation other pages
+  useEffect(() => {
+    return () => {
+      if (state.isPlaying) {
+        stop();
+      }
+    };
+  }, [state.isPlaying, stop]);
+
   const handlePlayPauseToggle = () => {
     if (state.isPlaying) {
       pause();

@@ -3,6 +3,7 @@ import eracleaData from "@/app/data";
 import Card from "@/app/components/Molecoles/Card/Card";
 import { ISubObj } from "@/app/Interface/Interface_eracleaData";
 import dynamic from "next/dynamic";
+import Loader from "@/app/components/Atom/Loader/Loader";
 
 const labels = {
   titleEracleaDetail: "Scopri storia e natura",
@@ -38,7 +39,7 @@ function CategoryPage({ params }: CategoryProps) {
   const Map = useMemo(
     () =>
       dynamic(() => import("@/app/components/Molecoles/Map/Map"), {
-        loading: () => <p>A map is loading</p>,
+        loading: () => <Loader />,
         ssr: false,
       }),
     []
