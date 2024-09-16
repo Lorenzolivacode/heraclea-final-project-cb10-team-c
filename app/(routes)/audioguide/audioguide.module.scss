@@ -1,9 +1,16 @@
 .main {
-  position: fixed;
-  top: 120px;
+  position: relative;
+  top: 100px;
   width: 100%;
-  display: grid;
-  row-gap: 0.8rem;
+  height: 100dvh;
+  background-color: var(--c-white);
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    text-align: center;
+    padding-block: 10px;
+  }
 }
 
 .playerBox {

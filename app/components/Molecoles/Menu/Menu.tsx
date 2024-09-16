@@ -9,13 +9,13 @@ interface MenuProps {
 
 const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
   const menuItems = [
-    { label: "Account", link: "/account" },
-    { label: "Biglietti", link: "/acquista" },
-    { label: "Esplora", link: "/esplora" },
+    { label: "Account", link: "/account_user" },
+    { label: "Biglietti", link: "/acquista_page" },
+    { label: "Esplora", link: "/esplora_page" },
     { label: "Nelle vicinanze", link: "/nelle_vicinanze" },
     { label: "Dove siamo", link: "/contatti" },
     { label: "Norme", link: "/norme" },
-    { label: "Credits", link: "/credits" },
+    { label: "Credits", link: "/chi_siamo" },
   ];
 
   return (

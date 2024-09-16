@@ -4,25 +4,10 @@ import styles from "./Home.module.scss";
 import eracleaData from "./data";
 import { Key } from "react";
 
-/* const renderCard = [
-  {
-    name: "Eraclea Minoa",
-    image: "https://www.itbeach.it/wp-content/uploads/2020/02/0070074-1.jpg",
-    id: "1",
-    roadmap: "#",
-  },
-  {
-    name: "L'area archeologica",
-    image: "https://www.selinunte.net/Eraclea_teatro.jpg",
-    id: "2",
-    roadmap: "#",
-  },
-]; */
-
 const labels = {
   titleEraclea: "Uno sguardo su Eraclea...",
   citEraclea:
-    "Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.",
+    "“Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.”",
   citArchimede:
     "“Superare le proprie limitazioni e divenire signori dell'universo.”",
   citArchiLabel: "Archimede",
@@ -32,6 +17,10 @@ export default function HomePage() {
     <>
       <main className="main">
         <h1>{labels.titleEraclea}</h1>
+        <div className={styles.txt_container}>
+          <p className={styles.cit}>{labels.citEraclea}</p>
+          {/* <p className={styles.cit_label}>{labels.citArchiLabel}</p> */}
+        </div>
         {eracleaData.map(
           (point: {
             id: Key | null | undefined;
@@ -47,28 +36,13 @@ export default function HomePage() {
             return (
               <Card
                 key={point.id}
-                roadmap={point.roadmap}
+                roadmap={`${point.roadmap}${point.id}`}
                 label={point.title.italian}
                 image={point.image}
               />
             );
           }
         )}
-        {/* {renderCard.map((point) => {
-          return (
-            <Card
-              key={point.id}
-              roadmap={point.roadmap}
-              label={point.name}
-              image={point.image}
-            />
-          );
-        })} */}
-
-        <div className={styles.txt_container}>
-          <p className={styles.cit}>{labels.citEraclea}</p>
-          {/* <p className={styles.cit_label}>{labels.citArchiLabel}</p> */}
-        </div>
       </main>
     </>
   );

@@ -7,8 +7,14 @@ export const eracleaData = [
       french: "Eraclea Minoa",
       spanish: "Eraclea Minoa",
     },
+    titleDetails: {
+      italian: "Scopri storia e natura",
+      english: "Experience history and nature",
+      french: "Découvrez l'histoire et la nature",
+      spanish: "Descubre la historia y la naturaleza.",
+    },
     image: "/assets/card_minoa.webp",
-    roadmap: "/eraclea_page",
+    roadmap: "/category_home/",
     subcategory: [
       {
         id: "1-1",
@@ -60,8 +66,14 @@ export const eracleaData = [
       french: "La zone archéologique",
       spanish: "La zona arqueológica",
     },
+    titleDetails: {
+      italian: "Scopri la cultrura antica",
+      english: "Discover the ancient culture",
+      french: "Découvrir la culture antique",
+      spanish: "Descubre la cultura antigua",
+    },
     image: "/assets/teatro_greco.webp",
-    roadmap: "/Percorsi",
+    roadmap: "/category_home/",
     subcategory: [
       {
         id: "2-1",
@@ -71,7 +83,10 @@ export const eracleaData = [
           french: "La zone archéologique",
           spanish: "La zona arqueológica",
         },
-        images: ["path", "path"],
+        images: [
+          "/assets/quartiere_ellenistico.webp",
+          "/assets/quartiere_ellenistico.webp",
+        ],
         description: {
           italian:
             "L’Area archeologica di Eraclea Minoa sorge su un bianco promontorio proteso verso uno splendido paesaggio marino, all’interno della Riserva Naturale della Foce del Fiume Platani. Le prime tracce di frequentazione dell’altopiano di Capobianco risalgono alla preistoria, cui si riferiscono anche i miti che rimandano alla presenza di popolazioni provenienti dall’Egeo dopo il crollo dei regni micenei. Un mito infatti collega il nome di Minoa con il re cretese Minosse e la spedizione in Sicilia che lo condusse alla morte presso il re sicano Kokalos. La colonia greca fu fondata intorno alla metà del VI secolo a. C. da Selinunte, Contesa a lungo e con alterne vicende fra Selinunte e Akragas, ben presto la città seguì lo stesso destino delle due contendenti cadendo in mano cartaginese. Per tutto il IV secolo a. C. la sua storia fu segnata dagli scontri fra Greci e Cartaginesi, finché nel III secolo a.C. non fu conquistata da Roma diventando civitas decumana. Verso la fine del I sec. a. C. la città fu abbandonata e solo in epoca paleocristiana e bizantina (III-VII sec. d. C.) l’area extra urbana tornò ad essere frequentata con la costruzione di una grande basilica con annesso un cimitero. Le prime campagne di scavo ebbero inizio nel 1950 quando Ernesto De Miro riportò alla luce l’imponente teatro, risalente al IV sec. a.C. La colonia era protetta da una cinta muraria lunga circa 6 km che ancora oggi abbraccia l’intero altopiano fino al fiume Platani. Nel corso delle indagini archeologiche sono state individuate consistenti tracce dell’abitato organizzato secondo un disegno urbanistico regolare, a terrazze, con un sistema di strade ortogonali che delimitavano gli isolati. Gli edifici scavati rimandano a due fasi sovrapposte di frequentazione: la più antica di epoca ellenistica (IV-III sec. a. C.) e la più recente di epoca romana- repubblicana (II-I sec. a. C.). A nord est della città, aldilà della cinta muraria, sorgevano le necropoli. Scavi sistematici effettuati fra gli anni 60 e 80 del secolo scorso, hanno messo in luce sepolture databili all’epoca arcaica e a quella ellenistica, testimoniando la presenza contemporanea del rito dell’inumazione e della cremazione. Nei pressi del sito archeologico è possibile visitare il piccolo Antiquarium in cui si conservano alcuni materiali provenienti dagli scavi.",
@@ -91,7 +106,7 @@ export const eracleaData = [
           french: "Théâtre d'Héraclée",
           spanish: "Teatro de Heraclea",
         },
-        images: ["/assets/teatro_dopo.webp", "/assets/teatro-before.webp"],
+        images: ["/assets/teatro-after2.jpg", "/assets/teatro-before2.jpg"],
         description: {
           italian:
             "L’antico teatro greco di Eraclea, costruito alla fine del V a.C., fu riportato alla luce nel 1957. Esso si presenta con una cavea a 10 gradoni, divisa in 9 settori, che guarda verso il mare. Costruito ad incastro con conci di marna, il sito è dotato anche di antiquarium, dove sono conservati reperti archeologici rinvenuti durante le varie campagne di scavo. Gli scavi archeologici sulle rovine vennero intrapresi in modo sistematico dal 1950. La città viene considerata idonea per comprendere l’urbanistica delle città ellenistiche e romane: il teatro; il quartiere delle abitazioni ellenistiche e romane con impianto urbanistico ad “insulae”, separate da strade parallele. Si possono vedere anche i resti della cinta muraria della città costruita tra la fine del VI e la fine del IV secolo a.C., lungo circa 6 chilometri; a nord-est delle mura si riconoscono ancora otto torri quadrate. Il teatro greco fu individuato nel Settecento, ma portato alla luce soltanto nel 1953.",
@@ -111,7 +126,7 @@ export const eracleaData = [
           french: "Antiquarium",
           spanish: "Antiquarium",
         },
-        images: ["path", "path"],
+        images: ["/assets/antiquarium.webp", "/assets/vasetti.webp"],
         description: {
           italian:
             "L'Antiquarium di Eraclea Minoa è un museo situato all'ingresso dell'area archeologica della città. Al suo interno sono esposti reperti provenienti dalle abitazioni e dalle necropoli arcaiche ed ellenistiche. Tra i reperti figurano ceramiche, monete e altri oggetti che testimoniano la vita quotidiana e le influenze culturali della città nel corso dei secoli. L'Antiquarium offre un prezioso contesto storico per comprendere meglio l'evoluzione della città di Eraclea Minoa, dalla sua fondazione fino al suo declino.",

@@ -40,6 +40,7 @@ h1 {
   font-weight: 500;
   text-align: center;
 }
+
 h2 {
   font-size: 1rem;
 }
@@ -55,10 +56,17 @@ h2 {
   background-color: var(--c-white);
 }
 
+
+/* map styles overwritten */
 .leaflet-control-attribution {
   display: none;
 }
 
-.leaflet-popup-content-wrapper {
-  background: red;
+.leaflet-popup-content-wrapper .leaflet-popup-tip {
+  background: var(--c-white) !important;
+}
+
+.leaflet-popup-close-button {
+  font-size: 20px !important;
+  right: 2px !important;
 }
