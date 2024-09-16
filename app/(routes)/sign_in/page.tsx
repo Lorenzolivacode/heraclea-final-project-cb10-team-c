@@ -102,7 +102,7 @@ const SignIn: React.FC = () => {
           </div>
           <p className={style.text}>
             Sei già registrato? fai{" "}
-            <Link href="/login" className={style.a}>
+            <Link href="/log_in" className={style.a}>
               Log In
             </Link>
           </p>
