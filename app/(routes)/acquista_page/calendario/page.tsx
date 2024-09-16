@@ -170,7 +170,7 @@ const Calendar: React.FC = () => {
               <div className="flex justify-center items-center mt-5">
                 <Button
                   text="Acquista"
-                  onClick={() => router.push("/acquista/dati_pagamento")}
+                  onClick={() => router.push("/acquista_page/dati_transazione")}
                 />
               </div>
             </div>
