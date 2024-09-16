@@ -15,10 +15,10 @@ const Counter: React.FC = () => {
             type="button"
             id="decrement-button"
             onClick={decrement}
-            className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+            className="flex-shrink-0 bg-white border border-sienna p-1 rounded-md"
           >
             <svg
-              className="w-2.5 h-2.5 text-sienna dark:text-white"
+              className="w-2.5 h-2.5 text-sienna"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -26,9 +26,9 @@ const Counter: React.FC = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 1h16"
               />
             </svg>
@@ -36,7 +36,7 @@ const Counter: React.FC = () => {
           <input
             type="text"
             id="counter-input"
-            className="flex-shrink-0 text-sienna dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
+            className="flex-shrink-0 text-sienna  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
             value={count}
             readOnly
           />
@@ -44,10 +44,10 @@ const Counter: React.FC = () => {
             type="button"
             id="increment-button"
             onClick={increment}
-            className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+            className="flex-shrink-0 bg-white border border-sienna p-1 rounded-md"
           >
             <svg
-              className="w-2.5 h-2.5 text-sienna dark:text-white"
+              className="w-2.5 h-2.5 text-sienna"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -55,9 +55,9 @@ const Counter: React.FC = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M9 1v16M1 9h16"
               />
             </svg>
