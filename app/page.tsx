@@ -15,7 +15,14 @@ const labels = {
     "“Superare le proprie limitazioni e divenire signori dell'universo.”",
   citArchiLabel: "Archimede",
 };
+
+//error simulation
+// const session = null;
+
 export default function HomePage() {
+  //error simulation
+  // if (!session) throw new Error("Example Error with Session!");
+
   const [toastOpen, setToastOpen] = useState(true);
   return (
     <>
