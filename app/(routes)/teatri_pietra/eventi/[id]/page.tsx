@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation"; // Usa 'next/navigation' invece di 'next/router'
+import { useRouter } from "next/navigation";
 import { notFound } from "next/navigation";
 import eventiData from "@/app/event_data";
 import style from "./EventiDetail.module.scss";
