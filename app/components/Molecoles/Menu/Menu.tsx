@@ -1,15 +1,16 @@
 import Link from "next/link";
-import style from "@/app/components/Molecoles/Menu/Menu.module.scss";
 import { Dispatch, SetStateAction } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "@/app/firebase/config"; // Assicurati di importare l'istanza di auth
+import style from "@/app/components/Molecoles/Menu/Menu.module.scss";
 
 interface MenuProps {
   isMenuOpen: boolean;
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
   isAuthenticated?: boolean;
-  handleLogout?: () => void;
 }
 
-const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
+const Menu = ({ isMenuOpen, setIsMenuOpen, isAuthenticated }: MenuProps) => {
   const menuItems = [
     { label: "Account", link: "/account_user" },
     { label: "Biglietti", link: "/acquista_page" },
@@ -18,33 +19,46 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
     { label: "Dove siamo", link: "/contatti" },
     { label: "Norme", link: "/norme" },
     { label: "Credits", link: "/chi_siamo" },
-    { label: "Log out", link: "" },
+    { label: "Log out", action: () => handleSignOut() }, // Aggiunto il pulsante di logout
   ];
+
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      alert("Logout effettuato con successo!");
+      // Opzionale: Reindirizza l'utente dopo il logout
+      window.location.href = "/log_in"; // Cambia il percorso di reindirizzamento se necessario
+    } catch (error) {
+      console.error("Errore durante il logout:", error);
+      alert("Si è verificato un errore durante il logout. Riprova.");
+    }
+  };
 
   return (
     <div className={`${style.menu} ${isMenuOpen ? style.open : ""}`}>
       {menuItems.map((item, index) => (
         <div key={index} className={style.menuItem}>
-          <Link onClick={() => setIsMenuOpen((prev) => !prev)} href={item.link}>
-            <span>{item.label}</span>
-            <span>{">"}</span>
-          </Link>
+          {item.link ? (
+            <Link
+              href={item.link}
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+            >
+              <span>{item.label}</span>
+              <span>{">"}</span>
+            </Link>
+          ) : (
+            <button
+              className={style.menuButton} // Assicurati di aggiungere uno stile per i pulsanti
+              onClick={() => {
+                item.action && item.action();
+                setIsMenuOpen(false); // Chiude il menu
+              }}
+            >
+              {item.label}
+            </button>
+          )}
         </div>
       ))}
-
-      {/* Mostra il pulsante di Log out solo se l'utente è autenticato
-      {isAuthenticated && (
-        <div className={style.menuItem}>
-          <button
-            onClick={() => {
-              handleLogout();
-              setIsMenuOpen(false); // Chiude il menu
-            }}
-          >
-            Log out
-          </button>
-        </div>
-      )} */}
     </div>
   );
 };

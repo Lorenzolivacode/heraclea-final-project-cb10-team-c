@@ -3,8 +3,11 @@
 import Card from "./components/Molecoles/Card/Card";
 import styles from "./Home.module.scss";
 import eracleaData from "./data";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
 import { Key, useState } from "react";
 import Toast from "./components/Atom/Toast/Toast";
+import { useRouter } from "next/navigation";
 
 const labels = {
   titleEraclea: "Uno sguardo su Eraclea...",
@@ -21,6 +24,15 @@ const labels = {
 export default function HomePage() {
   //error simulation
   // if (!session) throw new Error("Example Error with Session!");
+
+  const [user] = useAuthState(auth);
+  const router = useRouter();
+
+  console.log({ user });
+
+  if (!user) {
+    router.push("/sign_up");
+  }
 
   const [toastOpen, setToastOpen] = useState(true);
   return (
