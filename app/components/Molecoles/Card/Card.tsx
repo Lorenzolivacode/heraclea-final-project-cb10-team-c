@@ -8,7 +8,7 @@ interface CardProps {
   image: string;
   roadmap: string;
 }
-function Card({ label, children, image, roadmap }: CardProps) {
+function Card({ label, children, image, roadmap}: CardProps) {
   return (
     <Link className={styles.card_section} href={roadmap}>
       {/* <section className={styles.card_section}>

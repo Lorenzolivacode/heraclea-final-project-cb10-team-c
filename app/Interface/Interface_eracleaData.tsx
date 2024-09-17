@@ -1,3 +1,4 @@
+
 export interface ITxtTraslate {
   italian: string;
   english: string;
@@ -18,4 +19,15 @@ export interface IEracleaDataObj {
   images: string;
   roadmap: string;
   subcategory: ISubObj;
+}
+
+export interface IEventObj {
+  id: string;
+  name: ITxtTraslate;
+  image: string;
+  description: ITxtTraslate;
+}
+
+export interface IEventData {
+  events: IEventObj[];
 }
