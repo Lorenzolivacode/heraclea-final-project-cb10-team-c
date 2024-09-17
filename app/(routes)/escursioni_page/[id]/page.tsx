@@ -49,7 +49,7 @@ export default async function EscursioneDetail({
             +39 333 9987565
           </a>
         </p>
-        <Button>Chiama</Button>
+        <Button text="Chiama" />
       </div>
     </main>
   );
