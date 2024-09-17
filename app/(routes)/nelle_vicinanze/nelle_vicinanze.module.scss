@@ -21,6 +21,11 @@
 	gap: 10px;
 }
 
+.category p {
+	color: var(--c-sienna);
+	font-weight: 500;
+}
+
 .carousel {
 	display: flex;
 	overflow-x: auto;

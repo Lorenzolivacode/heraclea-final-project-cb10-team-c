@@ -3,10 +3,15 @@ import styles from "./Home.module.scss";
 
 export default function NotFound() {
   return (
-    <div className={styles.error}>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
+    <div className={styles.notFound}>
+      <h2>Page Not Found</h2>
+      <p>Could not find requested page</p>
+      <p>
+        Return{" "}
+        <Link className={styles.linkHome} href="/">
+          Home
+        </Link>
+      </p>
     </div>
   );
 }
