@@ -1,13 +1,9 @@
-import React, { Key, useMemo } from "react";
+import React, { useMemo } from "react";
 import eracleaData from "@/app/data";
 import Card from "@/app/components/Molecoles/Card/Card";
 import { ISubObj } from "@/app/Interface/Interface_eracleaData";
 import dynamic from "next/dynamic";
 import Loader from "@/app/components/Atom/Loader/Loader";
-
-const labels = {
-  titleEracleaDetail: "Scopri storia e natura",
-};
 
 interface CategoryProps {
   params: { id: string };
@@ -21,7 +17,7 @@ function CategoryPage({ params }: CategoryProps) {
     //se trovo una corrispondenza con entrambe le condizioni, vuol dire che l'id di riferimento fa parte della categoria archeo
   );
 
-  let catId = Number(id);
+  const catId = Number(id);
   let categoryIndex;
   if (!isNaN(catId)) {
     categoryIndex = catId - 1;

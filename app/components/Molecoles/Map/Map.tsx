@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  ZoomControl,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L, { LatLngExpression, LatLngTuple } from "leaflet";
 
 import "leaflet/dist/leaflet.css";

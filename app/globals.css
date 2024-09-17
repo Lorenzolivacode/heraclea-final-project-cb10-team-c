@@ -4,6 +4,9 @@
 @tailwind utilities;
 
 :root {
+  --c-error: #6e160a;
+  --c-info: #9e9024;
+
   --c-sienna: #8a2d0e;
   --c-olive: #899e63;
   --c-ivory: #f5efe6;
@@ -56,7 +59,6 @@ h2 {
   background-color: var(--c-white);
 }
 
-
 /* map styles overwritten */
 .leaflet-control-attribution {
   display: none;
@@ -70,7 +72,6 @@ h2 {
   font-size: 20px !important;
   right: 2px !important;
 }
-
 .leaflet-pane {
   z-index: 0 !important;
 }

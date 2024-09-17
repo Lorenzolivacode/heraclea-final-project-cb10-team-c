@@ -5,6 +5,8 @@ import { Dispatch, SetStateAction } from "react";
 interface MenuProps {
   isMenuOpen: boolean;
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+  isAuthenticated?: boolean;
+  handleLogout?: () => void;
 }
 
 const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
@@ -16,6 +18,7 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
     { label: "Dove siamo", link: "/contatti" },
     { label: "Norme", link: "/norme" },
     { label: "Credits", link: "/chi_siamo" },
+    { label: "Log out", link: "" },
   ];
 
   return (
@@ -28,6 +31,20 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
           </Link>
         </div>
       ))}
+
+      {/* Mostra il pulsante di Log out solo se l'utente è autenticato
+      {isAuthenticated && (
+        <div className={style.menuItem}>
+          <button
+            onClick={() => {
+              handleLogout();
+              setIsMenuOpen(false); // Chiude il menu
+            }}
+          >
+            Log out
+          </button>
+        </div>
+      )} */}
     </div>
   );
 };

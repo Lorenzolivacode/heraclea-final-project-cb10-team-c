@@ -26,3 +26,26 @@
   text-align: end;
   color: var(--c-sienna);
 }
+
+//Error page style
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-top: 200px;
+
+  h2,
+  p {
+    color: var(--c-sienna);
+    font-weight: 800;
+    font-size: 20px;
+  }
+
+  button {
+    background-color: var(--c-sienna);
+    padding: 8px 16px;
+    color: var(--c-white);
+  }
+}

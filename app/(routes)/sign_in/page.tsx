@@ -101,7 +101,7 @@ const SignIn: React.FC = () => {
             <Button text="Registrati" onClick={() => router.push("/log_in")} />
           </div>
           <p className={style.text}>
-            Sei già registrato? fai{" "}
+            Sei già registrato? Fai{" "}
             <Link href="/log_in" className={style.a}>
               Log In
             </Link>
