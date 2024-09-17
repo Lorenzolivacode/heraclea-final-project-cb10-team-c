@@ -1,6 +1,5 @@
 "use client";
 import { useRouter } from "next/navigation";
-/* import style from "@/app/(routes)/acquista_page/acquista.module.scss"; */
 import Button from "@/app/components/Atom/BigButton/BigButton";
 import style from "./acquista.module.scss";
 

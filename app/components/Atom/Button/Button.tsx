@@ -4,6 +4,7 @@ import style from "@/app/components/Atom/Button/button.module.scss";
 interface ButtonProps {
   children?: ReactNode;
   text: string;
+  type?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
