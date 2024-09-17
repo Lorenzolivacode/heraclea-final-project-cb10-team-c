@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
-import style from "@/app/(routes)/nelle_vicinanze/nelle_vicinanze.module.scss";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import style from "/app/(routes)/nelle_vicinanze/nelle_vicinanze.module.scss";
 import Card from "@/app/components/Molecoles/Card/Card";
 
 function Vicinanze() {
@@ -27,7 +27,7 @@ function Vicinanze() {
       src: "/assets/bellevue.webp",
       alt: "lido_bellevue",
       title: "Lido Bellevue",
-      roadmap: "https://www.facebook.com/lidobellevueracleaminoa/?locale=it_IT"
+      roadmap: "https://www.facebook.com/lidobellevueracleaminoa/?locale=it_IT",
     },
   ];
 
@@ -52,66 +52,69 @@ function Vicinanze() {
     },
   ];
 
-  const handleScroll = (section: 'ristoranti' | 'visitare') => {
-    const ref = section === 'ristoranti' ? ristorantiRef.current : visitareRef.current;
-    if (ref) {
-      const scrollPosition = ref.scrollLeft;
-      const slideWidth = ref.clientWidth;
-      const slideIndex = Math.round(scrollPosition / slideWidth);
-      
-      if (section === 'ristoranti') {
-        setCurrentSlideRistoranti(slideIndex);
-      } else {
-        setCurrentSlideVisitare(slideIndex);
+  const handleScroll = useCallback(
+    (section: "ristoranti" | "visitare") => {
+      const ref = section === "ristoranti" ? ristorantiRef.current : visitareRef.current;
+      if (ref) {
+        const scrollPosition = ref.scrollLeft;
+        const slideWidth = ref.clientWidth;
+        const slideIndex = Math.round(scrollPosition / slideWidth);
+
+        if (section === "ristoranti") {
+          setCurrentSlideRistoranti(slideIndex);
+        } else {
+          setCurrentSlideVisitare(slideIndex);
+        }
       }
-    }
-  };
+    },
+    []
+  );
 
   useEffect(() => {
     const ristorantiElement = ristorantiRef.current;
     const visitareElement = visitareRef.current;
 
+    const handleRistorantiScroll = () => handleScroll("ristoranti");
+    const handleVisitareScroll = () => handleScroll("visitare");
+
     if (ristorantiElement) {
-      ristorantiElement.addEventListener('scroll', () => handleScroll('ristoranti'));
+      ristorantiElement.addEventListener("scroll", handleRistorantiScroll);
     }
 
     if (visitareElement) {
-      visitareElement.addEventListener('scroll', () => handleScroll('visitare'));
+      visitareElement.addEventListener("scroll", handleVisitareScroll);
     }
 
     return () => {
       if (ristorantiElement) {
-        ristorantiElement.removeEventListener('scroll', () => handleScroll('ristoranti'));
+        ristorantiElement.removeEventListener("scroll", handleRistorantiScroll);
       }
 
       if (visitareElement) {
-        visitareElement.removeEventListener('scroll', () => handleScroll('visitare'));
+        visitareElement.removeEventListener("scroll", handleVisitareScroll);
       }
     };
-  }, []);
+  }, [handleScroll]);
 
-  const goToSlide = (section: 'ristoranti' | 'visitare', index: number) => {
-    if (section === 'ristoranti') {
-      setCurrentSlideRistoranti(index);
-      if (ristorantiRef.current) {
-        ristorantiRef.current.scrollTo({
-          left: ristorantiRef.current.clientWidth * index,
-          behavior: 'smooth',
-        });
-      }
-    } else {
-      setCurrentSlideVisitare(index);
-      if (visitareRef.current) {
-        visitareRef.current.scrollTo({
-          left: visitareRef.current.clientWidth * index,
-          behavior: 'smooth',
-        });
+  const goToSlide = (section: "ristoranti" | "visitare", index: number) => {
+    const ref = section === "ristoranti" ? ristorantiRef.current : visitareRef.current;
+
+    if (ref) {
+      ref.scrollTo({
+        left: ref.clientWidth * index,
+        behavior: "smooth",
+      });
+
+      if (section === "ristoranti") {
+        setCurrentSlideRistoranti(index);
+      } else {
+        setCurrentSlideVisitare(index);
       }
     }
   };
 
   return (
-    <main className={style.main}>
+    <main className="main">
       <h1>Nelle vicinanze</h1>
 
       <section className={style.container}>
@@ -121,6 +124,7 @@ function Vicinanze() {
             alt="forchetta_cucchiaio"
             width={35}
             height={35}
+            loading="lazy"
           />
           <p>Ristoranti</p>
         </div>
@@ -129,7 +133,7 @@ function Vicinanze() {
           {ristorantiSection.map(({ src, alt, title, roadmap }, index) => (
             <div
               key={alt}
-              className={`${style.card} ${index === currentSlideRistoranti ? style.active : ''}`}
+              className={`${style.card} ${index === currentSlideRistoranti ? style.active : ""}`}
             >
               <Card label={title} image={src} roadmap={roadmap} />
             </div>
@@ -139,8 +143,8 @@ function Vicinanze() {
           {ristorantiSection.map((_, index) => (
             <span
               key={index}
-              className={`${style.dot} ${index === currentSlideRistoranti ? style.activeDot : ''}`}
-              onClick={() => goToSlide('ristoranti', index)}
+              className={`${style.dot} ${index === currentSlideRistoranti ? style.activeDot : ""}`}
+              onClick={() => goToSlide("ristoranti", index)}
             />
           ))}
         </div>
@@ -153,6 +157,7 @@ function Vicinanze() {
             alt="camera"
             width={35}
             height={35}
+            loading="lazy"
           />
           <p>Da visitare</p>
         </div>
@@ -161,7 +166,7 @@ function Vicinanze() {
           {visitareSection.map(({ src, alt, title, roadmap }, index) => (
             <div
               key={alt}
-              className={`${style.card} ${index === currentSlideVisitare ? style.active : ''}`}
+              className={`${style.card} ${index === currentSlideVisitare ? style.active : ""}`}
             >
               <Card label={title} image={src} roadmap={roadmap} />
             </div>
@@ -171,8 +176,8 @@ function Vicinanze() {
           {visitareSection.map((_, index) => (
             <span
               key={index}
-              className={`${style.dot} ${index === currentSlideVisitare ? style.activeDot : ''}`}
-              onClick={() => goToSlide('visitare', index)}
+              className={`${style.dot} ${index === currentSlideVisitare ? style.activeDot : ""}`}
+              onClick={() => goToSlide("visitare", index)}
             />
           ))}
         </div>
