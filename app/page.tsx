@@ -5,7 +5,7 @@ import styles from "./Home.module.scss";
 import eracleaData from "./data";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
-import { Key, useState } from "react";
+import { Key, useState, useEffect } from "react";
 import Toast from "./components/Atom/Toast/Toast";
 import { useRouter } from "next/navigation";
 
@@ -25,16 +25,21 @@ export default function HomePage() {
   //error simulation
   // if (!session) throw new Error("Example Error with Session!");
 
-  const [user] = useAuthState(auth);
+  const [toastOpen, setToastOpen] = useState(true);
+  const [user, loading] = useAuthState(auth);
   const router = useRouter();
 
   console.log({ user });
 
-  if (!user) {
-    router.push("/sign_up");
-  }
+  useEffect(() => {
+    if (!loading && !user) {
+      // Se l'utente non è loggato e non c'è stato un errore di caricamento
+      router.push("/sign_up");
+    } else if (user) {
+      // L'utente è loggato, rimani sulla pagina
+    }
+  }, [user, loading, router]);
 
-  const [toastOpen, setToastOpen] = useState(true);
   return (
     <>
       <main className="main">
