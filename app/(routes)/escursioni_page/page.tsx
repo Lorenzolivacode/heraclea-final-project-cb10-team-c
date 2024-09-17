@@ -1,6 +1,5 @@
-import Card from "@/app/components/Molecoles/Card/Card";
-import styles from "@/app/Home.module.scss";
-import style from "./Escursioni.module.scss";
+import Card from '@/app/components/Molecoles/Card/Card';
+import style from './Escursioni.module.scss';
 
 const arrayTest = [
   {
