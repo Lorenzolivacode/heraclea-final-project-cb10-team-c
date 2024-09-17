@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/app/(routes)/contatti/contatti.module.scss";
-import ListEl from "@/app/components/Atom/ListEl/ListEl";
-import { title } from "process";
+/* import ListEl from "@/app/components/Atom/ListEl/ListEl";
+import { title } from "process"; */
 import UlEl from "@/app/components/Molecoles/UlEl/UlEl";
 const labelTxt = {
   titleWWA: "Dove siamo",

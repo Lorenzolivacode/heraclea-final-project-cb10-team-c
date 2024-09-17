@@ -1,6 +1,4 @@
-import React, { Key } from "react";
 import eracleaData from "@/app/data";
-import styles from "./eraclea_page.module.scss";
 import Card from "@/app/components/Molecoles/Card/Card";
 import { ISubObj } from "@/app/Interface/Interface_eracleaData";
 

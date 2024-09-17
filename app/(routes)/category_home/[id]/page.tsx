@@ -5,10 +5,6 @@ import { ISubObj } from "@/app/Interface/Interface_eracleaData";
 import dynamic from "next/dynamic";
 import Loader from "@/app/components/Atom/Loader/Loader";
 
-const labels = {
-  titleEracleaDetail: "Scopri storia e natura",
-};
-
 interface CategoryProps {
   params: { id: string };
 }

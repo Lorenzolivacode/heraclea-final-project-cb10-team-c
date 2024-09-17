@@ -1,5 +1,5 @@
 /* "use client"; */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import eracleaData from "@/app/data";
 import Carousel from "@/app/components/Molecoles/Carousel/Carousel";
 import SliderBA from "@/app/components/Molecoles/SliderBA/SliderBA";

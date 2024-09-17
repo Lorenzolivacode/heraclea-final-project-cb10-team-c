@@ -1,7 +1,7 @@
 import Image from "next/image";
 import style from "@/app/(routes)/acquista_page/acquisto_terminato/acquistoEffettuato.module.scss";
 import HeroImage from "@/public/assets/vasetti.webp";
-import QrCodeGenerator from "@/app/components/Molecoles/QR code/QrCodeGenerator";
+/* import QrCodeGenerator from "@/app/components/Molecoles/QR code/QrCodeGenerator"; */
 function Purchase() {
   return (
     <>
