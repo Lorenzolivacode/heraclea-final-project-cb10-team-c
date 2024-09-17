@@ -126,7 +126,7 @@ export const eracleaData = [
           french: "Antiquarium",
           spanish: "Antiquarium",
         },
-        images: ["/assets/antiquarium.webp", "/assets/vasetti.webp"],
+        images: ["/assets/antiquarium.webp", "/assets/antiquarium-b.jpg"],
         description: {
           italian:
             "L'Antiquarium di Eraclea Minoa è un museo situato all'ingresso dell'area archeologica della città. Al suo interno sono esposti reperti provenienti dalle abitazioni e dalle necropoli arcaiche ed ellenistiche. Tra i reperti figurano ceramiche, monete e altri oggetti che testimoniano la vita quotidiana e le influenze culturali della città nel corso dei secoli. L'Antiquarium offre un prezioso contesto storico per comprendere meglio l'evoluzione della città di Eraclea Minoa, dalla sua fondazione fino al suo declino.",

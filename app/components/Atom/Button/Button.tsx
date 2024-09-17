@@ -8,12 +8,7 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  text = "",
-  onClick,
-  type,
-}) => {
+const Button: React.FC<ButtonProps> = ({ children, text = "", onClick }) => {
   return (
     <button className={style.button} onClick={onClick}>
       {text}

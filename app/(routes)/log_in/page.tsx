@@ -1,22 +1,61 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
 import style from "@/app/(routes)/log_in/LogIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
+import { useRouter } from "next/navigation";
 
 const SignIn: React.FC = () => {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [showSignUpRedirect, setShowSignUpRedirect] = useState<boolean>(false);
+
+  const [signInWithEmailAndPassword, userCredential, loading, authError] =
+    useSignInWithEmailAndPassword(auth);
+
   const router = useRouter();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
+    setError("");
+    setShowSignUpRedirect(false);
 
-    alert("Accesso effettuato!");
+    try {
+      // Tentativo di accesso con email e password
+      const res = await signInWithEmailAndPassword(email, password);
+      setEmail("");
+      setPassword("");
+      if (res && res.user) {
+        // Accesso riuscito
+        alert("Accesso effettuato!");
+        router.push("/"); // Reindirizza alla home o alla pagina desiderata
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("Errore durante l'accesso:", error.message);
 
+        // Gestione degli errori specifici
+        if (error.message.includes("auth/user-not-found")) {
+          setError(
+            "Email non trovata. Verifica di avere un account o registrati."
+          );
+          setShowSignUpRedirect(true);
+        } else if (error.message.includes("auth/wrong-password")) {
+          setError("Password errata. Riprova.");
+        } else if (error.message.includes("auth/invalid-email")) {
+          setError("L'email fornita non è valida.");
+        } else {
+          setError("Errore durante l'accesso. Riprova.");
+        }
+      } else {
+        setError("Errore sconosciuto durante l'accesso.");
+      }
+    }
+
+    // Reset dei campi
     setEmail("");
     setPassword("");
   };
@@ -29,7 +68,7 @@ const SignIn: React.FC = () => {
           <input
             placeholder="Email"
             id="email"
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={style.input}
@@ -47,8 +86,19 @@ const SignIn: React.FC = () => {
             required
           />
         </div>
+        {error && (
+          <div className={style.errorContainer}>
+            <p className={style.error}>{error}</p>
+            {showSignUpRedirect && (
+              <Button
+                text="Registrati"
+                onClick={() => router.push("/sign_up")}
+              />
+            )}
+          </div>
+        )}
         <div className={style.button}>
-          <Button text="Accedi" onClick={() => router.push("/")} />
+          <Button text="Accedi" type="submit" />
         </div>
       </form>
     </div>

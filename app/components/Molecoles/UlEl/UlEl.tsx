@@ -7,10 +7,12 @@ function UlEl({ array }: { array: IElement[] }) {
     <ul className={styles.ul_el}>
       {array.map((contact, index) => {
         return (
-          <>
+          <React.Fragment key={contact.id || index}>
             <ListEl key={contact.id || index} el={contact} />
-            {index + 1 !== array.length && <div className={styles.lineEl} />}
-          </>
+            {index + 1 !== array.length && (
+              <div key={crypto.randomUUID()} className={styles.lineEl} />
+            )}
+          </React.Fragment>
         );
       })}
     </ul>

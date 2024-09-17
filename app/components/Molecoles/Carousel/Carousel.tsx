@@ -7,7 +7,7 @@ function Carousel({ images }: { images: string[] }) {
 
   const handleCarouselBtn = (index: number) => {
     if (carouselRef.current) {
-      let containerWidth = carouselRef.current.offsetWidth;
+      const containerWidth = carouselRef.current.offsetWidth;
       carouselRef.current?.scrollTo({
         left: containerWidth * index,
       });

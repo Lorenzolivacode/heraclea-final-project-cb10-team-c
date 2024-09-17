@@ -1,12 +1,8 @@
-import React, { Key, useMemo } from "react";
 import eracleaData from "@/app/data";
 import Card from "@/app/components/Molecoles/Card/Card";
 import { ISubObj } from "@/app/Interface/Interface_eracleaData";
 import dynamic from "next/dynamic";
-
-const labels = {
-  titleEracleaDetail: "Scopri storia e natura",
-};
+import Loader from "@/app/components/Atom/Loader/Loader";
 
 interface CategoryProps {
   params: { id: string };
@@ -20,7 +16,7 @@ function CategoryPage({ params }: CategoryProps) {
     //se trovo una corrispondenza con entrambe le condizioni, vuol dire che l'id di riferimento fa parte della categoria archeo
   );
 
-  let catId = Number(id);
+  const catId = Number(id);
   let categoryIndex;
   if (!isNaN(catId)) {
     categoryIndex = catId - 1;
@@ -35,14 +31,10 @@ function CategoryPage({ params }: CategoryProps) {
     );
   }
 
-  const Map = useMemo(
-    () =>
-      dynamic(() => import("@/app/components/Molecoles/Map/Map"), {
-        loading: () => <p>A map is loading</p>,
-        ssr: false,
-      }),
-    []
-  );
+  const Map = dynamic(() => import("@/app/components/Molecoles/Map/Map"), {
+    loading: () => <Loader />,
+    ssr: false,
+  });
 
   return (
     <main className="main">

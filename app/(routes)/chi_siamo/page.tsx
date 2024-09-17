@@ -5,17 +5,12 @@ const credits = [
   {
     id: 1,
     title: "Contributori Locali",
-    text: `Ringraziamo [Nome Storico/Archeologo] per la preziosa consulenza
-          storica, [Nome Fotografo] per le splendide fotografie del sito di
-          Eraclea Minoa, e [Nome Guida Locale] per il loro supporto nella
-          raccolta di informazioni culturali e storiche.`,
+    text: `Ringraziamo [Nome Storico/Archeologo] per la preziosa consulenza storica, [Nome Fotografo] per le splendide fotografie del sito di Eraclea Minoa, e [Nome Guida Locale] per il loro supporto nella raccolta di informazioni culturali e storiche.`,
   },
   {
     id: 2,
     title: "Comune e Ufficio Turistico",
-    text: `Un ringraziamento speciale al Comune di [Regione] e all'Ufficio Turistico di [Regione]
-    per la collaborazione nella fornitura di materiali storici e immagini.
-    Grazie anche al Museo Archeologico di Eraclea Minoa per il contributo di manufatti e dati storici.`,
+    text: `Un ringraziamento speciale al Comune di [Regione] e all'Ufficio Turistico di [Regione] per la collaborazione nella fornitura di materiali storici e immagini. Grazie anche al Museo Archeologico di Eraclea Minoa per il contributo di manufatti e dati storici.`,
   },
   {
     id: 3,
@@ -36,11 +31,7 @@ function Credits() {
       <img src="/assets/maschera.webp" alt="mask image" />
       <div className={styles.textBox}>
         <p>
-          Quest'app è stata creata per valorizzare il patrimonio storico di
-          Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e
-          informativa. Grazie alla collaborazione di esperti locali e
-          istituzioni, siamo riusciti a integrare contenuti culturali e
-          strumenti tecnologici per esplorare al meglio il sito.
+          {`Quest'app è stata creata per valorizzare il patrimonio storico di Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e informativa. Grazie alla collaborazione di esperti locali e istituzioni, siamo riusciti a integrare contenuti culturali e strumenti tecnologici per esplorare al meglio il sito.`}
         </p>
         {credits.map((credit) => (
           <div key={credit.id}>
