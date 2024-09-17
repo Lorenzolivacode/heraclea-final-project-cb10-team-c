@@ -1,4 +1,3 @@
-import React, { useMemo } from "react";
 import eracleaData from "@/app/data";
 import Card from "@/app/components/Molecoles/Card/Card";
 import { ISubObj } from "@/app/Interface/Interface_eracleaData";
@@ -32,14 +31,10 @@ function CategoryPage({ params }: CategoryProps) {
     );
   }
 
-  const Map = useMemo(
-    () =>
-      dynamic(() => import("@/app/components/Molecoles/Map/Map"), {
-        loading: () => <Loader />,
-        ssr: false,
-      }),
-    []
-  );
+  const Map = dynamic(() => import("@/app/components/Molecoles/Map/Map"), {
+    loading: () => <Loader />,
+    ssr: false,
+  });
 
   return (
     <main className="main">
