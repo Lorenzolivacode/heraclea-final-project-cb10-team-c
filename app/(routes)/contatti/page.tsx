@@ -20,19 +20,19 @@ const contactArray = [
   {
     id: crypto.randomUUID(),
     label: "Chiama",
-    icon: "",
+    icon: "/icons/contacts-icons/icon-phone.svg",
     url: "tel: +390000000000",
   },
   {
     id: crypto.randomUUID(),
     label: "Mappa",
-    icon: "",
+    icon: "/icons/contacts-icons/icon-map.svg",
     url: "https://www.google.com/maps?ll=37.393672,13.282562&z=16&t=h&hl=en&gl=IT&mapclient=embed&cid=16706615244174831018",
   },
   {
     id: crypto.randomUUID(),
     label: "Email",
-    icon: "",
+    icon: "/icons/contacts-icons/icon-email.svg",
     url: "https://mail.google.com",
   },
 ];
