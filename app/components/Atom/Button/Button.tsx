@@ -6,11 +6,12 @@ interface ButtonProps {
   text: string;
   type?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, text = "", onClick }) => {
+const Button: React.FC<ButtonProps> = ({ children, text = "", onClick, className }) => {
   return (
-    <button className={style.button} onClick={onClick}>
+    <button className={`${style.button} ${className || ""}`} onClick={onClick}>
       {text}
       {children}
     </button>
