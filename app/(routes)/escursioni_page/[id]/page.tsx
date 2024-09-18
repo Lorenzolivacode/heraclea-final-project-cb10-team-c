@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import styles from "@/app/Home.module.scss";
 import style from "./Id.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 
