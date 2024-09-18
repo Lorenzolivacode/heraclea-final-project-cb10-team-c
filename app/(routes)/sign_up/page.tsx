@@ -17,7 +17,7 @@ const SignUp: React.FC = () => {
   const [error, setError] = useState<string>("");
 
   // Hook per la registrazione
-  const [createUserWithEmailAndPassword, , loading, authError] =
+  const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
 
   const router = useRouter();

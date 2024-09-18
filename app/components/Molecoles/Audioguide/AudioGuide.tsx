@@ -58,7 +58,7 @@ const CustomTTSComponent = ({ children }: CustomProps) => {
   useEffect(() => {
     return () => {
       if (state.isPlaying) {
-        stop();
+        pause();
       }
     };
   }, [state.isPlaying, stop]);
@@ -102,6 +102,18 @@ const CustomTTSComponent = ({ children }: CustomProps) => {
             />
           </button>
         </div>
+
+        {isPlaying ? (
+          <>
+            <div className={styles.wave}></div>
+            <div className={styles.wave}></div>
+            <div className={styles.wave}></div>
+            <div className={styles.wave}></div>
+            <div className={styles.wave}></div>
+          </>
+        ) : (
+          ""
+        )}
 
         <div className={styles.caption}>
           <button onClick={toggleVisibility}>

@@ -31,7 +31,7 @@ export default function RootLayout({
         <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         {children}
-        <Footer />
+        <Footer setIsMenuOpen={setIsMenuOpen} />
       </body>
     </html>
   );

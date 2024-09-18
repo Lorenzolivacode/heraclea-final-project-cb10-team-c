@@ -1,7 +1,10 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styles from "./Footer.module.scss";
-
 import UlEl from "../UlEl/UlEl";
+
+interface FooterProps {
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+}
 
 const listFooter = [
   {
@@ -35,9 +38,12 @@ const listFooter = [
     icon: "/icons/footer-icons/Trekking.svg",
   },
 ];
-function Footer() {
+function Footer({ setIsMenuOpen }: FooterProps) {
+  const handleClick = () => {
+    setIsMenuOpen(false); // Chiude il menu quando si clicca sul footer
+  };
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} onClick={handleClick}>
       <UlEl array={listFooter} />
     </footer>
   );

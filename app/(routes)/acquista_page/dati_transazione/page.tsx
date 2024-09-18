@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import style from "@/app/(routes)/acquista_page/dati_transazione/pagamento.module.scss";
-import HeroImage from "@/public/assets/maschera.webp";
+// import HeroImage from "@/public/assets/maschera.webp";
 import ApplePay from "@/app/components/Atom/ApplepayBtn/ApplePayBtn";
 import GooglePayBtn from "@/app/components/Atom/GooglePayBtn/GooglePayBtn";
 import Paypal from "@/public/icons/pagamenti/paypal.svg";
@@ -47,13 +47,26 @@ function DataPayment() {
   return (
     <>
       <div className={style.main}>
-        <Image
+        <div className={style.riepilogoContainer}>
+          <h1>Riepilogo Ordine</h1>
+          <h4>Biglietto: [tipo di biglietto]</h4>
+          <h4>Data: [data]</h4>
+          <h4>Quantità: [quantità totale]</h4>
+          <p>Biglietto Intero: [quantità]</p>
+          <p>Biglietto Ridotto: [quantità]</p>
+          <h2>Totale: [prezzo totale]</h2>
+          <Button
+            text={"Modifica ordine"}
+            onClick={() => router.push("/acquista_page/calendario")}
+          ></Button>
+        </div>
+        {/* <Image
           src={HeroImage}
           alt="maschera"
           priority={true}
           className={style.img}
-        />
-        <h1>Inserisci dati</h1>
+        /> */}
+        <h2>Inserisci dati</h2>
 
         {/* FORM*/}
 
