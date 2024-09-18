@@ -1,132 +1,120 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTts } from "tts-react";
-import type { TTSHookProps } from "tts-react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./AudioGuide.module.scss";
+import Image from "next/image";
 
-interface CustomProps extends TTSHookProps {}
+interface AudioGuida {
+  label?: string;
+  filePath: string;
+  text: string;
+}
 
-const CustomTTSComponent = ({ children }: CustomProps) => {
+export default function AudioGuide({ label, text, filePath }: AudioGuida) {
+  const [isTextVisible, setIsTextVisible] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [italianVoice, setItalianVoice] = useState<SpeechSynthesisVoice | null>(
-    null
-  );
-  const [isCaptionVisible, setIsCaptionVisible] = useState<boolean>(false);
+  const [duration, setDuration] = useState<number | null>(null);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Fetch Italian voices and handle voice change
-  useEffect(() => {
-    const loadVoices = () => {
-      const voices = speechSynthesis.getVoices();
-      if (voices.length > 0) {
-        const italianVoices = voices.filter((voice) => voice.lang === "it-IT");
+  const toggleVisibility = () => {
+    setIsTextVisible((prevState) => !prevState);
+  };
 
-        // Choose Italian female voice at index 2 or fallback
-        if (italianVoices[2]) {
-          setItalianVoice(italianVoices[2]);
-        } else if (italianVoices.length > 0) {
-          setItalianVoice(italianVoices[0]); // Fallback to the first available Italian voice
-        }
+  const handlePlayPause = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
       }
-    };
-
-    // Check if voices are already loaded
-    if (speechSynthesis.getVoices().length > 0) {
-      loadVoices();
-    } else {
-      // Add an event listener to load voices once they are available
-      speechSynthesis.addEventListener("voiceschanged", loadVoices);
-    }
-
-    return () => {
-      speechSynthesis.removeEventListener("voiceschanged", loadVoices);
-    };
-  }, []);
-
-  // Initialize TTS only once the voice is available
-  const { ttsChildren, state, play, stop, pause } = useTts({
-    children,
-    voice: italianVoice ?? undefined, // Only use the voice when it's available
-  });
-
-  // Track play/pause state
-  useEffect(() => {
-    setIsPlaying(state.isPlaying);
-  }, [state.isPlaying]);
-
-  //bug navigation other pages
-  useEffect(() => {
-    return () => {
-      if (state.isPlaying) {
-        pause();
-      }
-    };
-  }, [state.isPlaying, stop]);
-
-  const handlePlayPauseToggle = () => {
-    if (state.isPlaying) {
-      pause();
-    } else {
-      play();
+      setIsPlaying(!isPlaying);
     }
   };
 
-  const toggleVisibility = () => {
-    setIsCaptionVisible((prevState) => !prevState);
+  const handleStopPlaying = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsPlaying(false);
+    }
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      const handleMetadata = () => {
+        setDuration(audio.duration);
+      };
+
+      audio.addEventListener("loadedmetadata", handleMetadata);
+      audio.addEventListener("timeupdate", () => {
+        setCurrentTime(audio.currentTime);
+      });
+
+      return () => {
+        audio.removeEventListener("loadedmetadata", handleMetadata);
+      };
+    }
+  }, []);
+
+  const formatTime = (time: number | null) => {
+    if (time === null) return "00:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   return (
-    <>
+    <div className={styles.audioGuideContainer}>
+      <figcaption className={styles.label}>{label}</figcaption>
       <figure className={styles.audioPlayer}>
-        <div className={styles.controls}>
-          <button onClick={handlePlayPauseToggle}>
+        <audio ref={audioRef} src={filePath} className={styles.audio}></audio>
+        <div className={styles.customControls}>
+          <button className={styles.playPauseButton} onClick={handlePlayPause}>
             {isPlaying ? (
-              <img
-                src="/icons/audioguide-icons/pause.svg"
-                alt="pause icon"
-                className={styles.playerIcons}
-              />
+              <>
+                <Image
+                  src="/icons/audioguide-icons/pause.svg"
+                  alt="Icon Pause Player"
+                  className={styles.icon}
+                  width={20}
+                  height={20}
+                />
+              </>
             ) : (
-              <img
+              <Image
                 src="/icons/audioguide-icons/play.svg"
-                alt="play icon"
-                className={styles.playerIcons}
+                alt="Icon Play Player"
+                className={styles.icon}
+                width={20}
+                height={20}
               />
             )}
           </button>
-          <button onClick={stop}>
-            <img
+          <button>
+            <Image
               src="/icons/audioguide-icons/stop.svg"
-              alt="play icon"
-              className={styles.playerIcons}
+              width={20}
+              height={20}
+              alt="Icon Stop Player"
+              onClick={handleStopPlaying}
             />
           </button>
         </div>
 
-        {isPlaying ? (
-          <>
-            <div className={styles.wave}></div>
-            <div className={styles.wave}></div>
-            <div className={styles.wave}></div>
-            <div className={styles.wave}></div>
-            <div className={styles.wave}></div>
-          </>
-        ) : (
-          ""
-        )}
-
-        <div className={styles.caption}>
-          <button onClick={toggleVisibility}>
-            {!isCaptionVisible ? "Show text" : "Hide text"}
-          </button>
+        <div className={styles.timeDisplay}>
+          <span>{formatTime(currentTime)}</span>/
+          <span>{formatTime(duration)}</span>
         </div>
+        <button className={styles.textToggleButton} onClick={toggleVisibility}>
+          {isTextVisible ? "Hide Text" : "Show Text"}
+        </button>
       </figure>
-      {/* Show children content only when TTS is playing or paused */}
-      <figcaption className={styles.figcaption}>
-        {isCaptionVisible && ttsChildren}
-      </figcaption>
-    </>
-  );
-};
 
-export default CustomTTSComponent;
+      {isTextVisible && <p className={styles.textContent}>{text}</p>}
+    </div>
+  );
+}
