@@ -57,7 +57,7 @@ function DataPayment() {
           <h2>Totale: [prezzo totale]</h2>
           <Button
             text={"Modifica ordine"}
-            onClick={() => router.push("/acquista_page/calendario")}
+            onClick={() => router.push("/acquista_page/calendario")} //fare una modale con POST??
           ></Button>
         </div>
         {/* <Image

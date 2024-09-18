@@ -5,6 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import style from "@/app/components/Molecoles/Header/Header.module.scss";
 import Hamburger from "../HamburgerMenu/HamburgerMenu";
 import Link from "next/link";
+import Menu from "../Menu/Menu";
 
 interface HeaderProps {
   isMenuOpen: boolean;
@@ -22,6 +23,10 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
   const handleClick = () => {
     setIsMenuOpen(false); // Chiude il menu quando si clicca sull'header
   };
+
+  const hideMenuOnRoutes = ["/log_in", "/sign_up"];
+  const shouldHideMenu = hideMenuOnRoutes.includes(pathname);
+
   const isHomePage = pathname === "/";
 
   return (
@@ -48,13 +53,16 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
           />
         </Link>
       </div>
-      <span className={style.span}>
-        <Hamburger
-          isMenuOpen={isMenuOpen}
-          setIsMenuOpen={setIsMenuOpen}
-          className={""}
-        />
-      </span>
+      {!shouldHideMenu && (
+        <span className={style.span}>
+          <Hamburger
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+            className={""}
+          />
+          <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        </span>
+      )}
     </div>
   );
 };

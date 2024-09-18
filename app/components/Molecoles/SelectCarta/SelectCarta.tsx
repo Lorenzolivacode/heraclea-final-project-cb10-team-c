@@ -5,7 +5,6 @@ import Visa from "@/public/icons/pagamenti/visa.svg";
 import Mastercard from "@/public/icons/pagamenti/mastercard.svg";
 import { useState, useEffect, useRef } from "react";
 
-// Aggiungo le props per il componente
 interface SelectCartaProps {
   cardNumber: string;
   setCardNumber: (value: string) => void;
@@ -49,11 +48,11 @@ function SelectCarta({
 
   return (
     <div className="max-w-sm mx-auto">
-      <div className="flex relative" ref={dropdownRef}>
+      <div className="flex relative gap-4" ref={dropdownRef}>
         <button
           id="states-button"
           data-dropdown-toggle="dropdown-states"
-          className="flex-shrink-0 z-10 inline-flex items-center px-4 rounded-md shadow-sm text-sm font-medium text-center text-gray-500 bg-milk border"
+          className="flex-shrink-0  inline-flex items-center px-4 rounded-md shadow-sm text-sm font-medium text-center text-gray-500 bg-milk border"
           type="button"
           onClick={toggleDropdown}
         >
@@ -86,22 +85,22 @@ function SelectCarta({
         </button>
         <div
           id="dropdown-states"
-          className={`z-10 absolute left-0 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 ${
+          className={`absolute left-0 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow ${
             isOpen ? "block" : "hidden"
           }`}
           style={{ top: "100%" }}
         >
           <ul
-            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+            className="py-2 text-sm text-gray-700"
             aria-labelledby="states-button"
           >
             <li>
               <button
                 type="button"
-                className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 onClick={() => handleCardSelect("Visa")}
               >
-                <div className="inline-flex items-center">
+                <div className="inline-flex items-center gap-2">
                   <Image src={Visa} alt="Visa" width={24} height={24} />
                   Visa
                 </div>
@@ -111,10 +110,10 @@ function SelectCarta({
             <li>
               <button
                 type="button"
-                className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 onClick={() => handleCardSelect("Mastercard")}
               >
-                <div className="inline-flex items-center">
+                <div className="inline-flex items-center gap-2">
                   <Image
                     src={Mastercard}
                     alt="Mastercard"
