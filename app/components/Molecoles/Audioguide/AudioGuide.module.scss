@@ -66,3 +66,24 @@
 .wave:nth-child(5) {
   animation-delay: 0.4s;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .audioPlayer {
+    padding: 12px;
+    border-radius: 20px;
+    height: 80px;
+    width: 60%;
+  }
+
+  .audioPlayer .controls {
+    gap: 15px;
+  }
+
+  .playerIcons {
+    width: 20px;
+  }
+
+  .wave {
+    height: 30%;
+  }
+}

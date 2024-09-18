@@ -32,3 +32,20 @@
     padding: 20px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main {
+    align-items: center;
+    justify-content: space-evenly;
+
+    .playerBox {
+      width: 100%;
+      align-items: center;
+
+      p {
+        padding-inline: 100px;
+        text-wrap: pretty;
+      }
+    }
+  }
+}
