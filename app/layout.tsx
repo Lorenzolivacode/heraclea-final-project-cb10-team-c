@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import ProtectedLayout from "@/app/(protected)/layout";
+/* import ProtectedLayout from "@/app/(protected)/layout"; */
 import ClientWrapper from "@/app/components/Organism/ClientWrapper/ClientWrapper";
 
 const geistSans = localFont({
