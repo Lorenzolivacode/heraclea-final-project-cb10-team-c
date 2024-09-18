@@ -1,17 +1,44 @@
-.main{
+.main {
   padding-top: 100px;
-    background-color: var(--c-white);
-     
-    h1{
-        margin: 10px 0;
+  background-color: var(--c-white);
+  padding-bottom: 130px;
+
+  h1,
+  h2 {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .riepilogoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+
+    h2 {
+      font-size: 1.2rem;
+      text-align: left;
     }
- }
- .margin{
+
+    h2,
+    h4 {
+      color: var(--c-sienna);
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    Button {
+      margin-block: 20px;
+    }
+  }
+}
+.margin {
   margin: 15px;
- }
+}
 .modal {
-  background: #FFFFFF;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border-radius: 16px;
   border: 1px solid var(--c-sienna);
   max-width: 450px;
@@ -37,15 +64,18 @@
   background: var(--c-white);
   border-radius: 11px;
   padding: 0;
-   outline: none;
+  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-.paymentother button:active, .paymentother button:focus{
-    box-shadow: rgb(168, 172, 176) 1px 1px 4px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+.paymentother button:active,
+.paymentother button:focus {
+  box-shadow: rgb(168, 172, 176) 1px 1px 4px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 .paymentother button svg {
   height: 18px;
@@ -58,7 +88,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   gap: 10px;
-  color: #8B8E98;
+  color: #8b8e98;
   margin: 0 10px;
 }
 .separator p {
@@ -75,7 +105,7 @@
   border: 0;
   background-color: #e8e8e8;
 }
-.cardInfo{
+.cardInfo {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -97,7 +127,7 @@
 }
 .input_label {
   font-size: 12px;
-  color: #8B8E98;
+  color: #8b8e98;
   font-weight: 600;
 }
 .input_field {
@@ -107,13 +137,14 @@
   border-radius: 9px;
   outline: none;
   background-color: var(--c-white);
-  box-shadow: rgb(168, 172, 176) 1px 1px 4px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  box-shadow: rgb(168, 172, 176) 1px 1px 4px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   border: 1px solid #e5e5e500;
   transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
 .input_field:focus {
-  border: 1px solid transparent;
-  box-shadow: 0px 0px 0px 2px #242424;
+  // border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 2px var(--c-gray-stone);
   background-color: transparent;
 }
 /* Reset input number styles */
@@ -163,7 +194,6 @@
 .checkout:active {
   transform: scale(0.95);
 }
-.errorMessage{
-
-color: red;
+.errorMessage {
+  color: red;
 }
