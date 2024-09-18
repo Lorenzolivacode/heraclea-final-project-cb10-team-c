@@ -9,6 +9,14 @@ import Image from "next/image";
 import Button from "@/app/components/Atom/Button/Button";
 import Counter from "@/app/components/Atom/Counter/Counter";
 
+//Date Eventi
+const availableDates = [
+  new Date(2024, 8, 18), 
+  new Date(2024, 8, 20), 
+  new Date(2024, 8, 25),
+  new Date(2024, 9, 5),  
+];
+
 const Calendar: React.FC = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -17,7 +25,7 @@ const Calendar: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [hoveredButton, setHoveredButton] = useState<"left" | "right" | null>(
     null
-  ); // Stato per tracciare quale pulsante è in hover
+  ); 
   const router = useRouter();
 
   // Funzione per generare i giorni del mese
@@ -75,6 +83,21 @@ const Calendar: React.FC = () => {
     "December",
   ];
 
+  // Funzione per verificare se la data è disponibile
+  const isDateAvailable = (day: number) => {
+    const dateToCheck = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      day
+    );
+    return availableDates.some(
+      (date) =>
+        date.getFullYear() === dateToCheck.getFullYear() &&
+        date.getMonth() === dateToCheck.getMonth() &&
+        date.getDate() === dateToCheck.getDate()
+    );
+  };
+
   return (
     <>
       <div className="bg-milk flex flex-col items-center justify-evenly h-screen">
@@ -84,12 +107,12 @@ const Calendar: React.FC = () => {
             <div className="flex items-center justify-between px-6 py-3 ">
               <button
                 onClick={handlePrevMonth}
-                onMouseEnter={() => setHoveredButton("left")} // Imposta "left" quando hover su sinistra
-                onMouseLeave={() => setHoveredButton(null)} // Rimuovi hover quando il mouse lascia
+                onMouseEnter={() => setHoveredButton("left")}
+                onMouseLeave={() => setHoveredButton(null)}
                 className="text-white p-2 rounded-full"
               >
                 <Image
-                  src={hoveredButton === "left" ? arrowLeftHover : arrowLeft} // Cambia immagine in base all'hover
+                  src={hoveredButton === "left" ? arrowLeftHover : arrowLeft}
                   width={35}
                   height={35}
                   alt="back"
@@ -101,12 +124,12 @@ const Calendar: React.FC = () => {
               </h2>
               <button
                 onClick={handleNextMonth}
-                onMouseEnter={() => setHoveredButton("right")} // Imposta "right" quando hover su destra
-                onMouseLeave={() => setHoveredButton(null)} // Rimuovi hover quando il mouse lascia
+                onMouseEnter={() => setHoveredButton("right")}
+                onMouseLeave={() => setHoveredButton(null)}
                 className="text-white p-2 rounded-full"
               >
                 <Image
-                  src={hoveredButton === "right" ? arrowRightHover : arrowRight} // Cambia immagine in base all'hover
+                  src={hoveredButton === "right" ? arrowRightHover : arrowRight}
                   width={35}
                   height={35}
                   alt="next"
@@ -134,15 +157,16 @@ const Calendar: React.FC = () => {
                   day
                 );
                 const today = new Date();
-                today.setHours(0, 0, 0, 0); // Rimuovi le ore dalla data di oggi
+                today.setHours(0, 0, 0, 0);
                 const isPastDay = selectedDate.getTime() < today.getTime();
+                const available = isDateAvailable(day);
 
                 return (
                   <div
                     key={day}
-                    onClick={() => !isPastDay && handleDayClick(day)}
+                    onClick={() => !isPastDay && available && handleDayClick(day)}
                     className={`text-center py-2 text-lg cursor-pointer ${
-                      isPastDay
+                      isPastDay || !available
                         ? "text-gray-400 cursor-not-allowed"
                         : "text-sienna hover:bg-grayLight"
                     }`}
@@ -156,7 +180,6 @@ const Calendar: React.FC = () => {
         </div>
       </div>
 
-      {/* Modale */}
       {showModal && selectedDate && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -182,7 +205,7 @@ const Calendar: React.FC = () => {
                 })}
               </div>
 
-              {/* biglietto intero */}
+              {/* Biglietti */}
               <div className="flex flex-row">
                 <div className="w-60 h-16 bg-white border border-sienna rounded-md">
                   <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
@@ -194,29 +217,33 @@ const Calendar: React.FC = () => {
                   <Counter />
                 </div>
               </div>
-
-              {/* biglietto ridotto */}
+              
               <div className="flex flex-row">
                 <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
                   <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
-                    <span className="text-sienna text-sm">
-                      Ridotto (minori di 16 anni)
-                    </span>
+                    <span className="text-sienna text-sm">Ridotto</span>
                   </div>
                   <div className="text-sienna ps-2 font-bold">€ 2,00</div>
                 </div>
-                <div className="flex justify-center items-center ms-2 mt-3">
+                <div className="flex justify-center items-center ms-2 mt-5">
                   <Counter />
                 </div>
               </div>
 
-              {/* acquista */}
-              <div className="flex justify-center items-center mt-5">
-                <Button
-                  text="Acquista"
-                  onClick={() => router.push("/acquista_page/dati_transazione")}
-                />
+              <div className="flex flex-row">
+              <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
+                <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
+                  <span className="text-sienna text-sm">Ticket Teatri di Pietra</span>
+                </div>
+                <div className="text-sienna ps-2 font-bold">€ 12,00</div>
               </div>
+              <div className="flex justify-center items-center ms-2 mt-5">
+                <Counter />
+              </div>
+            </div>
+            <div className="flex justify-center items-center mt-5">
+              <Button text="Acquista" onClick={() => router.push("/acquista_page/dati_transazione")} />
+          </div>
             </div>
           </div>
         </div>
