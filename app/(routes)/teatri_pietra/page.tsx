@@ -8,7 +8,7 @@ export default function TeatriPietra() {
   const router = useRouter();
 
   return (
-    <main className="main">
+    <main className={styles.mainPage}>
       <h1>Teatri di Pietra</h1>
       <section className={styles.hero}>
         <Image
@@ -18,14 +18,12 @@ export default function TeatriPietra() {
           height={300}
           className={styles.heroImage}
         />
-      </section>
-
+   
       <EventButton
         text="Scopri gli eventi"
         onClick={() => router.push("/teatri_pietra/eventi")}
       />
-
-      <section className={styles.hero}>
+      
         <Image
           src="/assets/eventi-bg.webp"
           alt="Spettacolo Teatri di Pietra"
