@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "@/app/firebase/config"; // Assicurati di importare l'istanza di auth
+import { auth } from "@/app/firebase/config";
 import style from "@/app/components/Molecoles/Menu/Menu.module.scss";
 
 interface MenuProps {
@@ -19,15 +19,14 @@ const Menu = ({ isMenuOpen, setIsMenuOpen, isAuthenticated }: MenuProps) => {
     { label: "Dove siamo", link: "/contatti" },
     { label: "Norme", link: "/norme" },
     { label: "Credits", link: "/chi_siamo" },
-    { label: "Log out", action: () => handleSignOut() }, // Aggiunto il pulsante di logout
+    { label: "Log out", action: () => handleSignOut() },
   ];
 
   const handleSignOut = async () => {
     try {
       await signOut(auth);
       alert("Logout effettuato con successo!");
-      // Opzionale: Reindirizza l'utente dopo il logout
-      window.location.href = "/log_in"; // Cambia il percorso di reindirizzamento se necessario
+      window.location.href = "/log_in";
     } catch (error) {
       console.error("Errore durante il logout:", error);
       alert("Si è verificato un errore durante il logout. Riprova.");
@@ -48,10 +47,10 @@ const Menu = ({ isMenuOpen, setIsMenuOpen, isAuthenticated }: MenuProps) => {
             </Link>
           ) : (
             <button
-              className={style.menuButton} // Assicurati di aggiungere uno stile per i pulsanti
+              className={style.menuButton}
               onClick={() => {
                 item.action && item.action();
-                setIsMenuOpen(false); // Chiude il menu
+                setIsMenuOpen(false);
               }}
             >
               {item.label}
