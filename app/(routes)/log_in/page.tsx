@@ -13,7 +13,6 @@ const SignIn: React.FC = () => {
   const [showSignUpRedirect, setShowSignUpRedirect] = useState<boolean>(false);
 
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
-
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -30,7 +29,11 @@ const SignIn: React.FC = () => {
       if (res && res.user) {
         // Accesso riuscito
         alert("Accesso effettuato!");
-        router.push("/"); // Reindirizza alla home o alla pagina desiderata
+
+        const displayName = res.user.displayName || "Utente";
+
+        // Reindirizza alla pagina dell'account e passa il nome utente come query string
+        router.push(`/account_user?userName=${encodeURIComponent(displayName)}`);
       }
     } catch (error) {
       if (error instanceof Error) {

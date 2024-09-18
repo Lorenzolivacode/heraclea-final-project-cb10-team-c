@@ -27,7 +27,7 @@ export default function EventDetail({ params }: UserProps) {
       <img src={event.image} className={style.img} alt={`Evento ${id}`} />
       <p className={style.paragraph}>{event.paragraph1}</p>
       <div className={style.detailsSection}>
-        <h2>Trama</h2>
+        <h3>Trama</h3>
         <p>{event.description.italian}</p>
         <Button
           text="Acquista"

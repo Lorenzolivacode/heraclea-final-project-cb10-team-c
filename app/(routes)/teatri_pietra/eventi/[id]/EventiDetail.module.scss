@@ -1,10 +1,10 @@
 .main {
-  // padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background-color: var(--c-white);
+  overflow-y: auto;
 }
 
 .titolo {
@@ -16,26 +16,24 @@
 .img {
   position: relative;
   width: 100%;
-  height: 20vh;
-  object-fit: cover;
+  height: 50%;
+  object-fit: contain;
   display: block;
 }
 
 .detailsSection {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 120px 0px;
-  padding: 40px;
-  // background: var(--c-ivory);
+  position: relative;
+  margin: 20px auto;
+  padding: 20px;
   text-align: center;
   width: 100%;
-  height: 40%;
-  gap: 20px;
+  max-height: 40vh;
+  gap: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .detailsSection h2 {
@@ -53,4 +51,5 @@
   text-align: center;
   line-height: 1.5;
   padding: 5px;
+  
 }

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import style from "@/app/(routes)/acquista_page/dati_transazione/pagamento.module.scss";
-// import HeroImage from "@/public/assets/maschera.webp";
 import ApplePay from "@/app/components/Atom/ApplepayBtn/ApplePayBtn";
 import GooglePayBtn from "@/app/components/Atom/GooglePayBtn/GooglePayBtn";
 import Paypal from "@/public/icons/pagamenti/paypal.svg";
@@ -33,7 +32,8 @@ function DataPayment() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      router.push("/acquista/acquisto_effettuato");
+      // Naviga alla pagina di conferma dell'acquisto
+      router.push("/acquista_page/acquisto_terminato");
     } else {
       setIsFormValid(false);
     }
@@ -60,15 +60,9 @@ function DataPayment() {
             onClick={() => router.push("/acquista_page/calendario")}
           ></Button>
         </div>
-        {/* <Image
-          src={HeroImage}
-          alt="maschera"
-          priority={true}
-          className={style.img}
-        /> */}
         <h2>Inserisci dati</h2>
 
-        {/* FORM*/}
+        {/* FORM */}
 
         <div className={style.margin}>
           <div className={style.modal}>
@@ -98,9 +92,7 @@ function DataPayment() {
                   />
                 </div>
                 <div className={style.input_container}>
-                  <label className={style.input_label}>
-                    Numero della carta
-                  </label>
+                  <label className={style.input_label}>Numero della carta</label>
                   <div>
                     <SelectCarta
                       cardNumber={cardNumber}
@@ -111,9 +103,7 @@ function DataPayment() {
                   </div>
                 </div>
                 <div className={style.input_container}>
-                  <label className={style.input_label}>
-                    Data scadenza carta / CVV
-                  </label>
+                  <label className={style.input_label}>Data scadenza carta / CVV</label>
                   <div className={style.split}>
                     <input
                       className={style.input_field}
@@ -133,9 +123,7 @@ function DataPayment() {
                 </div>
               </div>
               {!isFormValid && (
-                <p className={style.errorMessage}>
-                  Per favore, compila tutti i campi.
-                </p>
+                <p className={style.errorMessage}>Per favore, compila tutti i campi.</p>
               )}
               <Button text="Avanti" type="submit" />
             </form>

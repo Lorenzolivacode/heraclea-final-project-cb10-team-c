@@ -1,23 +1,24 @@
-
-  .hero{
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
-  }
-
-.heroImage{
-  height: 35vh;
+.hero {
+  position: relative;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  height: 80vh; 
+  object-fit: cover;
 }
 
-  .mainPage{
+.heroImage {
+  height: 40vh; 
+  width: 100%; 
+  object-fit: cover; 
+}
+
+.mainPage {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-top: 100px;
-  background-color: var(--c-white); 
-  }
-
+  gap: 2%; 
+  padding-top: 10%; 
+  background-color: var(--c-white);
+  width: 100%;
+  box-sizing: border-box; 
+}

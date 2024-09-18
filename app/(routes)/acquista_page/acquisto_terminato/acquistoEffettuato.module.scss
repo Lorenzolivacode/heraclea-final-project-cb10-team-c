@@ -16,4 +16,15 @@
         font-weight: 600;
         text-decoration: underline;
     }
+
+    a {
+        color: var(--c-sienna); 
+        text-decoration: underline; 
+        font-weight: bold;
+        padding: 20px;
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        text-align: center; 
+      }
  }
