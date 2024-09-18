@@ -69,35 +69,31 @@ function Toast({
         styles[positionClass]
       }`}
     >
-      <div className={styles.toast_inset}>
-        <div className={styles.flipflop_container}>
-          <div className={styles.flipflop}></div>
-        </div>
-        <div className={styles.message_container}>
-          <Image
-            src={"/icons/logoIvory.svg"}
-            alt="Logo Heraclea"
-            width={40}
-            height={40}
-          />
-          <p className={styles.toast__message}>{message}</p>
-        </div>
-        <div className={styles.loader_container}></div>
-        <div className={styles.loader}>
-          <div className={styles.loader_fill}></div>
-        </div>
-        {
-          <Image
-            className={styles.type_img}
-            src={typeImg}
-            alt={`icon ${type}`}
-            width={22}
-            height={22}
-          />
-        }
-        <div className={styles.close} onClick={onClose}>
-          x
-        </div>
+      {/* <div className={styles.flipflop} /> */}
+      <div className={styles.message_container}>
+        <Image
+          src={"/icons/logoSienna.svg"}
+          alt="Logo Heraclea"
+          width={40}
+          height={40}
+        />
+        <p className={styles.toast__message}>{message}</p>
+      </div>
+      <div className={styles.loader_container}></div>
+      <div className={styles.loader}>
+        <div className={styles.loader_fill}></div>
+      </div>
+      {
+        <Image
+          className={styles.type_img}
+          src={typeImg}
+          alt={`icon ${type}`}
+          width={22}
+          height={22}
+        />
+      }
+      <div className={styles.close} onClick={onClose}>
+        x
       </div>
     </div>
   );

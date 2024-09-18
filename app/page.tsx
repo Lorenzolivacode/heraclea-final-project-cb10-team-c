@@ -45,8 +45,8 @@ export default function HomePage() {
       <main className="main">
         {toastOpen && (
           <Toast
-            type="success"
-            onClose={() => setToastOpen(false)}
+            type="default"
+            onClose={() => setToastOpen(true)}
             message="Toast prova Toast prova Toast prova Toast prova"
           />
         )}

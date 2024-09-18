@@ -1,0 +1,144 @@
+.toast {
+  position: fixed;
+  z-index: 2;
+  box-shadow: 0 5px 20px -5px var(--c-gray-stone);
+  padding: 5px;
+  padding-right: 25px;
+  max-width: 400px;
+  width: calc(100% - 40px);
+  background-color: var(--c-ivory);
+
+  .flipflop {
+    /* position: absolute;
+    top: 0; */
+    margin: 5px;
+    width: 0%;
+    height: 5px;
+    border-radius: 5px;
+    animation: fill 2.5s infinite ease-in-out alternate-reverse;
+  }
+
+  .message_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+
+    .toast__message {
+      text-align: end;
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+  }
+
+  .loader {
+    position: relative;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px var(--c-gray-stone);
+    /* padding: 2px; */
+    width: 100%;
+    height: 15px;
+
+    .loader_fill {
+      position: absolute;
+      top: 0;
+      width: 0%;
+      height: 100%;
+      border-radius: 5px;
+      animation: fill 2.5s infinite ease-in-out alternate-reverse;
+    }
+  }
+
+  .type_img,
+  .close {
+    position: absolute;
+  }
+
+  .close {
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+  }
+
+  .type_img {
+    right: 2px;
+    bottom: 2px;
+  }
+}
+
+@keyframes fill {
+  0% {
+    width: 10%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    right: 0;
+    width: 10%;
+  }
+}
+
+.top_right {
+  top: 120px;
+  right: 20px;
+}
+
+.top_left {
+  top: 120px;
+  left: 20px;
+}
+
+.bottom_right {
+  bottom: 120px;
+  right: 20px;
+}
+
+.bottom_left {
+  bottom: 120px;
+  left: 20px;
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.default {
+  border: 6px double var(--c-sienna);
+
+  .flipflop,
+  .flipflop,
+  .loader_fill {
+    background-color: var(--c-sienna);
+  }
+}
+
+.success {
+  border: 6px double var(--c-olive);
+
+  .flipflop,
+  .loader_fill {
+    background-color: var(--c-olive);
+  }
+}
+
+.error {
+  border: 6px double var(--c-error);
+
+  .flipflop,
+  .loader_fill {
+    background-color: var(--c-error);
+  }
+}
+
+.info {
+  border: 6px double var(--c-info);
+
+  .flipflop,
+  .loader_fill {
+    background-color: var(--c-info);
+  }
+}
