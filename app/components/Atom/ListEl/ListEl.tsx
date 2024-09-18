@@ -7,6 +7,7 @@ export interface IElement {
   label: string;
   url: string;
   icon?: string;
+  iconActive?: string;
 }
 function ListEl({ el }: { el: IElement }) {
   return (
