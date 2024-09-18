@@ -7,7 +7,8 @@ import Loader from "@/app/components/Atom/Loader/Loader";
 const AudioGuide = dynamic(
   () => import("@/app/components/Molecoles/Audioguide/AudioGuide"),
   {
-    loading: () => <Loader />,
+    // loading: () => <Loader />,
+
     ssr: false,
   }
 );
