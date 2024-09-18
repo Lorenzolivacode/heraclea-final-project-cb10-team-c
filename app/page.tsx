@@ -5,8 +5,7 @@ import styles from "./Home.module.scss";
 import eracleaData from "./data";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
-import { Key, useState, useEffect } from "react";
-import Toast from "./components/Atom/Toast/Toast";
+import { Key, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const labels = {
@@ -25,7 +24,6 @@ export default function HomePage() {
   //error simulation
   // if (!session) throw new Error("Example Error with Session!");
 
-  const [toastOpen, setToastOpen] = useState(true);
   const [user, loading] = useAuthState(auth);
   const router = useRouter();
 
@@ -43,13 +41,6 @@ export default function HomePage() {
   return (
     <>
       <main className="main">
-        {toastOpen && (
-          <Toast
-            type="default"
-            onClose={() => setToastOpen(true)}
-            message="Toast prova Toast prova Toast prova Toast prova"
-          />
-        )}
         <h1>{labels.titleEraclea}</h1>
         <div className={styles.txt_container}>
           <p className={styles.cit}>{labels.citEraclea}</p>
