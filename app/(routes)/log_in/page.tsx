@@ -12,8 +12,7 @@ const SignIn: React.FC = () => {
   const [error, setError] = useState<string>("");
   const [showSignUpRedirect, setShowSignUpRedirect] = useState<boolean>(false);
 
-  const [signInWithEmailAndPassword, userCredential, loading, authError] =
-    useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
 
   const router = useRouter();
 

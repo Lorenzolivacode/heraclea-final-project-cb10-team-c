@@ -18,6 +18,10 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
   const handleBackClick = () => {
     router.back();
   };
+
+  const handleClick = () => {
+    setIsMenuOpen(false); // Chiude il menu quando si clicca sull'header
+  };
   const isHomePage = pathname === "/";
 
   return (
@@ -35,7 +39,13 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
       </div>
       <div className={style.logoContainer}>
         <Link href="/">
-          <img src="/icons/logoSienna.svg" alt="Logo" width={69} height={69} />
+          <img
+            src="/icons/logoSienna.svg"
+            alt="Logo"
+            width={69}
+            height={69}
+            onClick={handleClick}
+          />
         </Link>
       </div>
       <span className={style.span}>
