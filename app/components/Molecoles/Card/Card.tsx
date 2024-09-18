@@ -7,10 +7,17 @@ interface CardProps {
   children?: React.ReactNode;
   image: string;
   roadmap: string;
+  target?: "_blank" | "_self";
 }
-function Card({ label, children, image, roadmap}: CardProps) {
+function Card({
+  label,
+  children,
+  image,
+  roadmap,
+  target = "_self",
+}: CardProps) {
   return (
-    <Link className={styles.card_section} href={roadmap}>
+    <Link target={target} className={styles.card_section} href={roadmap}>
       {/* <section className={styles.card_section}>
       </section> */}
       <img src={image} alt={label} />

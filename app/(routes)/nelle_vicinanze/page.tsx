@@ -52,23 +52,21 @@ function Vicinanze() {
     },
   ];
 
-  const handleScroll = useCallback(
-    (section: "ristoranti" | "visitare") => {
-      const ref = section === "ristoranti" ? ristorantiRef.current : visitareRef.current;
-      if (ref) {
-        const scrollPosition = ref.scrollLeft;
-        const slideWidth = ref.clientWidth;
-        const slideIndex = Math.round(scrollPosition / slideWidth);
+  const handleScroll = useCallback((section: "ristoranti" | "visitare") => {
+    const ref =
+      section === "ristoranti" ? ristorantiRef.current : visitareRef.current;
+    if (ref) {
+      const scrollPosition = ref.scrollLeft;
+      const slideWidth = ref.clientWidth;
+      const slideIndex = Math.round(scrollPosition / slideWidth);
 
-        if (section === "ristoranti") {
-          setCurrentSlideRistoranti(slideIndex);
-        } else {
-          setCurrentSlideVisitare(slideIndex);
-        }
+      if (section === "ristoranti") {
+        setCurrentSlideRistoranti(slideIndex);
+      } else {
+        setCurrentSlideVisitare(slideIndex);
       }
-    },
-    []
-  );
+    }
+  }, []);
 
   useEffect(() => {
     const ristorantiElement = ristorantiRef.current;
@@ -97,7 +95,8 @@ function Vicinanze() {
   }, [handleScroll]);
 
   const goToSlide = (section: "ristoranti" | "visitare", index: number) => {
-    const ref = section === "ristoranti" ? ristorantiRef.current : visitareRef.current;
+    const ref =
+      section === "ristoranti" ? ristorantiRef.current : visitareRef.current;
 
     if (ref) {
       ref.scrollTo({
@@ -133,9 +132,16 @@ function Vicinanze() {
           {ristorantiSection.map(({ src, alt, title, roadmap }, index) => (
             <div
               key={alt}
-              className={`${style.card} ${index === currentSlideRistoranti ? style.active : ""}`}
+              className={`${style.card} ${
+                index === currentSlideRistoranti ? style.active : ""
+              }`}
             >
-              <Card label={title} image={src} roadmap={roadmap} />
+              <Card
+                target="_blank"
+                label={title}
+                image={src}
+                roadmap={roadmap}
+              />
             </div>
           ))}
         </div>
@@ -143,7 +149,9 @@ function Vicinanze() {
           {ristorantiSection.map((_, index) => (
             <span
               key={index}
-              className={`${style.dot} ${index === currentSlideRistoranti ? style.activeDot : ""}`}
+              className={`${style.dot} ${
+                index === currentSlideRistoranti ? style.activeDot : ""
+              }`}
               onClick={() => goToSlide("ristoranti", index)}
             />
           ))}
@@ -166,9 +174,16 @@ function Vicinanze() {
           {visitareSection.map(({ src, alt, title, roadmap }, index) => (
             <div
               key={alt}
-              className={`${style.card} ${index === currentSlideVisitare ? style.active : ""}`}
+              className={`${style.card} ${
+                index === currentSlideVisitare ? style.active : ""
+              }`}
             >
-              <Card label={title} image={src} roadmap={roadmap} />
+              <Card
+                target="_blank"
+                label={title}
+                image={src}
+                roadmap={roadmap}
+              />
             </div>
           ))}
         </div>
@@ -176,7 +191,9 @@ function Vicinanze() {
           {visitareSection.map((_, index) => (
             <span
               key={index}
-              className={`${style.dot} ${index === currentSlideVisitare ? style.activeDot : ""}`}
+              className={`${style.dot} ${
+                index === currentSlideVisitare ? style.activeDot : ""
+              }`}
               onClick={() => goToSlide("visitare", index)}
             />
           ))}
