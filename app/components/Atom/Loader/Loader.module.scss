@@ -11,8 +11,14 @@
     text-align: center;
   }
 
-  img {
-    width: 50%;
+  Image {
+    width: 60%;
     height: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 834px) {
+  .loaderContainer {
+    padding-top: 80px;
   }
 }
