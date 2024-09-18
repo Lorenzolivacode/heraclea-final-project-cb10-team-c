@@ -1,24 +1,24 @@
 .main {
-  padding: 20px;
+  // padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background-color: var(--c-white);
 }
 
-.titolo{
-  margin-top: 80px; 
+.titolo {
+  margin-top: 80px;
   padding: 20px;
   text-align: center;
 }
 
-
 .img {
   position: relative;
   width: 100%;
-  height: 20vh; 
-  object-fit: cover; 
-  display: block; 
+  height: 20vh;
+  object-fit: cover;
+  display: block;
 }
 
 .detailsSection {
@@ -27,9 +27,9 @@
   left: 50%;
   transform: translateX(-50%);
   margin: 120px 0px;
-  padding: 40px; 
-  background: var(--c-ivory);
-  text-align: center; 
+  padding: 40px;
+  // background: var(--c-ivory);
+  text-align: center;
   width: 100%;
   height: 40%;
   gap: 20px;
@@ -40,7 +40,6 @@
 
 .detailsSection h2 {
   font-size: 20px;
- 
 }
 
 .detailsSection p {

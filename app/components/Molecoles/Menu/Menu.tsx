@@ -10,7 +10,7 @@ interface MenuProps {
   isAuthenticated?: boolean;
 }
 
-const Menu = ({ isMenuOpen, setIsMenuOpen, isAuthenticated }: MenuProps) => {
+const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
   const menuItems = [
     { label: "Account", link: "/account_user" },
     { label: "Biglietti", link: "/acquista_page" },

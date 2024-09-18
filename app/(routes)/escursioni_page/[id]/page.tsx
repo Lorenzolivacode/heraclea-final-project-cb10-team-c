@@ -32,15 +32,15 @@ export default async function EscursioneDetail({
   }
 
   return (
-    <main className={styles.main}>
+    <main className={style.main}>
       <h1>{escursione.title}</h1>
-      <div className={style.imageContainer}>
-        <img
-          src={escursione.image}
-          className={style.img}
-          alt={`Escursione ${id}`}
-        />
-      </div>
+      {/* <div className={style.imageContainer}> */}
+      <img
+        src={escursione.image}
+        className={style.img}
+        alt={`Escursione ${id}`}
+      />
+      {/* </div> */}
       <div className={style.bookingSection}>
         <h2>Prenota</h2>
         <p>

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import style from "@/app/(routes)/acquista_page/dati_transazione/pagamento.module.scss";
 // import HeroImage from "@/public/assets/maschera.webp";
