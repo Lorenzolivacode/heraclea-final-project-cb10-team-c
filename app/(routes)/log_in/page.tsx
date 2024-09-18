@@ -5,6 +5,7 @@ import { auth } from "@/app/firebase/config";
 import style from "@/app/(routes)/log_in/LogIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const SignIn: React.FC = () => {
   const [password, setPassword] = useState<string>("");
@@ -99,6 +100,13 @@ const SignIn: React.FC = () => {
         <div className={style.button}>
           <Button text="Accedi" type="submit" />
         </div>
+
+        <p className={style.text}>
+          Non sei registrato? Fai{" "}
+          <Link href="/sign_up" className={style.a}>
+            Sign up
+          </Link>
+        </p>
       </form>
     </div>
   );

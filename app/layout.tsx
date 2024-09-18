@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-//import ProtectedLayout from "@/app/(protected)/layout";
-import ClientWrapper from "./components/Organism/ClientWrapper/ClientWrapper";
+import ProtectedLayout from "@/app/(protected)/layout";
+import ClientWrapper from "@/app/components/Organism/ClientWrapper/ClientWrapper";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
