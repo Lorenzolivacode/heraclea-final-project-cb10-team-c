@@ -26,7 +26,6 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
     try {
       await signOut(auth);
       alert("Logout effettuato con successo!");
-      window.location.href = "/log_in";
     } catch (error) {
       console.error("Errore durante il logout:", error);
       alert("Si è verificato un errore durante il logout. Riprova.");

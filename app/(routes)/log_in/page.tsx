@@ -5,6 +5,7 @@ import { auth } from "@/app/firebase/config";
 import style from "@/app/(routes)/log_in/LogIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const SignIn: React.FC = () => {
   const [password, setPassword] = useState<string>("");
@@ -13,7 +14,6 @@ const SignIn: React.FC = () => {
   const [showSignUpRedirect, setShowSignUpRedirect] = useState<boolean>(false);
 
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
-
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -30,7 +30,11 @@ const SignIn: React.FC = () => {
       if (res && res.user) {
         // Accesso riuscito
         alert("Accesso effettuato!");
-        router.push("/"); // Reindirizza alla home o alla pagina desiderata
+
+        const displayName = res.user.displayName || "Utente";
+
+        // Reindirizza alla pagina dell'account e passa il nome utente come query string
+        router.push(`/account_user?userName=${encodeURIComponent(displayName)}`);
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -99,6 +103,13 @@ const SignIn: React.FC = () => {
         <div className={style.button}>
           <Button text="Accedi" type="submit" />
         </div>
+
+        <p className={style.text}>
+          Non sei registrato? Fai{" "}
+          <Link href="/sign_up" className={style.a}>
+            Sign up
+          </Link>
+        </p>
       </form>
     </div>
   );

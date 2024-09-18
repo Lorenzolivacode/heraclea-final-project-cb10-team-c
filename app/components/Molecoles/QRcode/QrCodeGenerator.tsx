@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { QRCode } from "react-qrcode-logo";
+import style from "./QrCodeGenerator.module.scss";
 
 export default function QrCodeGenerator() {
 	const [randomValue, setRandomValue] = useState("");
@@ -11,16 +12,15 @@ export default function QrCodeGenerator() {
 	};
 
 	return (
-		<div style={{ textAlign: "center", marginTop: "50px" }}>
-			<h1>Random QR Code Generator</h1>
+		<div className={style.container}>
 			<button
 				onClick={generateRandomValue}
-				style={{ padding: "30px", fontSize: "16px", cursor: "pointer" }}
+				className={style.generateButton}
 			>
-				Fai il check-in
+				Scansiona il QR Code
 			</button>
 			{randomValue && (
-				<div style={{ marginTop: "20px" }}>
+				<div className={style.qrCodeContainer}>
 					<QRCode value={randomValue} size={100} />
 					<p>Il codice del tuo biglietto è: {randomValue}</p>
 				</div>
@@ -28,3 +28,4 @@ export default function QrCodeGenerator() {
 		</div>
 	);
 }
+

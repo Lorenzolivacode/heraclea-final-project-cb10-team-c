@@ -46,16 +46,16 @@ function Toast({
 
   switch (type) {
     case "success":
-      typeImg = "/icons/toast-icons/icon-success.png";
+      typeImg = "/icons/toast-icons/icon-success-ivory.png";
       break;
     case "error":
-      typeImg = "/icons/toast-icons/icon-error.png";
+      typeImg = "/icons/toast-icons/icon-error-ivory.png";
       break;
     case "info":
-      typeImg = "/icons/toast-icons/icon-info.png";
+      typeImg = "/icons/toast-icons/icon-info-ivory.png";
       break;
     default:
-      typeImg = "/icons/toast-icons/icon-default.png";
+      typeImg = "/icons/toast-icons/icon-default-ivory.png";
   }
 
   setTimeout(() => {

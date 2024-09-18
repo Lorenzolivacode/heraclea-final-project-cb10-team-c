@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 566.9 566.9" style="enable-background:new 0 0 566.9 566.9;" xml:space="preserve">
+<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 992.1 992.1" style="enable-background:new 0 0 992.1 992.1;" xml:space="preserve">
 <style type="text/css">
-	.st0{display:none;}
-	.st1{display:inline;fill:#33AD6B;}
-	.st2{fill:none;stroke:#FFFFFF;stroke-width:13.314;stroke-miterlimit:10;}
+	.st0{fill:none;stroke:#FEF9F2;stroke-width:25.9541;stroke-miterlimit:10;}
 </style>
-<g id="Livello_2" class="st0">
-	<rect class="st1" width="565" height="565"/>
-</g>
-<g id="Livello_1" class="st0">
-	
-		<image style="display:inline;overflow:visible;" width="33" height="33" xlink:href="Male User.png"  transform="matrix(16.4094 0 0 16.4094 18.9214 8.7862)">
-	</image>
-</g>
 <g id="Livello_3">
 	<g>
-		<circle class="st2" cx="283.2" cy="283.3" r="249"/>
-		<path class="st2" d="M118.2,461.6c0,0,89.3-56.1,117-69.8c0,0,22-27.7,7.5-49.1c0,0-108.5-156.9,4.9-226.4
-			c0,0,64.3-31.4,118.3,27.7c0,0,39.6,71.7-28.9,198.1c0,0-15.1,36.4,6.3,47.7c0,0,88.7,46,109.4,66.1"/>
+		<circle class="st0" cx="496.8" cy="492.8" r="485.4"/>
+		<path class="st0" d="M175.2,840.4c0,0,174.1-109.3,228.1-136.1c0,0,42.9-54,14.6-95.8c0,0-211.5-305.8,9.6-441.3
+			c0,0,125.4-61.3,230.6,54c0,0,77.2,139.8-56.4,386.2c0,0-29.4,70.9,12.3,93c0,0,172.9,89.6,213.3,128.8"/>
 	</g>
 </g>
 </svg>
