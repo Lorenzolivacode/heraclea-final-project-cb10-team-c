@@ -6,6 +6,7 @@
   background-color: var(--c-white);
   display: flex;
   flex-direction: column;
+  gap: 40px;
   padding-bottom: 120px;
 
   h1 {
@@ -17,10 +18,9 @@
 .playerBox {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-inline: 20px;
-  gap: 8px;
+  padding-inline: 20px;
+  width: 100%;
+  gap: 10px;
 
   h2 {
     font-weight: 600;
@@ -29,7 +29,7 @@
 
   p {
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px 20px;
   }
 }
 
@@ -37,13 +37,13 @@
   .main {
     align-items: center;
     justify-content: space-evenly;
+    top: 80px;
 
     .playerBox {
-      width: 100%;
-      align-items: center;
+      width: 80%;
+      justify-content: center;
 
       p {
-        padding-inline: 100px;
         text-wrap: pretty;
       }
     }
