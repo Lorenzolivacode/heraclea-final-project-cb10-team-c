@@ -20,3 +20,13 @@ background-color: var(--c-white);
 .container:first-of-type{
     margin-left: 65px;
 }
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .container p {
+        font-size: 1.5rem;
+    }
+}

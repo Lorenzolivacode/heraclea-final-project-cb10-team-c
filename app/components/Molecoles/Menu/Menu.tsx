@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "@/app/firebase/config";
-import style from "@/app/components/Molecoles/Menu/Menu.module.scss";
+import style from "/app/components/Molecoles/Menu/Menu.module.scss";
 
 interface MenuProps {
   isMenuOpen: boolean;

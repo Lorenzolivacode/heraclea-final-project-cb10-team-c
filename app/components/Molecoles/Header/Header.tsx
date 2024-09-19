@@ -1,8 +1,7 @@
 "use client";
-
 import { Dispatch, SetStateAction } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import style from "@/app/components/Molecoles/Header/Header.module.scss";
+import style from "/app/components/Molecoles/Header/Header.module.scss";
 import Hamburger from "../HamburgerMenu/HamburgerMenu";
 import Link from "next/link";
 import Menu from "../Menu/Menu";

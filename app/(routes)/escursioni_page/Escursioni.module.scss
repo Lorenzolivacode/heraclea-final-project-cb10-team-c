@@ -7,3 +7,9 @@
 .main{
   overflow-y: scroll;
 }
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.5rem;
+  }
+}

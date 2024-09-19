@@ -1,6 +1,5 @@
 "use client";
-
-import style from "@/app/(routes)/teatri_pietra/Eventi.module.scss";
+import style from "/app/(routes)/teatri_pietra/Eventi.module.scss";
 import Card from "@/app/components/Molecoles/Card/Card";
 import eventiData from "@/app/event_data";
 

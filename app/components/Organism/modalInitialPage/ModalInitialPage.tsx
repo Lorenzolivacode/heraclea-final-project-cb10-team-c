@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import style from "@/app/components/Organism/modalInitialPage/ModalInitialPage.module.scss";
+import style from "/app/components/Organism/modalInitialPage/ModalInitialPage.module.scss";
 import Toggle from "@/app/components/Atom/Toggle/Toggle";
 import Modal from "@/app/components/Molecoles/Modal/modal";
 import Button from "@/app/components/Atom/Button/Button";
@@ -169,35 +169,34 @@ function InitialPagemodal() {
 							/>
 						)}
 						<p>{pages[currentPage].description}</p>
+						{currentPage !== 0 && (
+							<>
+								<div className={style.btnContainer}>
+									{currentPage === 1 && (
+										<>
+											<Button text="ITALIANO" />
+											<Button text="ENGLISH" />
+										</>
+									)}
+									{currentPage === 5 && (
+										<Button text="INIZIA" onClick={handleButtonClick} />
+									)}
+								</div>
+								<div className={style.toggleContainer}>
+									{params
+										.filter((_, index) => index !== 0)
+										.map((param, index) => (
+											<Toggle
+												key={param}
+												params={param}
+												selectedPage={selectedPage}
+												onToggle={() => handleToggle(param, index + 1)}
+											/>
+										))}
+								</div>
+							</>
+						)}
 					</div>
-
-					{currentPage !== 0 && (
-						<>
-							<div className={style.btnContainer}>
-								{currentPage === 1 && (
-									<>
-										<Button text="ITALIANO" />
-										<Button text="ENGLISH" />
-									</>
-								)}
-								{currentPage === 5 && (
-									<Button text="INIZIA" onClick={handleButtonClick} />
-								)}
-							</div>
-							<div className={style.toggleContainer}>
-								{params
-									.filter((_, index) => index !== 0)
-									.map((param, index) => (
-										<Toggle
-											key={param}
-											params={param}
-											selectedPage={selectedPage}
-											onToggle={() => handleToggle(param, index + 1)}
-										/>
-									))}
-							</div>
-						</>
-					)}
 				</main>
 			</div>
 		</Modal>
