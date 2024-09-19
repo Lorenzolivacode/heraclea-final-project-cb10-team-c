@@ -1,6 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { getDatabase, ref, set, push } from "firebase/database";
+import { auth } from "@/app/firebase/config";
+import { useAuthState } from "react-firebase-hooks/auth";
 import arrowLeft from "@/public/icons/calendar/arrow-left-calendar.svg";
 import arrowLeftHover from "@/public/icons/calendar/arrow-left-sienna.svg";
 import arrowRight from "@/public/icons/calendar/arrow-right-calendar.svg";
@@ -11,10 +14,10 @@ import Counter from "@/app/components/Atom/Counter/Counter";
 
 //Date Eventi
 const availableDates = [
-  new Date(2024, 8, 18), 
-  new Date(2024, 8, 20), 
+  new Date(2024, 8, 18),
+  new Date(2024, 8, 20),
   new Date(2024, 8, 25),
-  new Date(2024, 9, 5),  
+  new Date(2024, 9, 5),
 ];
 
 const Calendar: React.FC = () => {
@@ -25,8 +28,18 @@ const Calendar: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [hoveredButton, setHoveredButton] = useState<"left" | "right" | null>(
     null
-  ); 
+  );
+  const [interoCount, setInteroCount] = useState(0);
+  const [ridottoCount, setRidottoCount] = useState(0);
+  const [teatriCount, setTeatriCount] = useState(0);
+  const [user] = useAuthState(auth);
   const router = useRouter();
+  const db = getDatabase();
+
+  // Prezzi dei biglietti
+  const [fullTicketPrice] = useState(4);
+  const [reducedTicketPrice] = useState(2);
+  const [eventTicketPrice] = useState(12);
 
   // Funzione per generare i giorni del mese
   const generateCalendar = (year: number, month: number) => {
@@ -66,6 +79,49 @@ const Calendar: React.FC = () => {
 
   const closeModal = () => {
     setShowModal(false);
+  };
+
+  const saveToDatabase = (
+    selectedDate: Date,
+    tickets: { type: string; quantity: number; price: number }[]
+  ) => {
+    const ordersRef = ref(db, "orders");
+    const newOrderRef = push(ordersRef);
+
+    const order = {
+      date: selectedDate.toISOString(),
+      tickets,
+      timestamp: new Date().toISOString(),
+      userId: user ? user.uid : null, // Salva l'ID utente se autenticato
+    };
+
+    set(newOrderRef, order)
+      .then(() => {
+        console.log("Ordine salvato con successo!");
+      })
+      .catch((error) => {
+        console.error("Errore nel salvare l'ordine:", error);
+      });
+  };
+
+  const calculateTotalPrice = () => {
+    return (
+      interoCount * fullTicketPrice +
+      ridottoCount * reducedTicketPrice +
+      teatriCount * eventTicketPrice
+    ).toFixed(2);
+  };
+
+  const handlePurchase = () => {
+    const tickets = [
+      { type: "Intero", quantity: interoCount, price: 4.0 },
+      { type: "Ridotto", quantity: ridottoCount, price: 2.0 },
+      { type: "Ticket Teatri di Pietra", quantity: teatriCount, price: 12.0 },
+    ];
+
+    saveToDatabase(selectedDate!, tickets); // Salva i dati nel database
+
+    router.push("/acquista_page/dati_transazione"); // Reindirizza alla pagina di transazione
   };
 
   const monthNames = [
@@ -164,7 +220,9 @@ const Calendar: React.FC = () => {
                 return (
                   <div
                     key={day}
-                    onClick={() => !isPastDay && available && handleDayClick(day)}
+                    onClick={() =>
+                      !isPastDay && available && handleDayClick(day)
+                    }
                     className={`text-center py-2 text-lg cursor-pointer ${
                       isPastDay || !available
                         ? "text-gray-400 cursor-not-allowed"
@@ -211,39 +269,53 @@ const Calendar: React.FC = () => {
                   <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
                     <span className="text-sienna text-sm">Intero</span>
                   </div>
-                  <div className="text-sienna ps-2 font-bold">€ 4,00</div>
+                  <div className="text-sienna ps-2 font-bold">
+                    € {fullTicketPrice.toFixed(2)}
+                  </div>
                 </div>
                 <div className="flex justify-center items-center ms-2">
-                  <Counter />
+                  <Counter value={interoCount} onChange={setInteroCount} />
                 </div>
               </div>
-              
+
               <div className="flex flex-row">
                 <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
                   <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
                     <span className="text-sienna text-sm">Ridotto</span>
                   </div>
-                  <div className="text-sienna ps-2 font-bold">€ 2,00</div>
+                  <div className="text-sienna ps-2 font-bold">
+                    € {reducedTicketPrice.toFixed(2)}
+                  </div>
                 </div>
                 <div className="flex justify-center items-center ms-2 mt-5">
-                  <Counter />
+                  <Counter value={ridottoCount} onChange={setRidottoCount} />
                 </div>
               </div>
 
               <div className="flex flex-row">
-              <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
-                <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
-                  <span className="text-sienna text-sm">Ticket Teatri di Pietra</span>
+                <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
+                  <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
+                    <span className="text-sienna text-sm">
+                      Ticket Teatri di Pietra
+                    </span>
+                  </div>
+                  <div className="text-sienna ps-2 font-bold">
+                    € {eventTicketPrice.toFixed(2)}
+                  </div>
                 </div>
-                <div className="text-sienna ps-2 font-bold">€ 12,00</div>
+                <div className="flex justify-center items-center ms-2 mt-5">
+                  <Counter value={teatriCount} onChange={setTeatriCount} />
+                </div>
               </div>
-              <div className="flex justify-center items-center ms-2 mt-5">
-                <Counter />
+
+              {/* Totale */}
+              <div className="text-xl font-semibold text-sienna mt-5">
+                Totale: € {calculateTotalPrice()}
               </div>
-            </div>
-            <div className="flex justify-center items-center mt-5">
-              <Button text="Acquista" onClick={() => router.push("/acquista_page/dati_transazione")} />
-          </div>
+
+              <div className="flex justify-center items-center mt-5">
+                <Button onClick={handlePurchase} text="Acquista" />
+              </div>
             </div>
           </div>
         </div>

@@ -114,7 +114,7 @@ function Vicinanze() {
 
   return (
     <main className="main">
-      <h1>Nelle vicinanze</h1>
+      <h1 className={style.title}>Nelle vicinanze</h1>
 
       <section className={style.container}>
         <div className={style.category}>

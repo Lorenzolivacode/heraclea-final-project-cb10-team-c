@@ -7,34 +7,53 @@
   h2 {
     margin: 10px 0;
     text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
   }
 
   .riepilogoContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 20px;
+    margin: 18px;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 20px;
+    line-height: 2rem;
 
-    h2 {
-      font-size: 1.2rem;
+
+    h2{
       text-align: left;
-    }
-
-    h2,
-    h4 {
       color: var(--c-sienna);
+      font-size: 1.3rem;
+    }
+    
+    
+    h3,h4 {
+      color: var(--c-gray-stone);
+      font-weight: 600;
+      letter-spacing: 2px;
+
+         }
+
+    h2{
       font-weight: 600;
       letter-spacing: 2px;
     }
 
-    Button {
-      margin-block: 20px;
+    .totalOrder{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--c-sienna);
     }
   }
 }
 .margin {
   margin: 15px;
 }
+
+
 .modal {
   background: #ffffff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
-import style from "@/app/(routes)/log_in/LogIn.module.scss";
+import style from "/app/(routes)/log_in/LogIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -32,9 +32,12 @@ const SignIn: React.FC = () => {
         alert("Accesso effettuato!");
 
         const displayName = res.user.displayName || "Utente";
+        const uid = res.user.uid;
 
         // Reindirizza alla pagina dell'account e passa il nome utente come query string
-        router.push(`/account_user?userName=${encodeURIComponent(displayName)}`);
+        router.push(
+          `/account_user?userName=${encodeURIComponent(displayName)}&uid=${uid}`
+        );
       }
     } catch (error) {
       if (error instanceof Error) {
