@@ -9,6 +9,8 @@ import { Key, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
+import { useLocale } from "next-intl";
+
 const labels = {
   titleEraclea: "Uno sguardo su Eraclea...",
   citEraclea:
@@ -22,6 +24,8 @@ const labels = {
 // const session = null;
 
 export default function HomePage() {
+  const locale = useLocale(); // Ottieni la lingua corrente
+
   const t = useTranslations("HomePage");
   //error simulation
   // if (!session) throw new Error("Example Error with Session!");

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.scss";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 interface CardProps {
   label: string;
@@ -17,9 +17,7 @@ function Card({
   target = "_self",
 }: CardProps) {
   return (
-    <Link target={target} className={styles.card_section} href={roadmap}>
-      {/* <section className={styles.card_section}>
-      </section> */}
+    <Link target={target} className={styles.card_section} href={`/${roadmap}`}>
       <img src={image} alt={label} />
       <div className={styles.title_container}>
         <h2>{label}</h2>

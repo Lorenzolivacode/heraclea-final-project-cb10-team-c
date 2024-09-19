@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Dispatch, SetStateAction } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "@/app/[locale]/firebase/config";

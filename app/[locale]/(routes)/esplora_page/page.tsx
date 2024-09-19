@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./esplora.module.scss";
 import BigButton from "@/app/[locale]/components/Atom/BigButton/BigButton";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 
 function Esplora() {
   const router = useRouter();

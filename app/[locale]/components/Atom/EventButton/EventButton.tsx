@@ -1,5 +1,5 @@
 import { ReactNode, MouseEventHandler } from "react";
-import style from "./EventButton.module.scss";
+import style from "@/app/[locale]/components/Atom/EventButton/EventButton.module.scss";
 
 interface ButtonProps {
   children?: ReactNode;

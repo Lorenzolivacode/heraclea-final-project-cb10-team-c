@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import style from ".nelle_vicinanze.module.scss";
+import style from "./nelle_vicinanze.module.scss";
 import Card from "@/app/[locale]/components/Molecoles/Card/Card";
 
 function Vicinanze() {
