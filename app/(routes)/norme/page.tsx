@@ -1,4 +1,4 @@
-import style from "@/app/(routes)/norme/norme.module.scss";
+import style from "/app/(routes)/norme/norme.module.scss";
 function Norme() {
   return (
     <main className={style.main}>

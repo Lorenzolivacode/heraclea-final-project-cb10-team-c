@@ -1,11 +1,4 @@
 .main {
-  /* display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  min-height: 100dvh;
-  padding: 120px 20px; */
-
   text-align: start;
 
   .map {
@@ -16,29 +9,18 @@
   h2 {
     font-weight: 500;
   }
+}
 
-  /*   ul {
-    display: flex;
-    justify-content: space-evenly;
-
-    margin: 0 auto;
-    border-radius: 8px;
-    padding: 10px;
-    width: 80%;
-    background-color: var(--c-sienna);
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.5rem;
   }
 
-  .container_txt {
-    text-align: start;
-
-    h2 {
-      font-weight: 500;
-    }
+  .container_txt p {
+    font-size: 1.5rem;
   }
-  .lineEl {
-    border: 1px solid var(--c-ivory);
-    width: 0px;
-    height: 30px;
-    background-color: var(--c-ivory);
-  }*/
+
+  .container_txt h2 {
+    font-size: 1.5rem;
+  }
 }

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
-import style from "@/app/(routes)/log_in/LogIn.module.scss";
+import style from "/app/(routes)/log_in/LogIn.module.scss";
 import Button from "@/app/components/Atom/Button/Button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
