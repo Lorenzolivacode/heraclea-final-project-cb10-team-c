@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Counter: React.FC = () => {
-  const [count, setCount] = useState<number>(0);
+interface CounterProps {
+  value: number;
+  onChange: (newValue: number) => void;
+}
+
+const Counter: React.FC<CounterProps> = ({ value, onChange }) => {
+  const [count, setCount] = useState<number>(value);
 
   const increment = () => setCount((prevCount) => prevCount + 1);
   const decrement = () =>
     setCount((prevCount) => (prevCount > 0 ? prevCount - 1 : 0));
+
+  // Esegue l'onChange ogni volta che il valore del contatore cambia
+  useEffect(() => {
+    onChange(count);
+  }, [count, onChange]);
 
   return (
     <>
