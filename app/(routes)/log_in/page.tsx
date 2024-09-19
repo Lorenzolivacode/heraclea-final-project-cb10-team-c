@@ -32,9 +32,12 @@ const SignIn: React.FC = () => {
         alert("Accesso effettuato!");
 
         const displayName = res.user.displayName || "Utente";
+        const uid = res.user.uid;
 
         // Reindirizza alla pagina dell'account e passa il nome utente come query string
-        router.push(`/account_user?userName=${encodeURIComponent(displayName)}`);
+        router.push(
+          `/account_user?userName=${encodeURIComponent(displayName)}&uid=${uid}`
+        );
       }
     } catch (error) {
       if (error instanceof Error) {

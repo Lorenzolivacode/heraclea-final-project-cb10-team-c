@@ -3,13 +3,14 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, update } from "firebase/database";
 import style from "@/app/(routes)/acquista_page/dati_transazione/pagamento.module.scss";
 import ApplePay from "@/app/components/Atom/ApplepayBtn/ApplePayBtn";
 import GooglePayBtn from "@/app/components/Atom/GooglePayBtn/GooglePayBtn";
 import Paypal from "@/public/icons/pagamenti/paypal.svg";
 import Button from "@/app/components/Atom/Button/Button";
 import SelectCarta from "@/app/components/Molecoles/SelectCarta/SelectCarta";
+import Counter from "@/app/components/Atom/Counter/Counter";
 
 const formatDate = (isoDate: string) => {
   const date = new Date(isoDate);
@@ -33,25 +34,14 @@ function DataPayment() {
   const [user, setUser] = useState<any>(null);
   const [orders, setOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [editingOrder, setEditingOrder] = useState<string | null>(null);
+  const [updatedTickets, setUpdatedTickets] = useState<any>({});
   const [cardNumber, setCardNumber] = useState("");
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [cardName, setCardName] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [isFormValid, setIsFormValid] = useState(true);
-
-  const [prices, setPrices] = useState<any>({});
-
-  const fetchPrices = () => {
-    const db = getDatabase();
-    const pricesRef = ref(db, "prices");
-    onValue(pricesRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        setPrices(data);
-      }
-    });
-  };
 
   const fetchOrders = (userId: string) => {
     const db = getDatabase();
@@ -67,7 +57,12 @@ function DataPayment() {
           return {
             id: orderId,
             date: order.date,
-            tickets: Object.values(order.tickets || []),
+            tickets: Object.entries(order.tickets || []).map(
+              ([ticketId, ticketData]: [string, any]) => ({
+                id: ticketId,
+                ...ticketData,
+              })
+            ),
             timestamp: order.timestamp,
           };
         });
@@ -78,10 +73,6 @@ function DataPayment() {
       setLoading(false);
     });
   };
-
-  useEffect(() => {
-    fetchPrices();
-  }, []);
 
   useEffect(() => {
     const auth = getAuth();
@@ -95,10 +86,46 @@ function DataPayment() {
     });
   }, []);
 
+  const handleTicketChange = (
+    orderId: string,
+    ticketId: string,
+    newQuantity: number
+  ) => {
+    setUpdatedTickets((prevTickets: any) => ({
+      ...prevTickets,
+      [orderId]: {
+        ...prevTickets[orderId],
+        [ticketId]: newQuantity,
+      },
+    }));
+  };
+
+  useEffect(() => {
+    console.log("Updated tickets:", updatedTickets);
+    console.log("Orders:", orders);
+  }, [updatedTickets, orders]);
+
+  const updateOrder = (orderId: string) => {
+    const db = getDatabase();
+    const orderRef = ref(db, `orders/${orderId}/tickets`);
+
+    update(orderRef, updatedTickets[orderId])
+      .then(() => {
+        console.log("Ordine aggiornato con successo.");
+        setEditingOrder(null); // Chiudi la modalità di modifica
+        setUpdatedTickets({}); // Resetta i ticket aggiornati
+      })
+      .catch((error) => {
+        console.error("Errore durante l'aggiornamento dell'ordine:", error);
+      });
+  };
+
   const calculateOrderTotal = (order: any) => {
     return order.tickets
       .reduce((total: number, ticket: any) => {
-        return total + ticket.price * ticket.quantity;
+        const quantity =
+          updatedTickets[order.id]?.[ticket.id] || ticket.quantity;
+        return total + parseFloat(ticket.price) * quantity;
       }, 0)
       .toFixed(2);
   };
@@ -147,27 +174,48 @@ function DataPayment() {
             <div key={index} className={style.order}>
               <h4>Data: {order.date}</h4>
               {order.tickets.map((ticket: any, idx: number) => (
-                <p key={idx}>
-                  {ticket.quantity} x {ticket.type} ={" "}
-                  {(ticket.quantity * ticket.price).toFixed(2)}€
-                </p>
+                <div key={idx}>
+                  <p>
+                    {ticket.quantity} x {ticket.type} ={" "}
+                    {(ticket.quantity * ticket.price).toFixed(2)}€
+                  </p>
+                  {editingOrder === order.id && (
+                    <Counter
+                      value={
+                        updatedTickets[order.id]?.[ticket.id] || ticket.quantity
+                      }
+                      onChange={(newQuantity: number) =>
+                        handleTicketChange(order.id, ticket.id, newQuantity)
+                      }
+                    />
+                  )}
+                </div>
               ))}
-              <h2>Totale Ordine: {calculateOrderTotal(order)}€</h2>
+              <div className={style.totalOrder}>
+                <h3>Totale Ordine: {calculateOrderTotal(order)}€</h3>
+              </div>
+              <Button
+                text={
+                  editingOrder === order.id ? "Conferma" : "Modifica Ordine"
+                }
+                onClick={() => {
+                  if (editingOrder === order.id) {
+                    updateOrder(order.id);
+                  } else {
+                    setEditingOrder(order.id);
+                  }
+                }}
+              />
             </div>
           ))
         ) : (
           <p>Non ci sono ordini registrati.</p>
         )}
         <h2>Totale Complessivo: {calculateGrandTotal()}€</h2>
-        <Button
-          text={"Modifica ordine"}
-          onClick={() => router.push("/acquista_page/calendario")}
-        />
       </div>
 
-      <h2>Inserisci dati</h2>
+      <h2>Inserisci dati di pagamento</h2>
 
-      {/* FORM */}
       <div className={style.margin}>
         <div className={style.modal}>
           <form className={style.form} onSubmit={handleSubmit}>
@@ -228,12 +276,12 @@ function DataPayment() {
                 </div>
               </div>
             </div>
-            {!isFormValid && (
-              <p className={style.errorMessage}>
-                Per favore, compila tutti i campi.
-              </p>
-            )}
-            <Button text="Avanti" type="submit" />
+            <Button
+              type="submit"
+              text="Paga adesso"
+              className={!isFormValid ? style.invalid : ""}
+            />
+            {!isFormValid && <p className={style.error}>Dati non validi</p>}
           </form>
         </div>
       </div>
