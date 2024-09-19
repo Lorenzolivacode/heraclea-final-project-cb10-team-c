@@ -1,10 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  i18n: {
-    locales: ["it", "en", "fr", "es"], // Lingue supportate
-    defaultLocale: "it", // Lingua predefinita
-    localeDetection: true, // Rileva automaticamente la lingua del browser
-  },
-};
+import createNextIntlPlugin from "next-intl/plugin";
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+export default withNextIntl(nextConfig);

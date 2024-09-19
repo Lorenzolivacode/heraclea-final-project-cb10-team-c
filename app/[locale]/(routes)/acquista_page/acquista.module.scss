@@ -1,0 +1,39 @@
+.container {
+  background-image: url("/assets/bg_acquista.webp");
+  background-size: cover;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-top: 100px;
+
+  h1 {
+    height: 100px;
+    align-content: center;
+  }
+}
+.mainButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  gap: 26px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    h1 {
+      font-size: 3.5rem;
+      margin: 20px 0px;
+    }
+  }
+
+  .mainButtons {
+    margin-top: 300px;
+  }
+}

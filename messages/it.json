@@ -1,0 +1,16 @@
+{
+  "HomePage": {
+    "titleEraclea": "Uno sguardo su Eraclea...",
+    "citEraclea": "“Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.”"
+  },
+  "ContactsPage": {
+    "titleContacts": "Dove siamo",
+    "tell": "Chiama",
+    "map": "Mappa",
+    "email": "Email",
+    "bus": "Bus",
+    "busTxt": "L'area archeologica è collegata con Palermo, Catania ed Agrigento con servizio di pullman di linea.",
+    "train": "Treno",
+    "trainTxt": "La stazione ferroviaria più vicina è quella di Agrigento Centrale, che dista 40 Km."
+  }
+}
