@@ -1,12 +1,70 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-end;
+  align-items: center;
+
+  .modalContent {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    padding-block: 200px;
+    width: 100%;
+    max-width: 600px;
+    margin-block: 60%;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .active {
+    overflow: hidden;
+  }
+
+  .closeBtn {
+    color: var(--c-white);
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
+
 .audioPlayer {
-  position: relative;
+  // position: fixed;
+  // bottom: 0;
+  // left: 0;
   width: 100%;
   padding: 10px;
+  margin-bottom: 20px;
   border-radius: 12px;
   background-color: var(--c-sienna);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 10;
+}
+
+.textContent {
+  margin-top: 20px;
+  color: var(--c-white);
+  padding-bottom: 120px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.textVisible {
+  opacity: 1;
+  overflow: visible;
 }
 
 .label {
