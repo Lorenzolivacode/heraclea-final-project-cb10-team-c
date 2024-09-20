@@ -45,5 +45,11 @@
     "titleArray4": "Licenza",
     "txtArray4": "Tutti i contenuti sono utilizzati con il permesso dei rispettivi proprietari.",
     "paragraph": "Quest'app è stata creata per valorizzare il patrimonio storico di Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e informativa. Grazie alla collaborazione di esperti locali e istituzioni, siamo riusciti a integrare contenuti culturali e strumenti tecnologici per esplorare al meglio il sito."
+  }, 
+  "EscursioniCards": {
+    "title": "Escursioni",
+    "titleCard1" : "In Bici tra Storia e Natura",
+    "titleCard2" : "Passeggiata a Cavallo",
+    "titleCard3" : "Trekking alla Foce"
   }
 }
