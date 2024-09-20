@@ -35,5 +35,17 @@
     "title": "Esplora",
     "btnExursion": "Escursioni",
     "btnPath": "Percorsi"
+  },
+  "CreditsPage": {
+    "title": "Credits",
+    "titleArray1": "Contributori Locali",
+    "txtArray1": "Ringraziamo [Nome Storico/Archeologo] per la preziosa consulenza storica, [Nome Fotografo] per le splendide fotografie del sito di Eraclea Minoa, e [Nome Guida Locale] per il loro supporto nella raccolta di informazioni culturali e storiche.",
+    "titleArray2": "Comune e Ufficio Turistico",
+    "txtArray2": "Un ringraziamento speciale al Comune di [Regione] e all'Ufficio Turistico di [Regione] per la collaborazione nella fornitura di materiali storici e immagini. Grazie anche al Museo Archeologico di Eraclea Minoa per il contributo di manufatti e dati storici.",
+    "titleArray3": "Team di Sviluppo",
+    "txtArray3": "L'app è stata realizzata da un team di sviluppo (MIGLIORE AL MONDO) dedicato, che ha lavorato per offrire un'esperienza interattiva e coinvolgente del sito storico.",
+    "titleArray4": "Licenza",
+    "txtArray4": "Tutti i contenuti sono utilizzati con il permesso dei rispettivi proprietari e l'app è concessa sotto licenza [Tipo di Licenza].",
+    "paragraph": "Quest'app è stata creata per valorizzare il patrimonio storico di Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e informativa. Grazie alla collaborazione di esperti locali e istituzioni, siamo riusciti a integrare contenuti culturali e strumenti tecnologici per esplorare al meglio il sito."
   }
 }

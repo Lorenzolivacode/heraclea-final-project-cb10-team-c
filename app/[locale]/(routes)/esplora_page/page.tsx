@@ -1,28 +1,21 @@
-"use client";
-
 import React from "react";
 import styles from "./esplora.module.scss";
-import BigButton from "@/app/[locale]/components/Atom/BigButton/BigButton";
-import { useRouter } from "@/i18n/routing";
+import ButtonLink from "@/app/[locale]/components/Atom/ButtonLink/ButtonLink";
 import { useTranslations } from "next-intl";
 
 function Esplora() {
   const t = useTranslations("ExploraPage");
-  const router = useRouter();
   return (
     <main className={styles.main}>
       <div className={styles.title}>
         <h1>{t("title")}</h1>
       </div>
       <div className={styles.buttonContainer}>
-        <BigButton
+        <ButtonLink
           text={t("btnExursion")}
-          onClick={() => router.push("/escursioni_page")}
-        ></BigButton>
-        <BigButton
-          text={t("btnPath")}
-          onClick={() => router.push("/category_home/2")}
-        ></BigButton>
+          href={"/escursioni_page"}
+        ></ButtonLink>
+        <ButtonLink text={t("btnPath")} href={"/category_home/2"}></ButtonLink>
       </div>
     </main>
   );

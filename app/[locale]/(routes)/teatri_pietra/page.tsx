@@ -1,12 +1,8 @@
-"use client";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./Eventi.module.scss";
-import EventButton from "@/app/[locale]/components/Atom/EventButton/EventButton";
+import ButtonLink from "@/app/[locale]/components/Atom/ButtonLink/ButtonLink";
 
 export default function TeatriPietra() {
-  const router = useRouter();
-
   return (
     <main className={styles.mainPage}>
       <section className={styles.hero}>
@@ -18,10 +14,7 @@ export default function TeatriPietra() {
           className={styles.heroImage}
         />
 
-        <EventButton
-          text="Scopri gli eventi"
-          onClick={() => router.push("/teatri_pietra/eventi")}
-        />
+        <ButtonLink text="Scopri gli eventi" href={"/teatri_pietra/eventi"} />
 
         <Image
           src="/assets/eventi-bg.webp"
