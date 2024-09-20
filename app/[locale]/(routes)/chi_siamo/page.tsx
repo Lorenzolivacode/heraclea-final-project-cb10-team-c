@@ -8,16 +8,6 @@ function Credits() {
 
   const credits = [
     {
-      id: 1,
-      title: "titleArray1",
-      text: "txtArray1",
-    },
-    {
-      id: 2,
-      title: "titleArray2",
-      text: "txtArray2",
-    },
-    {
       id: 3,
       title: "titleArray3",
       text: "txtArray3",
