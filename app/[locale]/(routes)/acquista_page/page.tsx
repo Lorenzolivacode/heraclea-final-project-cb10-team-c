@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import Button from "@/app/[locale]/components/Atom/BigButton/BigButton";
 import style from "./acquista.module.scss";
 
