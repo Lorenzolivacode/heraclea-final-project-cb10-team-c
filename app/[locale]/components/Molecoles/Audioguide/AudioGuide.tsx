@@ -8,13 +8,14 @@ interface AudioGuida {
   label?: string;
   filePath: string;
   text: string;
+  img: string;
 }
 
-export default function AudioGuide({ label, text, filePath }: AudioGuida) {
+export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
   const [isTextVisible, setIsTextVisible] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [duration, setDuration] = useState<number | null>(null);
+  const [duration, setDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -41,17 +42,27 @@ export default function AudioGuide({ label, text, filePath }: AudioGuida) {
     }
   };
 
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = Number(e.target.value);
+      setCurrentTime(Number(e.target.value));
+    }
+  };
+
   useEffect(() => {
     const audio = audioRef.current;
+
     if (audio) {
       const handleMetadata = () => {
-        setDuration(audio.duration);
+        setDuration(audio.duration || 0);
       };
 
       audio.addEventListener("loadedmetadata", handleMetadata);
       audio.addEventListener("timeupdate", () => {
         setCurrentTime(audio.currentTime);
       });
+
+      audio.load();
 
       return () => {
         audio.removeEventListener("loadedmetadata", handleMetadata);
@@ -74,6 +85,8 @@ export default function AudioGuide({ label, text, filePath }: AudioGuida) {
         <figcaption onClick={() => setIsModalOpen(true)}>{label}</figcaption>
       </div>
 
+      <audio ref={audioRef} src={filePath} className={styles.audio}></audio>
+
       {isModalOpen && (
         <div
           className={`${styles.modalOverlay} ${
@@ -87,18 +100,15 @@ export default function AudioGuide({ label, text, filePath }: AudioGuida) {
             X
           </button>
           <div className={styles.modalContent}>
-            <Image
-              src={"/assets/teatro_greco.webp"}
-              alt={"teatro greco di eraclea"}
-              width={70}
-              height={70}
-            />
+            <div className={styles.imageWrapper}>
+              <Image
+                src={img}
+                alt={"teatro greco di eraclea"}
+                width={400}
+                height={400}
+              />
+            </div>
             <figure className={styles.audioPlayer}>
-              <audio
-                ref={audioRef}
-                src={filePath}
-                className={styles.audio}
-              ></audio>
               <div className={styles.customControls}>
                 <button
                   className={styles.playPauseButton}
@@ -122,27 +132,44 @@ export default function AudioGuide({ label, text, filePath }: AudioGuida) {
                     />
                   )}
                 </button>
-                <button>
+                <button
+                  className={styles.buttonStop}
+                  onClick={handleStopPlaying}
+                >
                   <Image
                     src="/icons/audioguide-icons/stop.svg"
+                    alt="Icon Stop Player"
+                    className={styles.icon}
                     width={20}
                     height={20}
-                    alt="Icon Stop Player"
-                    onClick={handleStopPlaying}
                   />
                 </button>
               </div>
-              <div className={styles.timeDisplay}>
-                <span>{formatTime(currentTime)}</span>/
-                <span>{formatTime(duration)}</span>
-              </div>
-              <button
-                className={styles.textToggleButton}
-                onClick={toggleVisibility}
-              >
-                {isTextVisible ? "Hide Text" : "Show Text"}
-              </button>
             </figure>
+            <div className={styles.timeDisplay}>
+              <span>{formatTime(currentTime)}</span>
+              <input
+                type="range"
+                min="0"
+                max={duration}
+                value={currentTime}
+                onChange={handleSeek}
+                className={styles.rangeInput}
+                style={
+                  {
+                    "--value": (currentTime / duration) * 100,
+                  } as React.CSSProperties
+                }
+              />
+              <span>{formatTime(duration)}</span>
+            </div>
+
+            <button
+              className={styles.textToggleButton}
+              onClick={toggleVisibility}
+            >
+              {isTextVisible ? "Hide Text" : "Show Text"}
+            </button>
             <p
               className={`${styles.textContent} ${
                 isTextVisible ? styles.textVisible : ""
@@ -150,8 +177,6 @@ export default function AudioGuide({ label, text, filePath }: AudioGuida) {
             >
               {text}
             </p>
-
-            {/* {isTextVisible && <p className={styles.textContent}>{text}</p>} */}
           </div>
         </div>
       )}

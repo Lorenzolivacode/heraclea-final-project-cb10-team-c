@@ -1,6 +1,7 @@
 const audiotext = [
   {
     id: 1,
+    img: "/assets/teatro_greco.webp",
     filePath: "/assets/media/audioguida_teatro.mp3",
     text: `Benvenuti al Teatro Greco di Eraclea Minoa
 Siamo entusiasti di guidarvi alla scoperta di uno dei più straordinari e ben conservati esempi di
@@ -32,10 +33,11 @@ magnifico, immaginate di essere tra il pubblico che assisteva a spettacoli coinv
 storie mitologiche.
 Grazie per aver partecipato a questa visita guidata. Speriamo che abbiate apprezzato la
 grandiosità e la bellezza di questo eccezionale sito storico.`,
-    label: "Teatro",
+    label: "Teatro Greco di Eraclea Minoa",
   },
   {
     id: 2,
+    img: "/assets/antiquarium.webp",
     filePath: "/assets/media/audioguida_antiquarium.mp3",
     text: `Benvenuti alla scoperta dell'Antiquarium di Eraclea Minoa, uno dei tesori archeologici più
 affascinanti della Sicilia.
@@ -74,10 +76,11 @@ cultura di una città che ha lasciato un'impronta duratura sulla Sicilia e sul m
 che la vostra visita arricchisca la vostra comprensione e apprezzamento del patrimonio culturale
 di questo straordinario sito archeologico.
 Grazie per aver visitato l'Antiquarium di Eraclea Minoa. Buona esplorazione!`,
-    label: "Antiquarium",
+    label: "Antiquarium di Eraclea Minoa",
   },
   {
     id: 3,
+    img: "/assets/quartiere_ellenistico.webp",
     filePath: "/assets/media/audioguida_scavi.mp3",
     text: `Benvenuti alla scoperta degli scavi archeologici di Eraclea Minoa
 Siamo entusiasti di guidarvi attraverso questo affascinante viaggio nel passato, esplorando uno
@@ -118,7 +121,7 @@ Minoa e della vita dei suoi abitanti.
 Grazie per aver partecipato a questa visita guidata degli scavi archeologici di Eraclea Minoa.
 Speriamo che abbiate trovato affascinante questo viaggio nel tempo e che abbiate ottenuto
 nuove prospettive sulla ricca storia e cultura di questo straordinario sito.`,
-    label: "L'Area acheologica",
+    label: "Gli scavi archeologici di Eraclea Minoa",
   },
 ];
 

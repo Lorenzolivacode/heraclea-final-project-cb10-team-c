@@ -12,6 +12,7 @@ function AudioGuidePage() {
             label={audio.label}
             filePath={audio.filePath}
             text={audio.text}
+            img={audio.img}
           />
         </div>
       ))}

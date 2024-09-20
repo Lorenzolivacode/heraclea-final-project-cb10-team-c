@@ -2,7 +2,6 @@
   position: relative;
   top: 100px;
   width: 100%;
-  // min-height: 80vh;
   background-color: var(--c-white);
   display: flex;
   flex-direction: column;
@@ -18,18 +17,12 @@
 .playerBox {
   display: flex;
   flex-direction: column;
-  // padding-inline: 20px;
   width: 100%;
   gap: 10px;
 
   h2 {
     font-weight: 600;
     letter-spacing: 1.8px;
-  }
-
-  p {
-    margin: 0 auto;
-    padding: 10px 20px;
   }
 }
 
