@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./AudioGuide.module.scss";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface AudioGuida {
   label?: string;
@@ -18,6 +19,7 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
   const [duration, setDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const t = useTranslations("AudioguidePage");
 
   const toggleVisibility = () => {
     setIsTextVisible((prevState) => !prevState);
@@ -83,6 +85,14 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
     <div>
       <div className={styles.label}>
         <figcaption onClick={() => setIsModalOpen(true)}>{label}</figcaption>
+        <Image
+          className={styles.headphonesIcon}
+          src="/icons/headphonesSienna.svg"
+          alt="Headphones Icon"
+          width={50}
+          height={50}
+          onClick={() => setIsModalOpen(true)}
+        />
       </div>
 
       <audio ref={audioRef} src={filePath} className={styles.audio}></audio>
@@ -168,7 +178,7 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
               className={styles.textToggleButton}
               onClick={toggleVisibility}
             >
-              {isTextVisible ? "Hide Text" : "Show Text"}
+              {isTextVisible ? t("buttonTextNascondi") : t("buttonTextMostra")}
             </button>
             <p
               className={`${styles.textContent} ${
