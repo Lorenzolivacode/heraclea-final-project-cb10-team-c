@@ -34,6 +34,26 @@
   }
 }
 
+.team {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px auto;
+
+  li {
+    border-radius: 5px;
+    padding: 5px 10px 10px 10px;
+    color: var(--c-white);
+    background-color: var(--c-sienna);
+    .link {
+      border-radius: 5px;
+      border-bottom: 4px double var(--c-white);
+      padding-bottom: 5px;
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .main h1 {
     font-size: 3.5rem;

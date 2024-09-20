@@ -1,4 +1,3 @@
-
 export interface ITxtTraslate {
   italian: string;
   english: string;
@@ -8,15 +7,16 @@ export interface ITxtTraslate {
 
 export interface ISubObj {
   id: string;
-  title: ITxtTraslate;
+  title: string;
   images: string[];
-  description: ITxtTraslate;
+  description: string;
 }
 
 export interface IEracleaDataObj {
   id: string;
-  title: ITxtTraslate;
-  images: string;
+  title: string;
+  titleDetails: string;
+  image: string;
   roadmap: string;
   subcategory: ISubObj;
 }

@@ -79,7 +79,7 @@ const Map = (Map: MapProps) => {
 
   return (
     <>
-      <h1>Percorsi</h1>
+      {/* <h1>Percorsi</h1> */}
       <MapContainer
         center={posix}
         zoom={zoom}
