@@ -69,21 +69,16 @@ export default function HomePage() {
         </button>
         {eracleaData.map(
           (point: {
-            id: Key | null | undefined;
+            id: string | null | undefined;
             roadmap: string;
-            title: {
-              italian: string;
-              english: string;
-              french: string;
-              spanish: string;
-            };
+            title: string;
             image: string;
           }) => {
             return (
               <Card
                 key={point.id}
                 roadmap={`${point.roadmap}${point.id}`}
-                label={point.title.italian}
+                label={point.title}
                 image={point.image}
               />
             );

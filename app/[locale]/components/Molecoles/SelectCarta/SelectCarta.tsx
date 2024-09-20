@@ -1,5 +1,5 @@
 "use client";
-import style from "@/app/(routes)/acquista_page/dati_transazione/pagamento.module.scss";
+import style from "@/app/[locale]/(routes)/acquista_page/dati_transazione/pagamento.module.scss";
 import Image from "next/image";
 import Visa from "@/public/icons/pagamenti/visa.svg";
 import Mastercard from "@/public/icons/pagamenti/mastercard.svg";
