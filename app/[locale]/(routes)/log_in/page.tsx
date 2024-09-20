@@ -39,13 +39,12 @@ const SignIn: React.FC = () => {
         const uid = res.user.uid;
 
         // Reindirizza alla pagina dell'account e passa il nome utente come query string
+        /* router.push(
+          `/account_user?userName=${encodeURIComponent(displayName)}&uid=${uid}`
+        ); */
         setTimeout(() => {
-          router.push(
-            `/account_user?userName=${encodeURIComponent(
-              displayName
-            )}&uid=${uid}`
-          );
-        }, 3100);
+          router.push(`/`);
+        }, 100);
       }
     } catch (error) {
       console.log("errore");
@@ -84,20 +83,18 @@ const SignIn: React.FC = () => {
 
   return (
     <div className={style.container}>
-      {isLoginFailure && (
-        <Toast
-          message={error}
-          type="error"
-          onClose={() => setIsLoginFailure(false)}
-        />
-      )}
-      {isLoginSuccess && (
-        <Toast
-          message="Accesso effettuato!"
-          type="success"
-          onClose={() => setIsLoginSuccess(false)}
-        />
-      )}
+      <Toast
+        message={error}
+        type="error"
+        isOpen={isLoginFailure}
+        onClose={() => setIsLoginFailure(false)}
+      />
+      <Toast
+        message="Accesso effettuato!"
+        type="success"
+        isOpen={isLoginSuccess}
+        onClose={() => setIsLoginSuccess(false)}
+      />
       <h1 className={style.title}>Log In</h1>
       <form onSubmit={handleSubmit} className={style.form}>
         <div>

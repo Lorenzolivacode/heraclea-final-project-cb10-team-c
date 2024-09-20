@@ -10,6 +10,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 import { useLocale } from "next-intl";
+import Sounder from "./components/Atom/Sounder/Sounder";
 
 //error simulation
 // const session = null;
@@ -54,12 +55,13 @@ export default function HomePage() {
           <p className={styles.cit}>{t("citEraclea")}</p>
           {/* <p className={styles.cit_label}>{labels.citArchiLabel}</p> */}
         </div>
-        <button value="en" onClick={languageChangeHandler}>
+        {/* <button value="en" onClick={languageChangeHandler}>
           English
         </button>
         <button value="it" onClick={languageChangeHandler}>
           Italiano
-        </button>
+        </button> */}
+        <Sounder></Sounder>
         {eracleaData.map(
           (point: {
             id: string | null | undefined;
