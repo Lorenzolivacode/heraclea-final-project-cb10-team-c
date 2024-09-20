@@ -42,15 +42,15 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
 
   return (
     <div className={`${style.menu} ${isMenuOpen ? style.open : ""}`}>
-      {isToastSuccessOpen && (
-        <Toast
-          onClose={() => setIsToastSuccessOpen(false)}
-          message="Logout effettuato con successo!"
-          type="success"
-        />
-      )}
+      <Toast
+        isOpen={isToastSuccessOpen}
+        onClose={() => setIsToastSuccessOpen(false)}
+        message="Logout effettuato con successo!"
+        type="success"
+      />
       {isToastErrorOpen && (
         <Toast
+          isOpen={isToastErrorOpen}
           onClose={() => setIsToastErrorOpen(false)}
           message="Logout effettuato con successo!"
           type="success"
