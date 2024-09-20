@@ -30,5 +30,22 @@
     "descriptionTheater": "L’antico teatro greco di Eraclea, costruito alla fine del V a.C., fu riportato alla luce nel 1957. Esso si presenta con una cavea a 10 gradoni, divisa in 9 settori, che guarda verso il mare. Costruito ad incastro con conci di marna, il sito è dotato anche di antiquarium, dove sono conservati reperti archeologici rinvenuti durante le varie campagne di scavo. Gli scavi archeologici sulle rovine vennero intrapresi in modo sistematico dal 1950. La città viene considerata idonea per comprendere l’urbanistica delle città ellenistiche e romane: il teatro; il quartiere delle abitazioni ellenistiche e romane con impianto urbanistico ad “insulae”, separate da strade parallele. Si possono vedere anche i resti della cinta muraria della città costruita tra la fine del VI e la fine del IV secolo a.C., lungo circa 6 chilometri; a nord-est delle mura si riconoscono ancora otto torri quadrate. Il teatro greco fu individuato nel Settecento, ma portato alla luce soltanto nel 1953.",
     "titleAntiquarium": "Antiquarium",
     "descriptionAntiquarium": "L'Antiquarium di Eraclea Minoa è un museo situato all'ingresso dell'area archeologica della città. Al suo interno sono esposti reperti provenienti dalle abitazioni e dalle necropoli arcaiche ed ellenistiche. Tra i reperti figurano ceramiche, monete e altri oggetti che testimoniano la vita quotidiana e le influenze culturali della città nel corso dei secoli. L'Antiquarium offre un prezioso contesto storico per comprendere meglio l'evoluzione della città di Eraclea Minoa, dalla sua fondazione fino al suo declino."
+  },
+  "ExploraPage": {
+    "title": "Esplora",
+    "btnExursion": "Escursioni",
+    "btnPath": "Percorsi"
+  },
+  "CreditsPage": {
+    "title": "Credits",
+    "titleArray1": "Contributori Locali",
+    "txtArray1": "Ringraziamo [Nome Storico/Archeologo] per la preziosa consulenza storica, [Nome Fotografo] per le splendide fotografie del sito di Eraclea Minoa, e [Nome Guida Locale] per il loro supporto nella raccolta di informazioni culturali e storiche.",
+    "titleArray2": "Comune e Ufficio Turistico",
+    "txtArray2": "Un ringraziamento speciale al Comune di [Regione] e all'Ufficio Turistico di [Regione] per la collaborazione nella fornitura di materiali storici e immagini. Grazie anche al Museo Archeologico di Eraclea Minoa per il contributo di manufatti e dati storici.",
+    "titleArray3": "Team di Sviluppo",
+    "txtArray3": "L'app è stata realizzata da un team di sviluppo (MIGLIORE AL MONDO) dedicato, che ha lavorato per offrire un'esperienza interattiva e coinvolgente del sito storico.",
+    "titleArray4": "Licenza",
+    "txtArray4": "Tutti i contenuti sono utilizzati con il permesso dei rispettivi proprietari e l'app è concessa sotto licenza [Tipo di Licenza].",
+    "paragraph": "Quest'app è stata creata per valorizzare il patrimonio storico di Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e informativa. Grazie alla collaborazione di esperti locali e istituzioni, siamo riusciti a integrare contenuti culturali e strumenti tecnologici per esplorare al meglio il sito."
   }
 }

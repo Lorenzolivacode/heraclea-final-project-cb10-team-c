@@ -2,7 +2,7 @@
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter, usePathname } from "next/navigation";
-import { auth } from "@/app/firebase/config";
+import { auth } from "@/app/[locale]/firebase/config";
 import { getDatabase, ref, get } from "firebase/database";
 import { useEffect, useState } from "react";
 

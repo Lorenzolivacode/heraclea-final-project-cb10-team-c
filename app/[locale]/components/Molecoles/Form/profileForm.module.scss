@@ -1,0 +1,47 @@
+
+.form {
+    background-color: var(--c-ivory);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: 1px solid var(--c-sienna);
+  
+    div {
+      margin-bottom: 15px;
+  
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: var(--c-sienna);
+      }
+  
+      input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid var(--c-brown-dark);
+  
+        &:focus {
+          border-color: var(--c-sienna);
+          outline: none;
+        }
+      }
+    }
+  
+    button {
+      background-color: var(--c-sienna);
+      color: var(--c-white);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      display: flex;
+      margin: 0 auto;
+  
+      &:hover {
+        background-color: var(--c-sienna);
+      }
+    }
+  }
+  
