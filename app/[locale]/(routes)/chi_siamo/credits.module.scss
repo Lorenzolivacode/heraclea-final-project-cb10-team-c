@@ -48,8 +48,8 @@
     background-color: var(--c-sienna);
     .link {
       border-radius: 5px;
-      border-bottom: 4px double var(--c-white);
-      padding-bottom: 5px;
+      border-bottom: 2px solid var(--c-white);
+      padding: 0 4px 5px 4px;
     }
   }
 }

@@ -53,14 +53,16 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
         </Link>
       </div>
       {!shouldHideMenu && (
-        <span className={style.span}>
-          <Hamburger
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-            className={""}
-          />
+        <>
+          <span className={style.span}>
+            <Hamburger
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpen={setIsMenuOpen}
+              className={""}
+            />
+          </span>
           <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        </span>
+        </>
       )}
     </div>
   );

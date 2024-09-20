@@ -22,11 +22,11 @@ function Credits() {
       title: "titleArray3",
       text: "txtArray3",
       team: [
-        "Gennare Samuele",
-        "Nurkovic Lejla",
-        "Miceli Lidia",
-        "Miosi Roberta",
-        "Oliva Lorenzo",
+        { name: "Gennare Samuele", githubUrl: "samuelegen" },
+        { name: "Nurkovic Lejla", githubUrl: "LejNur" },
+        { name: "Miceli Lidia", githubUrl: "lidiamiceli" },
+        { name: "Miosi Roberta", githubUrl: "RobertaMi89" },
+        { name: "Oliva Lorenzo", githubUrl: "Lorenzolivacode" },
       ],
     },
     {
@@ -49,8 +49,12 @@ function Credits() {
               <ul className={styles.team}>
                 {credit.team.map((member) => (
                   <li>
-                    <Link className={styles.link} href="">
-                      {member}
+                    <Link
+                      target="_blank"
+                      className={styles.link}
+                      href={`https://github.com/${member.githubUrl}`}
+                    >
+                      {member.name}
                     </Link>
                   </li>
                 ))}
