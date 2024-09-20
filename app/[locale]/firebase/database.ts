@@ -11,9 +11,19 @@ export const saveToDatabase = (
 
   // Crea un oggetto ordine
   const order = {
-    date: selectedDate.toISOString(), // Salva la data in formato ISO
+    date: selectedDate.toLocaleDateString("it-IT", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }), // Formato gg/mm/aaaa
     tickets,
-    timestamp: new Date().toISOString(), // Salva il momento dell'acquisto
+    timestamp: new Date().toLocaleString("it-IT", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }), // Aggiunge anche ora e minuti
   };
 
   // Salva i dati nel database sotto una nuova chiave
