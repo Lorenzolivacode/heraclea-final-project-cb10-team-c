@@ -6,6 +6,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/app/[locale]/firebase/config";
 import style from "/app/[locale]/components/Molecoles/Menu/Menu.module.scss";
 import Toast from "../../Atom/Toast/Toast";
+import { useTranslations } from "next-intl";
 
 interface MenuProps {
   isMenuOpen: boolean;
@@ -16,16 +17,17 @@ interface MenuProps {
 const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
   const [isToastSuccessOpen, setIsToastSuccessOpen] = useState(false);
   const [isToastErrorOpen, setIsToastErrorOpen] = useState(false);
+  const t = useTranslations("Menu");
 
   const menuItems = [
-    { label: "Account", link: "/account_user" },
-    { label: "Biglietti", link: "/acquista_page" },
-    { label: "Esplora", link: "/esplora_page" },
-    { label: "Nelle vicinanze", link: "/nelle_vicinanze" },
-    { label: "Dove siamo", link: "/contatti" },
-    { label: "Norme", link: "/norme" },
-    { label: "Credits", link: "/chi_siamo" },
-    { label: "Log out", action: () => handleSignOut() },
+    { label: t("account"), link: "/account_user" },
+    { label: t("tickets"), link: "/acquista_page" },
+    { label: t("explore"), link: "/esplora_page" },
+    { label: t("inTheArea"), link: "/nelle_vicinanze" },
+    { label: t("whereWeAre"), link: "/contatti" },
+    { label: t("regulations"), link: "/norme" },
+    { label: t("credits"), link: "/chi_siamo" },
+    { label: t("logout"), action: () => handleSignOut() },
   ];
 
   const handleSignOut = async () => {

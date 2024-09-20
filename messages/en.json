@@ -3,7 +3,6 @@
     "titleEraclea": "A glimpse of Eraclea...",
     "citEraclea": "“Eraclea Minoa, where ancient ruins touch the sea and eternal beauty lives in the silence of history.”"
   },
-
   "AudioguidePage": {
     "title": "Audioguide",
     "label1": "Greek Theatre of Eraclea Minoa",
@@ -21,6 +20,7 @@
     "buttonTextMostra": "Show text",
     "buttonTextNascondi": "Hide text"
   },
+
   "Map": {
     "title1": "Greek Theater of Eraclea Minoa",
     "text1": "The ancient Greek theater of Eraclea, built in the 5th century BC, has a cavea with 10 tiers and a sea view. Excavated in 1957, nearby is the antiquarium with artifacts. The city preserves traces of Hellenistic and Roman urban planning, with remains of a 6 km-long wall and square towers.",
@@ -46,5 +46,16 @@
     "title": "Explore",
     "btnExursion": "Excursions",
     "btnPath": "Paths"
+  },
+
+  "Menu": {
+    "account": "Account",
+    "tickets": "Tickets",
+    "explore": "Explore",
+    "inTheArea": "Nearby",
+    "whereWeAre": "Where we are",
+    "regulations": "Regulations",
+    "credits": "Credits",
+    "logout": "Log out"
   }
 }
