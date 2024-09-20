@@ -1,4 +1,4 @@
-// app/[locale]/components/Molecoles/Form/ProfileForm.tsx
+
 
 import React, { useState } from 'react';
 import styles from './profileForm.module.scss';
@@ -7,7 +7,7 @@ interface UserData {
   firstName: string;
   lastName: string;
   email: string;
-  password: string; // Aggiungi la proprietà password
+  password: string; 
 }
 
 interface ProfileFormProps {
@@ -27,10 +27,10 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
 
   const toggleEdit = () => {
     setIsEditing(!isEditing);
-    // Quando si salva, potresti voler inviare i dati aggiornati a un server
+    
     if (isEditing) {
       console.log("Dati salvati:", formData);
-      // Qui puoi chiamare una funzione per salvare i dati nel tuo backend
+      
     }
   };
 
@@ -71,7 +71,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
         <input
           type="password"
           name="password"
-          value={formData.password} // Usa formData.password direttamente
+          value={formData.password} 
           onChange={handleChange}
           disabled={!isEditing}
         />
