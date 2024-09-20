@@ -6,8 +6,8 @@ import { auth } from "@/app/[locale]/firebase/config";
 import { useRouter } from "next/navigation";
 import style from "./SignUp.module.scss";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
-import Link from "next/link";
 import InitialPagemodal from "@/app/[locale]/components/Organism/modalInitialPage/ModalInitialPage";
+import { Link } from "@/i18n/routing";
 
 const SignUp: React.FC = () => {
   const [nome, setNome] = useState<string>("");

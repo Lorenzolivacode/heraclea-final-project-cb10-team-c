@@ -13,15 +13,24 @@
 
   .iconTest {
     margin: auto;
-    width: 25px;
+    width: 35px;
     aspect-ratio: 1/1;
     overflow: hidden;
+    object-fit: cover;
   }
 
   p {
     margin-top: 8px;
     color: var(--c-ivory);
-    font-size: 0.60rem;
+    font-size: 0.6rem;
     letter-spacing: 0.8px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .listEl {
+    .iconTest {
+      width: 55px;
+    }
   }
 }

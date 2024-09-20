@@ -5,7 +5,7 @@ import { auth } from "@/app/[locale]/firebase/config";
 import style from "./LogIn.module.scss";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const SignIn: React.FC = () => {
   const [password, setPassword] = useState<string>("");
