@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import style from "/app/components/Organism/modalInitialPage/ModalInitialPage.module.scss";
-import Toggle from "@/app/[locale]/components/Atom/Toggle/Toggle";
-import Modal from "@/app/[locale]/components/Molecoles/Modal/modal";
-import Button from "@/app/[locale]/components/Atom/Button/Button";
+import style from "./ModalInitialPage.module.scss";
+import Toggle from "../../Atom/Toggle/Toggle";
+import Modal from "../../Molecoles/Modal/modal";
+import Button from "../../Atom/Button/Button";
 
 function InitialPagemodal() {
   const [selectedPage, setSelectedPage] = useState<string>("pagina_0");
