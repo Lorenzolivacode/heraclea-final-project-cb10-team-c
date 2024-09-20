@@ -13,7 +13,7 @@ import Button from "@/app/[locale]/components/Atom/Button/Button";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
 
 //Date Eventi
-const availableDates = [
+const availableDatesTheatre = [
   new Date(2024, 8, 18),
   new Date(2024, 8, 20),
   new Date(2024, 8, 25),
@@ -79,7 +79,9 @@ const Calendar: React.FC = () => {
 
   const isTeatroDate =
     selectedDate &&
-    availableDates.some((date) => date.getTime() === selectedDate.getTime());
+    availableDatesTheatre.some(
+      (date) => date.getTime() === selectedDate.getTime()
+    );
   const closeModal = () => {
     setShowModal(false);
   };
@@ -127,15 +129,39 @@ const Calendar: React.FC = () => {
   };
 
   const handlePurchase = () => {
-    const tickets = [
-      { type: "Intero", quantity: interoCount, price: 4.0 },
-      { type: "Ridotto", quantity: ridottoCount, price: 2.0 },
-      { type: "Ticket Teatri di Pietra", quantity: teatriCount, price: 12.0 },
-    ];
+    const tickets = [];
 
-    saveToDatabase(selectedDate!, tickets); // Salva i dati nel database
+    if (interoCount > 0) {
+      tickets.push({
+        type: "Intero",
+        quantity: interoCount,
+        price: fullTicketPrice,
+      });
+    }
+    if (ridottoCount > 0) {
+      tickets.push({
+        type: "Ridotto",
+        quantity: ridottoCount,
+        price: reducedTicketPrice,
+      });
+    }
+    if (isTeatroDate && teatriCount > 0) {
+      tickets.push({
+        type: "Ticket Teatri di Pietra",
+        quantity: teatriCount,
+        price: eventTicketPrice,
+      });
+    }
 
-    router.push("/acquista_page/dati_transazione"); // Reindirizza alla pagina di transazione
+    console.log("Biglietti da salvare:", tickets); // Aggiungi questo log
+
+    // Salva solo se ci sono biglietti
+    if (tickets.length > 0) {
+      saveToDatabase(selectedDate!, tickets);
+      router.push("/acquista_page/dati_transazione");
+    } else {
+      console.log("Nessun biglietto selezionato.");
+    }
   };
 
   const monthNames = [
@@ -160,7 +186,7 @@ const Calendar: React.FC = () => {
       currentDate.getMonth(),
       day
     );
-    return availableDates.some(
+    return availableDatesTheatre.some(
       (date) =>
         date.getFullYear() === dateToCheck.getFullYear() &&
         date.getMonth() === dateToCheck.getMonth() &&
@@ -232,7 +258,7 @@ const Calendar: React.FC = () => {
                 const available = isDateAvailable(day);
                 const isTeatroDate =
                   available &&
-                  availableDates.some(
+                  availableDatesTheatre.some(
                     (date) => date.getTime() === selectedDate.getTime()
                   );
 
