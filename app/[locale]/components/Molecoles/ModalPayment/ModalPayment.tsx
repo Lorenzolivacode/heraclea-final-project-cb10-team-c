@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useRouter } from "@/i18n/routing";
 import { getDatabase, ref, set } from "firebase/database";
@@ -13,7 +14,7 @@ import SelectCarta from "@/app/[locale]/components/Molecoles/SelectCarta/SelectC
 function ModalPayment() {
   const [cardNumber, setCardNumber] = useState("");
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  const [cardName, setCardName] = useState("");
+  const [cardName, setCardName] = useState<string>("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [isFormValid, setIsFormValid] = useState(true);
@@ -88,7 +89,7 @@ function ModalPayment() {
                 <input
                   className={style.input_field}
                   type="text"
-                  placeholder="Inserisci il tuo nome completo"
+                  placeholder="Inserisci il nome sulla carta"
                   value={cardName}
                   onChange={(e) => setCardName(e.target.value)}
                   required
