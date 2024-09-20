@@ -11,15 +11,6 @@ import { useTranslations } from "next-intl";
 
 import { useLocale } from "next-intl";
 
-const labels = {
-  titleEraclea: "Uno sguardo su Eraclea...",
-  citEraclea:
-    "“Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.”",
-  citArchimede:
-    "“Superare le proprie limitazioni e divenire signori dell'universo.”",
-  citArchiLabel: "Archimede",
-};
-
 //error simulation
 // const session = null;
 
@@ -27,6 +18,7 @@ export default function HomePage() {
   const locale = useLocale(); // Ottieni la lingua corrente
 
   const t = useTranslations("HomePage");
+  const tCat = useTranslations("eracleaDataCategory");
   //error simulation
   // if (!session) throw new Error("Example Error with Session!");
 
@@ -78,7 +70,7 @@ export default function HomePage() {
               <Card
                 key={point.id}
                 roadmap={`${point.roadmap}${point.id}`}
-                label={point.title}
+                label={tCat(point.title)}
                 image={point.image}
               />
             );
