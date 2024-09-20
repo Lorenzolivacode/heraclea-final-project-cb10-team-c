@@ -1,5 +1,6 @@
-/* "use client"; */
 import React from "react";
+import { useTranslations } from "next-intl";
+
 import eracleaData from "@/app/[locale]/data";
 import Carousel from "@/app/[locale]/components/Molecoles/Carousel/Carousel";
 import SliderBA from "@/app/[locale]/components/Molecoles/SliderBA/SliderBA";
@@ -8,7 +9,7 @@ interface UserProps {
   params: { id: string };
 }
 function DetailPage({ params }: UserProps) {
-  /* const [archeo, setArcheo] = useState(false); */ //senza use client non serve lo useState
+  const t = useTranslations("eracleaDataSubcategory");
   const { id } = params;
   let archeo = false;
 
@@ -28,25 +29,6 @@ function DetailPage({ params }: UserProps) {
     archeo = true; // quindi, setto archeo a true
   }
 
-  /* const obj = eracleaData[0].subcategory.find((item) => item.id === id); */
-
-  /* useEffect(() => {
-    if (
-      eracleaData.some(
-        //scorro gli obj di eracleaData
-        (category, index) =>
-          index === 1 && category.subcategory.some((item) => item.id === id) //conftonto l'id di riferimento con gli id presenti nelle subcategori del secondo obj
-        //se trovo una corrispondenza con entrambe le condizioni, vuol dire che l'id di riferimento fa parte della categoria archeo
-      )
-    ) {
-      setArcheo(true); // quindi, setto archeo a true
-    }
-  }, [id]); */
-
-  /* useEffect(() => {
-    console.log("Params ID:", id);
-    console.log("Data:", eracleaData[0].subcategory);
-  }, []); */
   if (!obj) {
     return (
       <main className="main">
@@ -61,8 +43,8 @@ function DetailPage({ params }: UserProps) {
       ) : (
         <SliderBA imgA={obj.images[0]} imgB={obj.images[1]} />
       )}
-      <h1>{obj.title.italian}</h1>
-      <p>{obj.description.italian}</p>
+      <h1>{t(obj.title)}</h1>
+      <p>{t(obj.description)}</p>
     </main>
   );
 }

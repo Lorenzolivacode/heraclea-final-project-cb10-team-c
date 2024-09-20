@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, onValue, update } from "firebase/database";
-import style from "@/app/[locale]/(routes)/acquista_page/dati_transazione/pagamento.module.scss";
+import style from "./pagamento.module.scss";
 import ApplePay from "@/app/[locale]/components/Atom/ApplepayBtn/ApplePayBtn";
 import GooglePayBtn from "@/app/[locale]/components/Atom/GooglePayBtn/GooglePayBtn";
 import Paypal from "@/public/icons/pagamenti/paypal.svg";
