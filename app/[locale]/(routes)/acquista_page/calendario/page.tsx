@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { getDatabase, ref, set, push } from "firebase/database";
 import { auth } from "@/app/[locale]/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -77,10 +77,12 @@ const Calendar: React.FC = () => {
     }
   };
 
+  const isTeatroDate =
+    selectedDate &&
+    availableDates.some((date) => date.getTime() === selectedDate.getTime());
   const closeModal = () => {
     setShowModal(false);
   };
-
   const saveToDatabase = (
     selectedDate: Date,
     tickets: { type: string; quantity: number; price: number }[]
@@ -88,10 +90,22 @@ const Calendar: React.FC = () => {
     const ordersRef = ref(db, "orders");
     const newOrderRef = push(ordersRef);
 
+    const formattedDate = selectedDate.toLocaleDateString("it-IT", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+
     const order = {
-      date: selectedDate.toISOString(),
+      date: formattedDate, // Formatta la data qui
       tickets,
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toLocaleString("it-IT", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      }), // Anche il timestamp è formattato
       userId: user ? user.uid : null, // Salva l'ID utente se autenticato
     };
 
@@ -216,17 +230,22 @@ const Calendar: React.FC = () => {
                 today.setHours(0, 0, 0, 0);
                 const isPastDay = selectedDate.getTime() < today.getTime();
                 const available = isDateAvailable(day);
+                const isTeatroDate =
+                  available &&
+                  availableDates.some(
+                    (date) => date.getTime() === selectedDate.getTime()
+                  );
 
                 return (
                   <div
                     key={day}
-                    onClick={() =>
-                      !isPastDay && available && handleDayClick(day)
-                    }
+                    onClick={() => !isPastDay && handleDayClick(day)} // Solo per giorni non passati
                     className={`text-center py-2 text-lg cursor-pointer ${
-                      isPastDay || !available
-                        ? "text-gray-400 cursor-not-allowed"
-                        : "text-sienna hover:bg-grayLight"
+                      isPastDay
+                        ? "text-gray-400 cursor-not-allowed" // Giorni passati disabilitati
+                        : isTeatroDate
+                        ? "text-red-600 hover:bg-grayLight" // Giorni con biglietti teatro
+                        : "text-gray-700 hover:bg-grayLight" // Giorni futuri e presenti
                     }`}
                   >
                     {day}
@@ -292,21 +311,24 @@ const Calendar: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex flex-row">
-                <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
-                  <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
-                    <span className="text-sienna text-sm">
-                      Ticket Teatri di Pietra
-                    </span>
+              {/* Condizione per mostrare i biglietti "Ticket Teatri di Pietra" */}
+              {isTeatroDate && (
+                <div className="flex flex-row">
+                  <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
+                    <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
+                      <span className="text-sienna text-sm">
+                        Ticket Teatri di Pietra
+                      </span>
+                    </div>
+                    <div className="text-sienna ps-2 font-bold">
+                      € {eventTicketPrice.toFixed(2)}
+                    </div>
                   </div>
-                  <div className="text-sienna ps-2 font-bold">
-                    € {eventTicketPrice.toFixed(2)}
+                  <div className="flex justify-center items-center ms-2 mt-5">
+                    <Counter value={teatriCount} onChange={setTeatriCount} />
                   </div>
                 </div>
-                <div className="flex justify-center items-center ms-2 mt-5">
-                  <Counter value={teatriCount} onChange={setTeatriCount} />
-                </div>
-              </div>
+              )}
 
               {/* Totale */}
               <div className="text-xl font-semibold text-sienna mt-5">
