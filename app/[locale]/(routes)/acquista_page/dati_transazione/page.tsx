@@ -1,32 +1,16 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, onValue, update } from "firebase/database";
-import style from "@/app/[locale]/(routes)/acquista_page/dati_transazione/pagamento.module.scss";
+import style from "./pagamento.module.scss";
 import ApplePay from "@/app/[locale]/components/Atom/ApplepayBtn/ApplePayBtn";
 import GooglePayBtn from "@/app/[locale]/components/Atom/GooglePayBtn/GooglePayBtn";
 import Paypal from "@/public/icons/pagamenti/paypal.svg";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import SelectCarta from "@/app/[locale]/components/Molecoles/SelectCarta/SelectCarta";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
-
-const formatDate = (isoDate: string) => {
-  const date = new Date(isoDate);
-  return (
-    date.toLocaleDateString("it-IT", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }) +
-    " " +
-    date.toLocaleTimeString("it-IT", {
-      hour: "2-digit",
-      minute: "2-digit",
-    })
-  );
-};
 
 function DataPayment() {
   const router = useRouter();
@@ -91,19 +75,27 @@ function DataPayment() {
     ticketId: string,
     newQuantity: number
   ) => {
-    setUpdatedTickets((prevTickets: any) => ({
-      ...prevTickets,
-      [orderId]: {
-        ...prevTickets[orderId],
-        [ticketId]: newQuantity,
-      },
-    }));
+    setUpdatedTickets((prevTickets: any) => {
+      // Evita di aggiornare lo stato se la quantità non è cambiata
+      const currentQuantity = prevTickets[orderId]?.[ticketId] || null;
+      if (currentQuantity === newQuantity) {
+        return prevTickets;
+      }
+
+      return {
+        ...prevTickets,
+        [orderId]: {
+          ...prevTickets[orderId],
+          [ticketId]: newQuantity,
+        },
+      };
+    });
   };
 
   useEffect(() => {
     console.log("Updated tickets:", updatedTickets);
     console.log("Orders:", orders);
-  }, [updatedTickets, orders]);
+  }, []);
 
   const updateOrder = (orderId: string) => {
     const db = getDatabase();
@@ -194,18 +186,24 @@ function DataPayment() {
               <div className={style.totalOrder}>
                 <h3>Totale Ordine: {calculateOrderTotal(order)}€</h3>
               </div>
-              <Button
-                text={
-                  editingOrder === order.id ? "Conferma" : "Modifica Ordine"
-                }
-                onClick={() => {
-                  if (editingOrder === order.id) {
-                    updateOrder(order.id);
-                  } else {
-                    setEditingOrder(order.id);
-                  }
-                }}
-              />
+
+              {/* Mostra il pulsante "Modifica Ordine" o "Conferma" in base allo stato */}
+
+              {editingOrder === order.id ? (
+                <>
+                  {/* Bottone per confermare la modifica */}
+                  <Button
+                    text="Conferma"
+                    onClick={() => updateOrder(order.id)}
+                  />
+                </>
+              ) : (
+                /* Bottone per entrare in modalità modifica */
+                <Button
+                  text="Modifica Ordine"
+                  onClick={() => setEditingOrder(order.id)}
+                />
+              )}
             </div>
           ))
         ) : (
