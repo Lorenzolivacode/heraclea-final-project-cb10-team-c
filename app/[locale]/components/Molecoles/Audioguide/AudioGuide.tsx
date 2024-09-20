@@ -114,8 +114,8 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
               <Image
                 src={img}
                 alt={"teatro greco di eraclea"}
-                width={400}
-                height={400}
+                width={800}
+                height={800}
               />
             </div>
             <figure className={styles.audioPlayer}>

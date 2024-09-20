@@ -29,11 +29,6 @@ function Credits() {
         { name: "Oliva Lorenzo", githubUrl: "Lorenzolivacode" },
       ],
     },
-    {
-      id: 4,
-      title: "titleArray4",
-      text: "txtArray4",
-    },
   ];
   return (
     <div className={styles.main}>

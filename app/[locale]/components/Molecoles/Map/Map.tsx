@@ -2,12 +2,14 @@
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L, { LatLngExpression, LatLngTuple } from "leaflet";
+import { useTranslations } from "next-intl";
 
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
 import markerIconUrl from "@/public/icons/marker.png";
 import styles from "./Map.module.scss";
+import { Link } from "@/i18n/routing";
 
 const markerIcon = L.icon({
   iconUrl: markerIconUrl.src,
@@ -25,61 +27,49 @@ const defaults = {
   zoom: 20,
 };
 
-const markers: {
-  position: LatLngTuple;
-  popupText: string;
-  popupContent: JSX.Element;
-}[] = [
-  {
-    position: [37.394436, 13.280645],
-    popupText: "Teatro Greco di Eraclea Minoa",
-    popupContent: (
-      <div className={styles.popupContent}>
-        <h2>Teatro Greco di Eraclea Minoa</h2>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam,
-          iusto!
-        </p>
-        <a>Scopri</a>
-      </div>
-    ),
-  },
-  {
-    position: [37.39401975385151, 13.282202399432673],
-    popupText: "Antiquarium di Eraclea Minoa",
-    popupContent: (
-      <div className={styles.popupContent}>
-        <h2>Antiquarium di Eraclea Minoa</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
-          sint.
-        </p>
-        <a>Scopri</a>
-      </div>
-    ),
-  },
-  {
-    position: [37.393666, 13.280401],
-    popupText: "Area Archeologica di Eraclea Minoa",
-    popupContent: (
-      <div className={styles.popupContent}>
-        <h2>Area Archeologica di Eraclea Minoa</h2>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-          voluptate.
-        </p>
-        <a>Scopri</a>
-      </div>
-    ),
-  },
-];
-
 const Map = (Map: MapProps) => {
   const { zoom = defaults.zoom, posix } = Map;
+  const t = useTranslations("Map");
+
+  const markers: {
+    position: LatLngTuple;
+    popupText: string;
+    popupContent: JSX.Element;
+  }[] = [
+    {
+      position: [37.394436, 13.280645],
+      popupText: t("title1"),
+      popupContent: (
+        <div className={styles.popupContent}>
+          <h2>{t("title1")}</h2>
+          <p>{t("text1")}</p>
+        </div>
+      ),
+    },
+    {
+      position: [37.39401975385151, 13.282202399432673],
+      popupText: t("title2"),
+      popupContent: (
+        <div className={styles.popupContent}>
+          <h2>{t("title2")}</h2>
+          <p>{t("text2")}</p>
+        </div>
+      ),
+    },
+    {
+      position: [37.393666, 13.280401],
+      popupText: t("title3"),
+      popupContent: (
+        <div className={styles.popupContent}>
+          <h2>{t("title3")}</h2>
+          <p>{t("text3")}</p>
+        </div>
+      ),
+    },
+  ];
 
   return (
     <>
-      {/* <h1>Percorsi</h1> */}
       <MapContainer
         center={posix}
         zoom={zoom}

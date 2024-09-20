@@ -38,12 +38,12 @@
   },
   "CreditsPage": {
     "title": "Credits",
-    "titleArray2": "Comune e Ufficio Turistico",
-    "txtArray2": "Un ringraziamento speciale al Comune e alla alla Pro Loco di Cattolica Eraclea per la collaborazione nella fornitura di materiali storici e immagini. Grazie anche all'ufficio dell'Area Archeologica di Eraclea Minoa per il contributo di manufatti e dati storici e ad Edgemony e a Simone Schifano per aver reso possibile questo progetto",
-    "titleArray3": "Team di Sviluppo",
-    "txtArray3": "L'app è stata realizzata da un team di sviluppo dedicato, che ha lavorato per offrire un'esperienza interattiva e coinvolgente del sito storico.",
-    "titleArray4": "Licenza",
-    "txtArray4": "Tutti i contenuti sono utilizzati con il permesso dei rispettivi proprietari.",
+    "titleArray1": "Comune e Ufficio Turistico",
+    "txtArray1": "Un ringraziamento speciale al Comune e alla alla Pro Loco di Cattolica Eraclea per la collaborazione nella fornitura di materiali storici e immagini. Grazie anche all'ufficio dell'Area Archeologica di Eraclea Minoa per il contributo di manufatti e dati storici e ad Edgemony e a Simone Schifano per aver reso possibile questo progetto",
+    "titleArray2": "Team di Sviluppo",
+    "txtArray2": "L'app è stata realizzata da un team di sviluppo dedicato, che ha lavorato per offrire un'esperienza interattiva e coinvolgente del sito storico.",
+    "titleArray3": "Licenza",
+    "txtArray3": "Tutti i contenuti sono utilizzati con il permesso dei rispettivi proprietari.",
     "paragraph": "Quest'app è stata creata per valorizzare il patrimonio storico di Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e informativa. Grazie alla collaborazione di esperti locali e istituzioni, siamo riusciti a integrare contenuti culturali e strumenti tecnologici per esplorare al meglio il sito."
   },
 
@@ -63,5 +63,15 @@
     "filePath3": "/assets/media/audioguida_scavi.mp3",
     "buttonTextMostra": "Mostra testo",
     "buttonTextNascondi": "Nascondi testo"
+  },
+
+  "Map": {
+    "title1": "Teatro Greco di Eraclea Minoa",
+    "text1": "L'antico teatro greco di Eraclea, costruito nel V sec. a.C., ha una cavea con 10 gradoni e vista mare. Scavato nel 1957, vicino si trova l'antiquarium con reperti. La città conserva tracce dell'urbanistica ellenistica e romana, con resti delle mura lunghe 6 km e torri quadrate.",
+    "link": "Scopri",
+    "title2": "Antiquarium di Eraclea Minoa",
+    "text2": "L'Antiquarium di Eraclea Minoa, situato all'ingresso dell'area archeologica, espone reperti come ceramiche e monete dalle abitazioni e necropoli arcaiche ed ellenistiche, offrendo uno spaccato della vita quotidiana e storia della città.",
+    "title3": "Area Archeologica di Eraclea Minoa",
+    "text3": "L'area archeologica di Eraclea Minoa, su un promontorio bianco affacciato sul mare, fu fondata da Selinunte nel VI sec. a.C. e contesa tra Greci e Cartaginesi fino alla conquista romana. Il sito ospita un teatro del IV sec. a.C. e una cinta muraria lunga 6 km. Le necropoli vicine e l'Antiquarium testimoniano la storia della città, dalla sua fondazione alla dominazione romana."
   }
 }

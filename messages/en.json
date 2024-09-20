@@ -20,5 +20,31 @@
     "filePath3": "/assets/media/audioguida_archaeological_excavations_eraclea.mp3",
     "buttonTextMostra": "Show text",
     "buttonTextNascondi": "Hide text"
+  },
+  "Map": {
+    "title1": "Greek Theater of Eraclea Minoa",
+    "text1": "The ancient Greek theater of Eraclea, built in the 5th century BC, has a cavea with 10 tiers and a sea view. Excavated in 1957, nearby is the antiquarium with artifacts. The city preserves traces of Hellenistic and Roman urban planning, with remains of a 6 km-long wall and square towers.",
+    "link": "Discover",
+    "title2": "Antiquarium of Eraclea Minoa",
+    "text2": "The Antiquarium of Eraclea Minoa, located at the entrance of the archaeological area, displays artifacts such as ceramics and coins from the archaic and Hellenistic houses and necropolises, offering a glimpse into the daily life and history of the city.",
+    "title3": "Archaeological Area of Eraclea Minoa",
+    "text3": "The archaeological area of Eraclea Minoa, located on a white promontory overlooking the sea, was founded by Selinunte in the 6th century BC and contested between Greeks and Carthaginians until Roman conquest. The site includes a 4th-century BC theater and a 6 km-long city wall. Nearby necropolises and the Antiquarium showcase the city's history, from its founding to Roman rule."
+  },
+
+  "CreditsPage": {
+    "title": "Credits",
+    "titleArray1": "Municipality and Tourist Office",
+    "txtArray1": "A special thanks to the Municipality and the Pro Loco of Cattolica Eraclea for their collaboration in providing historical materials and images. Thanks also to the office of the Archaeological Area of Eraclea Minoa for the contribution of artifacts and historical data, and to Edgemony and Simone Schifano for making this project possible.",
+    "titleArray2": "Development Team",
+    "txtArray2": "The app was developed by a dedicated development team, who worked to provide an interactive and engaging experience of the historical site.",
+    "titleArray3": "License",
+    "txtArray3": "All content is used with the permission of the respective owners.",
+    "paragraph": "This app was created to promote the historical heritage of Eraclea Minoa and offer visitors an immersive and informative experience. Thanks to the collaboration of local experts and institutions, we were able to integrate cultural content and technological tools to explore the site in the best possible way."
+  },
+
+  "ExploraPage": {
+    "title": "Explore",
+    "btnExursion": "Excursions",
+    "btnPath": "Paths"
   }
 }

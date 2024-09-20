@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
   padding-inline: 20px;
 
@@ -34,6 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   .closeBtn {
     color: var(--c-white);
@@ -46,9 +48,9 @@
   .modalContent {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     align-items: stretch;
-    padding-top: 60%;
+    margin-top: 35%;
     padding-inline: 20px;
     width: 100%;
     max-width: 600px;
@@ -57,9 +59,9 @@
   }
 
   .imageWrapper {
-    width: 80%;
-    padding-block: 20px;
+    width: 100%;
     margin: 0 auto;
+    object-fit: cover;
   }
 
   .active {
@@ -69,25 +71,23 @@
 
 .audioPlayer {
   width: 100%;
-  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   z-index: 10;
 }
 
 .textContent {
-  margin-top: 20px;
   color: var(--c-white);
   opacity: 0;
   overflow: hidden;
+  font-size: 18px;
 }
 
 .textVisible {
   opacity: 1;
   overflow: scroll;
-  padding: 10px;
+  padding-block: 10px;
 }
 
 .customControls {

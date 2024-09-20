@@ -2,6 +2,7 @@
   position: relative;
   top: 100px;
   width: 100%;
+  height: calc(100vh - 100px);
   background-color: var(--c-white);
   display: flex;
   flex-direction: column;
@@ -23,22 +24,5 @@
   h2 {
     font-weight: 600;
     letter-spacing: 1.8px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 834px) {
-  .main {
-    align-items: center;
-    justify-content: space-evenly;
-    top: 80px;
-
-    .playerBox {
-      width: 80%;
-      justify-content: center;
-
-      p {
-        text-wrap: pretty;
-      }
-    }
   }
 }
