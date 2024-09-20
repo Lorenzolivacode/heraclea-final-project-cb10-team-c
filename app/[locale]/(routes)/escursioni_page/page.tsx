@@ -1,39 +1,44 @@
 import Card from "@/app/[locale]/components/Molecoles/Card/Card";
 import style from "./Escursioni.module.scss";
+import { useTranslations } from "next-intl";
 
-const arrayTest = [
-  {
-    name: "In Bici tra Storia e Natura",
-    image: "/assets/bici.webp",
-    id: "1",
-    roadmap: "/escursioni_page/1",
-  },
-  {
-    name: "Passeggiata a Cavallo",
-    image: "/assets/cavallo.webp",
-    id: "2",
-    roadmap: "/escursioni_page/2",
-  },
-  {
-    name: "Trekking alla Foce",
-    image: "/assets/trekking.webp",
-    id: "3",
-    roadmap: "/escursioni_page/3",
-  },
-];
+function Excursions() {
+  const t = useTranslations("EscursioniCards");
 
-export default function Excursion() {
+  const EscursioniCards = [
+    {
+      name: "titleCard1",
+      image: "/assets/bici.webp",
+      id: "1",
+      roadmap: "/escursioni_page/1",
+    },
+    {
+      name: "titleCard2",
+      image: "/assets/cavallo.webp",
+      id: "2",
+      roadmap: "/escursioni_page/2",
+    },
+    {
+      name: "titleCard3",
+      image: "/assets/trekking.webp",
+      id: "3",
+      roadmap: "/escursioni_page/3",
+    },
+  ];
+
   return (
     <main className="main">
-      <h1 className={style.title}>Escursioni</h1>
-      {arrayTest.map((point) => (
+      <h1 className={style.title}>{t("title")}</h1>
+      {EscursioniCards.map((card) => (
         <Card
-          key={point.id}
-          roadmap={point.roadmap}
-          label={point.name}
-          image={point.image}
+          key={card.id}
+          roadmap={card.roadmap}
+          label={t(card.name)}
+          image={card.image}
         />
       ))}
     </main>
   );
 }
+
+export default Excursions;
