@@ -42,8 +42,9 @@ export default function HomePage() {
   };
   const pathname = usePathname();
   useEffect(() => {
+    console.log("locale", locale);
     console.log(pathname);
-  }, [pathname]);
+  }, []);
 
   return (
     <>
