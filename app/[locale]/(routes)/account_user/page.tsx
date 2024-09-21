@@ -44,9 +44,7 @@ interface UserData {
 }
 
 const AccountPage = () => {
-  const [activeTab, setActiveTab] = useState<
-    "profile" | "orders" | "purchases"
-  >("purchases");
+  const [activeTab, setActiveTab] = useState<"profile" | "orders">("orders");
   const [userData, setUserData] = useState<UserData>({
     firstName: "",
     lastName: "",
@@ -74,11 +72,6 @@ const AccountPage = () => {
     orders: {
       background: activeTab === "orders" ? "var(--c-white)" : "var(--c-sienna)",
       color: activeTab === "orders" ? "var(--c-sienna)" : "var(--c-white)",
-    },
-    purchases: {
-      background:
-        activeTab === "purchases" ? "var(--c-white)" : "var(--c-sienna)",
-      color: activeTab === "purchases" ? "var(--c-sienna)" : "var(--c-white)",
     },
   };
 
@@ -174,7 +167,7 @@ const AccountPage = () => {
     }
   };
 
-  const handleTabChange = (tab: "profile" | "orders" | "purchases") => {
+  const handleTabChange = (tab: "profile" | "orders") => {
     setActiveTab(tab);
   };
 
