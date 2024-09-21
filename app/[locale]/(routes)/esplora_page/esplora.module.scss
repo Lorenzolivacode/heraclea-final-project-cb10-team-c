@@ -31,19 +31,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* margin: 0 auto; */
+    align-items: stretch;
     gap: 20px;
     margin-top: 5%;
-    width: 100%;
+    width: 80%;
   }
 }
 
 @media (min-width: 768px) {
   .main {
-    h1 {
-      font-size: 3.5rem;
-      margin: 20px 0px;
+    .buttonContainer {
+      width: 50%;
     }
   }
 }

@@ -66,12 +66,14 @@ function Contacts() {
         referrerPolicy="no-referrer-when-downgrade"
       />
 
-      <UlEl
-        array={contactArray.map((contact) => ({
-          ...contact,
-          label: t(contact.label),
-        }))}
-      />
+      <div className={styles.ul_container}>
+        <UlEl
+          array={contactArray.map((contact) => ({
+            ...contact,
+            label: t(contact.label),
+          }))}
+        />
+      </div>
       {/* <UlEl array={contactArray} /> */}
       {/* <ul>
         {contactArray.map((contact, index) => {

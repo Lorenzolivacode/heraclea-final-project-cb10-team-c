@@ -59,7 +59,7 @@ function InitialPagemodal() {
         setCurrentPage(1);
         setSelectedPage("pagina_1");
         scrollToPage(1);
-      }, 300000);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }

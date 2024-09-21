@@ -26,7 +26,7 @@ export default function HomePage() {
   const [user, loading] = useAuthState(auth);
   const router = useRouter();
 
-  console.log({ user });
+  /* console.log({ user }); */
 
   useEffect(() => {
     if (!loading && !user) {
@@ -41,11 +41,11 @@ export default function HomePage() {
     const value = e.currentTarget.value;
     router.replace(`/${value}`);
   };
-  const pathname = usePathname();
-  useEffect(() => {
+  /* const pathname = usePathname(); */
+  /* useEffect(() => {
     console.log("locale", locale);
     console.log(pathname);
-  }, []);
+  }, []); */
 
   return (
     <>
