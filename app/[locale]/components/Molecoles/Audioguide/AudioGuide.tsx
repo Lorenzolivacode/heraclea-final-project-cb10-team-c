@@ -105,7 +105,10 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
         >
           <button
             className={styles.closeBtn}
-            onClick={() => setIsModalOpen(false)}
+            onClick={() => {
+              setIsModalOpen(false);
+              handleStopPlaying();
+            }}
           >
             X
           </button>
