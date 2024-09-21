@@ -4,7 +4,7 @@ import { getDatabase, ref, set, push } from "firebase/database";
 interface UserData {
   firstName: string;
   lastName: string;
-  email: string;
+  email: string | null;
   paymentInfo: {
     cardName: string;
     cardNumber: string;

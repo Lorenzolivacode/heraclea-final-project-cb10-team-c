@@ -8,7 +8,7 @@ import styles from "./account.module.scss";
 import { auth } from "@/app/[locale]/firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, get, onValue } from "firebase/database";
-import { saveUserData } from "@/app/[locale]/firebase/database"; // Importa la funzione per salvare i dati utente
+import { saveUserData } from "@/app/[locale]/firebase/database";
 
 interface Ticket {
   id: string;
@@ -33,13 +33,14 @@ interface Order {
   userId: string;
   firstName: string;
   lastName: string;
-  paymentInfo: PaymentInfo; // Aggiungi questa linea
+  paymentInfo: PaymentInfo;
 }
 
 interface UserData {
   firstName: string;
   lastName: string;
   email: string;
+  paymentInfo: PaymentInfo; // Aggiungi paymentInfo qui
 }
 
 const AccountPage: React.FC = () => {
@@ -48,6 +49,13 @@ const AccountPage: React.FC = () => {
     firstName: "",
     lastName: "",
     email: "",
+    paymentInfo: {
+      cardName: "",
+      cardNumber: "",
+      expiryDate: "",
+      paymentMethod: "",
+      selectedCard: "",
+    },
   });
   const [orders, setOrders] = useState<Order[]>([]);
   const [isEditing, setIsEditing] = useState(false);
@@ -61,13 +69,15 @@ const AccountPage: React.FC = () => {
         const uid = user.uid;
         const userDataFromDB = await fetchUserData(uid);
         setUserData(userDataFromDB);
-        setFormData(userDataFromDB); // Aggiorna formData qui
-        fetchOrders(uid);
       }
     });
 
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    setFormData(userData); // Aggiorna formData ogni volta che userData cambia
+  }, [userData]);
 
   const fetchUserData = async (uid: string): Promise<UserData> => {
     const db = getDatabase();
@@ -76,11 +86,33 @@ const AccountPage: React.FC = () => {
 
     if (snapshot.exists()) {
       const data = snapshot.val();
-      console.log("Dati utente recuperati:", data); // Log dei dati utente
-      return data as UserData;
+      console.log("Dati utente recuperati:", data);
+      return {
+        firstName: data.firstName || "",
+        lastName: data.lastName || "",
+        email: data.email || null, // Assicurati che sia string | null
+        paymentInfo: {
+          cardName: data.paymentInfo.cardName || "",
+          cardNumber: data.paymentInfo.cardNumber || "",
+          expiryDate: data.paymentInfo.expiryDate || "",
+          paymentMethod: data.paymentInfo.paymentMethod || "",
+          selectedCard: data.paymentInfo.selectedCard || "",
+        },
+      };
     } else {
       console.error("Nessun dato trovato per questo utente.");
-      return { firstName: "", lastName: "", email: "" };
+      return {
+        firstName: "",
+        lastName: "",
+        email: "", // Imposta a null se non trovato
+        paymentInfo: {
+          cardName: "",
+          cardNumber: "",
+          expiryDate: "",
+          paymentMethod: "",
+          selectedCard: "",
+        },
+      };
     }
   };
 
@@ -96,8 +128,8 @@ const AccountPage: React.FC = () => {
         const orderList = userOrders.map((orderId) => ({
           id: orderId,
           date: data[orderId].date,
-          total: data[orderId].total, // Assicurati che ci sia una proprietà "total" se esiste
-          tickets: data[orderId].tickets || [], // Adatta in base alla tua struttura
+          total: data[orderId].total || 0,
+          tickets: data[orderId].tickets || [],
         })) as Order[];
         setOrders(orderList);
       } else {
@@ -203,8 +235,11 @@ const AccountPage: React.FC = () => {
               orders.map((order) => (
                 <div key={order.id}>
                   <h4>Data: {order.date}</h4>
-                  <p>Totale: {order.total ? order.total.toFixed(2) : "N/A"}€</p>
-                  <p>Metodo di pagamento: {order.paymentInfo.paymentMethod}</p>
+                  <p>Totale: {order.total.toFixed(2)}€</p>
+                  <p>
+                    Metodo di pagamento:{" "}
+                    {order.paymentInfo?.paymentMethod || "N/A"}
+                  </p>
                   <p>Tickets:</p>
                   <ul>
                     {order.tickets.map((ticket, index) => (
