@@ -12,7 +12,6 @@ import style from "./pagamento.module.scss";
 import TrashOutline from "@/public/icons/pagamenti/trash-outline.svg";
 
 import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
-import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
 
 // Interfacce
 interface Ticket {
@@ -49,7 +48,6 @@ function DataPayment() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [editingOrder, setEditingOrder] = useState<string | null>(null);
   const [updatedTickets, setUpdatedTickets] = useState<UpdatedTickets>({});
 
   // Funzione per recuperare gli ordini
@@ -127,36 +125,6 @@ function DataPayment() {
     }
   }, [orders]);
 
-  // Funzione per gestire la modifica della quantità dei biglietti
-  const handleTicketChange = (
-    orderId: string,
-    ticketId: string,
-    newQuantity: number
-  ) => {
-    setUpdatedTickets((prev) => ({
-      ...prev,
-      [orderId]: {
-        ...prev[orderId],
-        [ticketId]: newQuantity,
-      },
-    }));
-  };
-
-  // Funzione per aggiornare un ordine
-  const updateOrder = async (orderId: string) => {
-    try {
-      const db = getDatabase();
-      const orderRef = ref(db, `orders/${orderId}/tickets`);
-      await update(orderRef, updatedTickets[orderId]);
-      console.log("Ordine aggiornato con successo.");
-      setEditingOrder(null);
-      setUpdatedTickets({});
-    } catch (error) {
-      setError("Errore durante l'aggiornamento dell'ordine. Riprova.");
-      console.error("Errore:", error);
-    }
-  };
-
   // Funzione per eliminare un ordine
   const deleteOrder = async (orderId: string) => {
     try {
@@ -172,7 +140,6 @@ function DataPayment() {
     }
   };
 
-  // Calcola il totale di un ticket
   // Calcola il totale di un ticket
   const calculateTicketTotal = (ticket: Ticket, quantity: number) => {
     const price =
