@@ -6,9 +6,9 @@ import eracleaData from "./data";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/[locale]/firebase/config";
 import { Key, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-
+import { useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import Sounder from "./components/Atom/Sounder/Sounder";
 

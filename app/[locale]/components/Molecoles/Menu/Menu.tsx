@@ -4,6 +4,8 @@ import { Link } from "@/i18n/routing";
 import { Dispatch, SetStateAction, useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "@/app/[locale]/firebase/config";
+import { useRouter } from "@/i18n/routing";
+//import { useLocale } from "next-intl";
 import style from "/app/[locale]/components/Molecoles/Menu/Menu.module.scss";
 import Toast from "../../Atom/Toast/Toast";
 import { useTranslations } from "next-intl";
@@ -11,12 +13,13 @@ import { useTranslations } from "next-intl";
 interface MenuProps {
   isMenuOpen: boolean;
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
-  isAuthenticated?: boolean;
 }
 
 const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
   const [isToastSuccessOpen, setIsToastSuccessOpen] = useState(false);
   const [isToastErrorOpen, setIsToastErrorOpen] = useState(false);
+  const router = useRouter();
+  // const locale = useLocale();
   const t = useTranslations("Menu");
 
   const menuItems = [
@@ -31,14 +34,17 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
   ];
 
   const handleSignOut = async () => {
+    console.log("Attempting to log out...");
     try {
       await signOut(auth);
+      console.log("Logged out successfully!");
       setIsToastSuccessOpen(true);
-      /* alert("Logout effettuato con successo!"); */
+
+      // Usa il locale senza duplicazioni
+      router.push(`/sign_up`);
     } catch (error) {
-      setIsToastErrorOpen(true);
       console.error("Errore durante il logout:", error);
-      /* alert("Si è verificato un errore durante il logout. Riprova."); */
+      setIsToastErrorOpen(true);
     }
   };
 
@@ -54,8 +60,8 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
         <Toast
           isOpen={isToastErrorOpen}
           onClose={() => setIsToastErrorOpen(false)}
-          message="Logout effettuato con successo!"
-          type="success"
+          message="Si è verificato un errore durante il logout. Riprova."
+          type="error"
         />
       )}
 

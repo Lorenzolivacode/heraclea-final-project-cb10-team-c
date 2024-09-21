@@ -1,9 +1,11 @@
-import React from "react";
+interface ApplePayProps {
+  onClick: () => void;
+}
 
-function ApplePay() {
+const ApplePay: React.FC<ApplePayProps> = ({ onClick }) => {
   return (
     <>
-      <button name="apple-pay" type="button">
+      <button name="apple-pay" type="button" onClick={onClick}>
         <svg
           xmlSpace="preserve"
           viewBox="0 0 512 210.2"
@@ -22,6 +24,6 @@ function ApplePay() {
       </button>
     </>
   );
-}
+};
 
 export default ApplePay;
