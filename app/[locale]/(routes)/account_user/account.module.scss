@@ -109,11 +109,12 @@
   
 }
 .purchasesList {
-  list-style-type: none;
+    line-height: 2em;
+    list-style-type: none;
     background-color: var(--c-white);
     padding: 10px;
     border: 1px solid var(--c-sienna);
     border-radius: 5px;
     margin-bottom: 10px;
-
+   
 }
