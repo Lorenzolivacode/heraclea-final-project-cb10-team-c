@@ -10,9 +10,14 @@ import {
 import { getDatabase, ref, onValue, update, remove } from "firebase/database";
 import style from "./pagamento.module.scss";
 import TrashOutline from "@/public/icons/pagamenti/trash-outline.svg";
+<<<<<<< HEAD
 
 import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
 import { useTranslations } from "next-intl";
+=======
+import { useTranslations } from "next-intl";
+import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
+>>>>>>> a50b184c035f0606f5980c5af8b76e9fa92052e8
 
 // Interfacce
 interface Ticket {
