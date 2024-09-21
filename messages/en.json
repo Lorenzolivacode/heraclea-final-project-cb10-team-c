@@ -21,6 +21,31 @@
     "buttonTextNascondi": "Hide text"
   },
 
+  "eracleaDataCategory": {
+    "titleMinoa": "Eraclea Minoa",
+    "titleDetailsMinoa": "Discover history and nature",
+    "titleArcheo": "The archaeological area",
+    "titleDetailsArcheo": "Discover Greek culture"
+  },
+  "eracleaDataSubcategory": {
+    "titleMinoa": "Eraclea Minoa",
+    "descriptionMinoa": "The Greek historian Herodotus, in the 5th century BC, tells of the ancient city of Minoa, which was said to have been founded by the inhabitants of Selinunte and named Eraclea in honor of the hero demigod. However, archaeological finds tell a much older and fascinating story of the area. The archaeological site is in a magnificent position, within a nature reserve, on the promontory of Capo Bianco (at 75 m), a white cliff of limestone rock that juts out over the sea, sloping westward towards the Platani valley and eastward towards the beach. The fragments found in the layers beneath the Archaic Necropolis of the 6th century BC suggest that the origin of the urban settlement dates back to prehistoric times, specifically to the Neolithic period (circa 8000 to 3500 BC), while ancient coins found testify to the presence of a Phoenician colony. In the earliest historical sources, the city is referred to by three names: Macara, or the city of Makar, the Phoenician Heracles; Minoa, which, according to legend, was founded by the Cretan king Minos, who supposedly chased Daedalus here; and finally Eraclea, a Spartan colony, confirming the site's dedication to the great Greek hero. After the Phoenicians and Spartans, in the 5th century BC, the city became a sub-colony of Selinunte and reached its peak during the Hellenistic period (late 4th century BC). Long contested between Greeks and Carthaginians for its strategic border position, it changed hands several times until, in 210 BC, it was conquered by the Romans. In the 1st century BC, the city was abandoned, perhaps due to a landslide that dragged the southern part of the town and walls into the sea. Archaeological investigations in the early 1900s unearthed part of the residential quarter, with visible traces from two successive layers, the Archaic and Hellenistic cities, the northern section of the city walls with remains of towers and gates, and the beautiful theater with a proscenium facing the sea (partly hidden by a protective structure). In the Antiquarium, at the entrance to the archaeological area, materials from the houses and the Archaic and Hellenistic Necropolises are displayed. The town, located below the archaeological site, hosts tourist and accommodation facilities, including a campsite shaded by a eucalyptus forest. The beach stretches in an amphitheater shape to the rocky walls of Capo Bianco, which, with its muds, offers bathers free natural cosmetic treatments in the open air.",
+    "titlePlatani": "Platani River",
+    "descriptionPlatani": "The Platani River Mouth Natural Reserve is a protected natural area in southwestern Sicily, established to ensure the conservation of bird populations, promote the restoration of Mediterranean scrub, and preserve the dunes. The mouth of the Platani River is a place of enchanting natural beauty dominated by the Capo Bianco cliff. This area is the first landing point for many migratory birds from Africa, and thanks to the diversity of environments, it offers shelter to lush and varied flora, and thus a rich and composite birdlife. The reserve, which intersects the mouth of the Platani River in the territories of Ribera and Cattolica Eraclea (AG), includes some of Sicily's most pristine sandy beaches as well as dune belts that host both natural and artificial plant communities. Other characteristic elements of the area include promontories and cliffs made of marl limestone and globigerina marl, (Trubbi) as well as clay gullies. East of the Reserve, on the marl promontory of Capo Bianco, stand the ruins of the Greek city of Eraclea-Minoa, where the remains of a theater and a settlement have been unearthed. Overall, the site has great value both from a landscape and naturalistic perspective.",
+    "titleArcheo": "The archaeological area",
+    "descriptionArcheo": "The Archaeological Area of Eraclea Minoa stands on a white promontory that extends towards a splendid seascape, within the Platani River Mouth Natural Reserve. The first traces of human occupation on the Capobianco plateau date back to prehistory, which also links to myths of populations from the Aegean arriving after the fall of the Mycenaean kingdoms. A myth indeed connects the name Minoa with the Cretan king Minos and his expedition to Sicily, which led to his death at the hands of the Sicilian king Kokalos. The Greek colony was founded around the mid-6th century BC by Selinunte. Long contested between Selinunte and Akragas, the city soon followed the fate of both rivals, falling into Carthaginian hands. Throughout the 4th century BC, its history was marked by conflicts between Greeks and Carthaginians, until it was conquered by Rome in the 3rd century BC, becoming a civitas decumana. By the end of the 1st century BC, the city was abandoned, and only in the early Christian and Byzantine periods (3rd-7th centuries AD) did the extra-urban area come to be occupied again, with the construction of a large basilica and an adjoining cemetery. The first excavation campaigns began in 1950, when Ernesto De Miro unearthed the imposing theater, dating back to the 4th century BC. The colony was protected by a city wall about 6 km long that still encircles the entire plateau down to the Platani River. During archaeological investigations, significant traces of the settlement were found, organized according to a regular urban plan, with terraces and an orthogonal road system dividing the blocks. The excavated buildings show two superimposed phases of occupation: the older from the Hellenistic period (4th-3rd centuries BC) and the more recent from the Roman Republican period (2nd-1st centuries BC). To the northeast of the city, beyond the city wall, lay the necropolises. Systematic excavations carried out between the 1960s and 1980s unearthed tombs dating back to the Archaic and Hellenistic periods, attesting to the simultaneous presence of both burial and cremation rituals. Near the archaeological site, visitors can explore the small Antiquarium, which houses some materials from the excavations.",
+    "titleTheater": "Eraclea Theater",
+    "descriptionTheater": "The ancient Greek theater of Eraclea, built at the end of the 5th century BC, was unearthed in 1957. It features a cavea with 10 tiers, divided into 9 sections, facing the sea. Built with interlocking marl blocks, the site also includes an antiquarium, where archaeological finds from various excavation campaigns are preserved. Systematic archaeological excavations on the ruins began in 1950. The city is considered ideal for understanding the urban planning of Hellenistic and Roman cities: the theater, the residential quarters of Hellenistic and Roman houses with an 'insulae' layout, separated by parallel streets. Remains of the city's walls, built between the late 6th and late 4th century BC, are still visible, stretching about 6 kilometers; to the northeast of the walls, eight square towers can still be seen. The Greek theater was identified in the 18th century, but was only unearthed in 1953.",
+    "titleAntiquarium": "Antiquarium",
+    "descriptionAntiquarium": "The Antiquarium of Eraclea Minoa is a museum located at the entrance to the archaeological area of the city. Inside, artifacts from the Archaic and Hellenistic houses and necropolises are displayed. Among the artifacts are ceramics, coins, and other objects that testify to the daily life and cultural influences of the city over the centuries. The Antiquarium offers a valuable historical context for better understanding the evolution of the city of Eraclea Minoa, from its foundation to its decline."
+  },
+  "AcquistaPage": {
+    "title": "Get Tickets",
+    "buttonTickets": "ENTRY TICKET",
+    "buttonAudioguide": "AUDIO GUIDES",
+    "buttonEvents": "STONE THEATERS"
+  },
+
   "Map": {
     "title1": "Greek Theater of Eraclea Minoa",
     "text1": "The ancient Greek theater of Eraclea, built in the 5th century BC, has a cavea with 10 tiers and a sea view. Excavated in 1957, nearby is the antiquarium with artifacts. The city preserves traces of Hellenistic and Roman urban planning, with remains of a 6 km-long wall and square towers.",
@@ -42,10 +67,20 @@
     "paragraph": "This app was created to promote the historical heritage of Eraclea Minoa and offer visitors an immersive and informative experience. Thanks to the collaboration of local experts and institutions, we were able to integrate cultural content and technological tools to explore the site in the best possible way."
   },
 
+  "EscursioniPage": {
+    "title": "Excursions",
+    "titleCard1": "Cycling through History and Nature",
+    "titleCard2": "Horseback Ride",
+    "titleCard3": "Trekking at the River Mouth",
+    "titlePrenotazione": "Book",
+    "textPrenotazione": "You can book by calling the number",
+    "buttonCTA": "Call"
+  },
+
   "ExploraPage": {
     "title": "Explore",
     "btnExursion": "Excursions",
-    "btnPath": "Paths"
+    "btnPath": "Itineraries"
   },
 
   "Menu": {
@@ -57,5 +92,29 @@
     "regulations": "Regulations",
     "credits": "Credits",
     "logout": "Log out"
+  },
+
+  "Norme": {
+    "title": "Regulations",
+    "textIntro": "Free entry is allowed, upon presentation to the ticket staff, of a document certifying one of the following conditions.",
+    "textChildren": "Visitors under the age of eighteen must be accompanied by an adult if they are under twelve years old.",
+    "textAssistiveTech": "Persons with disabilities and one accompanying family member or caregiver who can demonstrate their affiliation with social-healthcare assistance services (Ministerial Decree No. 239 of April 20, 2006)."
+  },
+
+  "Contatti": {
+    "titleWWA": "Where We Are",
+    "tell": "Call",
+    "map": "Map",
+    "email": "Email",
+    "bus": "Bus",
+    "busTxt": "The archaeological area is connected to Palermo, Catania, and Agrigento by a regular bus service.",
+    "train": "Train",
+    "trainTxt": "The nearest train station is Agrigento Centrale, located 40 km away."
+  },
+
+  "NelleVicinanze": {
+    "title": "Nearby",
+    "subtitleRestaurants": "Restaurants",
+    "subtitleVisit": "Places worth visiting"
   }
 }

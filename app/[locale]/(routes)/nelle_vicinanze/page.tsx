@@ -2,10 +2,12 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import style from "./nelle_vicinanze.module.scss";
 import Card from "@/app/[locale]/components/Molecoles/Card/Card";
+import { useTranslations } from "next-intl";
 
 function Vicinanze() {
   const [currentSlideRistoranti, setCurrentSlideRistoranti] = useState(0);
   const [currentSlideVisitare, setCurrentSlideVisitare] = useState(0);
+  const t = useTranslations("NelleVicinanze");
 
   const ristorantiRef = useRef<HTMLDivElement>(null);
   const visitareRef = useRef<HTMLDivElement>(null);
@@ -114,7 +116,7 @@ function Vicinanze() {
 
   return (
     <main className="main">
-      <h1 className={style.title}>Nelle vicinanze</h1>
+      <h1 className={style.title}>{t("title")}</h1>
 
       <section className={style.container}>
         <div className={style.category}>
@@ -125,7 +127,7 @@ function Vicinanze() {
             height={35}
             loading="lazy"
           />
-          <p>Ristoranti</p>
+          <p>{t("subtitleRestaurants")}</p>
         </div>
 
         <div className={style.carousel} ref={ristorantiRef}>
@@ -167,7 +169,7 @@ function Vicinanze() {
             height={35}
             loading="lazy"
           />
-          <p>Da visitare</p>
+          <p>{t("subtitleVisit")}</p>
         </div>
 
         <div className={style.carousel} ref={visitareRef}>

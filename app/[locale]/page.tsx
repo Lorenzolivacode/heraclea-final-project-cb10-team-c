@@ -61,7 +61,7 @@ export default function HomePage() {
         <button value="it" onClick={languageChangeHandler}>
           Italiano
         </button> */}
-        <Sounder></Sounder>
+
         {eracleaData.map(
           (point: {
             id: string | null | undefined;

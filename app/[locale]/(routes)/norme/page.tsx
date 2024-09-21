@@ -1,14 +1,12 @@
 import style from "./norme.module.scss";
+import { useTranslations } from "next-intl";
 function Norme() {
+  const t = useTranslations("Norme");
   return (
     <main className={style.main}>
-      <h1 className={style.title}>Norme</h1>
+      <h1 className={style.title}>{t("title")}</h1>
       <div className={style.container}>
-        <p>
-          È consentito l’ingresso gratuito, tramite esibizione, al personale
-          delle biglietterie, di un documento attestante una delle seguenti
-          condizioni
-        </p>
+        <p>{t("textIntro")}</p>
       </div>
       <div className={style.container}>
         <img
@@ -17,11 +15,7 @@ function Norme() {
           width={35}
           height={35}
         />
-        <p>
-          Ai visitatori che non abbiano compiuto il diciottesimo anno di età, i
-          visitatori che abbiano meno di dodici anni di età devono essere
-          accompagnati da un maggiorenne.
-        </p>
+        <p>{t("textChildren")}</p>
       </div>
       <div className={style.container}>
         <img
@@ -30,12 +24,7 @@ function Norme() {
           width={35}
           height={35}
         />
-        <p>
-          Ai portatori di handicap e ad un loro familiare o ad altro
-          accompagnatore che dimostri la propria appartenenza a servizi di
-          assistenza socio-sanitaria (Decreto Ministeriale n. 239 del 20 aprile
-          2006)
-        </p>
+        <p>{t("textAssistiveTech")}</p>
       </div>
     </main>
   );
