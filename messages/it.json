@@ -127,5 +127,49 @@
     "title": "Nelle Vicinanze",
     "subtitleRestaurants": "Ristoranti",
     "subtitleVisit": "Da visitare"
+  },
+
+  "Footer": {
+    "labelAccount": "Account",
+    "labelAudioguide": "Audioguide",
+    "labelTickets": "Biglietti",
+    "labelEvents": "Eventi",
+    "labelExplore": "Esplora"
+  },
+
+  "AccountPage": {
+    "greeting": "Ciao",
+    "buttonAccount": "Account",
+    "buttonPurchase": "Acquisti"
+  },
+
+  "ProfileForm": {
+    "labelName": "Nome",
+    "labelSurname": "Cognome",
+    "labelEmail": "Email",
+    "labelPassword": "Password",
+    "buttonModify": "Modifica",
+    "buttonSave": "Salva"
+  },
+
+  "Purchases": {
+    "ticket": "Biglietto Intero",
+    "ticketTheatre": "Teatri di Pietra"
+  },
+
+  "EventDetail": {
+    "buttonEventPage": "Scopri gli eventi",
+    "title": "Eventi",
+    "subtitle": "Trama",
+    "buttonCTA": "Acquista",
+    "titleAndromaca": "Andromaca",
+    "creditsAndromaca": "di Massimiliano Civica e I Sacchi di Sabbia con Gabriele Carli, Giulia Gallo",
+    "descriptionAndromaca": "Andromaca è una tragedia greca scritta da Euripide. La trama si concentra su Andromaca, la vedova di Ettore, e il suo conflitto con Odisseo. La tragedia esplora temi di vendetta, pietà e la condizione delle donne nella società greca antica.",
+    "titleEuridice": "Euridice e Orfeo",
+    "creditsEuridice": "di Christoph Willibald Gluck",
+    "descriptionEuridice": "Questa tragedia narra la storia di Orfeo, un musicista leggendario, e la sua moglie Euridice. Dopo la sua morte, Orfeo scende negli inferi per riportarla indietro. Il mito esplora l'amore, la perdita e la speranza nella vita dopo la morte.",
+    "titleUlisse": "Ulisse",
+    "creditsUlisse": "di Beatrice Monroy e Sergio Vespertino",
+    "descriptionUlisse": "La storia si basa sulle avventure di Ulisse, il re di Itaca, che narra le sue esperienze epiche e i suoi viaggi attraverso il mondo antico. Il mito di Ulisse esplora temi di eroismo, astuzia e il lungo viaggio verso casa."
   }
 }

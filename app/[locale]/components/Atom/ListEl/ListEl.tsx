@@ -4,6 +4,7 @@ import React from "react";
 import styles from "./ListEl.module.scss";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export interface IElement {
   id: string;
@@ -15,6 +16,7 @@ export interface IElement {
 function ListEl({ el }: { el: IElement }) {
   /* const { pathname } = useRouter(); */
   const pathname = usePathname();
+  const t = useTranslations("Footer");
 
   const isActive = el.url === pathname;
   return (
@@ -23,7 +25,7 @@ function ListEl({ el }: { el: IElement }) {
         {el.icon && (
           <Image
             src={el.iconActive && isActive ? el.iconActive : el.icon}
-            alt={el.label}
+            alt={t(el.label)}
             className={styles.iconTest}
             width={35}
             height={35}
@@ -34,7 +36,7 @@ function ListEl({ el }: { el: IElement }) {
         {/* <div className={styles.iconContainer}>
           <div className={styles.iconTest} />
         </div> */}
-        <p>{el.label}</p>
+        <p>{t(el.label)}</p>
       </Link>
     </li>
   );

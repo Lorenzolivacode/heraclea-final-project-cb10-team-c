@@ -116,5 +116,49 @@
     "title": "Nearby",
     "subtitleRestaurants": "Restaurants",
     "subtitleVisit": "Places worth visiting"
+  },
+
+  "Footer": {
+    "labelAccount": "Account",
+    "labelAudioguide": "Audioguide",
+    "labelTickets": "Tickets",
+    "labelEvents": "Events",
+    "labelExplore": "Explore"
+  },
+
+  "AccountPage": {
+    "greeting": "Hello",
+    "buttonAccount": "Account",
+    "buttonPurchase": "Purchases"
+  },
+
+  "ProfileForm": {
+    "labelName": "First Name",
+    "labelSurname": "Last Name",
+    "labelEmail": "Email",
+    "labelPassword": "Password",
+    "buttonModify": "Modify",
+    "buttonSave": "Save"
+  },
+
+  "Purchases": {
+    "ticket": "Standard Ticket",
+    "ticketTheatre": "Stone Theatres"
+  },
+
+  "EventDetail": {
+    "buttonEventPage": "Explore events",
+    "title": "Events",
+    "subtitle": "Plot",
+    "buttonCTA": "Buy",
+    "titleAndromaca": "Andromache",
+    "creditsAndromaca": "by Massimiliano Civica and I Sacchi di Sabbia with Gabriele Carli, Giulia Gallo",
+    "descriptionAndromaca": "Andromache is a Greek tragedy written by Euripides. The plot focuses on Andromache, the widow of Hector, and her conflict with Odysseus. The tragedy explores themes of revenge, pity, and the condition of women in ancient Greek society.",
+    "titleEuridice": "Eurydice and Orpheus",
+    "creditsEuridice": "by Christoph Willibald Gluck",
+    "descriptionEuridice": "This tragedy tells the story of Orpheus, a legendary musician, and his wife Eurydice. After her death, Orpheus descends into the underworld to bring her back. The myth explores love, loss, and hope in the afterlife.",
+    "titleUlisse": "Ulysses",
+    "creditsUlisse": "by Beatrice Monroy and Sergio Vespertino",
+    "descriptionUlisse": "The story is based on the adventures of Ulysses, the king of Ithaca, who recounts his epic experiences and journeys through the ancient world. The myth of Ulysses explores themes of heroism, cunning, and the long journey home."
   }
 }

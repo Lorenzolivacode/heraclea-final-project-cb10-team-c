@@ -23,9 +23,11 @@ export interface IEracleaDataObj {
 
 export interface IEventObj {
   id: string;
-  name: ITxtTraslate;
+  title: string;
+  credits: string;
+  roadmap: string;
   image: string;
-  description: ITxtTraslate;
+  description: string;
 }
 
 export interface IEventData {

@@ -1,13 +1,12 @@
-
-
-import React, { useState } from 'react';
-import styles from './profileForm.module.scss';
+import React, { useState } from "react";
+import styles from "./profileForm.module.scss";
+import { useTranslations } from "next-intl";
 
 interface UserData {
   firstName: string;
   lastName: string;
   email: string;
-  password: string; 
+  password: string;
 }
 
 interface ProfileFormProps {
@@ -17,6 +16,7 @@ interface ProfileFormProps {
 const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState(userData);
+  const t = useTranslations("ProfileForm");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -27,17 +27,16 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
 
   const toggleEdit = () => {
     setIsEditing(!isEditing);
-    
+
     if (isEditing) {
       console.log("Dati salvati:", formData);
-      
     }
   };
 
   return (
     <form className={styles.form}>
       <div>
-        <label>Nome:</label>
+        <label>{t("labelName")}</label>
         <input
           type="text"
           name="firstName"
@@ -47,7 +46,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
         />
       </div>
       <div>
-        <label>Cognome:</label>
+        <label>{t("labelSurname")}</label>
         <input
           type="text"
           name="lastName"
@@ -57,7 +56,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
         />
       </div>
       <div>
-        <label>Email:</label>
+        <label>{t("labelEmail")}</label>
         <input
           type="email"
           name="email"
@@ -67,17 +66,17 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ userData }) => {
         />
       </div>
       <div>
-        <label>Password:</label>
+        <label>{t("labelPassword")}</label>
         <input
           type="password"
           name="password"
-          value={formData.password} 
+          value={formData.password}
           onChange={handleChange}
           disabled={!isEditing}
         />
       </div>
       <button type="button" onClick={toggleEdit}>
-        {isEditing ? 'Salva' : 'Modifica'}
+        {isEditing ? t("buttonSave") : t("buttonModify")}
       </button>
     </form>
   );
