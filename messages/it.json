@@ -140,21 +140,19 @@
   "AccountPage": {
     "greeting": "Ciao",
     "buttonAccount": "Account",
-    "buttonPurchase": "Acquisti"
-  },
-
-  "ProfileForm": {
+    "buttonPurchase": "Acquisti",
     "labelName": "Nome",
     "labelSurname": "Cognome",
     "labelEmail": "Email",
     "labelPassword": "Password",
     "buttonModify": "Modifica",
-    "buttonSave": "Salva"
-  },
-
-  "Purchases": {
+    "buttonSave": "Salva",
     "ticket": "Biglietto Intero",
-    "ticketTheatre": "Teatri di Pietra"
+    "ticketTheatre": "Teatri di Pietra",
+    "date": "Data",
+    "total": "Totale",
+    "paymentMethods": "Metodo di pagamento:",
+    "noOrders": "Non hai effettuato ordini"
   },
 
   "EventDetail": {

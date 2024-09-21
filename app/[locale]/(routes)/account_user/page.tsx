@@ -3,40 +3,13 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-<<<<<<< HEAD
-import ProfileForm from "@/app/[locale]/components/Molecoles/Form/ProfileForm";
-import Purchases from "@/app/[locale]/components/Molecoles/Purchase/Purchases";
-=======
->>>>>>> roberta
 import maschera from "@/public/assets/maschera.webp";
 import styles from "./account.module.scss";
 import { auth } from "@/app/[locale]/firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
-<<<<<<< HEAD
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "@/app/[locale]/firebase/config";
-import { useTranslations } from "next-intl";
-
-const AccountPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"profile" | "purchases">(
-    "purchases"
-  );
-  const [userData, setUserData] = useState<{
-    firstName: string;
-    lastName: string;
-    email: string;
-    password?: string;
-  }>({ firstName: "", lastName: "", email: "" });
-  const searchParams = useSearchParams();
-  const userName = searchParams.get("userName") || "Utente";
-  const t = useTranslations("AccountPage");
-
-  const [buttonColors, setButtonColors] = useState({
-    profile: { background: "var(--c-sienna)", color: "var(--c-white)" },
-    purchases: { background: "var(--c-sienna)", color: "var(--c-white)" },
-=======
 import { getDatabase, ref, get, onValue } from "firebase/database";
 import { saveUserData } from "@/app/[locale]/firebase/database";
+import { useTranslations } from "next-intl";
 
 interface Ticket {
   id: string;
@@ -84,13 +57,13 @@ const AccountPage: React.FC = () => {
       paymentMethod: "",
       selectedCard: "",
     },
->>>>>>> roberta
   });
   const [orders, setOrders] = useState<Order[]>([]);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<UserData>(userData);
   const searchParams = useSearchParams();
   const userName = userData.firstName || "Utente";
+  const t = useTranslations("AccountPage");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -104,33 +77,6 @@ const AccountPage: React.FC = () => {
     return () => unsubscribe();
   }, []);
 
-<<<<<<< HEAD
-  const fetchUserData = async (uid: string) => {
-    const userDoc = await getDoc(doc(db, "users", uid));
-    if (userDoc.exists()) {
-      return userDoc.data() as {
-        firstName: string;
-        lastName: string;
-        email: string;
-        password?: string;
-      };
-    }
-    return { firstName: "", lastName: "", email: "" };
-  };
-
-  const handleTabChange = (tab: "profile" | "purchases") => {
-    setActiveTab(tab);
-    setButtonColors((prev) => ({
-      profile:
-        tab === "profile"
-          ? { background: "var(--c-white)", color: "var(--c-sienna)" }
-          : { background: "var(--c-sienna)", color: "var(--c-white)" },
-      purchases:
-        tab === "purchases"
-          ? { background: "var(--c-white)", color: "var(--c-sienna)" }
-          : { background: "var(--c-sienna)", color: "var(--c-white)" },
-    }));
-=======
   useEffect(() => {
     setFormData(userData); // Aggiorna formData ogni volta che userData cambia
   }, [userData]);
@@ -211,7 +157,6 @@ const AccountPage: React.FC = () => {
         await saveUserData(user.uid, formData); // Salva i dati aggiornati
       }
     }
->>>>>>> roberta
   };
 
   return (
@@ -224,58 +169,31 @@ const AccountPage: React.FC = () => {
             priority
             className={styles.profileImage}
           />
-<<<<<<< HEAD
           <h1 className={styles.header}>
             {t("greeting")} {userName}!
           </h1>
-=======
-          <h1 className={styles.header}>Ciao, {userName}!</h1>
->>>>>>> roberta
         </div>
       </div>
       <div className={styles.container}>
         <div className={styles.tabs}>
           <button
             className={styles.button}
-<<<<<<< HEAD
-            style={{
-              backgroundColor: buttonColors.profile.background,
-              color: buttonColors.profile.color,
-            }}
-            onClick={() => handleTabChange("profile")}
-=======
             onClick={() => setActiveTab("profile")}
->>>>>>> roberta
           >
             {t("buttonAccount")}
           </button>
           <button
             className={styles.button}
-<<<<<<< HEAD
-            style={{
-              backgroundColor: buttonColors.purchases.background,
-              color: buttonColors.purchases.color,
-            }}
-            onClick={() => handleTabChange("purchases")}
-          >
-            {t("buttonPurchase")}
-=======
             onClick={() => setActiveTab("orders")}
           >
             Ordini
->>>>>>> roberta
           </button>
         </div>
 
         {activeTab === "profile" ? (
-<<<<<<< HEAD
-          <ProfileForm userData={userData} />
-        ) : (
-          <Purchases />
-=======
           <form className={styles.form}>
             <div className={styles.formGroup}>
-              <label>Nome:</label>
+              <label>{t("labelName")}</label>
               <input
                 type="text"
                 name="firstName"
@@ -286,7 +204,7 @@ const AccountPage: React.FC = () => {
               />
             </div>
             <div className={styles.formGroup}>
-              <label>Cognome:</label>
+              <label>{t("labelSurname")}</label>
               <input
                 type="text"
                 name="lastName"
@@ -297,7 +215,7 @@ const AccountPage: React.FC = () => {
               />
             </div>
             <div className={styles.formGroup}>
-              <label>Email:</label>
+              <label>{t("labelEmail")}</label>
               <input
                 type="email"
                 name="email"
@@ -312,7 +230,7 @@ const AccountPage: React.FC = () => {
               onClick={toggleEdit}
               className={styles.button}
             >
-              {isEditing ? "Salva" : "Modifica"}
+              {isEditing ? t("buttonSave") : t("buttonModify")}
             </button>
           </form>
         ) : (
@@ -320,10 +238,14 @@ const AccountPage: React.FC = () => {
             {orders.length > 0 ? (
               orders.map((order) => (
                 <div key={order.id}>
-                  <h4>Data: {order.date}</h4>
-                  <p>Totale: {order.total.toFixed(2)}€</p>
+                  <h4>
+                    {t("data")}: {order.date}
+                  </h4>
                   <p>
-                    Metodo di pagamento:{" "}
+                    {t("total")} {order.total.toFixed(2)}€
+                  </p>
+                  <p>
+                    {t("paymentMethods")}{" "}
                     {order.paymentInfo?.paymentMethod || "N/A"}
                   </p>
                   <p>Tickets:</p>
@@ -337,10 +259,9 @@ const AccountPage: React.FC = () => {
                 </div>
               ))
             ) : (
-              <p>Non hai effettuato ordini.</p>
+              <p>{t("noOrders")}</p>
             )}
           </div>
->>>>>>> roberta
         )}
       </div>
     </main>

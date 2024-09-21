@@ -129,21 +129,19 @@
   "AccountPage": {
     "greeting": "Hello",
     "buttonAccount": "Account",
-    "buttonPurchase": "Purchases"
-  },
-
-  "ProfileForm": {
+    "buttonPurchase": "Purchases",
     "labelName": "First Name",
     "labelSurname": "Last Name",
     "labelEmail": "Email",
     "labelPassword": "Password",
     "buttonModify": "Modify",
-    "buttonSave": "Save"
-  },
-
-  "Purchases": {
+    "buttonSave": "Save",
     "ticket": "Standard Ticket",
-    "ticketTheatre": "Stone Theatres"
+    "ticketTheatre": "Stone Theatres",
+    "date": "Date",
+    "total": "Total",
+    "paymentMethods": "Payment Methods",
+    "noOrders": "There are no orders."
   },
 
   "EventDetail": {
