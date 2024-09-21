@@ -1,20 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { useSearchParams } from "next/navigation";
-import Image from "next/image";
-import maschera from "@/public/assets/maschera.webp";
-import styles from "./account.module.scss";
-import { auth } from "@/app/[locale]/firebase/config";
-import { onAuthStateChanged } from "firebase/auth";
-=======
 import { onAuthStateChanged } from "firebase/auth";
 import Image from "next/image";
 import maschera from "@/public/assets/maschera.webp";
 import style from "./account.module.scss";
 import { auth } from "@/app/[locale]/firebase/config";
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
 import { getDatabase, ref, get, onValue } from "firebase/database";
 import { saveUserData } from "@/app/[locale]/firebase/database";
 import { useTranslations } from "next-intl";
@@ -73,8 +64,6 @@ const AccountPage = () => {
   const [formData, setFormData] = useState<UserData>(userData);
   const userName = userData.firstName || "Utente";
   const t = useTranslations("AccountPage");
-<<<<<<< HEAD
-=======
 
   const buttonColors = {
     profile: {
@@ -92,7 +81,6 @@ const AccountPage = () => {
       color: activeTab === "purchases" ? "var(--c-sienna)" : "var(--c-white)",
     },
   };
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -184,13 +172,10 @@ const AccountPage = () => {
         await saveUserData(user.uid, formData);
       }
     }
-<<<<<<< HEAD
-=======
   };
 
   const handleTabChange = (tab: "profile" | "orders" | "purchases") => {
     setActiveTab(tab);
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
   };
 
   return (
@@ -203,11 +188,7 @@ const AccountPage = () => {
             priority
             className={style.profileImage}
           />
-<<<<<<< HEAD
-          <h1 className={styles.header}>
-=======
           <h1 className={style.header}>
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
             {t("greeting")} {userName}!
           </h1>
         </div>
@@ -215,43 +196,25 @@ const AccountPage = () => {
       <div className={style.container}>
         <div className={style.tabs}>
           <button
-<<<<<<< HEAD
-            className={styles.button}
-            onClick={() => setActiveTab("profile")}
-=======
             className={style.button}
             onClick={() => handleTabChange("profile")}
             style={buttonColors.profile}
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
           >
             {t("buttonAccount")}
           </button>
           <button
-<<<<<<< HEAD
-            className={styles.button}
-            onClick={() => setActiveTab("orders")}
-          >
-            Ordini
-=======
             className={style.button}
             onClick={() => handleTabChange("orders")}
             style={buttonColors.orders}
           >
-            {t("buttonOrders")}
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
+            {t("buttonPurchase")}
           </button>
         </div>
 
         {activeTab === "profile" ? (
-<<<<<<< HEAD
-          <form className={styles.form}>
-            <div className={styles.formGroup}>
-              <label>{t("labelName")}</label>
-=======
           <form className={style.form}>
             <div className={style.formGroup}>
               <label>{t("name")}:</label>
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
               <input
                 type="text"
                 name="firstName"
@@ -261,13 +224,8 @@ const AccountPage = () => {
                 className={style.input}
               />
             </div>
-<<<<<<< HEAD
-            <div className={styles.formGroup}>
-              <label>{t("labelSurname")}</label>
-=======
             <div className={style.formGroup}>
               <label>{t("surname")}:</label>
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
               <input
                 type="text"
                 name="lastName"
@@ -277,13 +235,8 @@ const AccountPage = () => {
                 className={style.input}
               />
             </div>
-<<<<<<< HEAD
-            <div className={styles.formGroup}>
-              <label>{t("labelEmail")}</label>
-=======
             <div className={style.formGroup}>
               <label>Email:</label>
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
               <input
                 type="email"
                 name="email"
@@ -293,17 +246,8 @@ const AccountPage = () => {
                 className={style.input}
               />
             </div>
-<<<<<<< HEAD
-            <button
-              type="button"
-              onClick={toggleEdit}
-              className={styles.button}
-            >
-              {isEditing ? t("buttonSave") : t("buttonModify")}
-=======
             <button type="button" onClick={toggleEdit} className={style.button}>
               {isEditing ? `${t("save")}` : `${t("edit")}`}
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
             </button>
           </form>
         ) : activeTab === "orders" ? (
@@ -332,14 +276,10 @@ const AccountPage = () => {
                 </div>
               ))
             ) : (
-              <p>{t("noOrders")}</p>
+              <p>{t("order")}</p>
             )}
           </div>
-<<<<<<< HEAD
-        )}
-=======
         ) : null}
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
       </div>
     </main>
   );

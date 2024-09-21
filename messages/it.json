@@ -139,21 +139,16 @@
 
   "AccountPage": {
     "greeting": "Ciao",
-<<<<<<< HEAD
-    "buttonAccount": "Account",
-    "buttonPurchase": "Acquisti",
-=======
     "buttonAccount": "Profilo",
     "buttonPurchase": "Acquisti",
-    "name":"Nome",
-    "surname":"Cognome",
-    "edit":"Modifica",
-    "save":"Salva",
-    "order":"Non hai effettuato ordini"
+    "name": "Nome",
+    "surname": "Cognome",
+    "edit": "Modifica",
+    "save": "Salva",
+    "order": "Non hai effettuato ordini"
   },
 
   "ProfileForm": {
->>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
     "labelName": "Nome",
     "labelSurname": "Cognome",
     "labelEmail": "Email",
