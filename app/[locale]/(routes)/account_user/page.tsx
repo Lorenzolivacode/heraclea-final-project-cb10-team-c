@@ -1,14 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
 import Image from "next/image";
 import maschera from "@/public/assets/maschera.webp";
-import styles from "./account.module.scss";
-import Purchases from "@/app/[locale]/components/Molecoles/Purchase/Purchases";
+import style from "./account.module.scss";
 import { auth } from "@/app/[locale]/firebase/config";
-import { db } from "@/app/[locale]/firebase/config";
-import { onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, get, onValue } from "firebase/database";
 import { saveUserData } from "@/app/[locale]/firebase/database";
 import { useTranslations } from "next-intl";
@@ -47,9 +44,9 @@ interface UserData {
 }
 
 const AccountPage = () => {
-  const [activeTab, setActiveTab] = useState<"profile" | "purchases">(
-    "purchases"
-  );
+  const [activeTab, setActiveTab] = useState<
+    "profile" | "orders" | "purchases"
+  >("purchases");
   const [userData, setUserData] = useState<UserData>({
     firstName: "",
     lastName: "",
@@ -65,14 +62,25 @@ const AccountPage = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<UserData>(userData);
-  const searchParams = useSearchParams();
   const userName = userData.firstName || "Utente";
   const t = useTranslations("AccountPage");
 
-  const [buttonColors, setButtonColors] = useState({
-    profile: { background: "var(--c-sienna)", color: "var(--c-white)" },
-    purchases: { background: "var(--c-sienna)", color: "var(--c-white)" },
-  });
+  const buttonColors = {
+    profile: {
+      background:
+        activeTab === "profile" ? "var(--c-white)" : "var(--c-sienna)",
+      color: activeTab === "profile" ? "var(--c-sienna)" : "var(--c-white)",
+    },
+    orders: {
+      background: activeTab === "orders" ? "var(--c-white)" : "var(--c-sienna)",
+      color: activeTab === "orders" ? "var(--c-sienna)" : "var(--c-white)",
+    },
+    purchases: {
+      background:
+        activeTab === "purchases" ? "var(--c-white)" : "var(--c-sienna)",
+      color: activeTab === "purchases" ? "var(--c-sienna)" : "var(--c-white)",
+    },
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -80,6 +88,7 @@ const AccountPage = () => {
         const uid = user.uid;
         const userDataFromDB = await fetchUserData(uid);
         setUserData(userDataFromDB);
+        fetchOrders(uid); // Fetch orders after user data is set
       }
     });
 
@@ -97,7 +106,6 @@ const AccountPage = () => {
 
     if (snapshot.exists()) {
       const data = snapshot.val();
-      console.log("Dati utente recuperati:", data);
       return {
         firstName: data.firstName || "",
         lastName: data.lastName || "",
@@ -111,7 +119,6 @@ const AccountPage = () => {
         },
       };
     } else {
-      console.error("Nessun dato trovato per questo utente.");
       return {
         firstName: "",
         lastName: "",
@@ -127,27 +134,27 @@ const AccountPage = () => {
     }
   };
 
-  // const fetchOrders = (userId: string) => {
-  //   const db = getDatabase();
-  //   const ordersRef = ref(db, "orders");
-  //   onValue(ordersRef, (snapshot) => {
-  //     const data = snapshot.val();
-  //     if (data) {
-  //       const userOrders = Object.keys(data).filter(
-  //         (orderId) => data[orderId].userId === userId
-  //       );
-  //       const orderList = userOrders.map((orderId) => ({
-  //         id: orderId,
-  //         date: data[orderId].date,
-  //         total: data[orderId].total || 0,
-  //         tickets: data[orderId].tickets || [],
-  //       })) as Order[];
-  //       setOrders(orderList);
-  //     } else {
-  //       setOrders([]);
-  //     }
-  //   });
-  // };
+  const fetchOrders = (userId: string) => {
+    const db = getDatabase();
+    const ordersRef = ref(db, "orders");
+    onValue(ordersRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const userOrders = Object.keys(data).filter(
+          (orderId) => data[orderId].userId === userId
+        );
+        const orderList = userOrders.map((orderId) => ({
+          id: orderId,
+          date: data[orderId].date,
+          total: data[orderId].total || 0,
+          tickets: data[orderId].tickets || [],
+        })) as Order[];
+        setOrders(orderList);
+      } else {
+        setOrders([]);
+      }
+    });
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -160,7 +167,6 @@ const AccountPage = () => {
     setIsEditing(!isEditing);
 
     if (isEditing) {
-      console.log("Dati salvati:", formData);
       const user = auth.currentUser;
       if (user) {
         await saveUserData(user.uid, formData);
@@ -168,124 +174,111 @@ const AccountPage = () => {
     }
   };
 
-  const handleTabChange = (tab: "profile" | "purchases") => {
+  const handleTabChange = (tab: "profile" | "orders" | "purchases") => {
     setActiveTab(tab);
-    setButtonColors((prev) => ({
-      profile:
-        tab === "profile"
-          ? { background: "var(--c-white)", color: "var(--c-sienna)" }
-          : { background: "var(--c-sienna)", color: "var(--c-white)" },
-      purchases:
-        tab === "purchases"
-          ? { background: "var(--c-white)", color: "var(--c-sienna)" }
-          : { background: "var(--c-sienna)", color: "var(--c-white)" },
-    }));
-
-    return (
-      <main className="main">
-        <div className={styles.profile}>
-          <div className={styles.profileInfo}>
-            <Image
-              src={maschera}
-              alt="Maschera"
-              priority
-              className={styles.profileImage}
-            />
-            <h1 className={styles.header}>
-              {t("greeting")} {userName}!
-            </h1>
-          </div>
-        </div>
-        <div className={styles.container}>
-          <div className={styles.tabs}>
-            <button
-              className={styles.button}
-              onClick={() => handleTabChange("profile")}
-              style={activeTab === "profile" ? buttonColors.profile : {}}
-            >
-              {t("buttonAccount")}
-            </button>
-            <button
-              className={styles.button}
-              onClick={() => handleTabChange("purchases")}
-              style={activeTab === "purchases" ? buttonColors.purchases : {}}
-            >
-              {t("buttonPurchase")}
-            </button>
-          </div>
-
-          {activeTab === "profile" ? (
-            <form className={styles.form}>
-              <div className={styles.formGroup}>
-                <label>{t("name")}:</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  disabled={!isEditing}
-                  className={styles.input}
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label>{t("surname")}:</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  disabled={!isEditing}
-                  className={styles.input}
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label>Email:</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  disabled={!isEditing}
-                  className={styles.input}
-                />
-              </div>
-              <button
-                type="button"
-                onClick={toggleEdit}
-                className={styles.button}
-              >
-                {isEditing ? `${t("save")}` : `${t("edit")}`}
-              </button>
-            </form>
-          ) : (
-            <div>
-              {orders.length > 0 ? (
-                orders.map((order) => (
-                  <div key={order.id}>
-                    <h4>Data: {order.date}</h4>
-                    <p>Totale: {order.total.toFixed(2)}€</p>
-                    <p>
-                      Metodo di pagamento:{" "}
-                      {order.paymentInfo?.paymentMethod || "N/A"}
-                    </p>
-                    <p>Tickets:</p>
-                    <ul>
-                      {order.tickets.map((ticket, index) => (
-                        <li key={index}>
-                          {ticket.quantity} x {ticket.type}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))
-              ) : (
-                <p>{t("order")}.</p>
-              )}
-            </div>
-          )}
-        </div>
-      </main>
-    );
   };
+
+  return (
+    <main className="main">
+      <div className={style.profile}>
+        <div className={style.profileInfo}>
+          <Image
+            src={maschera}
+            alt="Maschera"
+            priority
+            className={style.profileImage}
+          />
+          <h1 className={style.header}>
+            {t("greeting")} {userName}!
+          </h1>
+        </div>
+      </div>
+      <div className={style.container}>
+        <div className={style.tabs}>
+          <button
+            className={style.button}
+            onClick={() => handleTabChange("profile")}
+            style={buttonColors.profile}
+          >
+            {t("buttonAccount")}
+          </button>
+          <button
+            className={style.button}
+            onClick={() => handleTabChange("orders")}
+            style={buttonColors.orders}
+          >
+            {t("buttonOrders")}
+          </button>
+        </div>
+
+        {activeTab === "profile" ? (
+          <form className={style.form}>
+            <div className={style.formGroup}>
+              <label>{t("name")}:</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                disabled={!isEditing}
+                className={style.input}
+              />
+            </div>
+            <div className={style.formGroup}>
+              <label>{t("surname")}:</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                disabled={!isEditing}
+                className={style.input}
+              />
+            </div>
+            <div className={style.formGroup}>
+              <label>Email:</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                disabled={!isEditing}
+                className={style.input}
+              />
+            </div>
+            <button type="button" onClick={toggleEdit} className={style.button}>
+              {isEditing ? `${t("save")}` : `${t("edit")}`}
+            </button>
+          </form>
+        ) : activeTab === "orders" ? (
+          <div className={style.purchasesList}>
+            {orders.length > 0 ? (
+              orders.map((order) => (
+                <div key={order.id}>
+                  <h4>Data: {order.date}</h4>
+                  <p>Totale: {order.total.toFixed(2)}€</p>
+                  <p>
+                    Metodo di pagamento:{" "}
+                    {order.paymentInfo?.paymentMethod || "N/A"}
+                  </p>
+                  <p>Tickets:</p>
+                  <ul>
+                    {order.tickets.map((ticket, index) => (
+                      <li key={index}>
+                        {ticket.quantity} x {ticket.type}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            ) : (
+              <p>{t("noOrders")}</p>
+            )}
+          </div>
+        ) : null}
+      </div>
+    </main>
+  );
 };
+
 export default AccountPage;
