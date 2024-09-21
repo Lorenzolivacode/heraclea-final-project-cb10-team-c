@@ -23,7 +23,7 @@ function DataPayment() {
   const fetchOrders = (userId: string) => {
     const db = getDatabase();
     const ordersRef = ref(db, `orders`);
-    onValue(ordersRef, (snapshot) => {
+    const unsubscribeOrders = onValue(ordersRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
         const userOrders = Object.keys(data).filter(
@@ -49,18 +49,29 @@ function DataPayment() {
       }
       setLoading(false);
     });
+
+    // Cleanup per rimuovere il listener sugli ordini
+    return () => unsubscribeOrders();
   };
 
   useEffect(() => {
     const auth = getAuth();
-    onAuthStateChanged(auth, (authenticatedUser) => {
+    const db = getDatabase();
+
+    const unsubscribeAuth = onAuthStateChanged(auth, (authenticatedUser) => {
       if (authenticatedUser) {
         setUser(authenticatedUser);
-        fetchOrders(authenticatedUser.uid);
+        const unsubscribeOrders = fetchOrders(authenticatedUser.uid);
+
+        // Cleanup per il listener sugli ordini
+        return () => unsubscribeOrders();
       } else {
         setUser(null);
       }
     });
+
+    // Cleanup per il listener dell'autenticazione
+    return () => unsubscribeAuth();
   }, []);
 
   const handleTicketChange = (
@@ -88,7 +99,7 @@ function DataPayment() {
   useEffect(() => {
     console.log("Updated tickets:", updatedTickets);
     console.log("Orders:", orders);
-  }, []);
+  }, [updatedTickets, orders]);
 
   const updateOrder = (orderId: string) => {
     const db = getDatabase();
@@ -118,6 +129,7 @@ function DataPayment() {
         console.error("Errore nell'eliminare l'ordine:", error);
       });
   };
+
   const calculateOrderTotal = (order: any) => {
     return order.tickets
       .reduce((total: number, ticket: any) => {
