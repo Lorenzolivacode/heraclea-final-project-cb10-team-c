@@ -10,8 +10,7 @@ import {
 import { getDatabase, ref, onValue, update, remove } from "firebase/database";
 import style from "./pagamento.module.scss";
 import TrashOutline from "@/public/icons/pagamenti/trash-outline.svg";
-import CheckSienna from "@/public/icons/pagamenti/check-sienna.svg";
-import PencilOutline from "@/public/icons/pagamenti/pencil-outline.svg";
+
 import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
 
@@ -221,37 +220,10 @@ function DataPayment() {
                     {ticket.quantity} x {ticket.type} ={" "}
                     {(ticket.quantity * ticket.price).toFixed(2)}€
                   </p>
-                  {editingOrder === order.id && (
-                    <Counter
-                      value={
-                        updatedTickets[order.id]?.[ticket.id] ?? ticket.quantity
-                      }
-                      onChange={(newQuantity: number) =>
-                        handleTicketChange(order.id, ticket.id, newQuantity)
-                      }
-                    />
-                  )}
                 </div>
               ))}
               <div className={style.totalOrder}>
                 <h3>Totale Ordine: {calculateOrderTotal(order)}€</h3>
-                {editingOrder === order.id ? (
-                  <Image
-                    src={CheckSienna}
-                    alt="confirm"
-                    width={30}
-                    onClick={() => updateOrder(order.id)}
-                    style={{ cursor: "pointer" }}
-                  />
-                ) : (
-                  <Image
-                    src={PencilOutline}
-                    alt="edit"
-                    width={25}
-                    onClick={() => setEditingOrder(order.id)}
-                    style={{ cursor: "pointer" }}
-                  />
-                )}
                 <Image
                   src={TrashOutline}
                   alt="delete"
