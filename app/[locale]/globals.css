@@ -54,7 +54,7 @@ h2 {
   gap: 20px;
   justify-content: start;
   /* justify-content: space-evenly; */
-  min-height: 100dvh;
+  min-height: calc(100dvh - 178px);
   padding: 120px 22px;
   background-color: var(--c-white);
 }
@@ -75,4 +75,20 @@ h2 {
 
 .leaflet-pane {
   z-index: 0 !important;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    min-height: calc(100dvh - 240px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    background-color: var(--c-white);
+  }
+  .main {
+    width: 25%;
+    margin: auto;
+  }
 }

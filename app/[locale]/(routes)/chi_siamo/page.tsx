@@ -12,7 +12,7 @@ function Credits() {
       title: "titleArray3",
       text: "txtArray3",
       team: [
-        { name: "Gennare Samuele", githubUrl: "samuelegen" },
+        { name: "Gennaro Samuele", githubUrl: "samuelegen" },
         { name: "Nurkovic Lejla", githubUrl: "LejNur" },
         { name: "Miceli Lidia", githubUrl: "lidiamiceli" },
         { name: "Miosi Roberta", githubUrl: "RobertaMi89" },

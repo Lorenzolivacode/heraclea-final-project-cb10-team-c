@@ -1,169 +1,163 @@
 .main {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	min-height: 100vh;
-	overflow-y: auto;
-	background-color: var(--c-white);
+  position: relative;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 60px 0 80px 0;
+  /* overflow-y: auto; */
+  background-color: var(--c-white);
 }
 
 .initialPage {
-	background-color: var(--c-sienna);
+  height: 100dvh;
+  background-color: var(--c-sienna);
+
+  .infoContainer {
+    flex-direction: column-reverse;
+  }
 }
 
 .title {
-	font-size: 24px;
-	font-weight: 600;
-	color: var(--c-sienna);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--c-sienna);
 }
 
 .titlePage1 {
-	font-size: 24px;
-	font-weight: 600;
-	color: var(--c-sienna);
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--c-sienna);
 }
 
 .infoContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 40px;
-	width: 90%;
-	max-width: 250px;
-	height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 90%;
+  max-width: 250px;
+  height: 100vh;
+}
+
+.initialPage {
+  .infoContainer {
+    flex-direction: column-reverse;
+  }
 }
 
 .infoContainer p {
-	padding: 10px;
-	text-align: center;
-	font-size: 14px;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .btnContainer {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .btnContainer button {
-	background-color: var(--c-sienna);
-	color: var(--c-gray-light);
-	width: 160px;
-	height: 35px;
-	font-size: 14px;
+  background-color: var(--c-sienna);
+  color: var(--c-gray-light);
+  width: 160px;
+  height: 35px;
+  font-size: 14px;
 }
 
 .skip {
-	background-color: var(--c-white);
-	color: var(--c-sienna);
-	position: relative;
-	top: 55px;
-	left: 135px;
-	width: 35px;
-	font-size: 12px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: bold;
-	text-decoration: underline;
+  background-color: var(--c-white);
+  color: var(--c-sienna);
+  position: relative;
+  top: 55px;
+  left: 135px;
+  width: 35px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .toggleContainer {
-	position: absolute;
-	bottom: 0px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	width: 100%;
-	height: 80px;
-	background-color: var(--c-white);
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 80px;
+  background-color: var(--c-white);
 }
 
 .video {
-	width: 100%;
-	height: 200px;
+  width: 100%;
+  height: 200px;
 }
 
 .gif {
-	width: 250px;
-	height: 250px;
-	margin-bottom: 140px;
+  width: 80%;
+  object-fit: cover;
 }
 
 .titleBottom {
-	position: relative;
-	top: 380px;
-	font-size: 40px;
-	font-weight: 200;
-	letter-spacing: 8px;
-	color: var(--c-white);
+  /* position: relative;
+  top: 380px; */
+  font-size: 40px;
+  font-weight: 200;
+  letter-spacing: 8px;
+  color: var(--c-white);
 }
 
 @media (min-width: 768px) {
-	.main {
-		height: 100vh;
-		width: 100%;
-	}
+  .title {
+    font-size: 65px;
+  }
 
-	.title {
-		font-size: 65px;
-		margin-top: 60px;
-	}
+  .titlePage1 {
+    font-size: 65px;
+  }
 
-	.titlePage1 {
-		font-size: 65px;
-		margin-top: 20px;
-	}
+  .infoContainer {
+    width: 80%;
+  }
 
-	.infoContainer {
-		width: 80%;
-		max-width: 300px;
-		gap: 40px;
-	}
+  .infoContainer p {
+    font-size: 26px;
+    padding: 12px;
+  }
 
-	.infoContainer p {
-		font-size: 26px;
-		padding: 12px;
-	}
+  .btnContainer button {
+    width: 260px;
+    height: 50px;
+    font-size: 22px;
+  }
 
-	.btnContainer {
-		margin-top: 15px;
-	}
+  .skip {
+    left: 300px;
+    width: 30px;
+    font-size: 23px;
+  }
 
-	.btnContainer button {
-		width: 260px;
-		height: 50px;
-		font-size: 22px;
-	}
+  .video {
+    height: 350px;
+  }
 
-	.skip {
-		top: 55px;
-		left: 300px;
-		width: 30px;
-		height: 30px;
-		font-size: 23px;
-	}
+  /* .gif {
+    height: 400px;
+  } */
 
-	.toggleContainer {
-		height: 70px;
-	}
-
-	.video {
-		height: 350px;
-	}
-
-	.gif {
-		width: 1000px;
-		height: 400px;
-	}
-
-	.titleBottom {
-		top: 530px;
-		font-size: 60px;
-		letter-spacing: 6px;
-		margin-bottom: 20px;
-	}
+  .titleBottom {
+    /* top: 530px; */
+    font-size: 60px;
+    letter-spacing: 6px;
+    /* margin-bottom: 20px; */
+  }
 }
