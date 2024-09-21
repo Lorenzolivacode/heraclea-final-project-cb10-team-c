@@ -17,6 +17,7 @@ function ModalPayment() {
   const [cardName, setCardName] = useState<string>("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
   const [isFormValid, setIsFormValid] = useState(true);
 
   const router = useRouter();
@@ -24,22 +25,40 @@ function ModalPayment() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      const auth = getAuth();
-      const user = auth.currentUser;
+    const auth = getAuth();
+    const user = auth.currentUser;
 
-      if (user) {
-        const db = getDatabase();
-        const userPaymentRef = ref(db, `users/${user.uid}/paymentInfo`);
+    if (user) {
+      const db = getDatabase();
+      const userPaymentRef = ref(db, `users/${user.uid}/paymentInfo`);
 
+      if (paymentMethod !== null && paymentMethod !== "Carta") {
+        // Se è stato selezionato un metodo di pagamento alternativo (Apple Pay, Google Pay, PayPal)
+        const paymentInfo = {
+          paymentMethod,
+        };
+
+        set(userPaymentRef, paymentInfo)
+          .then(() => {
+            console.log("Metodo di pagamento salvato con successo.");
+            router.push("/acquista_page/acquisto_terminato");
+          })
+          .catch((error) => {
+            console.error(
+              "Errore durante il salvataggio del metodo di pagamento:",
+              error
+            );
+          });
+      } else if (validateForm()) {
+        // Se è stata selezionata la carta di credito e il form è valido
         const paymentInfo = {
           cardName,
           cardNumber,
           expiryDate,
           selectedCard,
+          paymentMethod: "Carta",
         };
 
-        // Salva i dati nel database
         set(userPaymentRef, paymentInfo)
           .then(() => {
             console.log("Dati di pagamento salvati con successo.");
@@ -49,14 +68,22 @@ function ModalPayment() {
             console.error("Errore durante il salvataggio dei dati:", error);
           });
       } else {
-        console.log("Utente non autenticato.");
+        setIsFormValid(false);
       }
     } else {
-      setIsFormValid(false);
+      console.log("Utente non autenticato.");
     }
   };
 
+  const handlePaymentMethodChange = (method: string) => {
+    setPaymentMethod(method);
+  };
+
   const validateForm = () => {
+    if (paymentMethod !== null && paymentMethod !== "Carta") {
+      // Se un metodo di pagamento alternativo è stato selezionato, non c'è bisogno di validare il form della carta
+      return true;
+    }
     return (
       cardNumber.length === 16 &&
       selectedCard !== null &&
@@ -72,11 +99,17 @@ function ModalPayment() {
         <div className={style.modal}>
           <form className={style.form} onSubmit={handleSubmit}>
             <div className={style.paymentother}>
-              <ApplePay />
-              <button name="paypal" type="button">
+              <ApplePay onClick={() => handlePaymentMethodChange("ApplePay")} />
+              <button
+                name="paypal"
+                type="button"
+                onClick={() => handlePaymentMethodChange("PayPal")}
+              >
                 <Image src={Paypal} alt="paypal" width={30} />
               </button>
-              <GooglePayBtn />
+              <GooglePayBtn
+                onClick={() => handlePaymentMethodChange("GooglePay")}
+              />
             </div>
             <div className={style.separator}>
               <hr className={style.line} />
@@ -92,7 +125,6 @@ function ModalPayment() {
                   placeholder="Inserisci il nome sulla carta"
                   value={cardName}
                   onChange={(e) => setCardName(e.target.value)}
-                  required
                 />
               </div>
               <div className={style.input_container}>
@@ -116,14 +148,12 @@ function ModalPayment() {
                     placeholder="01/23"
                     value={expiryDate}
                     onChange={(e) => setExpiryDate(e.target.value)}
-                    required
                   />
                   <input
                     className={style.input_field}
                     placeholder="CVV"
                     value={cvv}
                     onChange={(e) => setCvv(e.target.value)}
-                    required
                   />
                 </div>
               </div>
