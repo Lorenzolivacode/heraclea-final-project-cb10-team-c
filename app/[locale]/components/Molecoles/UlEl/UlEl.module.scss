@@ -18,6 +18,12 @@
 .lineEl {
   border: 1px solid var(--c-ivory);
   width: 0px;
-  height: 30px;
+  height: 35px;
   background-color: var(--c-ivory);
+}
+
+@media screen and (min-width: 768px) {
+  .lineEl {
+    height: 45px;
+  }
 }

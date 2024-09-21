@@ -1,29 +1,22 @@
-"use client";
-import { useRouter } from "@/i18n/routing";
-import Button from "@/app/[locale]/components/Atom/BigButton/BigButton";
 import style from "./acquista.module.scss";
 import { useTranslations } from "next-intl";
+import ButtonLink from "../../components/Atom/ButtonLink/ButtonLink";
 
 function Acquista() {
-  const router = useRouter();
   const t = useTranslations("AcquistaPage");
   return (
     <>
       <div className={style.container}>
-        <h1>{t("title")}</h1>
+        <div className={style.title}>
+          <h1>{t("title")}</h1>
+        </div>
         <div className={style.mainButtons}>
-          <Button
+          <ButtonLink
             text={t("buttonTickets")}
-            onClick={() => router.push("/acquista_page/calendario")}
+            href={"/acquista_page/calendario"}
           />
-          <Button
-            text={t("buttonAudioguide")}
-            onClick={() => router.push("/audioguide")}
-          />
-          <Button
-            text={t("buttonEvents")}
-            onClick={() => router.push("/teatri_pietra")}
-          />
+          <ButtonLink text={t("buttonAudioguide")} href={"/audioguide"} />
+          <ButtonLink text={t("buttonEvents")} href={"/teatri_pietra"} />
         </div>
       </div>
     </>

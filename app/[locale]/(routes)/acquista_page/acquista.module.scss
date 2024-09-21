@@ -23,24 +23,22 @@
       padding: 5px 15px;
     }
   }
-  h1 {
-    /* height: 100px;
-    align-content: center; */
-    position: absolute;
-    top: 0;
-  }
 }
 .mainButtons {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
+  align-items: stretch;
+  width: 80%;
   gap: 26px;
 }
 
 @media (min-width: 768px) {
   .container {
     height: calc(100vh - 225px);
+  }
+
+  .mainButtons {
+    width: 50%;
   }
 }

@@ -11,6 +11,10 @@
   }
 }
 
+.ul_container {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   .title {
     font-size: 3.5rem;
@@ -22,5 +26,10 @@
 
   .container_txt h2 {
     font-size: 1.5rem;
+  }
+
+  .ul_container {
+    width: 100%;
+    margin: auto;
   }
 }
