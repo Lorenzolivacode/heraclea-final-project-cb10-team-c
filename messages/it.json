@@ -32,6 +32,13 @@
     "descriptionAntiquarium": "L'Antiquarium di Eraclea Minoa è un museo situato all'ingresso dell'area archeologica della città. Al suo interno sono esposti reperti provenienti dalle abitazioni e dalle necropoli arcaiche ed ellenistiche. Tra i reperti figurano ceramiche, monete e altri oggetti che testimoniano la vita quotidiana e le influenze culturali della città nel corso dei secoli. L'Antiquarium offre un prezioso contesto storico per comprendere meglio l'evoluzione della città di Eraclea Minoa, dalla sua fondazione fino al suo declino."
   },
 
+  "AcquistaPage": {
+    "title": "Acquista",
+    "buttonTickets": "BIGLIETTO D'INGRESSO",
+    "buttonAudioguide": "AUDIOGUIDE",
+    "buttonEvents": "TEATRI DI PIETRA"
+  },
+
   "CreditsPage": {
     "title": "Credits",
     "titleArray1": "Comune e Ufficio Turistico",
@@ -42,11 +49,15 @@
     "txtArray3": "Tutti i contenuti sono utilizzati con il permesso dei rispettivi proprietari.",
     "paragraph": "Quest'app è stata creata per valorizzare il patrimonio storico di Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e informativa. Grazie alla collaborazione di esperti locali e istituzioni, siamo riusciti a integrare contenuti culturali e strumenti tecnologici per esplorare al meglio il sito."
   },
-  "EscursioniCards": {
+
+  "EscursioniPage": {
     "title": "Escursioni",
     "titleCard1": "In Bici tra Storia e Natura",
     "titleCard2": "Passeggiata a Cavallo",
-    "titleCard3": "Trekking alla Foce"
+    "titleCard3": "Trekking alla Foce",
+    "titlePrenotazione": "Prenota",
+    "textPrenotazione": "Puoi prenotare chiamando il numero",
+    "buttonCTA": "Chiama"
   },
 
   "AudioguidePage": {
@@ -92,5 +103,29 @@
     "regulations": "Norme",
     "credits": "Credits",
     "logout": "Log out"
+  },
+
+  "Norme": {
+    "title": "Norme",
+    "textIntro": "È consentito l'ingresso gratuito, tramite esibizione, al personale delle biglietterie, di un documento attestante una delle seguenti condizioni",
+    "textChildren": "Ai visitatori che non abbiano compiuto il diciottesimo anno di età, i visitatori che abbiano meno di dodici anni di età devono essere accompagnati da un maggiorenne.",
+    "textAssistiveTech": "Ai portatori di handicap e ad un loro familiare o ad altro accompagnatore che dimostri la propria appartenenza a servizi di assistenza socio-sanitaria (Decreto Ministeriale n. 239 del 20 aprile 2006)"
+  },
+
+  "Contatti": {
+    "titleWWA": "Dove siamo",
+    "tell": "Chiama",
+    "map": "Mappa",
+    "email": "Email",
+    "bus": "Bus",
+    "busTxt": "L'area archeologica è collegata con Palermo, Catania ed Agrigento con servizio di pullman di linea.",
+    "train": "Treno",
+    "trainTxt": "La stazione ferroviaria più vicina è quella di Agrigento Centrale, che dista 40 Km."
+  },
+
+  "NelleVicinanze": {
+    "title": "Nelle Vicinanze",
+    "subtitleRestaurants": "Ristoranti",
+    "subtitleVisit": "Da visitare"
   }
 }

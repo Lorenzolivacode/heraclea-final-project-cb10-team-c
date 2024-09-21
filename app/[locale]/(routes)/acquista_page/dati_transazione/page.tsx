@@ -3,13 +3,12 @@ import Image from "next/image";
 import { useRouter } from "@/i18n/routing";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, onValue, update } from "firebase/database";
+import { getDatabase, ref, onValue, update, remove } from "firebase/database";
 import style from "./pagamento.module.scss";
-import ApplePay from "@/app/[locale]/components/Atom/ApplepayBtn/ApplePayBtn";
-import GooglePayBtn from "@/app/[locale]/components/Atom/GooglePayBtn/GooglePayBtn";
-import Paypal from "@/public/icons/pagamenti/paypal.svg";
-import Button from "@/app/[locale]/components/Atom/Button/Button";
-import SelectCarta from "@/app/[locale]/components/Molecoles/SelectCarta/SelectCarta";
+import TrashOutline from "@/public/icons/pagamenti/trash-outline.svg";
+import CheckSienna from "@/public/icons/pagamenti/check-sienna.svg";
+import PencilOutline from "@/public/icons/pagamenti/pencil-outline.svg";
+import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
 
 function DataPayment() {
@@ -20,17 +19,11 @@ function DataPayment() {
   const [loading, setLoading] = useState(true);
   const [editingOrder, setEditingOrder] = useState<string | null>(null);
   const [updatedTickets, setUpdatedTickets] = useState<any>({});
-  const [cardNumber, setCardNumber] = useState("");
-  const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  const [cardName, setCardName] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
-  const [cvv, setCvv] = useState("");
-  const [isFormValid, setIsFormValid] = useState(true);
 
   const fetchOrders = (userId: string) => {
     const db = getDatabase();
     const ordersRef = ref(db, `orders`);
-    onValue(ordersRef, (snapshot) => {
+    const unsubscribeOrders = onValue(ordersRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
         const userOrders = Object.keys(data).filter(
@@ -56,18 +49,29 @@ function DataPayment() {
       }
       setLoading(false);
     });
+
+    // Cleanup per rimuovere il listener sugli ordini
+    return () => unsubscribeOrders();
   };
 
   useEffect(() => {
     const auth = getAuth();
-    onAuthStateChanged(auth, (authenticatedUser) => {
+    const db = getDatabase();
+
+    const unsubscribeAuth = onAuthStateChanged(auth, (authenticatedUser) => {
       if (authenticatedUser) {
         setUser(authenticatedUser);
-        fetchOrders(authenticatedUser.uid);
+        const unsubscribeOrders = fetchOrders(authenticatedUser.uid);
+
+        // Cleanup per il listener sugli ordini
+        return () => unsubscribeOrders();
       } else {
         setUser(null);
       }
     });
+
+    // Cleanup per il listener dell'autenticazione
+    return () => unsubscribeAuth();
   }, []);
 
   const handleTicketChange = (
@@ -95,7 +99,7 @@ function DataPayment() {
   useEffect(() => {
     console.log("Updated tickets:", updatedTickets);
     console.log("Orders:", orders);
-  }, []);
+  }, [updatedTickets, orders]);
 
   const updateOrder = (orderId: string) => {
     const db = getDatabase();
@@ -109,6 +113,20 @@ function DataPayment() {
       })
       .catch((error) => {
         console.error("Errore durante l'aggiornamento dell'ordine:", error);
+      });
+  };
+
+  const deleteOrder = (orderId: string) => {
+    const orderRef = ref(getDatabase(), `orders/${orderId}`); // Corretto con le backtick
+    remove(orderRef)
+      .then(() => {
+        console.log("Ordine eliminato con successo!");
+        setOrders((prevOrders) =>
+          prevOrders.filter((order) => order.id !== orderId)
+        );
+      })
+      .catch((error) => {
+        console.error("Errore nell'eliminare l'ordine:", error);
       });
   };
 
@@ -131,29 +149,6 @@ function DataPayment() {
       )
       .toFixed(2);
   };
-
-  const validateForm = () => {
-    return (
-      cardNumber.length === 16 &&
-      selectedCard !== null &&
-      cardName.trim() !== "" &&
-      expiryDate.trim() !== "" &&
-      cvv.trim() !== ""
-    );
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      router.push("/acquista_page/acquisto_terminato");
-    } else {
-      setIsFormValid(false);
-    }
-  };
-
-  useEffect(() => {
-    setIsFormValid(true);
-  }, [cardNumber, selectedCard, cardName, expiryDate, cvv]);
 
   return (
     <div className={style.main}>
@@ -185,25 +180,31 @@ function DataPayment() {
               ))}
               <div className={style.totalOrder}>
                 <h3>Totale Ordine: {calculateOrderTotal(order)}€</h3>
-              </div>
-
-              {/* Mostra il pulsante "Modifica Ordine" o "Conferma" in base allo stato */}
-
-              {editingOrder === order.id ? (
-                <>
-                  {/* Bottone per confermare la modifica */}
-                  <Button
-                    text="Conferma"
-                    onClick={() => updateOrder(order.id)}
+                {editingOrder === order.id ? (
+                  <Image
+                    src={CheckSienna}
+                    alt="confirm"
+                    width={30}
+                    onClick={() => updateOrder(order.id)} // Conferma modifica
+                    style={{ cursor: "pointer" }}
                   />
-                </>
-              ) : (
-                /* Bottone per entrare in modalità modifica */
-                <Button
-                  text="Modifica Ordine"
-                  onClick={() => setEditingOrder(order.id)}
+                ) : (
+                  <Image
+                    src={PencilOutline}
+                    alt="edit"
+                    width={25}
+                    onClick={() => setEditingOrder(order.id)} // Inizia modifica
+                    style={{ cursor: "pointer" }}
+                  />
+                )}
+                <Image
+                  src={TrashOutline}
+                  alt="delete"
+                  width={30}
+                  onClick={() => deleteOrder(order.id)} // Elimina ordine
+                  style={{ cursor: "pointer" }}
                 />
-              )}
+              </div>
             </div>
           ))
         ) : (
@@ -214,75 +215,7 @@ function DataPayment() {
 
       <h2>Inserisci dati di pagamento</h2>
 
-      <div className={style.margin}>
-        <div className={style.modal}>
-          <form className={style.form} onSubmit={handleSubmit}>
-            <div className={style.paymentother}>
-              <ApplePay />
-              <button name="paypal" type="button">
-                <Image src={Paypal} alt="paypal" width={30} />
-              </button>
-              <GooglePayBtn />
-            </div>
-            <div className={style.separator}>
-              <hr className={style.line} />
-              <p>OR</p>
-              <hr className={style.line} />
-            </div>
-            <div className={style.cardInfo}>
-              <div className={style.input_container}>
-                <label className={style.input_label}>Nome sulla carta</label>
-                <input
-                  className={style.input_field}
-                  type="text"
-                  placeholder="Inserisci il tuo nome completo"
-                  value={cardName}
-                  onChange={(e) => setCardName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className={style.input_container}>
-                <label className={style.input_label}>Numero della carta</label>
-                <div>
-                  <SelectCarta
-                    cardNumber={cardNumber}
-                    setCardNumber={setCardNumber}
-                    selectedCard={selectedCard}
-                    setSelectedCard={setSelectedCard}
-                  />
-                </div>
-              </div>
-              <div className={style.input_container}>
-                <label className={style.input_label}>
-                  Data scadenza carta / CVV
-                </label>
-                <div className={style.split}>
-                  <input
-                    className={style.input_field}
-                    placeholder="01/23"
-                    value={expiryDate}
-                    onChange={(e) => setExpiryDate(e.target.value)}
-                    required
-                  />
-                  <input
-                    className={style.input_field}
-                    placeholder="CVV"
-                    value={cvv}
-                    onChange={(e) => setCvv(e.target.value)}
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-            <Button
-              type="submit"
-              text="Paga adesso"
-              className={!isFormValid ? style.invalid : ""}
-            />
-            {!isFormValid && <p className={style.error}>Dati non validi</p>}
-          </form>
-        </div>
-      </div>
+      <ModalPayment />
     </div>
   );
 }

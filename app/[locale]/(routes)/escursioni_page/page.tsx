@@ -3,7 +3,7 @@ import style from "./Escursioni.module.scss";
 import { useTranslations } from "next-intl";
 
 function Excursions() {
-  const t = useTranslations("EscursioniCards");
+  const t = useTranslations("EscursioniPage");
 
   const EscursioniCards = [
     {

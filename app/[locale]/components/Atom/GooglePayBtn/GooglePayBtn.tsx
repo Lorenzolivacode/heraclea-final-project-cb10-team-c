@@ -1,7 +1,11 @@
-function GooglePayBtn() {
+interface GooglePayBtnProps {
+  onClick: () => void;
+}
+
+const GooglePayBtn: React.FC<GooglePayBtnProps> = ({ onClick }) => {
   return (
     <>
-      <button name="google-pay" type="button">
+      <button name="google-pay" type="button" onClick={onClick}>
         <svg
           fill="none"
           viewBox="0 0 80 39"
@@ -48,6 +52,6 @@ function GooglePayBtn() {
       </button>
     </>
   );
-}
+};
 
 export default GooglePayBtn;

@@ -35,8 +35,8 @@ const SignIn: React.FC = () => {
         /* alert("Accesso effettuato!"); */
         setIsLoginSuccess(true);
 
-        const displayName = res.user.displayName || "Utente";
-        const uid = res.user.uid;
+        // const displayName = res.user.displayName || "Utente";
+        // const uid = res.user.uid;
 
         // Reindirizza alla pagina dell'account e passa il nome utente come query string
         /* router.push(
