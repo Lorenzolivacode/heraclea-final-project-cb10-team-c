@@ -134,7 +134,9 @@
     "surname": "Surname",
     "edit": "Edit",
     "save": "Save",
-    "order": "You have not placed any orders"
+    "order": "You have not placed any orders",
+    "date": "Date",
+    "total": "Total"
   },
 
   "ProfileForm": {
@@ -146,8 +148,6 @@
     "buttonSave": "Save",
     "ticket": "Standard Ticket",
     "ticketTheatre": "Stone Theatres",
-    "date": "Date",
-    "total": "Total",
     "paymentMethods": "Payment Methods",
     "noOrders": "There are no orders."
   },
@@ -166,5 +166,54 @@
     "titleUlisse": "Ulysses",
     "creditsUlisse": "by Beatrice Monroy and Sergio Vespertino",
     "descriptionUlisse": "The story is based on the adventures of Ulysses, the king of Ithaca, who recounts his epic experiences and journeys through the ancient world. The myth of Ulysses explores themes of heroism, cunning, and the long journey home."
+  },
+  "Calendar": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December",
+    "sunday": "SUN",
+    "monday": "MON",
+    "tuesday": "TUE",
+    "wednesday": "WED",
+    "thursday": "THU",
+    "friday": "FRI",
+    "saturday": "SAT",
+    "purchaseTitle": "Purchase",
+    "selectTicket": "Select your ticket",
+    "fullTicket": "Full",
+    "reducedTicket": "Reduced",
+    "eventTicket": "Teatri di Pietra Ticket",
+    "total": "Total",
+    "purchase": "Purchase"
+  },
+
+  "DatiTransazionePage": {
+    "title": "Order Summary",
+    "loading": "Loading...",
+    "date": "Date",
+    "total": "Order Total",
+    "orders": "No orders recorded.",
+    "finalTotal": "Total Amount",
+    "titlePayment": "Enter Payment Information",
+    "cardName": "Name on Card",
+    "insertCardName": "Enter the name on the card",
+    "cardNumber": "Card Number",
+    "expirationDate": "Expiration Date / CVV",
+    "errorPayment": "Invalid data",
+    "buttonCTA": "Pay Now"
+  },
+  "AcquistoTerminatoPage": {
+    "title": "Purchase Completed Successfully",
+    "textSuccess": "To access the archaeological area or events at Eraclea Minoa, simply scan the QR Code",
+    "ctaQR": "Click here to view your"
   }
 }

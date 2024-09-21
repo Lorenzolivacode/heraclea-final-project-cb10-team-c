@@ -11,7 +11,7 @@ import arrowRightHover from "@/public/icons/calendar/arrow-right-sienna.svg";
 import Image from "next/image";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
-
+import { useTranslations } from "next-intl";
 //Date Eventi
 const availableDatesTheatre = [
   new Date(2024, 8, 18),
@@ -35,6 +35,7 @@ const Calendar: React.FC = () => {
   const [user] = useAuthState(auth);
   const router = useRouter();
   const db = getDatabase();
+  const t = useTranslations("Calendar");
 
   // Prezzi dei biglietti
   const [fullTicketPrice] = useState(4);
@@ -165,18 +166,42 @@ const Calendar: React.FC = () => {
   };
 
   const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    t("january"),
+    t("february"),
+    t("march"),
+    t("april"),
+    t("may"),
+    t("june"),
+    t("july"),
+    t("august"),
+    t("september"),
+    t("october"),
+    t("november"),
+    t("december"),
+  ];
+  // const monthNames = [
+  //   "January",
+  //   "February",
+  //   "March",
+  //   "April",
+  //   "May",
+  //   "June",
+  //   "July",
+  //   "August",
+  //   "September",
+  //   "October",
+  //   "November",
+  //   "December",
+  // ];
+
+  const daysOfWeek = [
+    t("sunday"),
+    t("monday"),
+    t("tuesday"),
+    t("wednesday"),
+    t("thursday"),
+    t("friday"),
+    t("saturday"),
   ];
 
   // Funzione per verificare se la data è disponibile
@@ -197,7 +222,7 @@ const Calendar: React.FC = () => {
   return (
     <>
       <div className="bg-milk flex flex-col items-center justify-evenly h-screen">
-        <h1 className="my-5 font-semibold">Acquista </h1>
+        <h1 className="my-5 font-semibold">{t("purchaseTitle")}</h1>
         <div className="lg:w-7/12 md:w-9/12 sm:w-10/12 mx-auto p-4 ">
           <div className="bg-white mb-24 border-2 border-sienna shadow-md shadow-gray-400 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between px-6 py-3 ">
@@ -233,7 +258,7 @@ const Calendar: React.FC = () => {
               </button>
             </div>
             <div className="grid grid-cols-7 gap-2 p-4">
-              {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day) => (
+              {daysOfWeek.map((day) => (
                 <div
                   key={day}
                   className="text-center font-semibold text-grayStone"
@@ -290,7 +315,7 @@ const Calendar: React.FC = () => {
             <div className="py-4 px-6">
               <div className="flex justify-between items-center pb-3">
                 <p className="text-xl font-bold text-sienna">
-                  Seleziona il tuo biglietto
+                  {t("selectTicket")}
                 </p>
                 <button
                   onClick={closeModal}
@@ -312,7 +337,9 @@ const Calendar: React.FC = () => {
               <div className="flex flex-row">
                 <div className="w-60 h-16 bg-white border border-sienna rounded-md">
                   <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
-                    <span className="text-sienna text-sm">Intero</span>
+                    <span className="text-sienna text-sm">
+                      {t("fullTicket")}
+                    </span>
                   </div>
                   <div className="text-sienna ps-2 font-bold">
                     € {fullTicketPrice.toFixed(2)}
@@ -326,7 +353,9 @@ const Calendar: React.FC = () => {
               <div className="flex flex-row">
                 <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
                   <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
-                    <span className="text-sienna text-sm">Ridotto</span>
+                    <span className="text-sienna text-sm">
+                      {t("reducedTicket")}
+                    </span>
                   </div>
                   <div className="text-sienna ps-2 font-bold">
                     € {reducedTicketPrice.toFixed(2)}
@@ -343,7 +372,7 @@ const Calendar: React.FC = () => {
                   <div className="w-60 h-16 mt-5 bg-white border border-sienna rounded-md">
                     <div className="border border-b-sienna ps-2 p-1 flex flex-row justify-between">
                       <span className="text-sienna text-sm">
-                        Ticket Teatri di Pietra
+                        {t("eventTicket")}
                       </span>
                     </div>
                     <div className="text-sienna ps-2 font-bold">
@@ -358,11 +387,11 @@ const Calendar: React.FC = () => {
 
               {/* Totale */}
               <div className="text-xl font-semibold text-sienna mt-5">
-                Totale: € {calculateTotalPrice()}
+                {t("total")}: € {calculateTotalPrice()}
               </div>
 
               <div className="flex justify-center items-center mt-5">
-                <Button onClick={handlePurchase} text="Acquista" />
+                <Button onClick={handlePurchase} text={t("purchase")} />
               </div>
             </div>
           </div>

@@ -10,6 +10,7 @@ import GooglePayBtn from "@/app/[locale]/components/Atom/GooglePayBtn/GooglePayB
 import Paypal from "@/public/icons/pagamenti/paypal.svg";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import SelectCarta from "@/app/[locale]/components/Molecoles/SelectCarta/SelectCarta";
+import { useTranslations } from "next-intl";
 
 function ModalPayment() {
   const [cardNumber, setCardNumber] = useState("");
@@ -19,6 +20,7 @@ function ModalPayment() {
   const [cvv, setCvv] = useState("");
   const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
   const [isFormValid, setIsFormValid] = useState(true);
+  const t = useTranslations("DatiTransazionePage");
 
   const router = useRouter();
 
@@ -118,17 +120,17 @@ function ModalPayment() {
             </div>
             <div className={style.cardInfo}>
               <div className={style.input_container}>
-                <label className={style.input_label}>Nome sulla carta</label>
+                <label className={style.input_label}>{t("cardName")}</label>
                 <input
                   className={style.input_field}
                   type="text"
-                  placeholder="Inserisci il nome sulla carta"
+                  placeholder={t("insertCardName")}
                   value={cardName}
                   onChange={(e) => setCardName(e.target.value)}
                 />
               </div>
               <div className={style.input_container}>
-                <label className={style.input_label}>Numero della carta</label>
+                <label className={style.input_label}>{t("cardNumber")}</label>
                 <div>
                   <SelectCarta
                     cardNumber={cardNumber}
@@ -140,7 +142,7 @@ function ModalPayment() {
               </div>
               <div className={style.input_container}>
                 <label className={style.input_label}>
-                  Data scadenza carta / CVV
+                  {t("expirationDate")}
                 </label>
                 <div className={style.split}>
                   <input
@@ -160,10 +162,10 @@ function ModalPayment() {
             </div>
             <Button
               type="submit"
-              text="Paga adesso"
+              text={t("buttonCTA")}
               className={!isFormValid ? style.invalid : ""}
             />
-            {!isFormValid && <p className={style.error}>Dati non validi</p>}
+            {!isFormValid && <p className={style.error}>{t("errorPayment")}</p>}
           </form>
         </div>
       </div>

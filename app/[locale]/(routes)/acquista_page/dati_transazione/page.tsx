@@ -14,6 +14,7 @@ import CheckSienna from "@/public/icons/pagamenti/check-sienna.svg";
 import PencilOutline from "@/public/icons/pagamenti/pencil-outline.svg";
 import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
+import { useTranslations } from "next-intl";
 
 // Interfacce
 interface Ticket {
@@ -52,6 +53,7 @@ function DataPayment() {
   const [error, setError] = useState<string | null>(null);
   const [editingOrder, setEditingOrder] = useState<string | null>(null);
   const [updatedTickets, setUpdatedTickets] = useState<UpdatedTickets>({});
+  const t = useTranslations("DatiTransazionePage");
 
   // Funzione per recuperare gli ordini
   const fetchOrders = (userId: string) => {
@@ -206,15 +208,17 @@ function DataPayment() {
   return (
     <div className={style.main}>
       <div className={style.riepilogoContainer}>
-        <h1>Riepilogo Ordine</h1>
+        <h1>{t("title")}</h1>
         {loading ? (
-          <p>Caricamento in corso...</p>
+          <p>{t("loading")}</p>
         ) : error ? (
           <p className={style.error}>{error}</p>
         ) : orders.length > 0 ? (
           orders.map((order) => (
             <div key={order.id} className={style.order}>
-              <h4>Data: {order.date}</h4>
+              <h4>
+                {t("date")}: {order.date}
+              </h4>
               {order.tickets.map((ticket) => (
                 <div key={ticket.id}>
                   <p>
@@ -234,7 +238,9 @@ function DataPayment() {
                 </div>
               ))}
               <div className={style.totalOrder}>
-                <h3>Totale Ordine: {calculateOrderTotal(order)}€</h3>
+                <h3>
+                  {t("total")}: {calculateOrderTotal(order)}€
+                </h3>
                 {editingOrder === order.id ? (
                   <Image
                     src={CheckSienna}
@@ -263,12 +269,14 @@ function DataPayment() {
             </div>
           ))
         ) : (
-          <p>Non ci sono ordini registrati.</p>
+          <p>{t("orders")}</p>
         )}
-        <h2>Totale Complessivo: {calculateGrandTotal()}€</h2>
+        <h2>
+          {t("finalTotal")}: {calculateGrandTotal()}€
+        </h2>
       </div>
 
-      <h2>Inserisci dati di pagamento</h2>
+      <h2>{t("titlePayment")}</h2>
       <ModalPayment />
     </div>
   );

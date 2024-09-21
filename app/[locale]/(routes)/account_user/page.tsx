@@ -256,7 +256,7 @@ const AccountPage = () => {
               orders.map((order) => (
                 <div key={order.id}>
                   <h4>
-                    {t("data")}: {order.date}
+                    {t("date")}: {order.date}
                   </h4>
                   <p>
                     {t("total")} {order.total.toFixed(2)}€
