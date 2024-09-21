@@ -130,6 +130,17 @@
     "greeting": "Hello",
     "buttonAccount": "Account",
     "buttonPurchase": "Purchases",
+<<<<<<< HEAD
+=======
+     "name":"Name",
+    "surname":"Surname",
+    "edit":"Edit",
+     "save":"Save",
+     "order":"You have not placed any orders"
+  },
+
+  "ProfileForm": {
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
     "labelName": "First Name",
     "labelSurname": "Last Name",
     "labelEmail": "Email",

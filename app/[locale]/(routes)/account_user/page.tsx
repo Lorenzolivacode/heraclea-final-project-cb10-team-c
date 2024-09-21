@@ -1,12 +1,20 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import maschera from "@/public/assets/maschera.webp";
 import styles from "./account.module.scss";
 import { auth } from "@/app/[locale]/firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
+=======
+import { onAuthStateChanged } from "firebase/auth";
+import Image from "next/image";
+import maschera from "@/public/assets/maschera.webp";
+import style from "./account.module.scss";
+import { auth } from "@/app/[locale]/firebase/config";
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
 import { getDatabase, ref, get, onValue } from "firebase/database";
 import { saveUserData } from "@/app/[locale]/firebase/database";
 import { useTranslations } from "next-intl";
@@ -41,11 +49,13 @@ interface UserData {
   firstName: string;
   lastName: string;
   email: string;
-  paymentInfo: PaymentInfo; // Aggiungi paymentInfo qui
+  paymentInfo: PaymentInfo;
 }
 
-const AccountPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"profile" | "orders">("orders");
+const AccountPage = () => {
+  const [activeTab, setActiveTab] = useState<
+    "profile" | "orders" | "purchases"
+  >("purchases");
   const [userData, setUserData] = useState<UserData>({
     firstName: "",
     lastName: "",
@@ -61,9 +71,28 @@ const AccountPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<UserData>(userData);
-  const searchParams = useSearchParams();
   const userName = userData.firstName || "Utente";
   const t = useTranslations("AccountPage");
+<<<<<<< HEAD
+=======
+
+  const buttonColors = {
+    profile: {
+      background:
+        activeTab === "profile" ? "var(--c-white)" : "var(--c-sienna)",
+      color: activeTab === "profile" ? "var(--c-sienna)" : "var(--c-white)",
+    },
+    orders: {
+      background: activeTab === "orders" ? "var(--c-white)" : "var(--c-sienna)",
+      color: activeTab === "orders" ? "var(--c-sienna)" : "var(--c-white)",
+    },
+    purchases: {
+      background:
+        activeTab === "purchases" ? "var(--c-white)" : "var(--c-sienna)",
+      color: activeTab === "purchases" ? "var(--c-sienna)" : "var(--c-white)",
+    },
+  };
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -71,6 +100,7 @@ const AccountPage: React.FC = () => {
         const uid = user.uid;
         const userDataFromDB = await fetchUserData(uid);
         setUserData(userDataFromDB);
+        fetchOrders(uid); // Fetch orders after user data is set
       }
     });
 
@@ -78,7 +108,7 @@ const AccountPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setFormData(userData); // Aggiorna formData ogni volta che userData cambia
+    setFormData(userData);
   }, [userData]);
 
   const fetchUserData = async (uid: string): Promise<UserData> => {
@@ -88,11 +118,10 @@ const AccountPage: React.FC = () => {
 
     if (snapshot.exists()) {
       const data = snapshot.val();
-      console.log("Dati utente recuperati:", data);
       return {
         firstName: data.firstName || "",
         lastName: data.lastName || "",
-        email: data.email || null, // Assicurati che sia string | null
+        email: data.email || "",
         paymentInfo: {
           cardName: data.paymentInfo.cardName || "",
           cardNumber: data.paymentInfo.cardNumber || "",
@@ -102,11 +131,10 @@ const AccountPage: React.FC = () => {
         },
       };
     } else {
-      console.error("Nessun dato trovato per questo utente.");
       return {
         firstName: "",
         lastName: "",
-        email: "", // Imposta a null se non trovato
+        email: "",
         paymentInfo: {
           cardName: "",
           cardNumber: "",
@@ -151,90 +179,135 @@ const AccountPage: React.FC = () => {
     setIsEditing(!isEditing);
 
     if (isEditing) {
-      console.log("Dati salvati:", formData);
       const user = auth.currentUser;
       if (user) {
-        await saveUserData(user.uid, formData); // Salva i dati aggiornati
+        await saveUserData(user.uid, formData);
       }
     }
+<<<<<<< HEAD
+=======
+  };
+
+  const handleTabChange = (tab: "profile" | "orders" | "purchases") => {
+    setActiveTab(tab);
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
   };
 
   return (
     <main className="main">
-      <div className={styles.profile}>
-        <div className={styles.profileInfo}>
+      <div className={style.profile}>
+        <div className={style.profileInfo}>
           <Image
             src={maschera}
             alt="Maschera"
             priority
-            className={styles.profileImage}
+            className={style.profileImage}
           />
+<<<<<<< HEAD
           <h1 className={styles.header}>
+=======
+          <h1 className={style.header}>
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
             {t("greeting")} {userName}!
           </h1>
         </div>
       </div>
-      <div className={styles.container}>
-        <div className={styles.tabs}>
+      <div className={style.container}>
+        <div className={style.tabs}>
           <button
+<<<<<<< HEAD
             className={styles.button}
             onClick={() => setActiveTab("profile")}
+=======
+            className={style.button}
+            onClick={() => handleTabChange("profile")}
+            style={buttonColors.profile}
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
           >
             {t("buttonAccount")}
           </button>
           <button
+<<<<<<< HEAD
             className={styles.button}
             onClick={() => setActiveTab("orders")}
           >
             Ordini
+=======
+            className={style.button}
+            onClick={() => handleTabChange("orders")}
+            style={buttonColors.orders}
+          >
+            {t("buttonOrders")}
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
           </button>
         </div>
 
         {activeTab === "profile" ? (
+<<<<<<< HEAD
           <form className={styles.form}>
             <div className={styles.formGroup}>
               <label>{t("labelName")}</label>
+=======
+          <form className={style.form}>
+            <div className={style.formGroup}>
+              <label>{t("name")}:</label>
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
               <input
                 type="text"
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className={styles.input}
+                className={style.input}
               />
             </div>
+<<<<<<< HEAD
             <div className={styles.formGroup}>
               <label>{t("labelSurname")}</label>
+=======
+            <div className={style.formGroup}>
+              <label>{t("surname")}:</label>
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
               <input
                 type="text"
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className={styles.input}
+                className={style.input}
               />
             </div>
+<<<<<<< HEAD
             <div className={styles.formGroup}>
               <label>{t("labelEmail")}</label>
+=======
+            <div className={style.formGroup}>
+              <label>Email:</label>
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className={styles.input}
+                className={style.input}
               />
             </div>
+<<<<<<< HEAD
             <button
               type="button"
               onClick={toggleEdit}
               className={styles.button}
             >
               {isEditing ? t("buttonSave") : t("buttonModify")}
+=======
+            <button type="button" onClick={toggleEdit} className={style.button}>
+              {isEditing ? `${t("save")}` : `${t("edit")}`}
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
             </button>
           </form>
-        ) : (
-          <div>
+        ) : activeTab === "orders" ? (
+          <div className={style.purchasesList}>
             {orders.length > 0 ? (
               orders.map((order) => (
                 <div key={order.id}>
@@ -262,7 +335,11 @@ const AccountPage: React.FC = () => {
               <p>{t("noOrders")}</p>
             )}
           </div>
+<<<<<<< HEAD
         )}
+=======
+        ) : null}
+>>>>>>> f5e3f304f949ab640554541f92c7dc388f953296
       </div>
     </main>
   );
