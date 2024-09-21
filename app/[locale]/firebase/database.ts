@@ -1,68 +1,74 @@
 import { getDatabase, ref, set, push } from "firebase/database";
 
-// Funzione per salvare i dati su Firebase Realtime Database
-export const saveToDatabase = (
+// Interfaccia per i dati utente
+interface UserData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  paymentInfo: {
+    cardName: string;
+    cardNumber: string;
+    expiryDate: string;
+    paymentMethod: string;
+    selectedCard: string;
+  };
+}
+
+// Funzione per salvare i dati utente nel database
+export const saveUserData = async (uid: string, userData: UserData) => {
+  const db = getDatabase();
+  const userRef = ref(db, `users/${uid}`);
+  await set(userRef, userData);
+};
+
+// Funzione per salvare gli ordini nel database
+export const saveToDatabase = async (
   selectedDate: Date,
   tickets: { type: string; quantity: number }[],
-  availableDatesTheatre: Date[]
+  availableDatesTheatre: Date[],
+  userData: UserData,
+  paymentMethod: string
 ) => {
   const db = getDatabase();
   const ordersRef = ref(db, "orders");
   const newOrderRef = push(ordersRef);
 
-  // Controlla se la data selezionata è tra le date con biglietti del teatro
+  // Normalizza le date per il confronto
+  const normalizedSelectedDate = selectedDate.setHours(0, 0, 0, 0);
   const isTeatroDate = availableDatesTheatre.some(
-    (date) => date.getTime() === selectedDate.getTime()
+    (date) => date.setHours(0, 0, 0, 0) === normalizedSelectedDate
   );
 
-  let order;
-
-  if (isTeatroDate) {
-    // Ordine con tutti i biglietti
-    order = {
-      date: selectedDate.toLocaleDateString("it-IT", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      }),
-      tickets,
-      timestamp: new Date().toLocaleString("it-IT", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-    };
-  } else {
-    // Ordine solo con biglietti intero e ridotto
-    const filteredTickets = tickets.filter(
-      (ticket) => ticket.type === "Intero" || ticket.type === "Ridotto"
-    );
-
-    order = {
-      date: selectedDate.toLocaleDateString("it-IT", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      }),
-      tickets: filteredTickets,
-      timestamp: new Date().toLocaleString("it-IT", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-    };
-  }
+  // Crea l'oggetto ordine
+  const order = {
+    date: selectedDate.toLocaleDateString("it-IT"),
+    tickets: isTeatroDate
+      ? tickets
+      : tickets.filter(
+          (ticket) => ticket.type === "Intero" || ticket.type === "Ridotto"
+        ),
+    timestamp: new Date().toLocaleString("it-IT"),
+    userId: userData.email,
+    firstName: userData.firstName,
+    lastName: userData.lastName,
+    paymentInfo: {
+      cardName: userData.paymentInfo.cardName,
+      cardNumber: userData.paymentInfo.cardNumber,
+      expiryDate: userData.paymentInfo.expiryDate,
+      paymentMethod: userData.paymentInfo.paymentMethod,
+      selectedCard: userData.paymentInfo.selectedCard,
+    },
+  };
 
   // Salva i dati nel database sotto una nuova chiave
-  set(newOrderRef, order)
-    .then(() => {
-      console.log("Ordine salvato con successo!", order);
-    })
-    .catch((error) => {
-      console.error("Errore nel salvare l'ordine:", error.message, error.code);
-    });
+  try {
+    await set(newOrderRef, order);
+    console.log("Ordine salvato con successo!", order);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("Errore nel salvare l'ordine:", error.message);
+    } else {
+      console.error("Errore sconosciuto:", error);
+    }
+  }
 };
