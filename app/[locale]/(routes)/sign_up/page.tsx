@@ -9,6 +9,7 @@ import style from "./SignUp.module.scss";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import InitialPagemodal from "@/app/[locale]/components/Organism/modalInitialPage/ModalInitialPage";
 import { Link } from "@/i18n/routing";
+import { saveUserData } from "@/app/[locale]/firebase/database"; // Assicurati di importare la funzione
 
 const SignUp: React.FC = () => {
   const [nome, setNome] = useState<string>("");
@@ -17,10 +18,8 @@ const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
 
-  // Hook per la registrazione
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
-
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -39,35 +38,40 @@ const SignUp: React.FC = () => {
     setError("");
 
     try {
-      console.log("Tentativo di registrazione con email e password:", {
-        email,
-        password,
-      });
-
       const res = await createUserWithEmailAndPassword(email, password);
-
-      console.log("Risultato della registrazione:", res);
 
       if (res && res.user) {
         await updateProfile(res.user, {
           displayName: `${nome} ${cognome}`,
         });
+
+        // Salva i dati nel database
+        const userData = {
+          firstName: nome,
+          lastName: cognome,
+          email: res.user.email,
+          paymentInfo: {
+            // Aggiungi dettagli di pagamento se necessario
+            cardName: "",
+            cardNumber: "",
+            expiryDate: "",
+            paymentMethod: "",
+            selectedCard: "",
+          },
+        };
+        await saveUserData(res.user.uid, userData); // Salva i dati dell'utente
+
+        alert("Registrazione completata!");
+        router.push("/log_in");
+
+        // Reset dei campi
+        setNome("");
+        setCognome("");
+        setEmail("");
+        setPassword("");
       }
-
-      alert("Registrazione completata!");
-      router.push("/log_in");
-
-      // Reset dei campi
-      setNome("");
-      setCognome("");
-      setEmail("");
-      setPassword("");
     } catch (error) {
       if (error instanceof Error) {
-        // Stampa il messaggio di errore nella console
-        console.error("Errore nella registrazione:", error.message);
-
-        // Verifica errori comuni
         if (error.message.includes("auth/email-already-in-use")) {
           setError(
             "Email già registrata. Vai su <a href='/log_in' class='link'>Login</a> per accedere."
@@ -89,7 +93,7 @@ const SignUp: React.FC = () => {
     <>
       <InitialPagemodal />
       <div className={style.container}>
-        <h1 className={style.title}>Sign In</h1>
+        <h1 className={style.title}>Registrati</h1>
         <form onSubmit={handleSubmit} className={style.form}>
           <div>
             <input
