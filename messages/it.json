@@ -139,8 +139,13 @@
 
   "AccountPage": {
     "greeting": "Ciao",
-    "buttonAccount": "Account",
-    "buttonPurchase": "Acquisti"
+    "buttonAccount": "Profilo",
+    "buttonPurchase": "Acquisti",
+    "name":"Nome",
+    "surname":"Cognome",
+    "edit":"Modifica",
+    "save":"Salva",
+    "order":"Non hai effettuato ordini"
   },
 
   "ProfileForm": {

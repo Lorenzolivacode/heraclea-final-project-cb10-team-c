@@ -129,7 +129,12 @@
   "AccountPage": {
     "greeting": "Hello",
     "buttonAccount": "Account",
-    "buttonPurchase": "Purchases"
+    "buttonPurchase": "Purchases",
+     "name":"Name",
+    "surname":"Surname",
+    "edit":"Edit",
+     "save":"Save",
+     "order":"You have not placed any orders"
   },
 
   "ProfileForm": {

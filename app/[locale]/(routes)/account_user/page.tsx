@@ -5,7 +5,9 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import maschera from "@/public/assets/maschera.webp";
 import styles from "./account.module.scss";
+import Purchases from "@/app/[locale]/components/Molecoles/Purchase/Purchases";
 import { auth } from "@/app/[locale]/firebase/config";
+import { db } from "@/app/[locale]/firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, get, onValue } from "firebase/database";
 import { saveUserData } from "@/app/[locale]/firebase/database";
@@ -41,11 +43,13 @@ interface UserData {
   firstName: string;
   lastName: string;
   email: string;
-  paymentInfo: PaymentInfo; // Aggiungi paymentInfo qui
+  paymentInfo: PaymentInfo;
 }
 
-const AccountPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"profile" | "orders">("orders");
+const AccountPage = () => {
+  const [activeTab, setActiveTab] = useState<"profile" | "purchases">(
+    "purchases"
+  );
   const [userData, setUserData] = useState<UserData>({
     firstName: "",
     lastName: "",
@@ -65,6 +69,11 @@ const AccountPage: React.FC = () => {
   const userName = userData.firstName || "Utente";
   const t = useTranslations("AccountPage");
 
+  const [buttonColors, setButtonColors] = useState({
+    profile: { background: "var(--c-sienna)", color: "var(--c-white)" },
+    purchases: { background: "var(--c-sienna)", color: "var(--c-white)" },
+  });
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
@@ -78,7 +87,7 @@ const AccountPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setFormData(userData); // Aggiorna formData ogni volta che userData cambia
+    setFormData(userData);
   }, [userData]);
 
   const fetchUserData = async (uid: string): Promise<UserData> => {
@@ -92,7 +101,7 @@ const AccountPage: React.FC = () => {
       return {
         firstName: data.firstName || "",
         lastName: data.lastName || "",
-        email: data.email || null, // Assicurati che sia string | null
+        email: data.email || "",
         paymentInfo: {
           cardName: data.paymentInfo.cardName || "",
           cardNumber: data.paymentInfo.cardNumber || "",
@@ -106,7 +115,7 @@ const AccountPage: React.FC = () => {
       return {
         firstName: "",
         lastName: "",
-        email: "", // Imposta a null se non trovato
+        email: "",
         paymentInfo: {
           cardName: "",
           cardNumber: "",
@@ -118,27 +127,27 @@ const AccountPage: React.FC = () => {
     }
   };
 
-  const fetchOrders = (userId: string) => {
-    const db = getDatabase();
-    const ordersRef = ref(db, "orders");
-    onValue(ordersRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        const userOrders = Object.keys(data).filter(
-          (orderId) => data[orderId].userId === userId
-        );
-        const orderList = userOrders.map((orderId) => ({
-          id: orderId,
-          date: data[orderId].date,
-          total: data[orderId].total || 0,
-          tickets: data[orderId].tickets || [],
-        })) as Order[];
-        setOrders(orderList);
-      } else {
-        setOrders([]);
-      }
-    });
-  };
+  // const fetchOrders = (userId: string) => {
+  //   const db = getDatabase();
+  //   const ordersRef = ref(db, "orders");
+  //   onValue(ordersRef, (snapshot) => {
+  //     const data = snapshot.val();
+  //     if (data) {
+  //       const userOrders = Object.keys(data).filter(
+  //         (orderId) => data[orderId].userId === userId
+  //       );
+  //       const orderList = userOrders.map((orderId) => ({
+  //         id: orderId,
+  //         date: data[orderId].date,
+  //         total: data[orderId].total || 0,
+  //         tickets: data[orderId].tickets || [],
+  //       })) as Order[];
+  //       setOrders(orderList);
+  //     } else {
+  //       setOrders([]);
+  //     }
+  //   });
+  // };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -154,113 +163,129 @@ const AccountPage: React.FC = () => {
       console.log("Dati salvati:", formData);
       const user = auth.currentUser;
       if (user) {
-        await saveUserData(user.uid, formData); // Salva i dati aggiornati
+        await saveUserData(user.uid, formData);
       }
     }
   };
 
-  return (
-    <main className="main">
-      <div className={styles.profile}>
-        <div className={styles.profileInfo}>
-          <Image
-            src={maschera}
-            alt="Maschera"
-            priority
-            className={styles.profileImage}
-          />
+  const handleTabChange = (tab: "profile" | "purchases") => {
+    setActiveTab(tab);
+    setButtonColors((prev) => ({
+      profile:
+        tab === "profile"
+          ? { background: "var(--c-white)", color: "var(--c-sienna)" }
+          : { background: "var(--c-sienna)", color: "var(--c-white)" },
+      purchases:
+        tab === "purchases"
+          ? { background: "var(--c-white)", color: "var(--c-sienna)" }
+          : { background: "var(--c-sienna)", color: "var(--c-white)" },
+    }));
 
-          <h1 className={styles.header}>Ciao, {userName}!</h1>
-        </div>
-      </div>
-      <div className={styles.container}>
-        <div className={styles.tabs}>
-          <button
-            className={styles.button}
-            onClick={() => setActiveTab("profile")}
-          >
-            {t("buttonAccount")}
-          </button>
-          <button
-            className={styles.button}
-            onClick={() => setActiveTab("orders")}
-          >
-            Ordini
-          </button>
-        </div>
-
-        {activeTab === "profile" ? (
-          <form className={styles.form}>
-            <div className={styles.formGroup}>
-              <label>Nome:</label>
-              <input
-                type="text"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                disabled={!isEditing}
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <label>Cognome:</label>
-              <input
-                type="text"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                disabled={!isEditing}
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <label>Email:</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                disabled={!isEditing}
-                className={styles.input}
-              />
-            </div>
-            <button
-              type="button"
-              onClick={toggleEdit}
-              className={styles.button}
-            >
-              {isEditing ? "Salva" : "Modifica"}
-            </button>
-          </form>
-        ) : (
-          <div>
-            {orders.length > 0 ? (
-              orders.map((order) => (
-                <div key={order.id}>
-                  <h4>Data: {order.date}</h4>
-                  <p>Totale: {order.total.toFixed(2)}€</p>
-                  <p>
-                    Metodo di pagamento:{" "}
-                    {order.paymentInfo?.paymentMethod || "N/A"}
-                  </p>
-                  <p>Tickets:</p>
-                  <ul>
-                    {order.tickets.map((ticket, index) => (
-                      <li key={index}>
-                        {ticket.quantity} x {ticket.type}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))
-            ) : (
-              <p>Non hai effettuato ordini.</p>
-            )}
+    return (
+      <main className="main">
+        <div className={styles.profile}>
+          <div className={styles.profileInfo}>
+            <Image
+              src={maschera}
+              alt="Maschera"
+              priority
+              className={styles.profileImage}
+            />
+            <h1 className={styles.header}>
+              {t("greeting")} {userName}!
+            </h1>
           </div>
-        )}
-      </div>
-    </main>
-  );
-};
+        </div>
+        <div className={styles.container}>
+          <div className={styles.tabs}>
+            <button
+              className={styles.button}
+              onClick={() => handleTabChange("profile")}
+              style={activeTab === "profile" ? buttonColors.profile : {}}
+            >
+              {t("buttonAccount")}
+            </button>
+            <button
+              className={styles.button}
+              onClick={() => handleTabChange("purchases")}
+              style={activeTab === "purchases" ? buttonColors.purchases : {}}
+            >
+              {t("buttonPurchase")}
+            </button>
+          </div>
 
+          {activeTab === "profile" ? (
+            <form className={styles.form}>
+              <div className={styles.formGroup}>
+                <label>{t("name")}:</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  disabled={!isEditing}
+                  className={styles.input}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label>{t("surname")}:</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  disabled={!isEditing}
+                  className={styles.input}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label>Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  disabled={!isEditing}
+                  className={styles.input}
+                />
+              </div>
+              <button
+                type="button"
+                onClick={toggleEdit}
+                className={styles.button}
+              >
+                {isEditing ? `${t("save")}` : `${t("edit")}`}
+              </button>
+            </form>
+          ) : (
+            <div>
+              {orders.length > 0 ? (
+                orders.map((order) => (
+                  <div key={order.id}>
+                    <h4>Data: {order.date}</h4>
+                    <p>Totale: {order.total.toFixed(2)}€</p>
+                    <p>
+                      Metodo di pagamento:{" "}
+                      {order.paymentInfo?.paymentMethod || "N/A"}
+                    </p>
+                    <p>Tickets:</p>
+                    <ul>
+                      {order.tickets.map((ticket, index) => (
+                        <li key={index}>
+                          {ticket.quantity} x {ticket.type}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              ) : (
+                <p>{t("order")}.</p>
+              )}
+            </div>
+          )}
+        </div>
+      </main>
+    );
+  };
+};
 export default AccountPage;
