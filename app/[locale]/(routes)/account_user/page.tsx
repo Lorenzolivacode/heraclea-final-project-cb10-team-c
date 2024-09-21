@@ -172,7 +172,7 @@ const AccountPage = () => {
   };
 
   return (
-    <main className="main">
+    <main className={style.main}>
       <div className={style.profile}>
         <div className={style.profileInfo}>
           <Image

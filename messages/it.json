@@ -114,9 +114,6 @@
 
   "Contatti": {
     "titleWWA": "Dove siamo",
-    "tell": "Chiama",
-    "map": "Mappa",
-    "email": "Email",
     "bus": "Bus",
     "busTxt": "L'area archeologica è collegata con Palermo, Catania ed Agrigento con servizio di pullman di linea.",
     "train": "Treno",
@@ -134,7 +131,10 @@
     "labelAudioguide": "Audioguide",
     "labelTickets": "Biglietti",
     "labelEvents": "Eventi",
-    "labelExplore": "Esplora"
+    "labelExplore": "Esplora",
+    "tell": "Chiama",
+    "map": "Mappa",
+    "email": "Email"
   },
 
   "AccountPage": {
@@ -147,20 +147,8 @@
     "save": "Salva",
     "order": "Non hai effettuato ordini",
     "date": "Data",
-    "total": "Totale"
-  },
-
-  "ProfileForm": {
-    "labelName": "Nome",
-    "labelSurname": "Cognome",
-    "labelEmail": "Email",
-    "labelPassword": "Password",
-    "buttonModify": "Modifica",
-    "buttonSave": "Salva",
-    "ticket": "Biglietto Intero",
-    "ticketTheatre": "Teatri di Pietra",
-    "paymentMethods": "Metodo di pagamento:",
-    "noOrders": "Non hai effettuato ordini"
+    "total": "Totale",
+    "paymentMethods": "Metodo di pagamento:"
   },
 
   "EventDetail": {

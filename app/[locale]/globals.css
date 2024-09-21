@@ -81,6 +81,7 @@ h2 {
   body {
     background-color: var(--c-white);
   }
+
   .main {
     width: 80%;
     min-height: calc(100dvh - 240px);

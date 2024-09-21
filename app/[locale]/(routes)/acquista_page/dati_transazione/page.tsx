@@ -12,11 +12,7 @@ import style from "./pagamento.module.scss";
 import TrashOutline from "@/public/icons/pagamenti/trash-outline.svg";
 
 import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
-<<<<<<< HEAD
-import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
 import { useTranslations } from "next-intl";
-=======
->>>>>>> 629ca04837ca6363de04446b9729c3d5ba272172
 
 // Interfacce
 interface Ticket {
@@ -198,30 +194,7 @@ function DataPayment() {
                 </div>
               ))}
               <div className={style.totalOrder}>
-<<<<<<< HEAD
-                <h3>
-                  {t("total")}: {calculateOrderTotal(order)}€
-                </h3>
-                {editingOrder === order.id ? (
-                  <Image
-                    src={CheckSienna}
-                    alt="confirm"
-                    width={30}
-                    onClick={() => updateOrder(order.id)}
-                    style={{ cursor: "pointer" }}
-                  />
-                ) : (
-                  <Image
-                    src={PencilOutline}
-                    alt="edit"
-                    width={25}
-                    onClick={() => setEditingOrder(order.id)}
-                    style={{ cursor: "pointer" }}
-                  />
-                )}
-=======
                 <h3>Totale Ordine: {calculateOrderTotal(order)}€</h3>
->>>>>>> 629ca04837ca6363de04446b9729c3d5ba272172
                 <Image
                   src={TrashOutline}
                   alt="delete"

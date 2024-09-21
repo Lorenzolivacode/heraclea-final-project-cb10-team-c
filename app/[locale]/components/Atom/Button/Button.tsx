@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
+  value?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({

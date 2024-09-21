@@ -12,6 +12,8 @@ import Image from "next/image";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+
 //Date Eventi
 const availableDatesTheatre = [
   new Date(2024, 8, 18),
@@ -203,6 +205,7 @@ const Calendar: React.FC = () => {
     t("friday"),
     t("saturday"),
   ];
+  const locale = useLocale();
 
   // Funzione per verificare se la data è disponibile
   const isDateAvailable = (day: number) => {
@@ -325,7 +328,7 @@ const Calendar: React.FC = () => {
                 </button>
               </div>
               <div className="text-xl font-semibold text-sienna mb-5">
-                {selectedDate.toLocaleDateString(undefined, {
+                {selectedDate.toLocaleDateString(locale, {
                   weekday: "long",
                   year: "numeric",
                   month: "long",

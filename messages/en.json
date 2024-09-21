@@ -103,9 +103,6 @@
 
   "Contatti": {
     "titleWWA": "Where We Are",
-    "tell": "Call",
-    "map": "Map",
-    "email": "Email",
     "bus": "Bus",
     "busTxt": "The archaeological area is connected to Palermo, Catania, and Agrigento by a regular bus service.",
     "train": "Train",
@@ -123,7 +120,10 @@
     "labelAudioguide": "Audioguide",
     "labelTickets": "Tickets",
     "labelEvents": "Events",
-    "labelExplore": "Explore"
+    "labelExplore": "Explore",
+    "tell": "Call",
+    "map": "Map",
+    "email": "Email"
   },
 
   "AccountPage": {
@@ -136,20 +136,8 @@
     "save": "Save",
     "order": "You have not placed any orders",
     "date": "Date",
-    "total": "Total"
-  },
-
-  "ProfileForm": {
-    "labelName": "First Name",
-    "labelSurname": "Last Name",
-    "labelEmail": "Email",
-    "labelPassword": "Password",
-    "buttonModify": "Modify",
-    "buttonSave": "Save",
-    "ticket": "Standard Ticket",
-    "ticketTheatre": "Stone Theatres",
-    "paymentMethods": "Payment Methods",
-    "noOrders": "There are no orders."
+    "total": "Total",
+    "paymentMethods": "Payment Methods"
   },
 
   "EventDetail": {

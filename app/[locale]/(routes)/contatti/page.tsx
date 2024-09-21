@@ -67,12 +67,7 @@ function Contacts() {
       />
 
       <div className={styles.ul_container}>
-        <UlEl
-          array={contactArray.map((contact) => ({
-            ...contact,
-            label: t(contact.label),
-          }))}
-        />
+        <UlEl array={contactArray} />
       </div>
       {/* <UlEl array={contactArray} /> */}
       {/* <ul>
