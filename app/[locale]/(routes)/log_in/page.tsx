@@ -36,7 +36,7 @@ const SignIn: React.FC = () => {
         setIsLoginSuccess(true);
         setTimeout(() => {
           router.push(`/`);
-        }, 3000);
+        }, 4200);
       }
     } catch (error) {
       console.log("errore");

@@ -17,8 +17,6 @@ interface MenuProps {
 }
 
 const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
-  const [isToastSuccessOpen, setIsToastSuccessOpen] = useState(false);
-  const [isToastErrorOpen, setIsToastErrorOpen] = useState(false);
   const router = useRouter();
   // const locale = useLocale();
   const t = useTranslations("Menu");
@@ -39,33 +37,16 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
     try {
       await signOut(auth);
       console.log("Logged out successfully!");
-      setIsToastSuccessOpen(true);
 
       // Usa il locale senza duplicazioni
       router.push(`/sign_up`);
     } catch (error) {
       console.error("Errore durante il logout:", error);
-      setIsToastErrorOpen(true);
     }
   };
 
   return (
     <div className={`${style.menu} ${isMenuOpen ? style.open : ""}`}>
-      <Toast
-        isOpen={isToastSuccessOpen}
-        onClose={() => setIsToastSuccessOpen(false)}
-        message="Logout effettuato con successo!"
-        type="success"
-      />
-      {isToastErrorOpen && (
-        <Toast
-          isOpen={isToastErrorOpen}
-          onClose={() => setIsToastErrorOpen(false)}
-          message="Si è verificato un errore durante il logout. Riprova."
-          type="error"
-        />
-      )}
-
       {menuItems.map((item, index) => (
         <div key={index} className={style.menuItem}>
           {item.link ? (
@@ -81,7 +62,9 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
               className={style.menuButton}
               onClick={() => {
                 item.action && item.action();
-                setIsMenuOpen(false);
+                setTimeout(() => {
+                  setIsMenuOpen(false);
+                }, 3000);
               }}
             >
               {item.label}

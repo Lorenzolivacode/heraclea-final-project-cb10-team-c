@@ -20,7 +20,7 @@ interface ToastProps {
 function Toast({
   message,
   type = "info",
-  timeout = 3000,
+  timeout = 4000,
   isOpen,
   onClose,
   position = "top-right",
