@@ -4,6 +4,7 @@ import style from "./ModalInitialPage.module.scss";
 import Toggle from "../../Atom/Toggle/Toggle";
 import Modal from "../../Molecoles/Modal/modal";
 import Button from "../../Atom/Button/Button";
+import { useTranslations } from "next-intl";
 
 function InitialPagemodal() {
   const [selectedPage, setSelectedPage] = useState<string>("pagina_0");
@@ -11,36 +12,37 @@ function InitialPagemodal() {
   const [isModalVisible, setIsModalVisible] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number>(0);
+  const t = useTranslations("ModalInitialPage");
 
   const pages = [
     { video: "/heraclea-logo-unscreen.gif", title: "HERACLEA" },
     {
-      title: "Benvenuti",
-      description: "Benvenuti nell'area archeologica di Eraclea Minoa",
+      title: t("welcomeTitle"),
+      description: t("welcomeDescription"),
       video: "/anfora.mp4",
       label: "ITALIANO",
       label2: "INGLESE",
     },
     {
-      title: "Scopri",
-      description: "Scopri il museo, il teatro, la necropoli",
+      title: t("discoverTitle"),
+      description: t("discoverDescription"),
       video: "/search.mp4",
     },
     {
-      title: "Acquista",
-      description: "Acquista il tuo biglietto di ingresso",
+      title: t("purchaseTitle"),
+      description: t("purchaseDescription"),
       video: "/tickets.mp4",
     },
     {
-      title: "Percorsi",
-      description: "Scegli il tuo percorso di visita",
+      title: t("itinirariesTitle"),
+      description: t("itinerariesDescription"),
       video: "/trekking.mp4",
     },
     {
-      title: "Eventi",
-      description: "Vivi un'esperienza unica",
+      title: t("eventsTitle"),
+      description: t("eventsDescription"),
       video: "/calendar.mp4",
-      label3: "INIZIA",
+      label3: t("buttonStart"),
     },
   ];
 
@@ -179,7 +181,10 @@ function InitialPagemodal() {
                     </>
                   )}
                   {currentPage === 5 && (
-                    <Button text="INIZIA" onClick={handleButtonClick} />
+                    <Button
+                      text={t("buttonStart")}
+                      onClick={handleButtonClick}
+                    />
                   )}
                 </div>
                 <div className={style.toggleContainer}>

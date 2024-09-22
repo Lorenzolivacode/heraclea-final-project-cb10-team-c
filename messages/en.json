@@ -221,7 +221,7 @@
     "errorGeneric": "Error during login. Please try again.",
     "errorUnknown": "Unknown error during login."
   },
-  
+
   "SignUp": {
     "sign_up": "Sign Up",
     "first_name": "First Name",
@@ -240,6 +240,19 @@
     "registration_success": "Registration completed!",
     "already_registered": "Already registered?",
     "login": "Log In"
-  }
+  },
 
+  "ModalInitialPage": {
+    "welcomeTitle": "Welcome",
+    "welcomeDescription": "Welcome to the archaeological area of Eraclea Minoa",
+    "discoverTitle": "Discover",
+    "discoverDescription": "Discover the museum, the theater, the necropolis",
+    "purchaseTitle": "Purchase",
+    "purchaseDescription": "Purchase your entrance ticket",
+    "itinirariesTitle": "Itineraries",
+    "itinerariesDescription": "Choose your visit itinerary",
+    "eventsTitle": "Events",
+    "eventsDescription": "Experience something unique",
+    "buttonStart": "Start"
+  }
 }

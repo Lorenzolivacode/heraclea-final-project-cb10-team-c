@@ -217,7 +217,6 @@
     "ctaQR": "Clicca qui per visionare il tuo"
   },
 
-  
   "SignIn": {
     "loginTitle": "Accedi",
     "emailPlaceholder": "Inserisci la tua email",
@@ -251,5 +250,19 @@
     "registration_success": "Registrazione completata!",
     "already_registered": "Sei già registrato?",
     "login": "Log In"
+  },
+
+  "ModalInitialPage": {
+    "welcomeTitle": "Benvenuti",
+    "welcomeDescription": "Benvenuti nell'area archeologica di Eraclea Minoa",
+    "discoverTitle": "Scopri",
+    "discoverDescription": "Scopri il museo, il teatro, la necropoli",
+    "purchaseTitle": "Acquista",
+    "purchaseDescription": "Acquista il tuo biglietto di ingresso",
+    "itinirariesTitle": "Percorsi",
+    "itinerariesDescription": "Scegli il tuo percorso di visita",
+    "eventsTitle": "Eventi",
+    "eventsDescription": "Vivi un'esperienza unica",
+    "buttonStart": "Inizia"
   }
 }
