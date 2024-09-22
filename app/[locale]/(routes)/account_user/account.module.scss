@@ -72,14 +72,17 @@
 }
 
 .form {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
+  .form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    width: 100%;
+    max-height: 400px; /* Imposta un'altezza massima */
+    overflow-y: auto; /* Abilita lo scroll verticale */
+  }
+  
   div {
     margin-bottom: 15px;
 
@@ -136,4 +139,36 @@
     color: var(--c-sienna);
     border-bottom: 1px solid var(--c-sienna);
   }
+}
+.inputContainer {
+  display: flex;
+  align-items: center; 
+  gap: 20px;
+}
+
+.toggleButton {
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent; 
+  border: none; 
+  cursor: pointer; 
+}
+
+
+.iconButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%); 
+  outline: none;
+}
+.formGroup{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
