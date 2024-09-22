@@ -2,9 +2,11 @@
 import React, { ChangeEvent } from "react";
 import styles from "./SwitchLanguage.module.scss";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 function SwitchLanguage() {
   const router = useRouter();
+  const t = useTranslations("SelectLanguage");
 
   const languageChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
@@ -14,7 +16,7 @@ function SwitchLanguage() {
   return (
     <select className={styles.select_switch} onChange={languageChangeHandler}>
       <option value="" title="null">
-        Seleziona lingua
+        {t("select")}
       </option>
       <option value="it" title="Italiano">
         🇮🇹 Italiano

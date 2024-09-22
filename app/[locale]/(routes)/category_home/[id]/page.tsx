@@ -52,7 +52,7 @@ function CategoryPage({ params }: CategoryProps) {
             key={point.id}
             roadmap={`/detail_page/${point.id}`}
             label={t(point.title)}
-            image={point.images[0]}
+            image={point.images[1]}
           />
         );
       })}

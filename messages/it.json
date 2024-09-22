@@ -82,7 +82,7 @@
     "trainTxt": "La stazione ferroviaria più vicina è quella di Agrigento Centrale, che dista 40 Km."
   },
 
-   "CreditsPage": {
+  "CreditsPage": {
     "title": "Credits",
     "titleArray1": "Comune e Ufficio Turistico",
     "txtArray1": "Un ringraziamento speciale al Comune e alla alla Pro Loco di Cattolica Eraclea per la collaborazione nella fornitura di materiali storici e immagini. Grazie anche all'ufficio dell'Area Archeologica di Eraclea Minoa per il contributo di manufatti e dati storici e ad Edgemony e a Simone Schifano per aver reso possibile questo progetto",
@@ -176,7 +176,7 @@
     "titleEraclea": "Uno sguardo su Eraclea...",
     "citEraclea": "“Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.”"
   },
- 
+
   "Map": {
     "title1": "Teatro Greco di Eraclea Minoa",
     "text1": "L'antico teatro greco di Eraclea, costruito nel V sec. a.C., ha una cavea con 10 gradoni e vista mare. Scavato nel 1957, vicino si trova l'antiquarium con reperti. La città conserva tracce dell'urbanistica ellenistica e romana, con resti delle mura lunghe 6 km e torri quadrate.",
@@ -224,8 +224,11 @@
     "textChildren": "Ai visitatori che non abbiano compiuto il diciottesimo anno di età, i visitatori che abbiano meno di dodici anni di età devono essere accompagnati da un maggiorenne.",
     "textAssistiveTech": "Ai portatori di handicap e ad un loro familiare o ad altro accompagnatore che dimostri la propria appartenenza a servizi di assistenza socio-sanitaria (Decreto Ministeriale n. 239 del 20 aprile 2006)"
   },
+  "SelectLanguage": {
+    "select": "Seleziona lingua"
+  },
 
-   "SignIn": {
+  "SignIn": {
     "loginTitle": "Accedi",
     "emailPlaceholder": "Inserisci la tua email",
     "passwordPlaceholder": "Inserisci la tua password",
@@ -259,5 +262,5 @@
     "registration_success": "Registrazione completata!",
     "already_registered": "Sei già registrato?",
     "login": "Log In"
-  } 
+  }
 }

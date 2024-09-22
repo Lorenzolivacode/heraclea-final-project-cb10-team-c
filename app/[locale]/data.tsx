@@ -3,13 +3,17 @@ export const eracleaData = [
     id: "1",
     title: "titleMinoa",
     titleDetails: "titleDetailsMinoa",
-    image: "/assets/card_minoa.webp",
+    image: "/assets/eraclea-minoa.jpg",
     roadmap: "/category_home/",
     subcategory: [
       {
         id: "1-1",
         title: "titleMinoa",
-        images: ["/assets/card_minoa.webp", "/assets/platani.webp"],
+        images: [
+          "/assets/eraclea-minoa-fly.jpg",
+          "/assets/eraclea-beach.jpg",
+          "/assets/card_minoa.webp",
+        ],
         description: "descriptionMinoa",
       },
       {
@@ -24,14 +28,15 @@ export const eracleaData = [
     id: "2",
     title: "titleArcheo",
     titleDetails: "titleDetailsArcheo",
-    image: "/assets/teatro_greco.webp",
+    image: "/assets/heraclea3.jpg",
     roadmap: "/category_home/",
     subcategory: [
       {
         id: "2-1",
         title: "titleArcheo",
         images: [
-          "/assets/quartiere_ellenistico.webp",
+          "/assets/heraclea-rovine2.jpg",
+          "/assets/house-greek.jpg",
           "/assets/quartiere_ellenistico.webp",
         ],
         description: "descriptionArcheo",
@@ -39,13 +44,21 @@ export const eracleaData = [
       {
         id: "2-2",
         title: "titleTheater",
-        images: ["/assets/teatro-after2.jpg", "/assets/teatro-before2.jpg"],
+        images: [
+          "/assets/teatro-after2.jpg",
+          "/assets/teatro-before2.jpg",
+          "/assets/tatro.jpg",
+        ],
         description: "descriptionTheater",
       },
       {
         id: "2-3",
         title: "titleAntiquarium",
-        images: ["/assets/antiquarium.webp", "/assets/antiquarium-b.jpg"],
+        images: [
+          "/assets/antiquarium.webp",
+          "/assets/antiquarium-b.jpg",
+          "/assets/sito-eraclea.jpg",
+        ],
         description: "descriptionAntiquarium",
       },
     ],

@@ -11,7 +11,7 @@
     "date": "Date",
     "total": "Total",
     "paymentMethods": "Payment Methods",
-    "ticket":"Ticket"
+    "ticket": "Ticket"
   },
 
   "AcquistaPage": {
@@ -160,7 +160,7 @@
     "btnExursion": "Excursions",
     "btnPath": "Itineraries"
   },
-  
+
   "Footer": {
     "labelAccount": "Account",
     "labelAudioguide": "Audioguide",
@@ -176,7 +176,7 @@
     "titleEraclea": "A glimpse of Eraclea...",
     "citEraclea": "“Eraclea Minoa, where ancient ruins touch the sea and eternal beauty lives in the silence of history.”"
   },
-  
+
   "Map": {
     "title1": "Greek Theater of Eraclea Minoa",
     "text1": "The ancient Greek theater of Eraclea, built in the 5th century BC, has a cavea with 10 tiers and a sea view. Excavated in 1957, nearby is the antiquarium with artifacts. The city preserves traces of Hellenistic and Roman urban planning, with remains of a 6 km-long wall and square towers.",
@@ -224,6 +224,9 @@
     "textChildren": "Visitors under the age of eighteen must be accompanied by an adult if they are under twelve years old.",
     "textAssistiveTech": "Persons with disabilities and one accompanying family member or caregiver who can demonstrate their affiliation with social-healthcare assistance services (Ministerial Decree No. 239 of April 20, 2006)."
   },
+  "SelectLanguage": {
+    "select": "Select language"
+  },
 
   "SignIn": {
     "loginTitle": "Log In",
@@ -259,5 +262,5 @@
     "registration_success": "Registration completed!",
     "already_registered": "Already registered?",
     "login": "Log In"
-  }  
+  }
 }
