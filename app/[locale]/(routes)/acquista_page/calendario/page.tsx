@@ -218,12 +218,17 @@ const Calendar: React.FC = () => {
   return (
     <>
       <div
-        className={`bg-milk flex flex-col items-center justify-evenly h-screen ${style.container}`}
+        className={`bg-milk flex flex-col items-center h-screen ${style.container}`}
       >
-        <h1 className={`my-5 font-semibold ${style.title}`}>
+        <div className={style.title}>
+          <h1>{t("purchaseTitle")}</h1>
+        </div>
+        {/* <h1 className={`my-5 font-semibold ${style.title}`}>
           {t("purchaseTitle")}
-        </h1>
-        <div className="lg:w-7/12 md:w-9/12 sm:w-10/12 mx-auto p-4 mt-10 ">
+        </h1> */}
+        <div
+          className={`lg:w-7/12 md:w-9/12 sm:w-10/12 p-4 mt-10 ${style.calendar}`}
+        >
           <div className="bg-white mb-24 border-2 border-sienna rounded-lg overflow-hidden">
             <div className="flex items-center justify-between px-6 py-3 ">
               <button
