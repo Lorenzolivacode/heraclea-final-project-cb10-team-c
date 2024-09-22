@@ -1,35 +1,17 @@
 {
-  "HomePage": {
-    "titleEraclea": "Uno sguardo su Eraclea...",
-    "citEraclea": "“Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.”"
-  },
-  "ContactsPage": {
-    "titleContacts": "Dove siamo",
-    "tell": "Chiama",
-    "map": "Mappa",
-    "email": "Email",
-    "bus": "Bus",
-    "busTxt": "L'area archeologica è collegata con Palermo, Catania ed Agrigento con servizio di pullman di linea.",
-    "train": "Treno",
-    "trainTxt": "La stazione ferroviaria più vicina è quella di Agrigento Centrale, che dista 40 Km."
-  },
-  "eracleaDataCategory": {
-    "titleMinoa": "Eraclea Minoa",
-    "titleDetailsMinoa": "Scopri storia e natura",
-    "titleArcheo": "L'area archeologica",
-    "titleDetailsArcheo": "Scopri la cultura greca"
-  },
-  "eracleaDataSubcategory": {
-    "titleMinoa": "Eraclea Minoa",
-    "descriptionMinoa": "Lo storiografo greco Erodoto, nel V secolo a.C., narra dell'antica città di Minoa, che sarebbe stata fondata dagli abitanti di Selinunte e chiamata Eraclea in onore dell’eroe semidio. I ritrovamenti archeologici raccontano, però, una storia molto più antica del territorio ed estremamente affascinante. L’area archeologica è in una magnifica posizione, in una riserva naturale, sul promontorio del capo Bianco (a 75 m), di candida falesia (ripida scarpata scoscesa) di roccia calcarea che si protende sul mare, degradando a ovest verso la valle del Plàtani e a est verso la spiaggia. I frammenti rinvenuti negli strati sottostanti alla Necropoli arcaica del VI secolo a.C. farebbero risalire l’origine dell’insediamento urbano alla preistoria, e precisamente al Neolitico (dall’8000 al 3.500 a.C. circa), mentre le antiche monete ritrovate testimoniano la presenza di una colonia fenicia. Nelle prime fonti storiche, la città è indicata con tre nomi: Macara, ovvero città di Makar, l’Eracle fenicio; Minoa, appunto, che sarebbe stata fondata, secondo la leggenda, dal re di Creta Minosse, che avrebbe inseguito Dedalo fin qui; infine Eraclea, colonia spartana a conferma dell’intitolazione del luogo al grande eroe greco. Dopo i fenici e gli spartani, nel V secolo a.C., la città divenne subcolonia di Selinunte e raggiunse l’apice del suo sviluppo in epoca ellenistica (fine IV secolo a.C.). A lungo contesa tra greci e cartaginesi per la sua posizione strategica di confine, passò di mano più volte, finché, nel 210 a.C., fu conquistata dai Romani. Nel I secolo a.C. venne definitivamente abbandonata, forse a causa di una frana che trascinò in mare la parte meridionale dell’abitato e delle mura. Le indagini archeologiche, ai primi del ‘900, hanno portato alla luce una parte del quartiere residenziale, con tracce leggibili in due stratificazioni successive, della città arcaica ed ellenistica, il tratto settentrionale della cinta muraria, con resti di torri e di porte, e il bel teatro col proscenio aperto verso il mare (in parte nascosto da una struttura protettiva). Nell’Antiquarium, all’ingresso della zona archeologica, è esposto il materiale proveniente dalle abitazioni e dalle Necropoli arcaica ed ellenistica. Il paese, collocato più in basso rispetto al sito archeologico, ospita strutture turistiche e ricettive, tra cui un campeggio, all’ombra di un bosco di eucalipti. La spiaggia si allunga ad anfiteatro fino alle pareti di roccia di capo Bianco, che, con i suoi fanghi, offre ai bagnanti trattamenti cosmetici naturali e gratuiti, all’aria aperta.",
-    "titlePlatani": "Fiume Platani",
-    "descriptionPlatani": "La Riserva Naturale Foce del fiume Platani è un’area naturale protetta della Sicilia sudoccidentale istituita per garantire la conservazione della popolazione ornitica, favorire la ricostituzione della macchia mediterranea e delle dune. La foce del fiume Platani è un luogo di incantevole bellezza naturalistica su cui domina la falesia di Capo Bianco. Quest'area rappresenta il primo approdo per molti uccelli migratori provenienti dall'Africa e, grazie alla diversificazione degli ambienti, offre rifugio ad una flora rigogliosa e variegata, quindi ad un'avifauna ricca e composita. La riserva che interseca la foce del fiume Platani nei territori di Ribera e Cattolica Eraclea (AG) comprende alcune delle spiagge sabbiose più integre della Sicilia oltre che cordoni dunali che ospitano comunità vegetali sia naturali che artificiali. Elementi caratteristici dell’area sono anche promontori e falesie costituiti da calcari marnosi e marne a globigerine, (Trubbi) oltre che calanchi argillosi. Ad est della Riserva, sul marnoso promontorio di Capo Bianco, sorgono le rovine della città greca di Eraclea-Minoa, di cui sono stati riportati alla luce i resti di un teatro e di un centro abitato. Nel complesso il sito presenta elevata valenza sia sotto l’aspetto paesaggistico che sotto quello prettamente naturalistico.",
-    "titleArcheo": "L'area archeologica",
-    "descriptionArcheo": "L'Area archeologica di Eraclea Minoa sorge su un bianco promontorio proteso verso uno splendido paesaggio marino, all'interno della Riserva Naturale della Foce del Fiume Platani. Le prime tracce di frequentazione dell’altopiano di Capobianco risalgono alla preistoria, cui si riferiscono anche i miti che rimandano alla presenza di popolazioni provenienti dall’Egeo dopo il crollo dei regni micenei. Un mito infatti collega il nome di Minoa con il re cretese Minosse e la spedizione in Sicilia che lo condusse alla morte presso il re sicano Kokalos. La colonia greca fu fondata intorno alla metà del VI secolo a. C. da Selinunte, Contesa a lungo e con alterne vicende fra Selinunte e Akragas, ben presto la città seguì lo stesso destino delle due contendenti cadendo in mano cartaginese. Per tutto il IV secolo a. C. la sua storia fu segnata dagli scontri fra Greci e Cartaginesi, finché nel III secolo a.C. non fu conquistata da Roma diventando civitas decumana. Verso la fine del I sec. a. C. la città fu abbandonata e solo in epoca paleocristiana e bizantina (III-VII sec. d. C.) l’area extra urbana tornò ad essere frequentata con la costruzione di una grande basilica con annesso un cimitero. Le prime campagne di scavo ebbero inizio nel 1950 quando Ernesto De Miro riportò alla luce l’imponente teatro, risalente al IV sec. a.C. La colonia era protetta da una cinta muraria lunga circa 6 km che ancora oggi abbraccia l’intero altopiano fino al fiume Platani. Nel corso delle indagini archeologiche sono state individuate consistenti tracce dell’abitato organizzato secondo un disegno urbanistico regolare, a terrazze, con un sistema di strade ortogonali che delimitavano gli isolati. Gli edifici scavati rimandano a due fasi sovrapposte di frequentazione: la più antica di epoca ellenistica (IV-III sec. a. C.) e la più recente di epoca romana- repubblicana (II-I sec. a. C.). A nord est della città, aldilà della cinta muraria, sorgevano le necropoli. Scavi sistematici effettuati fra gli anni 60 e 80 del secolo scorso, hanno messo in luce sepolture databili all’epoca arcaica e a quella ellenistica, testimoniando la presenza contemporanea del rito dell’inumazione e della cremazione. Nei pressi del sito archeologico è possibile visitare il piccolo Antiquarium in cui si conservano alcuni materiali provenienti dagli scavi.",
-    "titleTheater": "Teatro di Eraclea",
-    "descriptionTheater": "L'antico teatro greco di Eraclea, costruito alla fine del V a.C., fu riportato alla luce nel 1957. Esso si presenta con una cavea a 10 gradoni, divisa in 9 settori, che guarda verso il mare. Costruito ad incastro con conci di marna, il sito è dotato anche di antiquarium, dove sono conservati reperti archeologici rinvenuti durante le varie campagne di scavo. Gli scavi archeologici sulle rovine vennero intrapresi in modo sistematico dal 1950. La città viene considerata idonea per comprendere l’urbanistica delle città ellenistiche e romane: il teatro; il quartiere delle abitazioni ellenistiche e romane con impianto urbanistico ad “insulae”, separate da strade parallele. Si possono vedere anche i resti della cinta muraria della città costruita tra la fine del VI e la fine del IV secolo a.C., lungo circa 6 chilometri; a nord-est delle mura si riconoscono ancora otto torri quadrate. Il teatro greco fu individuato nel Settecento, ma portato alla luce soltanto nel 1953.",
-    "titleAntiquarium": "Antiquarium",
-    "descriptionAntiquarium": "L'Antiquarium di Eraclea Minoa è un museo situato all'ingresso dell'area archeologica della città. Al suo interno sono esposti reperti provenienti dalle abitazioni e dalle necropoli arcaiche ed ellenistiche. Tra i reperti figurano ceramiche, monete e altri oggetti che testimoniano la vita quotidiana e le influenze culturali della città nel corso dei secoli. L'Antiquarium offre un prezioso contesto storico per comprendere meglio l'evoluzione della città di Eraclea Minoa, dalla sua fondazione fino al suo declino."
+  "AccountPage": {
+    "greeting": "Ciao",
+    "buttonAccount": "Profilo",
+    "buttonPurchase": "Acquisti",
+    "name": "Nome",
+    "surname": "Cognome",
+    "edit": "Modifica",
+    "save": "Salva",
+    "order": "Non hai effettuato ordini",
+    "date": "Data",
+    "total": "Totale",
+    "paymentMethods": "Metodo di pagamento:",
+    "ticket": "Biglietti"
   },
 
   "AcquistaPage": {
@@ -39,25 +21,10 @@
     "buttonEvents": "TEATRI DI PIETRA"
   },
 
-  "CreditsPage": {
-    "title": "Credits",
-    "titleArray1": "Comune e Ufficio Turistico",
-    "txtArray1": "Un ringraziamento speciale al Comune e alla alla Pro Loco di Cattolica Eraclea per la collaborazione nella fornitura di materiali storici e immagini. Grazie anche all'ufficio dell'Area Archeologica di Eraclea Minoa per il contributo di manufatti e dati storici e ad Edgemony e a Simone Schifano per aver reso possibile questo progetto",
-    "titleArray2": "Team di Sviluppo",
-    "txtArray2": "L'app è stata realizzata da un team di sviluppo dedicato, che ha lavorato per offrire un'esperienza interattiva e coinvolgente del sito storico.",
-    "titleArray3": "Licenza",
-    "txtArray3": "Tutti i contenuti sono utilizzati con il permesso dei rispettivi proprietari.",
-    "paragraph": "Quest'app è stata creata per valorizzare il patrimonio storico di Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e informativa. Grazie alla collaborazione di esperti locali e istituzioni, siamo riusciti a integrare contenuti culturali e strumenti tecnologici per esplorare al meglio il sito."
-  },
-
-  "EscursioniPage": {
-    "title": "Escursioni",
-    "titleCard1": "In Bici tra Storia e Natura",
-    "titleCard2": "Passeggiata a Cavallo",
-    "titleCard3": "Trekking alla Foce",
-    "titlePrenotazione": "Prenota",
-    "textPrenotazione": "Puoi prenotare chiamando il numero",
-    "buttonCTA": "Chiama"
+  "AcquistoTerminatoPage": {
+    "title": "Acquisto effettuato con successo",
+    "textSuccess": "Per accedere all'area archeologica o agli eventi di Eraclea Minoa ti sarà sufficiente scansionare il QR Code",
+    "ctaQR": "Clicca qui per visionare il tuo"
   },
 
   "AudioguidePage": {
@@ -78,95 +45,6 @@
     "buttonTextNascondi": "Nascondi testo"
   },
 
-  "Map": {
-    "title1": "Teatro Greco di Eraclea Minoa",
-    "text1": "L'antico teatro greco di Eraclea, costruito nel V sec. a.C., ha una cavea con 10 gradoni e vista mare. Scavato nel 1957, vicino si trova l'antiquarium con reperti. La città conserva tracce dell'urbanistica ellenistica e romana, con resti delle mura lunghe 6 km e torri quadrate.",
-    "link": "Scopri",
-    "title2": "Antiquarium di Eraclea Minoa",
-    "text2": "L'Antiquarium di Eraclea Minoa, situato all'ingresso dell'area archeologica, espone reperti come ceramiche e monete dalle abitazioni e necropoli arcaiche ed ellenistiche, offrendo uno spaccato della vita quotidiana e storia della città.",
-    "title3": "Area Archeologica di Eraclea Minoa",
-    "text3": "L'area archeologica di Eraclea Minoa, su un promontorio bianco affacciato sul mare, fu fondata da Selinunte nel VI sec. a.C. e contesa tra Greci e Cartaginesi fino alla conquista romana. Il sito ospita un teatro del IV sec. a.C. e una cinta muraria lunga 6 km. Le necropoli vicine e l'Antiquarium testimoniano la storia della città, dalla sua fondazione alla dominazione romana."
-  },
-
-  "ExploraPage": {
-    "title": "Esplora",
-    "btnExursion": "Escursioni",
-    "btnPath": "Percorsi"
-  },
-
-  "Menu": {
-    "account": "Account",
-    "tickets": "Biglietti",
-    "explore": "Esplora",
-    "inTheArea": "Nelle vicinanze",
-    "whereWeAre": "Dove siamo",
-    "regulations": "Norme",
-    "credits": "Credits",
-    "logout": "Log out"
-  },
-
-  "Norme": {
-    "title": "Norme",
-    "textIntro": "È consentito l'ingresso gratuito, tramite esibizione, al personale delle biglietterie, di un documento attestante una delle seguenti condizioni",
-    "textChildren": "Ai visitatori che non abbiano compiuto il diciottesimo anno di età, i visitatori che abbiano meno di dodici anni di età devono essere accompagnati da un maggiorenne.",
-    "textAssistiveTech": "Ai portatori di handicap e ad un loro familiare o ad altro accompagnatore che dimostri la propria appartenenza a servizi di assistenza socio-sanitaria (Decreto Ministeriale n. 239 del 20 aprile 2006)"
-  },
-
-  "Contatti": {
-    "titleWWA": "Dove siamo",
-    "bus": "Bus",
-    "busTxt": "L'area archeologica è collegata con Palermo, Catania ed Agrigento con servizio di pullman di linea.",
-    "train": "Treno",
-    "trainTxt": "La stazione ferroviaria più vicina è quella di Agrigento Centrale, che dista 40 Km."
-  },
-
-  "NelleVicinanze": {
-    "title": "Nelle Vicinanze",
-    "subtitleRestaurants": "Ristoranti",
-    "subtitleVisit": "Da visitare"
-  },
-
-  "Footer": {
-    "labelAccount": "Account",
-    "labelAudioguide": "Audioguide",
-    "labelTickets": "Biglietti",
-    "labelEvents": "Eventi",
-    "labelExplore": "Esplora",
-    "tell": "Chiama",
-    "map": "Mappa",
-    "email": "Email"
-  },
-
-  "AccountPage": {
-    "greeting": "Ciao",
-    "buttonAccount": "Profilo",
-    "buttonPurchase": "Acquisti",
-    "name": "Nome",
-    "surname": "Cognome",
-    "edit": "Modifica",
-    "save": "Salva",
-    "order": "Non hai effettuato ordini",
-    "date": "Data",
-    "total": "Totale",
-    "paymentMethods": "Metodo di pagamento:",
-    "ticket": "Biglietti"
-  },
-
-  "EventDetail": {
-    "buttonEventPage": "Scopri gli eventi",
-    "title": "Eventi",
-    "subtitle": "Trama",
-    "buttonCTA": "Acquista",
-    "titleAndromaca": "Andromaca",
-    "creditsAndromaca": "di Massimiliano Civica e I Sacchi di Sabbia con Gabriele Carli, Giulia Gallo",
-    "descriptionAndromaca": "Andromaca è una tragedia greca scritta da Euripide. La trama si concentra su Andromaca, la vedova di Ettore, e il suo conflitto con Odisseo. La tragedia esplora temi di vendetta, pietà e la condizione delle donne nella società greca antica.",
-    "titleEuridice": "Euridice e Orfeo",
-    "creditsEuridice": "di Christoph Willibald Gluck",
-    "descriptionEuridice": "Questa tragedia narra la storia di Orfeo, un musicista leggendario, e la sua moglie Euridice. Dopo la sua morte, Orfeo scende negli inferi per riportarla indietro. Il mito esplora l'amore, la perdita e la speranza nella vita dopo la morte.",
-    "titleUlisse": "Ulisse",
-    "creditsUlisse": "di Beatrice Monroy e Sergio Vespertino",
-    "descriptionUlisse": "La storia si basa sulle avventure di Ulisse, il re di Itaca, che narra le sue esperienze epiche e i suoi viaggi attraverso il mondo antico. Il mito di Ulisse esplora temi di eroismo, astuzia e il lungo viaggio verso casa."
-  },
   "Calendar": {
     "january": "Gennaio",
     "february": "Febbraio",
@@ -196,6 +74,25 @@
     "purchase": "Acquista"
   },
 
+  "Contatti": {
+    "titleWWA": "Dove siamo",
+    "bus": "Bus",
+    "busTxt": "L'area archeologica è collegata con Palermo, Catania ed Agrigento con servizio di pullman di linea.",
+    "train": "Treno",
+    "trainTxt": "La stazione ferroviaria più vicina è quella di Agrigento Centrale, che dista 40 Km."
+  },
+
+   "CreditsPage": {
+    "title": "Credits",
+    "titleArray1": "Comune e Ufficio Turistico",
+    "txtArray1": "Un ringraziamento speciale al Comune e alla alla Pro Loco di Cattolica Eraclea per la collaborazione nella fornitura di materiali storici e immagini. Grazie anche all'ufficio dell'Area Archeologica di Eraclea Minoa per il contributo di manufatti e dati storici e ad Edgemony e a Simone Schifano per aver reso possibile questo progetto",
+    "titleArray2": "Team di Sviluppo",
+    "txtArray2": "L'app è stata realizzata da un team di sviluppo dedicato, che ha lavorato per offrire un'esperienza interattiva e coinvolgente del sito storico.",
+    "titleArray3": "Licenza",
+    "txtArray3": "Tutti i contenuti sono utilizzati con il permesso dei rispettivi proprietari.",
+    "paragraph": "Quest'app è stata creata per valorizzare il patrimonio storico di Eraclea Minoa e offrire ai visitatori un'esperienza immersiva e informativa. Grazie alla collaborazione di esperti locali e istituzioni, siamo riusciti a integrare contenuti culturali e strumenti tecnologici per esplorare al meglio il sito."
+  },
+
   "DatiTransazionePage": {
     "title": "Riepilogo Ordine",
     "loading": "Caricamento in corso...",
@@ -212,13 +109,123 @@
     "buttonCTA": "Paga adesso"
   },
 
-  "AcquistoTerminatoPage": {
-    "title": "Acquisto effettuato con successo",
-    "textSuccess": "Per accedere all'area archeologica o agli eventi di Eraclea Minoa ti sarà sufficiente scansionare il QR Code",
-    "ctaQR": "Clicca qui per visionare il tuo"
+  "eracleaDataCategory": {
+    "titleMinoa": "Eraclea Minoa",
+    "titleDetailsMinoa": "Scopri storia e natura",
+    "titleArcheo": "L'area archeologica",
+    "titleDetailsArcheo": "Scopri la cultura greca"
   },
 
-  "SignIn": {
+  "eracleaDataSubcategory": {
+    "titleMinoa": "Eraclea Minoa",
+    "descriptionMinoa": "Lo storiografo greco Erodoto, nel V secolo a.C., narra dell'antica città di Minoa, che sarebbe stata fondata dagli abitanti di Selinunte e chiamata Eraclea in onore dell’eroe semidio. I ritrovamenti archeologici raccontano, però, una storia molto più antica del territorio ed estremamente affascinante. L’area archeologica è in una magnifica posizione, in una riserva naturale, sul promontorio del capo Bianco (a 75 m), di candida falesia (ripida scarpata scoscesa) di roccia calcarea che si protende sul mare, degradando a ovest verso la valle del Plàtani e a est verso la spiaggia. I frammenti rinvenuti negli strati sottostanti alla Necropoli arcaica del VI secolo a.C. farebbero risalire l’origine dell’insediamento urbano alla preistoria, e precisamente al Neolitico (dall’8000 al 3.500 a.C. circa), mentre le antiche monete ritrovate testimoniano la presenza di una colonia fenicia. Nelle prime fonti storiche, la città è indicata con tre nomi: Macara, ovvero città di Makar, l’Eracle fenicio; Minoa, appunto, che sarebbe stata fondata, secondo la leggenda, dal re di Creta Minosse, che avrebbe inseguito Dedalo fin qui; infine Eraclea, colonia spartana a conferma dell’intitolazione del luogo al grande eroe greco. Dopo i fenici e gli spartani, nel V secolo a.C., la città divenne subcolonia di Selinunte e raggiunse l’apice del suo sviluppo in epoca ellenistica (fine IV secolo a.C.). A lungo contesa tra greci e cartaginesi per la sua posizione strategica di confine, passò di mano più volte, finché, nel 210 a.C., fu conquistata dai Romani. Nel I secolo a.C. venne definitivamente abbandonata, forse a causa di una frana che trascinò in mare la parte meridionale dell’abitato e delle mura. Le indagini archeologiche, ai primi del ‘900, hanno portato alla luce una parte del quartiere residenziale, con tracce leggibili in due stratificazioni successive, della città arcaica ed ellenistica, il tratto settentrionale della cinta muraria, con resti di torri e di porte, e il bel teatro col proscenio aperto verso il mare (in parte nascosto da una struttura protettiva). Nell’Antiquarium, all’ingresso della zona archeologica, è esposto il materiale proveniente dalle abitazioni e dalle Necropoli arcaica ed ellenistica. Il paese, collocato più in basso rispetto al sito archeologico, ospita strutture turistiche e ricettive, tra cui un campeggio, all’ombra di un bosco di eucalipti. La spiaggia si allunga ad anfiteatro fino alle pareti di roccia di capo Bianco, che, con i suoi fanghi, offre ai bagnanti trattamenti cosmetici naturali e gratuiti, all’aria aperta.",
+    "titlePlatani": "Fiume Platani",
+    "descriptionPlatani": "La Riserva Naturale Foce del fiume Platani è un’area naturale protetta della Sicilia sudoccidentale istituita per garantire la conservazione della popolazione ornitica, favorire la ricostituzione della macchia mediterranea e delle dune. La foce del fiume Platani è un luogo di incantevole bellezza naturalistica su cui domina la falesia di Capo Bianco. Quest'area rappresenta il primo approdo per molti uccelli migratori provenienti dall'Africa e, grazie alla diversificazione degli ambienti, offre rifugio ad una flora rigogliosa e variegata, quindi ad un'avifauna ricca e composita. La riserva che interseca la foce del fiume Platani nei territori di Ribera e Cattolica Eraclea (AG) comprende alcune delle spiagge sabbiose più integre della Sicilia oltre che cordoni dunali che ospitano comunità vegetali sia naturali che artificiali. Elementi caratteristici dell’area sono anche promontori e falesie costituiti da calcari marnosi e marne a globigerine, (Trubbi) oltre che calanchi argillosi. Ad est della Riserva, sul marnoso promontorio di Capo Bianco, sorgono le rovine della città greca di Eraclea-Minoa, di cui sono stati riportati alla luce i resti di un teatro e di un centro abitato. Nel complesso il sito presenta elevata valenza sia sotto l’aspetto paesaggistico che sotto quello prettamente naturalistico.",
+    "titleArcheo": "L'area archeologica",
+    "descriptionArcheo": "L'Area archeologica di Eraclea Minoa sorge su un bianco promontorio proteso verso uno splendido paesaggio marino, all'interno della Riserva Naturale della Foce del Fiume Platani. Le prime tracce di frequentazione dell’altopiano di Capobianco risalgono alla preistoria, cui si riferiscono anche i miti che rimandano alla presenza di popolazioni provenienti dall’Egeo dopo il crollo dei regni micenei. Un mito infatti collega il nome di Minoa con il re cretese Minosse e la spedizione in Sicilia che lo condusse alla morte presso il re sicano Kokalos. La colonia greca fu fondata intorno alla metà del VI secolo a. C. da Selinunte, Contesa a lungo e con alterne vicende fra Selinunte e Akragas, ben presto la città seguì lo stesso destino delle due contendenti cadendo in mano cartaginese. Per tutto il IV secolo a. C. la sua storia fu segnata dagli scontri fra Greci e Cartaginesi, finché nel III secolo a.C. non fu conquistata da Roma diventando civitas decumana. Verso la fine del I sec. a. C. la città fu abbandonata e solo in epoca paleocristiana e bizantina (III-VII sec. d. C.) l’area extra urbana tornò ad essere frequentata con la costruzione di una grande basilica con annesso un cimitero. Le prime campagne di scavo ebbero inizio nel 1950 quando Ernesto De Miro riportò alla luce l’imponente teatro, risalente al IV sec. a.C. La colonia era protetta da una cinta muraria lunga circa 6 km che ancora oggi abbraccia l’intero altopiano fino al fiume Platani. Nel corso delle indagini archeologiche sono state individuate consistenti tracce dell’abitato organizzato secondo un disegno urbanistico regolare, a terrazze, con un sistema di strade ortogonali che delimitavano gli isolati. Gli edifici scavati rimandano a due fasi sovrapposte di frequentazione: la più antica di epoca ellenistica (IV-III sec. a. C.) e la più recente di epoca romana- repubblicana (II-I sec. a. C.). A nord est della città, aldilà della cinta muraria, sorgevano le necropoli. Scavi sistematici effettuati fra gli anni 60 e 80 del secolo scorso, hanno messo in luce sepolture databili all’epoca arcaica e a quella ellenistica, testimoniando la presenza contemporanea del rito dell’inumazione e della cremazione. Nei pressi del sito archeologico è possibile visitare il piccolo Antiquarium in cui si conservano alcuni materiali provenienti dagli scavi.",
+    "titleTheater": "Teatro di Eraclea",
+    "descriptionTheater": "L'antico teatro greco di Eraclea, costruito alla fine del V a.C., fu riportato alla luce nel 1957. Esso si presenta con una cavea a 10 gradoni, divisa in 9 settori, che guarda verso il mare. Costruito ad incastro con conci di marna, il sito è dotato anche di antiquarium, dove sono conservati reperti archeologici rinvenuti durante le varie campagne di scavo. Gli scavi archeologici sulle rovine vennero intrapresi in modo sistematico dal 1950. La città viene considerata idonea per comprendere l’urbanistica delle città ellenistiche e romane: il teatro; il quartiere delle abitazioni ellenistiche e romane con impianto urbanistico ad “insulae”, separate da strade parallele. Si possono vedere anche i resti della cinta muraria della città costruita tra la fine del VI e la fine del IV secolo a.C., lungo circa 6 chilometri; a nord-est delle mura si riconoscono ancora otto torri quadrate. Il teatro greco fu individuato nel Settecento, ma portato alla luce soltanto nel 1953.",
+    "titleAntiquarium": "Antiquarium",
+    "descriptionAntiquarium": "L'Antiquarium di Eraclea Minoa è un museo situato all'ingresso dell'area archeologica della città. Al suo interno sono esposti reperti provenienti dalle abitazioni e dalle necropoli arcaiche ed ellenistiche. Tra i reperti figurano ceramiche, monete e altri oggetti che testimoniano la vita quotidiana e le influenze culturali della città nel corso dei secoli. L'Antiquarium offre un prezioso contesto storico per comprendere meglio l'evoluzione della città di Eraclea Minoa, dalla sua fondazione fino al suo declino."
+  },
+
+  "EscursioniPage": {
+    "title": "Escursioni",
+    "titleCard1": "In Bici tra Storia e Natura",
+    "titleCard2": "Passeggiata a Cavallo",
+    "titleCard3": "Trekking alla Foce",
+    "titlePrenotazione": "Prenota",
+    "textPrenotazione": "Puoi prenotare chiamando il numero",
+    "buttonCTA": "Chiama"
+  },
+
+  "EventDetail": {
+    "buttonEventPage": "Scopri gli eventi",
+    "title": "Eventi",
+    "subtitle": "Trama",
+    "buttonCTA": "Acquista",
+    "titleAndromaca": "Andromaca",
+    "creditsAndromaca": "di Massimiliano Civica e I Sacchi di Sabbia con Gabriele Carli, Giulia Gallo",
+    "descriptionAndromaca": "Andromaca è una tragedia greca scritta da Euripide. La trama si concentra su Andromaca, la vedova di Ettore, e il suo conflitto con Odisseo. La tragedia esplora temi di vendetta, pietà e la condizione delle donne nella società greca antica.",
+    "titleEuridice": "Euridice e Orfeo",
+    "creditsEuridice": "di Christoph Willibald Gluck",
+    "descriptionEuridice": "Questa tragedia narra la storia di Orfeo, un musicista leggendario, e la sua moglie Euridice. Dopo la sua morte, Orfeo scende negli inferi per riportarla indietro. Il mito esplora l'amore, la perdita e la speranza nella vita dopo la morte.",
+    "titleUlisse": "Ulisse",
+    "creditsUlisse": "di Beatrice Monroy e Sergio Vespertino",
+    "descriptionUlisse": "La storia si basa sulle avventure di Ulisse, il re di Itaca, che narra le sue esperienze epiche e i suoi viaggi attraverso il mondo antico. Il mito di Ulisse esplora temi di eroismo, astuzia e il lungo viaggio verso casa."
+  },
+
+  "ExploraPage": {
+    "title": "Esplora",
+    "btnExursion": "Escursioni",
+    "btnPath": "Percorsi"
+  },
+
+  "Footer": {
+    "labelAccount": "Account",
+    "labelAudioguide": "Audioguide",
+    "labelTickets": "Biglietti",
+    "labelEvents": "Eventi",
+    "labelExplore": "Esplora",
+    "tell": "Chiama",
+    "map": "Mappa",
+    "email": "Email"
+  },
+
+  "HomePage": {
+    "titleEraclea": "Uno sguardo su Eraclea...",
+    "citEraclea": "“Eraclea Minoa, dove le antiche rovine sfiorano il mare e la bellezza eterna vive nel silenzio della storia.”"
+  },
+ 
+  "Map": {
+    "title1": "Teatro Greco di Eraclea Minoa",
+    "text1": "L'antico teatro greco di Eraclea, costruito nel V sec. a.C., ha una cavea con 10 gradoni e vista mare. Scavato nel 1957, vicino si trova l'antiquarium con reperti. La città conserva tracce dell'urbanistica ellenistica e romana, con resti delle mura lunghe 6 km e torri quadrate.",
+    "link": "Scopri",
+    "title2": "Antiquarium di Eraclea Minoa",
+    "text2": "L'Antiquarium di Eraclea Minoa, situato all'ingresso dell'area archeologica, espone reperti come ceramiche e monete dalle abitazioni e necropoli arcaiche ed ellenistiche, offrendo uno spaccato della vita quotidiana e storia della città.",
+    "title3": "Area Archeologica di Eraclea Minoa",
+    "text3": "L'area archeologica di Eraclea Minoa, su un promontorio bianco affacciato sul mare, fu fondata da Selinunte nel VI sec. a.C. e contesa tra Greci e Cartaginesi fino alla conquista romana. Il sito ospita un teatro del IV sec. a.C. e una cinta muraria lunga 6 km. Le necropoli vicine e l'Antiquarium testimoniano la storia della città, dalla sua fondazione alla dominazione romana."
+  },
+
+  "Menu": {
+    "account": "Account",
+    "tickets": "Biglietti",
+    "explore": "Esplora",
+    "inTheArea": "Nelle vicinanze",
+    "whereWeAre": "Dove siamo",
+    "regulations": "Norme",
+    "credits": "Credits",
+    "logout": "Log out"
+  },
+
+  "ModalInitialPage": {
+    "welcomeTitle": "Benvenuti",
+    "welcomeDescription": "Benvenuti nell'area archeologica di Eraclea Minoa",
+    "discoverTitle": "Scopri",
+    "discoverDescription": "Scopri il museo, il teatro, la necropoli",
+    "purchaseTitle": "Acquista",
+    "purchaseDescription": "Acquista il tuo biglietto di ingresso",
+    "itinirariesTitle": "Percorsi",
+    "itinerariesDescription": "Scegli il tuo percorso di visita",
+    "eventsTitle": "Eventi",
+    "eventsDescription": "Vivi un'esperienza unica",
+    "buttonStart": "Inizia"
+  },
+
+  "NelleVicinanze": {
+    "title": "Nelle Vicinanze",
+    "subtitleRestaurants": "Ristoranti",
+    "subtitleVisit": "Da visitare"
+  },
+
+  "Norme": {
+    "title": "Norme",
+    "textIntro": "È consentito l'ingresso gratuito, tramite esibizione, al personale delle biglietterie, di un documento attestante una delle seguenti condizioni",
+    "textChildren": "Ai visitatori che non abbiano compiuto il diciottesimo anno di età, i visitatori che abbiano meno di dodici anni di età devono essere accompagnati da un maggiorenne.",
+    "textAssistiveTech": "Ai portatori di handicap e ad un loro familiare o ad altro accompagnatore che dimostri la propria appartenenza a servizi di assistenza socio-sanitaria (Decreto Ministeriale n. 239 del 20 aprile 2006)"
+  },
+
+   "SignIn": {
     "loginTitle": "Accedi",
     "emailPlaceholder": "Inserisci la tua email",
     "passwordPlaceholder": "Inserisci la tua password",
@@ -233,6 +240,7 @@
     "errorGeneric": "Errore durante l'accesso. Riprova.",
     "errorUnknown": "Errore sconosciuto durante l'accesso."
   },
+
   "SignUp": {
     "sign_up": "Registrati",
     "first_name": "Nome",
@@ -251,19 +259,5 @@
     "registration_success": "Registrazione completata!",
     "already_registered": "Sei già registrato?",
     "login": "Log In"
-  },
-
-  "ModalInitialPage": {
-    "welcomeTitle": "Benvenuti",
-    "welcomeDescription": "Benvenuti nell'area archeologica di Eraclea Minoa",
-    "discoverTitle": "Scopri",
-    "discoverDescription": "Scopri il museo, il teatro, la necropoli",
-    "purchaseTitle": "Acquista",
-    "purchaseDescription": "Acquista il tuo biglietto di ingresso",
-    "itinirariesTitle": "Percorsi",
-    "itinerariesDescription": "Scegli il tuo percorso di visita",
-    "eventsTitle": "Eventi",
-    "eventsDescription": "Vivi un'esperienza unica",
-    "buttonStart": "Inizia"
-  }
+  } 
 }
