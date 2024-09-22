@@ -23,8 +23,9 @@ export const saveUserData = async (uid: string, userData: UserData) => {
 
 // Funzione per salvare gli ordini nel database
 export const saveToDatabase = async (
+  uid: string, // Usare uid invece di email
   selectedDate: Date,
-  tickets: { type: string; quantity: number }[],
+  tickets: { type: string; quantity: number; price: number; QRcode: number }[],
   availableDatesTheatre: Date[],
   userData: UserData,
   paymentMethod: string
@@ -33,10 +34,15 @@ export const saveToDatabase = async (
   const ordersRef = ref(db, "orders");
   const newOrderRef = push(ordersRef);
 
-  // Normalizza le date per il confronto
-  const normalizedSelectedDate = selectedDate.setHours(0, 0, 0, 0);
+  const normalizedSelectedDate = new Date(selectedDate).setHours(0, 0, 0, 0);
   const isTeatroDate = availableDatesTheatre.some(
-    (date) => date.setHours(0, 0, 0, 0) === normalizedSelectedDate
+    (date) => new Date(date).setHours(0, 0, 0, 0) === normalizedSelectedDate
+  );
+
+  // Calcolo del totale
+  const total = tickets.reduce(
+    (acc, ticket) => acc + ticket.quantity * ticket.price,
+    0
   );
 
   // Crea l'oggetto ordine
@@ -45,22 +51,25 @@ export const saveToDatabase = async (
     tickets: isTeatroDate
       ? tickets
       : tickets.filter(
-          (ticket) => ticket.type === "Intero" || ticket.type === "Ridotto"
+          (ticket) =>
+            ticket.type === "Biglietto intero" ||
+            ticket.type === "Biglietto ridotto"
         ),
     timestamp: new Date().toLocaleString("it-IT"),
-    userId: userData.email,
+    userId: uid, // Usare uid invece di email
+
     firstName: userData.firstName,
     lastName: userData.lastName,
     paymentInfo: {
       cardName: userData.paymentInfo.cardName,
       cardNumber: userData.paymentInfo.cardNumber,
       expiryDate: userData.paymentInfo.expiryDate,
-      paymentMethod: userData.paymentInfo.paymentMethod,
+      paymentMethod: paymentMethod, // Passa direttamente il metodo di pagamento
       selectedCard: userData.paymentInfo.selectedCard,
     },
+    total, // Aggiungere il totale
   };
 
-  // Salva i dati nel database sotto una nuova chiave
   try {
     await set(newOrderRef, order);
     console.log("Ordine salvato con successo!", order);

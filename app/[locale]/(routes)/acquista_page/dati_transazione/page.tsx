@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useRouter } from "@/i18n/routing";
 import { useState, useEffect } from "react";
 import {
@@ -8,18 +7,13 @@ import {
   User as FirebaseUser,
 } from "firebase/auth";
 import { getDatabase, ref, onValue, update, remove } from "firebase/database";
+import { useTranslations } from "next-intl";
+import { QRCode } from "react-qrcode-logo";
+import Image from "next/image";
 import style from "./pagamento.module.scss";
 import TrashOutline from "@/public/icons/pagamenti/trash-outline.svg";
-<<<<<<< HEAD
-
 import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
-import { useTranslations } from "next-intl";
-=======
-import { useTranslations } from "next-intl";
-import ModalPayment from "@/app/[locale]/components/Molecoles/ModalPayment/ModalPayment";
->>>>>>> a50b184c035f0606f5980c5af8b76e9fa92052e8
 
-// Interfacce
 interface Ticket {
   id: string;
   type: string;
@@ -47,9 +41,6 @@ interface User {
 }
 
 function DataPayment() {
-  const router = useRouter();
-
-  // Stati
   const [user, setUser] = useState<User | null>(null);
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
@@ -175,6 +166,32 @@ function DataPayment() {
       }, 0)
       .toFixed(2);
   };
+
+  const generateQrCodeForTicket = (ticketId: string) => {
+    return ticketId;
+  };
+
+  const saveQrCodeToDatabase = async (
+    orderId: string,
+    ticketId: string,
+    qrCodeValue: string
+  ) => {
+    const db = getDatabase();
+    const qrCodeRef = ref(db, `orders/${orderId}/tickets/${ticketId}/qrCode`);
+    await update(qrCodeRef, { qrCode: qrCodeValue }); // Salva il QR code nel ticket
+  };
+
+  // Al momento del caricamento dell'ordine, generiamo e salviamo i QR code
+  useEffect(() => {
+    if (orders.length > 0) {
+      orders.forEach((order) => {
+        order.tickets.forEach((ticket) => {
+          const qrCodeValue = generateQrCodeForTicket(ticket.id); // Genera QR code
+          saveQrCodeToDatabase(order.id, ticket.id, qrCodeValue); // Salva nel DB
+        });
+      });
+    }
+  }, [orders]);
 
   return (
     <div className={style.main}>
