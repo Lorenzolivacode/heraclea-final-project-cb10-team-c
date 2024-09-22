@@ -1,10 +1,12 @@
 "use client";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import style from "/app/[locale]/components/Molecoles/Header/Header.module.scss";
 import Hamburger from "../HamburgerMenu/HamburgerMenu";
 import Link from "next/link";
 import Menu from "../Menu/Menu";
+import { IsModalAudioOpenContext } from "@/app/[locale]/ModalAudioContext/ModalAudioContext";
+import ModalAudio from "../../Atom/ModalAudio/ModalAudio";
 
 interface HeaderProps {
   isMenuOpen: boolean;
@@ -14,6 +16,14 @@ interface HeaderProps {
 const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
   const router = useRouter();
   const pathname = usePathname();
+
+  const isAudioOpen = useContext(IsModalAudioOpenContext);
+
+  if (isAudioOpen === undefined) {
+    throw new Error(
+      "useContext must be used within a ModalAudioContext provider"
+    );
+  }
 
   const handleBackClick = () => {
     router.back();
@@ -28,8 +38,13 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
 
   const isHomePage = pathname === "/";
 
+  useEffect(() => {
+    console.log("modl audio", isAudioOpen);
+  }, [isAudioOpen]);
+
   return (
     <div className={style.nav}>
+      {isAudioOpen && <ModalAudio />}
       <div>
         {!isHomePage && (
           <img

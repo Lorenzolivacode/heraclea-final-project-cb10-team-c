@@ -1,0 +1,78 @@
+.modale_audio {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  background: var(--c-sienna-o94);
+  z-index: 200;
+
+  * {
+    color: var(--c-white);
+  }
+
+  h3 {
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .audio_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .btn_container {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--c-white);
+    border-radius: 2px;
+    padding: 5px;
+    width: 30px;
+    aspect-ratio: 1/1;
+    font-weight: 700;
+    background-color: var(--c-sienna);
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+      transform: scale(0.8);
+      color: black;
+    }
+  }
+
+  .audio {
+    height: 25px;
+    border-radius: 20px;
+  }
+}
+
+.audio_reduce {
+  padding: 4px 10px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  h3 {
+    display: none;
+  }
+
+  button {
+    padding: 3px;
+    width: 20px;
+  }
+
+  .audio {
+    height: 15px;
+    max-width: 50%;
+  }
+}

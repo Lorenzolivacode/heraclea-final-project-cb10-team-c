@@ -7,6 +7,7 @@ import { getMessages } from "next-intl/server";
 
 import { routing } from "@/i18n/routing";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { relative } from "path";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

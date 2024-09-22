@@ -1,9 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "./AudioGuide.module.scss";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import {
+  SetIsModalAudioOpenContext,
+  SetModalAudioSrcContext,
+  SetModalAudioTitleContext,
+} from "@/app/[locale]/ModalAudioContext/ModalAudioContext";
 
 interface AudioGuida {
   label?: string;
@@ -24,6 +29,10 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
   const toggleVisibility = () => {
     setIsTextVisible((prevState) => !prevState);
   };
+
+  const setIsAudioOpen = useContext(SetIsModalAudioOpenContext);
+  const setAudioTitle = useContext(SetModalAudioTitleContext);
+  const setAudioSrc = useContext(SetModalAudioSrcContext);
 
   const handlePlayPause = () => {
     if (audioRef.current) {
@@ -81,6 +90,20 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
       .padStart(2, "0")}`;
   };
 
+  const handleAudioStorage = () => {
+    window.localStorage.setItem("audioIsOpen", JSON.stringify(true)); // Salvare come booleano
+
+    const storedValue = localStorage.getItem("audioIsOpen") || "false"; // Default a "false" se è null
+    console.log(JSON.parse(storedValue)); // Recuperare e parsare
+    setIsModalOpen(false);
+  };
+
+  const handleModalAudio = () => {
+    setIsAudioOpen !== undefined && setIsAudioOpen(true);
+    setAudioTitle !== undefined && label && setAudioTitle(label);
+    setAudioSrc !== undefined && setAudioSrc(filePath);
+  };
+
   return (
     <div>
       <div className={styles.label}>
@@ -103,6 +126,17 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
             isTextVisible ? styles.active : ""
           }`}
         >
+          <button onClick={handleAudioStorage}>Open modale audio</button>
+          <button
+            className={styles.reduceBtn}
+            onClick={() => {
+              setIsModalOpen(false);
+              handleStopPlaying();
+              handleModalAudio();
+            }}
+          >
+            -
+          </button>
           <button
             className={styles.closeBtn}
             onClick={() => {

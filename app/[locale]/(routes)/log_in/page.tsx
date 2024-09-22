@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 
 const SignIn: React.FC = () => {
   const t = useTranslations("SignIn"); // Hook per le traduzioni
-  
+
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -36,7 +36,7 @@ const SignIn: React.FC = () => {
         setIsLoginSuccess(true);
         setTimeout(() => {
           router.push(`/`);
-        }, 100);
+        }, 3000);
       }
     } catch (error) {
       console.log("errore");

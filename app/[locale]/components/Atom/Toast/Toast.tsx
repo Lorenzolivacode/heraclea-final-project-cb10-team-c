@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 
 interface ToastProps {
   message: string;
-  type?: "success" | "error" | "info" | "default";
+  type?: "success" | "error" | "info";
   timeout?: number;
   isOpen: boolean;
   onClose: () => void;
@@ -19,7 +19,7 @@ interface ToastProps {
 }
 function Toast({
   message,
-  type = "default",
+  type = "info",
   timeout = 3000,
   isOpen,
   onClose,
@@ -70,7 +70,7 @@ function Toast({
       typeImg = "/icons/toast-icons/icon-info-ivory.png";
       break;
     default:
-      typeImg = "/icons/toast-icons/icon-default-ivory.png";
+      typeImg = "/icons/toast-icons/icon-info-ivory.png";
   }
 
   setTimeout(() => {
