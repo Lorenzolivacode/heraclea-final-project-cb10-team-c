@@ -1,9 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "@/i18n/routing";
 import { getDatabase, ref, set, push } from "firebase/database";
 import { auth } from "@/app/[locale]/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import arrowLeft from "@/public/icons/calendar/arrow-left-calendar.svg";
 import arrowLeftHover from "@/public/icons/calendar/arrow-left-sienna.svg";
 import arrowRight from "@/public/icons/calendar/arrow-right-calendar.svg";
@@ -11,10 +13,8 @@ import arrowRightHover from "@/public/icons/calendar/arrow-right-sienna.svg";
 import Image from "next/image";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
 
-//Date Eventi
+// Date disponibili per eventi di teatro
 const availableDatesTheatre = [
   new Date(2024, 8, 18),
   new Date(2024, 8, 20),
@@ -44,6 +44,8 @@ const Calendar: React.FC = () => {
   const [reducedTicketPrice] = useState(2);
   const [eventTicketPrice] = useState(12);
 
+  const locale = useLocale();
+
   // Funzione per generare i giorni del mese
   const generateCalendar = (year: number, month: number) => {
     const firstDay = new Date(year, month, 1).getDay();
@@ -52,21 +54,14 @@ const Calendar: React.FC = () => {
     setFirstDayOfMonth(firstDay);
     setDaysInMonth(daysArray);
   };
-
-  useEffect(() => {
-    generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-  }, [currentDate]);
-
   const handlePrevMonth = () => {
     const newDate = new Date(currentDate.setMonth(currentDate.getMonth() - 1));
     setCurrentDate(newDate);
   };
-
   const handleNextMonth = () => {
     const newDate = new Date(currentDate.setMonth(currentDate.getMonth() + 1));
     setCurrentDate(newDate);
   };
-
   const handleDayClick = (day: number) => {
     const selected = new Date(
       currentDate.getFullYear(),
@@ -85,9 +80,11 @@ const Calendar: React.FC = () => {
     availableDatesTheatre.some(
       (date) => date.getTime() === selectedDate.getTime()
     );
+
   const closeModal = () => {
     setShowModal(false);
   };
+
   const saveToDatabase = (
     selectedDate: Date,
     tickets: { type: string; quantity: number; price: number }[]
@@ -102,7 +99,7 @@ const Calendar: React.FC = () => {
     });
 
     const order = {
-      date: formattedDate, // Formatta la data qui
+      date: formattedDate,
       tickets,
       timestamp: new Date().toLocaleString("it-IT", {
         day: "2-digit",
@@ -110,10 +107,11 @@ const Calendar: React.FC = () => {
         year: "numeric",
         hour: "2-digit",
         minute: "2-digit",
-      }), // Anche il timestamp è formattato
+      }),
       userId: user ? user.uid : null, // Salva l'ID utente se autenticato
     };
 
+    // Salva l'ordine nel database Firebase
     set(newOrderRef, order)
       .then(() => {
         console.log("Ordine salvato con successo!");
@@ -131,6 +129,7 @@ const Calendar: React.FC = () => {
     ).toFixed(2);
   };
 
+  // Funzione per gestire l'acquisto dei biglietti
   const handlePurchase = () => {
     const tickets = [];
 
@@ -156,8 +155,6 @@ const Calendar: React.FC = () => {
       });
     }
 
-    console.log("Biglietti da salvare:", tickets); // Aggiungi questo log
-
     // Salva solo se ci sono biglietti
     if (tickets.length > 0) {
       saveToDatabase(selectedDate!, tickets);
@@ -181,20 +178,6 @@ const Calendar: React.FC = () => {
     t("november"),
     t("december"),
   ];
-  // const monthNames = [
-  //   "January",
-  //   "February",
-  //   "March",
-  //   "April",
-  //   "May",
-  //   "June",
-  //   "July",
-  //   "August",
-  //   "September",
-  //   "October",
-  //   "November",
-  //   "December",
-  // ];
 
   const daysOfWeek = [
     t("sunday"),
@@ -205,7 +188,6 @@ const Calendar: React.FC = () => {
     t("friday"),
     t("saturday"),
   ];
-  const locale = useLocale();
 
   // Funzione per verificare se la data è disponibile
   const isDateAvailable = (day: number) => {
@@ -221,6 +203,10 @@ const Calendar: React.FC = () => {
         date.getDate() === dateToCheck.getDate()
     );
   };
+
+  useEffect(() => {
+    generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+  }, [currentDate]);
 
   return (
     <>
