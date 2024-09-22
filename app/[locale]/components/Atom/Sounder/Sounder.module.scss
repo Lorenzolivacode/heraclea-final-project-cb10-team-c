@@ -3,19 +3,14 @@
   justify-content: space-between;
   align-items: end;
   width: 100%;
-  aspect-ratio: 5/1;
+  aspect-ratio: 8/1;
 }
 .sounder_line {
   border-radius: 15px 15px 0 0;
-  width: calc((100% / 36));
-  /* max-width: 10px; */
-  /* height: 80%; */
-  background-color: var(--c-sienna);
+  width: calc((100% / 108));
+  background-color: var(--c-white);
   animation: sounder 1s linear infinite alternate-reverse;
 }
-
-/* .line1 {
-    } */
 
 .line2 {
   animation-delay: 0.3s;

@@ -14,22 +14,6 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-/* export function generateStaticParams() {
-  const locales = routing.locales; // ['en', 'it']
-  const paths = [
-    { route: "chi_siamo" },
-    { route: "contatti" },
-    // Aggiungi tutte le pagine che desideri gestire
-  ];
-
-  return locales.flatMap((locale) =>
-    paths.map((path) => ({
-      locale,
-      route: path.route,
-    }))
-  );
-} */
-
 export default async function RootLayout({
   children,
   params: { locale },

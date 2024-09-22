@@ -9,6 +9,7 @@ import {
   SetModalAudioSrcContext,
   SetModalAudioTitleContext,
 } from "@/app/[locale]/ModalAudioContext/ModalAudioContext";
+import Sounder from "../../Atom/Sounder/Sounder";
 
 interface AudioGuida {
   label?: string;
@@ -90,31 +91,38 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
       .padStart(2, "0")}`;
   };
 
-  const handleAudioStorage = () => {
-    window.localStorage.setItem("audioIsOpen", JSON.stringify(true)); // Salvare come booleano
-
-    const storedValue = localStorage.getItem("audioIsOpen") || "false"; // Default a "false" se è null
-    console.log(JSON.parse(storedValue)); // Recuperare e parsare
-    setIsModalOpen(false);
-  };
-
   const handleModalAudio = () => {
     setIsAudioOpen !== undefined && setIsAudioOpen(true);
     setAudioTitle !== undefined && label && setAudioTitle(label);
     setAudioSrc !== undefined && setAudioSrc(filePath);
   };
+  const handleResetAudio = () => {
+    setIsAudioOpen !== undefined && setIsAudioOpen(false);
+    setAudioTitle !== undefined && label && setAudioTitle("");
+    setAudioSrc !== undefined && setAudioSrc("");
+  };
 
   return (
     <div>
       <div className={styles.label}>
-        <figcaption onClick={() => setIsModalOpen(true)}>{label}</figcaption>
+        <figcaption
+          onClick={() => {
+            setIsModalOpen(true);
+            handleResetAudio();
+          }}
+        >
+          {label}
+        </figcaption>
         <Image
           className={styles.headphonesIcon}
           src="/icons/headphonesSienna.svg"
           alt="Headphones Icon"
           width={50}
           height={50}
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            setIsModalOpen(true);
+            handleResetAudio();
+          }}
         />
       </div>
 
@@ -126,7 +134,6 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
             isTextVisible ? styles.active : ""
           }`}
         >
-          <button onClick={handleAudioStorage}>Open modale audio</button>
           <button
             className={styles.reduceBtn}
             onClick={() => {
@@ -135,7 +142,7 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
               handleModalAudio();
             }}
           >
-            -
+            {t("reduceBtn")}
           </button>
           <button
             className={styles.closeBtn}
@@ -147,6 +154,9 @@ export default function AudioGuide({ label, text, filePath, img }: AudioGuida) {
             X
           </button>
           <div className={styles.modalContent}>
+            <div className={styles.sounder_place}>
+              {isPlaying && <Sounder />}
+            </div>
             <div className={styles.imageWrapper}>
               <Image
                 src={img}

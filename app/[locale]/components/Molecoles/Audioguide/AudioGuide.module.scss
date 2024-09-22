@@ -22,6 +22,11 @@
   }
 }
 
+.sounder_place {
+  width: 100%;
+  aspect-ratio: 8/1;
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -47,18 +52,21 @@
 
   .reduceBtn {
     left: 20px;
+    font-size: 1rem;
   }
 
   .closeBtn {
     right: 20px;
+    line-height: 100%;
   }
 
   .modalContent {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
     align-items: stretch;
-    margin-top: 35%;
+    margin-top: 15%;
     padding-inline: 20px;
     width: 100%;
     max-width: 600px;
