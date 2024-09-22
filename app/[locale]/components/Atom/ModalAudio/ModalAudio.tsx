@@ -28,7 +28,7 @@ function ModalAudio() {
       <div className={`${styles.audio_container}`}>
         <h3>{audioTitle}</h3>
         <div className={styles.btn_container}>
-          <button onClick={handleReduce}>{!reduceClass ? "-" : "□"}</button>
+          <button onClick={handleReduce}>{!reduceClass ? "-" : "🖵"}</button>
           <button onClick={handleAudioClose}>x</button>
         </div>
       </div>

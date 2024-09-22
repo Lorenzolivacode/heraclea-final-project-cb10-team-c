@@ -5,6 +5,7 @@ import Toggle from "../../Atom/Toggle/Toggle";
 import Modal from "../../Molecoles/Modal/modal";
 import Button from "../../Atom/Button/Button";
 import { useTranslations } from "next-intl";
+import SwitchLanguage from "../../Atom/SwitchLanguage/SwitchLanguage";
 
 function InitialPagemodal() {
   const [selectedPage, setSelectedPage] = useState<string>("pagina_0");
@@ -173,20 +174,12 @@ function InitialPagemodal() {
             <p>{pages[currentPage].description}</p>
             {currentPage !== 0 && (
               <>
-                <div className={style.btnContainer}>
-                  {currentPage === 1 && (
-                    <>
-                      <Button text="ITALIANO" />
-                      <Button text="ENGLISH" />
-                    </>
-                  )}
-                  {currentPage === 5 && (
-                    <Button
-                      text={t("buttonStart")}
-                      onClick={handleButtonClick}
-                    />
-                  )}
-                </div>
+                {/* <div className={style.btnContainer}>
+                  </div> */}
+                {currentPage === 1 && <SwitchLanguage />}
+                {currentPage === 5 && (
+                  <Button text={t("buttonStart")} onClick={handleButtonClick} />
+                )}
                 <div className={style.toggleContainer}>
                   {params
                     .filter((_, index) => index !== 0)

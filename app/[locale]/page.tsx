@@ -11,14 +11,13 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import Sounder from "./components/Atom/Sounder/Sounder";
+import SwitchLanguage from "./components/Atom/SwitchLanguage/SwitchLanguage";
 
 //error simulation
 // const session = null;
 
 export default function HomePage() {
   const locale = useLocale(); // Ottieni la lingua corrente
-
-  const [state, setState] = useState(false);
 
   const t = useTranslations("HomePage");
   const tCat = useTranslations("eracleaDataCategory");
@@ -52,19 +51,6 @@ export default function HomePage() {
   return (
     <>
       <main className="main">
-        <button onClick={() => setState(true)}>State</button>
-        {state && (
-          <div className={styles.modaleTest}>
-            <button onClick={() => setState(false)}>x</button>
-            <p>ProvaTest</p>
-            <audio controls>
-              <source
-                src="/assets/media/audioguida_teatro.mp3"
-                type="audio/mp3"
-              />
-            </audio>
-          </div>
-        )}
         <h1>{t("titleEraclea")}</h1>
         <div className={styles.txt_container}>
           <p className={styles.cit}>{t("citEraclea")}</p>

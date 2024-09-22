@@ -14,7 +14,7 @@ function Toggle({ selectedPage, onToggle, params }: ToggleProps) {
       <legend className="sr-only">params</legend>
       <label
         htmlFor={params}
-        className={`block size-5 cursor-pointer rounded-full shadow-lg ${
+        className={`block size-5 cursor-pointer rounded-full border border-2 border-slate-300 shadow-lg ${
           isActive ? "ring-4 ring-sienna ring-offset-3" : ""
         }`}
         style={{ backgroundColor: isActive ? "sienna" : "white" }}

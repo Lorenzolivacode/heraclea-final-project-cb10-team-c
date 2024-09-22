@@ -9,6 +9,7 @@ import { useRouter } from "@/i18n/routing";
 import style from "/app/[locale]/components/Molecoles/Menu/Menu.module.scss";
 import Toast from "../../Atom/Toast/Toast";
 import { useTranslations } from "next-intl";
+import SwitchLanguage from "../../Atom/SwitchLanguage/SwitchLanguage";
 
 interface MenuProps {
   isMenuOpen: boolean;
@@ -88,6 +89,7 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
           )}
         </div>
       ))}
+      <SwitchLanguage />
     </div>
   );
 };
