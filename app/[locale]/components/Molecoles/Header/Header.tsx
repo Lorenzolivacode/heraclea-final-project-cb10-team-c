@@ -1,11 +1,11 @@
 "use client";
 import { Dispatch, SetStateAction, useContext, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { IsModalAudioOpenContext } from "@/app/[locale]/ModalAudioContext/ModalAudioContext";
 import style from "/app/[locale]/components/Molecoles/Header/Header.module.scss";
 import Hamburger from "../HamburgerMenu/HamburgerMenu";
 import Link from "next/link";
 import Menu from "../Menu/Menu";
-import { IsModalAudioOpenContext } from "@/app/[locale]/ModalAudioContext/ModalAudioContext";
 import ModalAudio from "../../Atom/ModalAudio/ModalAudio";
 
 interface HeaderProps {
@@ -36,11 +36,13 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
   const hideMenuOnRoutes = ["/log_in", "/sign_up"];
   const shouldHideMenu = hideMenuOnRoutes.includes(pathname);
 
-  const isHomePage = pathname === "/";
+  const isHomePage =
+    pathname === "/" || pathname === "/it" || pathname === "/en";
 
   useEffect(() => {
     console.log("modl audio", isAudioOpen);
-  }, [isAudioOpen]);
+    console.log("pathname:", pathname); // Verifica il valore di pathname
+  }, [isAudioOpen, pathname]);
 
   return (
     <div className={style.nav}>

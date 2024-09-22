@@ -223,9 +223,6 @@ const Calendar: React.FC = () => {
         <div className={style.title}>
           <h1>{t("purchaseTitle")}</h1>
         </div>
-        {/* <h1 className={`my-5 font-semibold ${style.title}`}>
-          {t("purchaseTitle")}
-        </h1> */}
         <div
           className={`lg:w-7/12 md:w-9/12 sm:w-10/12 p-4 mt-10 ${style.calendar}`}
         >
