@@ -1,20 +1,21 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "@/i18n/routing";
 import { getDatabase, ref, set, push } from "firebase/database";
 import { auth } from "@/app/[locale]/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import arrowLeft from "@/public/icons/calendar/arrow-left-calendar.svg";
 import arrowLeftHover from "@/public/icons/calendar/arrow-left-sienna.svg";
 import arrowRight from "@/public/icons/calendar/arrow-right-calendar.svg";
 import arrowRightHover from "@/public/icons/calendar/arrow-right-sienna.svg";
 import Image from "next/image";
+import style from "./calendario.module.scss";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import Counter from "@/app/[locale]/components/Atom/Counter/Counter";
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
 
-//Date Eventi
+// Date disponibili per eventi di teatro
 const availableDatesTheatre = [
   new Date(2024, 8, 18),
   new Date(2024, 8, 20),
@@ -34,6 +35,7 @@ const Calendar: React.FC = () => {
   const [interoCount, setInteroCount] = useState(0);
   const [ridottoCount, setRidottoCount] = useState(0);
   const [teatriCount, setTeatriCount] = useState(0);
+  const [paymentMethod, setPaymentMethod] = useState<string>("");
   const [user] = useAuthState(auth);
   const router = useRouter();
   const db = getDatabase();
@@ -44,6 +46,8 @@ const Calendar: React.FC = () => {
   const [reducedTicketPrice] = useState(2);
   const [eventTicketPrice] = useState(12);
 
+  const locale = useLocale();
+
   // Funzione per generare i giorni del mese
   const generateCalendar = (year: number, month: number) => {
     const firstDay = new Date(year, month, 1).getDay();
@@ -52,21 +56,14 @@ const Calendar: React.FC = () => {
     setFirstDayOfMonth(firstDay);
     setDaysInMonth(daysArray);
   };
-
-  useEffect(() => {
-    generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-  }, [currentDate]);
-
   const handlePrevMonth = () => {
     const newDate = new Date(currentDate.setMonth(currentDate.getMonth() - 1));
     setCurrentDate(newDate);
   };
-
   const handleNextMonth = () => {
     const newDate = new Date(currentDate.setMonth(currentDate.getMonth() + 1));
     setCurrentDate(newDate);
   };
-
   const handleDayClick = (day: number) => {
     const selected = new Date(
       currentDate.getFullYear(),
@@ -85,12 +82,15 @@ const Calendar: React.FC = () => {
     availableDatesTheatre.some(
       (date) => date.getTime() === selectedDate.getTime()
     );
+
   const closeModal = () => {
     setShowModal(false);
   };
+
   const saveToDatabase = (
     selectedDate: Date,
-    tickets: { type: string; quantity: number; price: number }[]
+    tickets: { type: string; quantity: number; price: number }[],
+    paymentMethod: string
   ) => {
     const ordersRef = ref(db, "orders");
     const newOrderRef = push(ordersRef);
@@ -102,18 +102,23 @@ const Calendar: React.FC = () => {
     });
 
     const order = {
-      date: formattedDate, // Formatta la data qui
+      date: formattedDate,
       tickets,
+      paymentInfo: {
+        paymentMethod, // Usa il parametro dinamico qui
+      },
+      total: calculateTotalPrice(),
       timestamp: new Date().toLocaleString("it-IT", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
         hour: "2-digit",
         minute: "2-digit",
-      }), // Anche il timestamp è formattato
-      userId: user ? user.uid : null, // Salva l'ID utente se autenticato
+      }),
+      userId: user ? user.uid : null,
     };
 
+    // Salva l'ordine nel database Firebase
     set(newOrderRef, order)
       .then(() => {
         console.log("Ordine salvato con successo!");
@@ -131,36 +136,35 @@ const Calendar: React.FC = () => {
     ).toFixed(2);
   };
 
+  // Funzione per gestire l'acquisto dei biglietti
   const handlePurchase = () => {
     const tickets = [];
 
     if (interoCount > 0) {
       tickets.push({
-        type: "Intero",
+        type: " Biglietto intero",
         quantity: interoCount,
         price: fullTicketPrice,
       });
     }
     if (ridottoCount > 0) {
       tickets.push({
-        type: "Ridotto",
+        type: "Biglietto ridotto",
         quantity: ridottoCount,
         price: reducedTicketPrice,
       });
     }
     if (isTeatroDate && teatriCount > 0) {
       tickets.push({
-        type: "Ticket Teatri di Pietra",
+        type: "Biglietto Teatri di Pietra",
         quantity: teatriCount,
         price: eventTicketPrice,
       });
     }
 
-    console.log("Biglietti da salvare:", tickets); // Aggiungi questo log
-
     // Salva solo se ci sono biglietti
     if (tickets.length > 0) {
-      saveToDatabase(selectedDate!, tickets);
+      saveToDatabase(selectedDate!, tickets, paymentMethod); // Passa paymentMethod
       router.push("/acquista_page/dati_transazione");
     } else {
       console.log("Nessun biglietto selezionato.");
@@ -181,20 +185,6 @@ const Calendar: React.FC = () => {
     t("november"),
     t("december"),
   ];
-  // const monthNames = [
-  //   "January",
-  //   "February",
-  //   "March",
-  //   "April",
-  //   "May",
-  //   "June",
-  //   "July",
-  //   "August",
-  //   "September",
-  //   "October",
-  //   "November",
-  //   "December",
-  // ];
 
   const daysOfWeek = [
     t("sunday"),
@@ -205,7 +195,6 @@ const Calendar: React.FC = () => {
     t("friday"),
     t("saturday"),
   ];
-  const locale = useLocale();
 
   // Funzione per verificare se la data è disponibile
   const isDateAvailable = (day: number) => {
@@ -222,12 +211,20 @@ const Calendar: React.FC = () => {
     );
   };
 
+  useEffect(() => {
+    generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+  }, [currentDate]);
+
   return (
     <>
-      <div className="bg-milk flex flex-col items-center justify-evenly h-screen">
-        <h1 className="my-5 font-semibold">{t("purchaseTitle")}</h1>
-        <div className="lg:w-7/12 md:w-9/12 sm:w-10/12 mx-auto p-4 ">
-          <div className="bg-white mb-24 border-2 border-sienna shadow-md shadow-gray-400 rounded-lg overflow-hidden">
+      <div
+        className={`bg-milk flex flex-col items-center justify-evenly h-screen ${style.container}`}
+      >
+        <h1 className={`my-5 font-semibold ${style.title}`}>
+          {t("purchaseTitle")}
+        </h1>
+        <div className="lg:w-7/12 md:w-9/12 sm:w-10/12 mx-auto p-4 mt-10 ">
+          <div className="bg-white mb-24 border-2 border-sienna rounded-lg overflow-hidden">
             <div className="flex items-center justify-between px-6 py-3 ">
               <button
                 onClick={handlePrevMonth}

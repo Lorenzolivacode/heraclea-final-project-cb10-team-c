@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { onAuthStateChanged } from "firebase/auth";
-import Image from "next/image";
-import maschera from "@/public/assets/maschera.webp";
-import style from "./account.module.scss";
 import { auth } from "@/app/[locale]/firebase/config";
 import { getDatabase, ref, get, onValue } from "firebase/database";
 import { saveUserData } from "@/app/[locale]/firebase/database";
-import { useTranslations } from "next-intl";
+import Image from "next/image";
+import ModalQR from "@/app/[locale]/components/Molecoles/ModalQR/ModalQR";
+import maschera from "@/public/assets/maschera.webp";
+import style from "./account.module.scss";
 
 interface Ticket {
   id: string;
@@ -31,8 +32,6 @@ interface Order {
   total: number;
   tickets: Ticket[];
   userId: string;
-  firstName: string;
-  lastName: string;
   paymentInfo: PaymentInfo;
 }
 
@@ -60,8 +59,20 @@ const AccountPage = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<UserData>(userData);
+  const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const userName = userData.firstName || "Utente";
   const t = useTranslations("AccountPage");
+
+  const openModal = (ticket: Ticket) => {
+    setSelectedTicket(ticket);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedTicket(null);
+  };
 
   const buttonColors = {
     profile: {
@@ -139,9 +150,19 @@ const AccountPage = () => {
         const orderList = userOrders.map((orderId) => ({
           id: orderId,
           date: data[orderId].date,
-          total: data[orderId].total || 0,
+          total:
+            typeof data[orderId].total === "number" ? data[orderId].total : 0,
+
           tickets: data[orderId].tickets || [],
+          paymentInfo: data[orderId].paymentInfo || {
+            cardName: "",
+            cardNumber: "",
+            expiryDate: "",
+            paymentMethod: "",
+            selectedCard: "",
+          },
         })) as Order[];
+
         setOrders(orderList);
       } else {
         setOrders([]);
@@ -252,17 +273,18 @@ const AccountPage = () => {
                     {t("date")}: {order.date}
                   </h4>
                   <p>
-                    {t("total")} {order.total.toFixed(2)}€
+                    {t("total")}: {order.total.toFixed(2)}€
                   </p>
                   <p>
-                    {t("paymentMethods")}{" "}
-                    {order.paymentInfo?.paymentMethod || "N/A"}
+                    {t("paymentMethods")}:{" "}
+                    {order.paymentInfo.paymentMethod || "N/A"}
                   </p>
-                  <p>Tickets:</p>
+                  <p>{t("ticket")}:</p>
                   <ul>
                     {order.tickets.map((ticket, index) => (
                       <li key={index}>
                         {ticket.quantity} x {ticket.type}
+                        <p onClick={() => openModal(ticket)}>QR Code</p>
                       </li>
                     ))}
                   </ul>
@@ -273,6 +295,11 @@ const AccountPage = () => {
             )}
           </div>
         ) : null}
+        <ModalQR
+          isVisible={isModalOpen}
+          onClose={closeModal}
+          ticket={selectedTicket}
+        />
       </div>
     </main>
   );
