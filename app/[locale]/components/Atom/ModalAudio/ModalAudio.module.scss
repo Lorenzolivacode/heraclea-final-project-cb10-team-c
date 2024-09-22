@@ -35,7 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--c-white);
+    // border: 1px solid var(--c-white);
     border-radius: 2px;
     padding: 5px;
     width: 30px;
@@ -75,8 +75,29 @@
     width: 20px;
   }
 
-  .audio {
-    height: 15px;
-    max-width: 50%;
+  // .audio {
+  //   height: 15px;
+  //   max-width: 50%;
+  // }
+}
+
+.audio {
+  height: 15px;
+  width: 100%;
+  margin: 10px;
+  background-color: var(--c-sienna);
+
+  &::-webkit-media-controls-panel {
+    background-color: var(--c-sienna);
+    padding: 10px;
+  }
+
+  &::-webkit-media-controls-current-time-display,
+  &::-webkit-media-controls-time-remaining-display {
+    color: var(--c-white);
+  }
+
+  &::-webkit-media-controls-volume-slider {
+    background-color: var(--c-sienna);
   }
 }

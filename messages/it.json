@@ -11,7 +11,12 @@
     "date": "Data",
     "total": "Totale",
     "paymentMethods": "Metodo di pagamento",
-    "ticket": "Biglietti"
+    "ticket": "Biglietti",
+    "currentPassword": "Password attuale",
+    "newPassword": "Nuova password",
+    "buttonChangePassword": "Cambia password",
+    "showPassword": "Mostra password",
+    "hidePassword": "Nascondi password"
   },
 
   "AcquistaPage": {
@@ -193,7 +198,7 @@
     "tickets": "Biglietti",
     "explore": "Esplora",
     "inTheArea": "Nelle vicinanze",
-    "whereWeAre": "Dove siamo",
+    "ourLocation": "Dove siamo",
     "regulations": "Norme",
     "credits": "Credits",
     "logout": "Log out"

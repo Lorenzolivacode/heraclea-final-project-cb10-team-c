@@ -7,6 +7,7 @@
   justify-content: start;
   padding: 150px 22px;
   background-color: var(--c-white);
+  overflow: scroll;
 }
 
 .container {
@@ -77,12 +78,12 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     width: 100%;
     max-height: 400px; /* Imposta un'altezza massima */
     overflow-y: auto; /* Abilita lo scroll verticale */
   }
-  
+
   div {
     margin-bottom: 15px;
 
@@ -112,8 +113,10 @@
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
-    display: flex;
-    margin: 0 auto;
+    // display: flex;
+    margin: 10px auto;
+    min-width: fit-content;
+    width: 100%;
 
     &:hover {
       background-color: var(--c-sienna);
@@ -123,18 +126,19 @@
 .purchasesList {
   line-height: 2em;
   list-style-type: none;
-  background-color:white;
+  background-color: white;
   width: 100%;
   padding: 10px 30px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-   border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 5px;
   margin-bottom: 10px;
 
-  h4{
+  h4 {
     font-weight: 600;
   }
 
-  p:last-child{
+  p:last-child {
     font-weight: 600;
     color: var(--c-sienna);
     border-bottom: 1px solid var(--c-sienna);
@@ -142,32 +146,31 @@
 }
 .inputContainer {
   display: flex;
-  align-items: center; 
+  align-items: center;
   gap: 20px;
 }
 
 .toggleButton {
   position: absolute;
-  right: 10px; 
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent; 
-  border: none; 
-  cursor: pointer; 
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
-
 
 .iconButton {
   background: transparent;
   border: none;
   cursor: pointer;
   position: absolute;
-  right: 10px; 
+  right: 10px;
   top: 50%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
   outline: none;
 }
-.formGroup{
+.formGroup {
   display: flex;
   flex-direction: column;
   width: 100%;

@@ -26,7 +26,7 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
     { label: t("tickets"), link: "/acquista_page" },
     { label: t("explore"), link: "/esplora_page" },
     { label: t("inTheArea"), link: "/nelle_vicinanze" },
-    { label: t("whereWeAre"), link: "/contatti" },
+    { label: t("ourLocation"), link: "/contatti" },
     { label: t("regulations"), link: "/norme" },
     { label: t("credits"), link: "/chi_siamo" },
     { label: t("logout"), action: () => handleSignOut() },

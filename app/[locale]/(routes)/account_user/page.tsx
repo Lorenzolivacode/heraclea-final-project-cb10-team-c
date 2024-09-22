@@ -334,7 +334,7 @@ const AccountPage = () => {
               onClick={handlePasswordChange}
               className={style.button}
             >
-              {t("changePassword")}
+              {t("buttonChangePassword")}
             </button>
 
             <button type="button" onClick={toggleEdit} className={style.button}>

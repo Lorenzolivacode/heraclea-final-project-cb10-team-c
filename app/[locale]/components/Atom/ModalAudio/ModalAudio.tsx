@@ -7,7 +7,7 @@ import {
   ModalAudioTitleContext,
 } from "@/app/[locale]/ModalAudioContext/ModalAudioContext";
 
-function ModalAudio() {
+export default function ModalAudio() {
   const [reduceClass, setReduceClass] = useState(false);
   const setIsAudioOpen = useContext(SetIsModalAudioOpenContext);
 
@@ -38,5 +38,3 @@ function ModalAudio() {
     </div>
   );
 }
-
-export default ModalAudio;

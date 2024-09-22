@@ -11,7 +11,12 @@
     "date": "Date",
     "total": "Total",
     "paymentMethods": "Payment Methods",
-    "ticket": "Ticket"
+    "ticket": "Ticket",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "buttonChangePassword": "Change password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
   },
 
   "AcquistaPage": {
@@ -192,8 +197,8 @@
     "account": "Account",
     "tickets": "Tickets",
     "explore": "Explore",
-    "inTheArea": "Nearby",
-    "whereWeAre": "Where we are",
+    "inTheArea": "Nearby attractions",
+    "ourLocation": "Our Location",
     "regulations": "Regulations",
     "credits": "Credits",
     "logout": "Log out"
@@ -214,7 +219,7 @@
   },
 
   "NelleVicinanze": {
-    "title": "Nearby",
+    "title": "Nearby attractions",
     "subtitleRestaurants": "Restaurants",
     "subtitleVisit": "Places worth visiting"
   },
