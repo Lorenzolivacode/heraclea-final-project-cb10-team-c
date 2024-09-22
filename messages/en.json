@@ -137,7 +137,8 @@
     "order": "You have not placed any orders",
     "date": "Date",
     "total": "Total",
-    "paymentMethods": "Payment Methods"
+    "paymentMethods": "Payment Methods",
+    "ticket":"Ticket"
   },
 
   "EventDetail": {
