@@ -177,5 +177,39 @@
     "titleUlisse": "Ulisse",
     "creditsUlisse": "di Beatrice Monroy e Sergio Vespertino",
     "descriptionUlisse": "La storia si basa sulle avventure di Ulisse, il re di Itaca, che narra le sue esperienze epiche e i suoi viaggi attraverso il mondo antico. Il mito di Ulisse esplora temi di eroismo, astuzia e il lungo viaggio verso casa."
+  },
+  "SignIn": {
+    "loginTitle": "Accedi",
+    "emailPlaceholder": "Inserisci la tua email",
+    "passwordPlaceholder": "Inserisci la tua password",
+    "loginButton": "Accedi",
+    "signUpButton": "Registrati",
+    "notRegistered": "Non sei registrato?",
+    "signUpLink": "Clicca qui per registrarti",
+    "loginSuccess": "Accesso effettuato con successo!",
+    "errorUserNotFound": "Email non trovata. Verifica di avere un account o registrati.",
+    "errorWrongPassword": "Password errata. Riprova.",
+    "errorInvalidEmail": "L'email fornita non è valida.",
+    "errorGeneric": "Errore durante l'accesso. Riprova.",
+    "errorUnknown": "Errore sconosciuto durante l'accesso."
+  },
+  "SignUp": {
+    "sign_up": "Registrati",
+    "first_name": "Nome",
+    "last_name": "Cognome",
+    "email": "Email",
+    "password": "Password",
+    "error_required_fields": "Tutti i campi sono obbligatori",
+    "error_password_length": "La password deve essere lunga almeno 6 caratteri",
+    "error_email_in_use": "Email già registrata. Vai su {loginLink} per accedere.",
+    "error_invalid_email": "L'email fornita non è valida.",
+    "error_registration": "Errore durante la registrazione. Riprova.",
+    "error_unknown": "Errore sconosciuto durante la registrazione.",
+    "error_first_name_required": "Il nome è obbligatorio",
+    "error_last_name_required": "Il cognome è obbligatorio",
+    "error_email_required": "La email è obbligatoria",
+    "registration_success": "Registrazione completata!",
+    "already_registered": "Sei già registrato?",
+    "login": "Log In"
   }
 }

@@ -6,8 +6,11 @@ import style from "./LogIn.module.scss";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import { Link, useRouter } from "@/i18n/routing";
 import Toast from "../../components/Atom/Toast/Toast";
+import { useTranslations } from "next-intl";
 
 const SignIn: React.FC = () => {
+  const t = useTranslations("SignIn"); // Hook per le traduzioni
+  
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -26,22 +29,11 @@ const SignIn: React.FC = () => {
     setShowSignUpRedirect(false);
 
     try {
-      // Tentativo di accesso con email e password
       const res = await signInWithEmailAndPassword(email, password);
       setEmail("");
       setPassword("");
       if (res && res.user) {
-        // Accesso riuscito
-        /* alert("Accesso effettuato!"); */
         setIsLoginSuccess(true);
-
-        // const displayName = res.user.displayName || "Utente";
-        // const uid = res.user.uid;
-
-        // Reindirizza alla pagina dell'account e passa il nome utente come query string
-        /* router.push(
-          `/account_user?userName=${encodeURIComponent(displayName)}&uid=${uid}`
-        ); */
         setTimeout(() => {
           router.push(`/`);
         }, 100);
@@ -55,28 +47,20 @@ const SignIn: React.FC = () => {
 
         // Gestione degli errori specifici
         if (error.message.includes("auth/user-not-found")) {
-          setIsLoginFailure(true);
-          setError(
-            "Email non trovata. Verifica di avere un account o registrati."
-          );
+          setError(t("errorUserNotFound"));
           setShowSignUpRedirect(true);
         } else if (error.message.includes("auth/wrong-password")) {
-          setIsLoginFailure(true);
-          setError("Password errata. Riprova.");
+          setError(t("errorWrongPassword"));
         } else if (error.message.includes("auth/invalid-email")) {
-          setIsLoginFailure(true);
-          setError("L'email fornita non è valida.");
+          setError(t("errorInvalidEmail"));
         } else {
-          setIsLoginFailure(true);
-          setError("Errore durante l'accesso. Riprova.");
+          setError(t("errorGeneric"));
         }
       } else {
-        setIsLoginFailure(true);
-        setError("Errore sconosciuto durante l'accesso.");
+        setError(t("errorUnknown"));
       }
     }
 
-    // Reset dei campi
     setEmail("");
     setPassword("");
   };
@@ -90,16 +74,16 @@ const SignIn: React.FC = () => {
         onClose={() => setIsLoginFailure(false)}
       />
       <Toast
-        message="Accesso effettuato!"
+        message={t("loginSuccess")}
         type="success"
         isOpen={isLoginSuccess}
         onClose={() => setIsLoginSuccess(false)}
       />
-      <h1 className={style.title}>Log In</h1>
+      <h1 className={style.title}>{t("loginTitle")}</h1>
       <form onSubmit={handleSubmit} className={style.form}>
         <div>
           <input
-            placeholder="Email"
+            placeholder={t("emailPlaceholder")}
             id="email"
             type="email"
             value={email}
@@ -110,7 +94,7 @@ const SignIn: React.FC = () => {
         </div>
         <div>
           <input
-            placeholder="Password"
+            placeholder={t("passwordPlaceholder")}
             id="password"
             type="password"
             value={password}
@@ -124,20 +108,20 @@ const SignIn: React.FC = () => {
             <p className={style.error}>{error}</p>
             {showSignUpRedirect && (
               <Button
-                text="Registrati"
+                text={t("signUpButton")}
                 onClick={() => router.push("/sign_up")}
               />
             )}
           </div>
         )}
         <div className={style.button}>
-          <Button text="Accedi" type="submit" />
+          <Button text={t("loginButton")} type="submit" />
         </div>
 
         <p className={style.text}>
-          Non sei registrato? Fai{" "}
+          {t("notRegistered")}{" "}
           <Link href="/sign_up" className={style.a}>
-            Sign up
+            {t("signUpLink")}
           </Link>
         </p>
       </form>

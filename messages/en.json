@@ -166,5 +166,40 @@
     "titleUlisse": "Ulysses",
     "creditsUlisse": "by Beatrice Monroy and Sergio Vespertino",
     "descriptionUlisse": "The story is based on the adventures of Ulysses, the king of Ithaca, who recounts his epic experiences and journeys through the ancient world. The myth of Ulysses explores themes of heroism, cunning, and the long journey home."
+  },
+  "SignIn": {
+    "loginTitle": "Log In",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "loginButton": "Log In",
+    "signUpButton": "Sign Up",
+    "notRegistered": "Not registered?",
+    "signUpLink": "Click here to sign up",
+    "loginSuccess": "Login successful!",
+    "errorUserNotFound": "Email not found. Please check if you have an account or sign up.",
+    "errorWrongPassword": "Incorrect password. Please try again.",
+    "errorInvalidEmail": "The provided email is not valid.",
+    "errorGeneric": "Error during login. Please try again.",
+    "errorUnknown": "Unknown error during login."
+  },
+  "SignUp": {
+    "sign_up": "Sign Up",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "error_required_fields": "All fields are required",
+    "error_password_length": "Password must be at least 6 characters long",
+    "error_email_in_use": "Email is already registered. Go to {loginLink} to log in.",
+    "error_invalid_email": "The provided email is invalid.",
+    "error_registration": "An error occurred during registration. Please try again.",
+    "error_unknown": "Unknown error during registration.",
+    "error_first_name_required": "First name is required",
+    "error_last_name_required": "Last name is required",
+    "error_email_required": "Email is required",
+    "registration_success": "Registration completed!",
+    "already_registered": "Already registered?",
+    "login": "Log In"
   }
+
 }
