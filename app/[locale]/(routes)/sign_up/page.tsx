@@ -3,35 +3,35 @@ import { useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { updateProfile } from "firebase/auth";
 import { auth } from "@/app/[locale]/firebase/config";
-// import { useRouter } from "next/navigation";
 import { useRouter } from "@/i18n/routing";
 import style from "./SignUp.module.scss";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import InitialPagemodal from "@/app/[locale]/components/Organism/modalInitialPage/ModalInitialPage";
 import { Link } from "@/i18n/routing";
-import { saveUserData } from "@/app/[locale]/firebase/database"; // Assicurati di importare la funzione
+import { saveUserData } from "@/app/[locale]/firebase/database";
+import { useTranslations } from "next-intl";
 
 const SignUp: React.FC = () => {
+  const t = useTranslations("SignUp");
   const [nome, setNome] = useState<string>("");
   const [cognome, setCognome] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
 
-  const [createUserWithEmailAndPassword] =
-    useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!nome || !cognome || !email || !password) {
-      setError("Tutti i campi sono obbligatori");
+      setError(t("error_required_fields"));
       return;
     }
 
     if (password.length < 6) {
-      setError("La password deve essere lunga almeno 6 caratteri");
+      setError(t("error_password_length"));
       return;
     }
 
@@ -45,13 +45,11 @@ const SignUp: React.FC = () => {
           displayName: `${nome} ${cognome}`,
         });
 
-        // Salva i dati nel database
         const userData = {
           firstName: nome,
           lastName: cognome,
           email: res.user.email,
           paymentInfo: {
-            // Aggiungi dettagli di pagamento se necessario
             cardName: "",
             cardNumber: "",
             expiryDate: "",
@@ -59,12 +57,11 @@ const SignUp: React.FC = () => {
             selectedCard: "",
           },
         };
-        await saveUserData(res.user.uid, userData); // Salva i dati dell'utente
+        await saveUserData(res.user.uid, userData);
 
-        alert("Registrazione completata!");
+        alert(t("registration_success"));
         router.push("/log_in");
 
-        // Reset dei campi
         setNome("");
         setCognome("");
         setEmail("");
@@ -74,17 +71,19 @@ const SignUp: React.FC = () => {
       if (error instanceof Error) {
         if (error.message.includes("auth/email-already-in-use")) {
           setError(
-            "Email già registrata. Vai su <a href='/log_in' class='link'>Login</a> per accedere."
+            t("error_email_in_use", {
+              loginLink: `<a href='/log_in' class='link'>${t("login")}</a>`,
+            })
           );
         } else if (error.message.includes("auth/invalid-email")) {
-          setError("L'email fornita non è valida.");
+          setError(t("error_invalid_email"));
         } else if (error.message.includes("auth/weak-password")) {
-          setError("La password deve essere lunga almeno 6 caratteri.");
+          setError(t("error_password_length"));
         } else {
-          setError("Errore durante la registrazione. Riprova.");
+          setError(t("error_registration"));
         }
       } else {
-        setError("Errore sconosciuto durante la registrazione.");
+        setError(t("error_unknown"));
       }
     }
   };
@@ -93,11 +92,11 @@ const SignUp: React.FC = () => {
     <>
       <InitialPagemodal />
       <div className={style.container}>
-        <h1 className={style.title}>Registrati</h1>
+        <h1 className={style.title}>{t("sign_up")}</h1>
         <form onSubmit={handleSubmit} className={style.form}>
           <div>
             <input
-              placeholder="Nome"
+              placeholder={t("first_name")}
               id="nome"
               type="text"
               value={nome}
@@ -106,12 +105,12 @@ const SignUp: React.FC = () => {
               required
             />
             {error && !nome && (
-              <p className={style.error}>Il nome è obbligatorio</p>
+              <p className={style.error}>{t("error_first_name_required")}</p>
             )}
           </div>
           <div>
             <input
-              placeholder="Cognome"
+              placeholder={t("last_name")}
               id="cognome"
               type="text"
               value={cognome}
@@ -120,12 +119,12 @@ const SignUp: React.FC = () => {
               required
             />
             {error && !cognome && (
-              <p className={style.error}>Il cognome è obbligatorio</p>
+              <p className={style.error}>{t("error_last_name_required")}</p>
             )}
           </div>
           <div>
             <input
-              placeholder="Email"
+              placeholder={t("email")}
               id="email"
               type="email"
               value={email}
@@ -134,12 +133,12 @@ const SignUp: React.FC = () => {
               required
             />
             {error && !email && (
-              <p className={style.error}>La email è obbligatoria</p>
+              <p className={style.error}>{t("error_email_required")}</p>
             )}
           </div>
           <div>
             <input
-              placeholder="Password"
+              placeholder={t("password")}
               id="password"
               type="password"
               value={password}
@@ -149,17 +148,17 @@ const SignUp: React.FC = () => {
             />
             {error && password.length < 6 && (
               <p className={style.error}>
-                La password deve essere lunga almeno 6 caratteri
+                {t("error_password_length")}
               </p>
             )}
           </div>
           <div className={style.button}>
-            <Button text="Registrati" type="submit" />
+            <Button text={t("sign_up")} type="submit" />
           </div>
           <p className={style.text}>
-            Sei già registrato? Fai{" "}
+            {t("already_registered")}{" "}
             <Link href="/log_in" className={style.a}>
-              Log In
+              {t("login")}
             </Link>
           </p>
         </form>
