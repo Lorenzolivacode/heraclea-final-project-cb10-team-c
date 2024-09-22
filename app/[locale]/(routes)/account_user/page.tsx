@@ -2,13 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  updatePassword,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+} from "firebase/auth";
 import { auth } from "@/app/[locale]/firebase/config";
 import { getDatabase, ref, get, onValue } from "firebase/database";
 import { saveUserData } from "@/app/[locale]/firebase/database";
 import Image from "next/image";
 import ModalQR from "@/app/[locale]/components/Molecoles/ModalQR/ModalQR";
 import maschera from "@/public/assets/maschera.webp";
+import PasswordToggleButton from "@/app/[locale]/components/Atom/PasswordToggleBtn/PasswordToggleBtn";
 import style from "./account.module.scss";
 
 interface Ticket {
@@ -61,6 +67,10 @@ const AccountPage = () => {
   const [formData, setFormData] = useState<UserData>(userData);
   const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // Stato per la visibilità della password
+  const [error, setError] = useState("");
   const userName = userData.firstName || "Utente";
   const t = useTranslations("AccountPage");
 
@@ -92,7 +102,7 @@ const AccountPage = () => {
         const uid = user.uid;
         const userDataFromDB = await fetchUserData(uid);
         setUserData(userDataFromDB);
-        fetchOrders(uid); // Fetch orders after user data is set
+        fetchOrders(uid);
       }
     });
 
@@ -152,7 +162,6 @@ const AccountPage = () => {
           date: data[orderId].date,
           total:
             typeof data[orderId].total === "number" ? data[orderId].total : 0,
-
           tickets: data[orderId].tickets || [],
           paymentInfo: data[orderId].paymentInfo || {
             cardName: "",
@@ -192,6 +201,30 @@ const AccountPage = () => {
     setActiveTab(tab);
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const handlePasswordChange = async () => {
+    const user = auth.currentUser;
+    if (user) {
+      const credential = EmailAuthProvider.credential(
+        user.email!,
+        currentPassword
+      );
+      try {
+        await reauthenticateWithCredential(user, credential);
+        await updatePassword(user, newPassword);
+        setNewPassword("");
+        setCurrentPassword("");
+        setError("");
+        alert(t("passwordUpdated"));
+      } catch (err) {
+        setError(t("errorUpdatingPassword"));
+      }
+    }
+  };
+
   return (
     <main className={style.main}>
       <div className={style.profile}>
@@ -226,8 +259,14 @@ const AccountPage = () => {
         </div>
 
         {activeTab === "profile" ? (
-          <form className={style.form}>
-            <div className={style.formGroup}>
+          <form
+            className={style.form}
+            onSubmit={(e) => {
+              e.preventDefault();
+              toggleEdit();
+            }}
+          >
+            <div>
               <label>{t("name")}:</label>
               <input
                 type="text"
@@ -238,7 +277,7 @@ const AccountPage = () => {
                 className={style.input}
               />
             </div>
-            <div className={style.formGroup}>
+            <div>
               <label>{t("surname")}:</label>
               <input
                 type="text"
@@ -249,7 +288,7 @@ const AccountPage = () => {
                 className={style.input}
               />
             </div>
-            <div className={style.formGroup}>
+            <div>
               <label>Email:</label>
               <input
                 type="email"
@@ -260,6 +299,44 @@ const AccountPage = () => {
                 className={style.input}
               />
             </div>
+            <div className={style.formGroup}>
+              <label>{t("currentPassword")}:</label>
+              <div className={style.inputContainer}>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
+                  className={style.input}
+                />
+                <PasswordToggleButton
+                  showPassword={showPassword}
+                  onToggle={togglePasswordVisibility}
+                />
+              </div>
+            </div>
+            <div className={style.formGroup}>
+              <label>{t("newPassword")}:</label>
+              <div className={style.inputContainer}>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  className={style.input}
+                />
+                <PasswordToggleButton
+                  showPassword={showPassword}
+                  onToggle={togglePasswordVisibility}
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={handlePasswordChange}
+              className={style.button}
+            >
+              {t("changePassword")}
+            </button>
+
             <button type="button" onClick={toggleEdit} className={style.button}>
               {isEditing ? `${t("save")}` : `${t("edit")}`}
             </button>
