@@ -25,7 +25,7 @@ const ModalQR: React.FC<ModalProps> = ({ isVisible, onClose, ticket }) => {
         </button>
         {ticket && (
           <>
-            <h2>Biglietto {ticket.type} QR Code</h2>
+            <h2>{ticket.type} QR Code</h2>
             <QrCodeGenerator ticketId={ticket.id} />
           </>
         )}

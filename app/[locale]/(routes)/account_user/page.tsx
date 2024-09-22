@@ -32,8 +32,6 @@ interface Order {
   total: number;
   tickets: Ticket[];
   userId: string;
-  firstName: string;
-  lastName: string;
   paymentInfo: PaymentInfo;
 }
 
@@ -152,12 +150,17 @@ const AccountPage = () => {
         const orderList = userOrders.map((orderId) => ({
           id: orderId,
           date: data[orderId].date,
-          total: data[orderId].total || 0,
+          total:
+            typeof data[orderId].total === "number" ? data[orderId].total : 0,
+
           tickets: data[orderId].tickets || [],
           paymentInfo: data[orderId].paymentInfo || {
-            paymentMethod: "N/A",
+            cardName: "",
+            cardNumber: "",
+            expiryDate: "",
+            paymentMethod: "",
+            selectedCard: "",
           },
-          userId: data[orderId].userId, // Se vuoi mantenere l'userId
         })) as Order[];
 
         setOrders(orderList);
@@ -273,7 +276,7 @@ const AccountPage = () => {
                     {t("total")}: {order.total.toFixed(2)}€
                   </p>
                   <p>
-                    {t("paymentMethods")}{" "}
+                    {t("paymentMethods")}:{" "}
                     {order.paymentInfo.paymentMethod || "N/A"}
                   </p>
                   <p>{t("ticket")}:</p>
@@ -296,7 +299,7 @@ const AccountPage = () => {
           isVisible={isModalOpen}
           onClose={closeModal}
           ticket={selectedTicket}
-        ></ModalQR>
+        />
       </div>
     </main>
   );

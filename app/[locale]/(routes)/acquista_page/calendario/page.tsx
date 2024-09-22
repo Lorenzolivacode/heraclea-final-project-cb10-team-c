@@ -34,6 +34,7 @@ const Calendar: React.FC = () => {
   const [interoCount, setInteroCount] = useState(0);
   const [ridottoCount, setRidottoCount] = useState(0);
   const [teatriCount, setTeatriCount] = useState(0);
+  const [paymentMethod, setPaymentMethod] = useState<string>("");
   const [user] = useAuthState(auth);
   const router = useRouter();
   const db = getDatabase();
@@ -87,7 +88,8 @@ const Calendar: React.FC = () => {
 
   const saveToDatabase = (
     selectedDate: Date,
-    tickets: { type: string; quantity: number; price: number }[]
+    tickets: { type: string; quantity: number; price: number }[],
+    paymentMethod: string
   ) => {
     const ordersRef = ref(db, "orders");
     const newOrderRef = push(ordersRef);
@@ -101,6 +103,10 @@ const Calendar: React.FC = () => {
     const order = {
       date: formattedDate,
       tickets,
+      paymentInfo: {
+        paymentMethod, // Usa il parametro dinamico qui
+      },
+      total: calculateTotalPrice(),
       timestamp: new Date().toLocaleString("it-IT", {
         day: "2-digit",
         month: "2-digit",
@@ -108,7 +114,7 @@ const Calendar: React.FC = () => {
         hour: "2-digit",
         minute: "2-digit",
       }),
-      userId: user ? user.uid : null, // Salva l'ID utente se autenticato
+      userId: user ? user.uid : null,
     };
 
     // Salva l'ordine nel database Firebase
@@ -135,21 +141,21 @@ const Calendar: React.FC = () => {
 
     if (interoCount > 0) {
       tickets.push({
-        type: "Intero",
+        type: " Biglietto intero",
         quantity: interoCount,
         price: fullTicketPrice,
       });
     }
     if (ridottoCount > 0) {
       tickets.push({
-        type: "Ridotto",
+        type: "Biglietto ridotto",
         quantity: ridottoCount,
         price: reducedTicketPrice,
       });
     }
     if (isTeatroDate && teatriCount > 0) {
       tickets.push({
-        type: "Ticket Teatri di Pietra",
+        type: "Biglietto Teatri di Pietra",
         quantity: teatriCount,
         price: eventTicketPrice,
       });
@@ -157,7 +163,7 @@ const Calendar: React.FC = () => {
 
     // Salva solo se ci sono biglietti
     if (tickets.length > 0) {
-      saveToDatabase(selectedDate!, tickets);
+      saveToDatabase(selectedDate!, tickets, paymentMethod); // Passa paymentMethod
       router.push("/acquista_page/dati_transazione");
     } else {
       console.log("Nessun biglietto selezionato.");

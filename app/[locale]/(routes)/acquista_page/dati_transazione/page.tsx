@@ -8,7 +8,6 @@ import {
 } from "firebase/auth";
 import { getDatabase, ref, onValue, update, remove } from "firebase/database";
 import { useTranslations } from "next-intl";
-import { QRCode } from "react-qrcode-logo";
 import Image from "next/image";
 import style from "./pagamento.module.scss";
 import TrashOutline from "@/public/icons/pagamenti/trash-outline.svg";
@@ -23,7 +22,7 @@ interface Ticket {
 
 interface UpdatedTickets {
   [orderId: string]: {
-    [ticketId: string]: number; // ticketId come chiave e quantity come valore
+    [ticketId: string]: number;
   };
 }
 
@@ -167,8 +166,8 @@ function DataPayment() {
       .toFixed(2);
   };
 
-  const generateQrCodeForTicket = (ticketId: string) => {
-    return ticketId;
+  const generateQrCodeForTicket = (orderId: string, ticketId: string) => {
+    return `${orderId}-${ticketId}`; // Genera un valore unico per il QR code
   };
 
   const saveQrCodeToDatabase = async (
@@ -186,7 +185,7 @@ function DataPayment() {
     if (orders.length > 0) {
       orders.forEach((order) => {
         order.tickets.forEach((ticket) => {
-          const qrCodeValue = generateQrCodeForTicket(ticket.id); // Genera QR code
+          const qrCodeValue = generateQrCodeForTicket(order.id, ticket.id); // Passa orderId e ticketId
           saveQrCodeToDatabase(order.id, ticket.id, qrCodeValue); // Salva nel DB
         });
       });
