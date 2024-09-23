@@ -36,20 +36,38 @@ function Credits() {
       <div className={styles.textBox}>
         <p>{t("paragraph")}</p>
         {credits.map((credit) => (
-          <div key={credit.id}>
+          <div className={styles.credit_container} key={credit.id}>
             <h3>{t(credit.title)}</h3>
             <p>{t(credit.text)}</p>
             {credit.team && (
               <ul className={styles.team}>
                 {credit.team.map((member, i) => (
                   <li key={i}>
-                    <Link
-                      target="_blank"
-                      className={styles.link}
-                      href={`https://github.com/${member.githubUrl}`}
-                    >
-                      {member.name}
-                    </Link>
+                    <p className={styles.link_txt}>{member.name}</p>
+                    <div className={styles.link_img}>
+                      <Link
+                        target="_blank"
+                        href={`https://github.com/${member.githubUrl}`}
+                      >
+                        <Image
+                          width={35}
+                          height={35}
+                          src={"/icons/social-icons/github.svg"}
+                          alt={"GitHub"}
+                        />
+                      </Link>
+                      <Link
+                        target="_blank"
+                        href={`https://github.com/${member.githubUrl}`}
+                      >
+                        <Image
+                          width={35}
+                          height={35}
+                          src={"/icons/social-icons/linkedin.svg"}
+                          alt={"LinkedIn"}
+                        />
+                      </Link>
+                    </div>
                   </li>
                 ))}
               </ul>

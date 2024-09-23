@@ -91,12 +91,12 @@ const AccountPage = () => {
   const buttonColors = {
     profile: {
       background:
-        activeTab === "profile" ? "var(--c-white)" : "var(--c-sienna)",
-      color: activeTab === "profile" ? "var(--c-sienna)" : "var(--c-white)",
+        activeTab === "profile" ? "var(--c-sienna)" : "var(--c-white)",
+      color: activeTab === "profile" ? "var(--c-white)" : "var(--c-sienna)",
     },
     orders: {
-      background: activeTab === "orders" ? "var(--c-white)" : "var(--c-sienna)",
-      color: activeTab === "orders" ? "var(--c-sienna)" : "var(--c-white)",
+      background: activeTab === "orders" ? "var(--c-sienna)" : "var(--c-white)",
+      color: activeTab === "orders" ? "var(--c-white)" : "var(--c-sienna)",
     },
   };
 
@@ -285,7 +285,9 @@ const AccountPage = () => {
                 value={formData.firstName}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className={style.input}
+                className={`${style.input} ${
+                  isEditing ? style.input_edit : ""
+                }`}
               />
             </div>
             <div>
@@ -296,7 +298,9 @@ const AccountPage = () => {
                 value={formData.lastName}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className={style.input}
+                className={`${style.input} ${
+                  isEditing ? style.input_edit : ""
+                }`}
               />
             </div>
             <div>
@@ -307,7 +311,9 @@ const AccountPage = () => {
                 value={formData.email}
                 onChange={handleChange}
                 disabled={!isEditing}
-                className={style.input}
+                className={`${style.input} ${
+                  isEditing ? style.input_edit : ""
+                }`}
               />
             </div>
             <div className={style.formGroup}>
@@ -317,7 +323,9 @@ const AccountPage = () => {
                   type={showPassword ? "text" : "password"}
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
-                  className={style.input}
+                  className={`${style.input} ${
+                    isEditing ? style.input_edit : ""
+                  }`}
                 />
                 <PasswordToggleButton
                   showPassword={showPassword}
@@ -332,7 +340,9 @@ const AccountPage = () => {
                   type={showPassword ? "text" : "password"}
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className={style.input}
+                  className={`${style.input} ${
+                    isEditing ? style.input_edit : ""
+                  }`}
                 />
                 <PasswordToggleButton
                   showPassword={showPassword}

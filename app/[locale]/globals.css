@@ -60,7 +60,8 @@ h2 {
   flex-direction: column;
   gap: 20px;
   justify-content: start;
-  min-height: calc(100dvh - 178px);
+  margin: auto;
+  min-height: calc(100vh - 75px);
   padding: 150px 22px;
   background-color: var(--c-white);
 }

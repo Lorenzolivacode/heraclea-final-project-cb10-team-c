@@ -1,30 +1,31 @@
 .main {
-    width: 25px;
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    position: relative;
+  width: 25px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
 
-    .breadUp, .breadDown, .hamb {
-        width: 100%;
-        height: 2px;
-        border-radius: 3px;
-        background-color: var(--c-sienna);
-        opacity: 1;
-        transition: all 0.35s ease;
-    }
-   
-    &.active .hamb {
-        opacity: 0;
-    }
+  .breadUp,
+  .breadDown,
+  .hamb {
+    width: 100%;
+    height: 2px;
+    border-radius: 3px;
+    background-color: var(--c-sienna);
+    opacity: 1;
+    transition: all 0.35s ease;
+  }
 
-    &.active .breadUp {
-        transform: rotate(46deg) translateY(8px) translateX(6px);
-    }
-    &.active .breadDown {
-        transform: rotate(-49deg) translateY(-7px) translateX(5.5px);
-    }
-    
+  &.active .hamb {
+    opacity: 0;
+  }
+
+  &.active .breadUp {
+    transform: rotate(46deg) translateY(8px) translateX(6px);
+  }
+  &.active .breadDown {
+    transform: rotate(-49deg) translateY(-7px) translateX(5.5px);
+  }
 }
