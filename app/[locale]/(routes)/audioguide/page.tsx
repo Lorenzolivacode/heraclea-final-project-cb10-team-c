@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 function AudioGuidePage() {
   const t = useTranslations("AudioguidePage");
-  const translatedAudioText = audiotext.map((audio, index) => ({
+  const translatedAudioText = audiotext.map((audio) => ({
     ...audio,
     img: t(`img${audio.id}`),
     filePath: t(`filePath${audio.id}`),

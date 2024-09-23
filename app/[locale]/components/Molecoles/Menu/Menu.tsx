@@ -1,13 +1,12 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "@/app/[locale]/firebase/config";
 import { useRouter } from "@/i18n/routing";
 //import { useLocale } from "next-intl";
 import style from "/app/[locale]/components/Molecoles/Menu/Menu.module.scss";
-import Toast from "../../Atom/Toast/Toast";
 import { useTranslations } from "next-intl";
 import SwitchLanguage from "../../Atom/SwitchLanguage/SwitchLanguage";
 

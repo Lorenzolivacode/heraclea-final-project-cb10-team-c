@@ -35,7 +35,6 @@ const Calendar: React.FC = () => {
   const [interoCount, setInteroCount] = useState(0);
   const [ridottoCount, setRidottoCount] = useState(0);
   const [teatriCount, setTeatriCount] = useState(0);
-  const [paymentMethod, setPaymentMethod] = useState<string>("");
   const [user] = useAuthState(auth);
   const router = useRouter();
   const db = getDatabase();
@@ -89,8 +88,7 @@ const Calendar: React.FC = () => {
 
   const saveToDatabase = (
     selectedDate: Date,
-    tickets: { type: string; quantity: number; price: number }[],
-    paymentMethod: string
+    tickets: { type: string; quantity: number; price: number }[]
   ) => {
     const ordersRef = ref(db, "orders");
     const newOrderRef = push(ordersRef);
@@ -104,9 +102,6 @@ const Calendar: React.FC = () => {
     const order = {
       date: formattedDate,
       tickets,
-      paymentInfo: {
-        paymentMethod, // Usa il parametro dinamico qui
-      },
       total: calculateTotalPrice(),
       timestamp: new Date().toLocaleString("it-IT", {
         day: "2-digit",
@@ -164,7 +159,7 @@ const Calendar: React.FC = () => {
 
     // Salva solo se ci sono biglietti
     if (tickets.length > 0) {
-      saveToDatabase(selectedDate!, tickets, paymentMethod); // Passa paymentMethod
+      saveToDatabase(selectedDate!, tickets); // Passa paymentMethod
       router.push("/acquista_page/dati_transazione");
     } else {
       console.log("Nessun biglietto selezionato.");

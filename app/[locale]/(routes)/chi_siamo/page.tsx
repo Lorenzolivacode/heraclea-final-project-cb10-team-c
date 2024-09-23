@@ -32,8 +32,8 @@ function Credits() {
             <p>{t(credit.text)}</p>
             {credit.team && (
               <ul className={styles.team}>
-                {credit.team.map((member) => (
-                  <li>
+                {credit.team.map((member, i) => (
+                  <li key={i}>
                     <Link
                       target="_blank"
                       className={styles.link}

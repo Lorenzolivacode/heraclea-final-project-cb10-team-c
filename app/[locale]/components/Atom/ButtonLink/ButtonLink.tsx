@@ -1,4 +1,3 @@
-import { ReactNode, MouseEventHandler } from "react";
 import style from "./ButtonLink.module.scss";
 import { Link } from "@/i18n/routing";
 
