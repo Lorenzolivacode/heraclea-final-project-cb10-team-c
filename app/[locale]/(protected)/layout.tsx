@@ -4,11 +4,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/[locale]/firebase/config";
 import { getDatabase, ref, get } from "firebase/database";
 import { useEffect, useState } from "react";
-import { useLocale } from "next-intl";
+/* import { useLocale } from "next-intl"; */
 import { usePathname, useRouter } from "@/i18n/routing";
 
 const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
-  const locale = useLocale() as "it" | "en"; // Ottieni la lingua corrente
+  /* const locale = useLocale() as "it" | "en"; */ // Ottieni la lingua corrente
   const unprotectedRoutes = [`/sign_up`, `/log_in`];
   const [user, loading] = useAuthState(auth);
   const [isRegistered, setIsRegistered] = useState<boolean | null>(null); // Stato per verificare se l'utente è registrato
@@ -21,7 +21,7 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
 
     if (!user && !unprotectedRoutes.includes(pathname)) {
       // Se l'utente non è loggato e sta cercando di accedere a una rotta protetta
-      router.push(`/log_in`, { locale }); // aggiunto locale per far leggere al router di i18n la lingua, NON FUNZIONA
+      router.push(`/log_in` /* , { locale } */); // aggiunto locale per far leggere al router di i18n la lingua, NON FUNZIONA
       return;
     }
 
@@ -36,7 +36,7 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
           } else {
             // L'utente non è registrato, mandalo a sign_up
             setIsRegistered(false);
-            router.push(`/sign_up`, { locale });
+            router.push(`/sign_up` /* , { locale } */);
           }
         })
         .catch((error) => {
