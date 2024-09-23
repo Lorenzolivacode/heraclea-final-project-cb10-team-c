@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import style from "./nelle_vicinanze.module.scss";
 import Card from "@/app/[locale]/components/Molecoles/Card/Card";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 function Vicinanze() {
   const [currentSlideRistoranti, setCurrentSlideRistoranti] = useState(0);
@@ -120,7 +121,7 @@ function Vicinanze() {
 
       <section className={style.container}>
         <div className={style.category}>
-          <img
+          <Image
             src="/icons/nelle-vicinanze-icons/fork-and-knife.svg"
             alt="forchetta_cucchiaio"
             width={35}
@@ -162,7 +163,7 @@ function Vicinanze() {
 
       <section className={style.container}>
         <div className={style.category}>
-          <img
+          <Image
             src="/icons/nelle-vicinanze-icons/camera.svg"
             alt="camera"
             width={35}

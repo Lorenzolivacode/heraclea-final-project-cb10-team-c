@@ -6,6 +6,7 @@ import Modal from "../../Molecoles/Modal/modal";
 import Button from "../../Atom/Button/Button";
 import { useTranslations } from "next-intl";
 import SwitchLanguage from "../../Atom/SwitchLanguage/SwitchLanguage";
+import Image from "next/image";
 
 function InitialPagemodal() {
   const [selectedPage, setSelectedPage] = useState<string>("pagina_0");
@@ -158,11 +159,15 @@ function InitialPagemodal() {
             </h1>
 
             {currentPage === 0 ? (
-              <img
-                src={pages[0].video}
-                alt="Heraclea Logo"
-                className={style.gif}
-              />
+              <div className={style.gif}>
+                <Image
+                  layout="responsive"
+                  width={800}
+                  height={800}
+                  src={pages[0].video}
+                  alt="Heraclea Logo"
+                />
+              </div>
             ) : (
               <video
                 src={pages[currentPage].video}

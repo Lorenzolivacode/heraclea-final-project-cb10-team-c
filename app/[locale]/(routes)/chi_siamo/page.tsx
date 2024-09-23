@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./credits.module.scss";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
 
 function Credits() {
   const t = useTranslations("CreditsPage");
@@ -23,7 +24,15 @@ function Credits() {
   return (
     <div className={styles.main}>
       <h1>{t("title")}</h1>
-      <img src="/assets/maschera.webp" alt="mask image" />
+      <div className={styles.img}>
+        <Image
+          layout="responsive"
+          width={800}
+          height={800}
+          src="/assets/maschera.webp"
+          alt="mask image"
+        />
+      </div>
       <div className={styles.textBox}>
         <p>{t("paragraph")}</p>
         {credits.map((credit) => (

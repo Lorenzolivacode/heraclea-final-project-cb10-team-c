@@ -1,5 +1,6 @@
 import style from "./norme.module.scss";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 function Norme() {
   const t = useTranslations("Norme");
   return (
@@ -9,7 +10,7 @@ function Norme() {
         <p>{t("textIntro")}</p>
       </div>
       <div className={style.container}>
-        <img
+        <Image
           src="/icons/norme-icons/people.svg"
           alt="people"
           width={35}
@@ -18,7 +19,7 @@ function Norme() {
         <p>{t("textChildren")}</p>
       </div>
       <div className={style.container}>
-        <img
+        <Image
           src="/icons/norme-icons/Assistive_Technology.svg"
           alt="Assistive_logo"
           width={35}

@@ -56,20 +56,6 @@
   font-size: 14px;
 }
 
-/* .btnContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.btnContainer button {
-  background-color: var(--c-sienna);
-  color: var(--c-gray-light);
-  width: 160px;
-  height: 35px;
-  font-size: 14px;
-} */
-
 .skip {
   background-color: var(--c-white);
   color: var(--c-sienna);
@@ -117,14 +103,6 @@
 }
 
 @media (min-width: 768px) {
-  /* .title {
-    font-size: 65px;
-  }
-
-  .titlePage1 {
-    font-size: 65px;
-  } */
-
   .infoContainer {
     width: 40%;
   }

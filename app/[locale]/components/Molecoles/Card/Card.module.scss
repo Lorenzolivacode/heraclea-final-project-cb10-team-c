@@ -1,9 +1,11 @@
 .card_section {
   display: block;
   position: relative;
+  margin: auto;
   border-radius: 5px;
   box-shadow: 0 10px 12px -5px var(--c-gray-stone);
   width: 100%;
+  max-width: 600px;
   aspect-ratio: 3/2;
   overflow: hidden;
   object-fit: cover;

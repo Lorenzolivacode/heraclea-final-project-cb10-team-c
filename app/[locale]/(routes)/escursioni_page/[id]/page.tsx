@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import style from "./Id.module.scss";
 import Button from "@/app/[locale]/components/Atom/Button/Button";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const getEscursioneById = (id: string) => {
   const arrayTest = [
@@ -34,13 +35,13 @@ export default function EscursioneDetail({
   return (
     <main className={style.main}>
       <h1>{t(escursione.title)}</h1>
-      {/* <div className={style.imageContainer}> */}
-      <img
+      <Image
+        width={800}
+        height={800}
         src={escursione.image}
         className={style.img}
         alt={`Escursione ${id}`}
       />
-      {/* </div> */}
       <div className={style.bookingSection}>
         <h2>{t("titlePrenotazione")}</h2>
         <p>

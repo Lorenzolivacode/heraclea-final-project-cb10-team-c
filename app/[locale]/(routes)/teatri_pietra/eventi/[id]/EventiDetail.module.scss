@@ -14,12 +14,20 @@
   text-align: center;
 }
 
-.img {
+/* .img {
   position: relative;
   width: 100%;
   aspect-ratio: 2/1;
   object-fit: cover;
-  object-position: top;
+  } */
+.img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  padding-block: 20px;
+  overflow: hidden;
+  img {
+    object-position: top;
+  }
 }
 
 .detailsSection {
@@ -50,15 +58,25 @@
   text-align: center;
   line-height: 1.5;
   padding: 5px;
-  
 }
 
 @media (min-width: 768px) {
-  .detailsSection{
+  .detailsSection {
     width: 80%;
   }
 
   .img {
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .img {
+    width: 60%;
+    margin: auto;
+  }
+  .detailsSection {
+    width: 60%;
+    margin: auto;
   }
 }

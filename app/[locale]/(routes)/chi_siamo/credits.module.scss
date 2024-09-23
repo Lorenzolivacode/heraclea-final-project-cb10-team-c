@@ -1,21 +1,24 @@
 .main {
-  position: fixed;
-  top: 100px;
   display: flex;
   flex-direction: column;
+  gap: 20px;
   width: 100%;
   background-color: var(--c-white);
   overflow: scroll;
-  padding-bottom: 80px;
-  max-height: calc(100vh - 150px);
+  padding: 100px 0;
+  min-height: calc(100vh - 150px);
 
   h1 {
     text-align: center;
     padding-block: 10px;
   }
 
-  img {
+  .img {
+    width: 100%;
+    aspect-ratio: 16/9;
     padding-block: 20px;
+    overflow: hidden;
+    object-fit: cover;
   }
 
   .textBox {
@@ -42,10 +45,12 @@
   margin: 20px auto;
 
   li {
+    flex-grow: 1;
     border-radius: 5px;
     padding: 5px 10px 10px 10px;
     color: var(--c-white);
     background-color: var(--c-sienna);
+    text-align: center;
     .link {
       border-radius: 5px;
       border-bottom: 2px solid var(--c-white);
@@ -55,11 +60,33 @@
 }
 
 @media (min-width: 768px) {
+  .textBox {
+    width: 80%;
+    margin: auto;
+  }
+  .main {
+    .img {
+      aspect-ratio: 16/4;
+    }
+  }
   .main h1 {
     font-size: 3.5rem;
   }
 
   .textBox p {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    .img {
+      width: 60%;
+      margin: auto;
+    }
+  }
+  .textBox {
+    width: 60%;
+    margin: auto;
   }
 }

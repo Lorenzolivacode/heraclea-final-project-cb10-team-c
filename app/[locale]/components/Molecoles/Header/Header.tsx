@@ -7,6 +7,7 @@ import Hamburger from "../HamburgerMenu/HamburgerMenu";
 import Link from "next/link";
 import Menu from "../Menu/Menu";
 import ModalAudio from "../../Atom/ModalAudio/ModalAudio";
+import Image from "next/image";
 
 interface HeaderProps {
   isMenuOpen: boolean;
@@ -49,7 +50,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
       {isAudioOpen && <ModalAudio />}
       <div>
         {!isHomePage && (
-          <img
+          <Image
             src="/icons/header/arrow-left.svg"
             alt="Back"
             width={40}
@@ -60,7 +61,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
       </div>
       <div className={style.logoContainer}>
         <Link href="/">
-          <img
+          <Image
             src="/icons/logoSienna.svg"
             alt="Logo"
             width={69}
