@@ -6,6 +6,7 @@ import {
   ModalAudioSrcContext,
   ModalAudioTitleContext,
 } from "@/app/[locale]/ModalAudioContext/ModalAudioContext";
+import Image from "next/image";
 
 export default function ModalAudio() {
   const [reduceClass, setReduceClass] = useState(false);
@@ -28,7 +29,23 @@ export default function ModalAudio() {
       <div className={`${styles.audio_container}`}>
         <h3>{audioTitle}</h3>
         <div className={styles.btn_container}>
-          <button onClick={handleReduce}>{!reduceClass ? "-" : "🖵"}</button>
+          <button onClick={handleReduce}>
+            {!reduceClass ? (
+              <Image
+                src={"/icons/audioguide-icons/minus.svg"}
+                alt={"Icon minimize"}
+                width={30}
+                height={30}
+              />
+            ) : (
+              <Image
+                src={"/icons/audioguide-icons/maximize.svg"}
+                alt={"Icon maximize"}
+                width={30}
+                height={30}
+              />
+            )}
+          </button>
           <button onClick={handleAudioClose}>x</button>
         </div>
       </div>

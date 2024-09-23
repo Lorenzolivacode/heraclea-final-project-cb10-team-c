@@ -45,7 +45,7 @@ const listFooter = [
 ];
 function Footer({ setIsMenuOpen }: FooterProps) {
   const handleClick = () => {
-    setIsMenuOpen(false); // Chiude il menu quando si clicca sul footer
+    setIsMenuOpen(false);
   };
   return (
     <footer className={styles.footer} onClick={handleClick}>

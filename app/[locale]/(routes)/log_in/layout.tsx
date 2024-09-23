@@ -9,7 +9,12 @@ export default function RootLayout({
     <>
       <header className={styles.header__sign}>
         <div className={styles.icon}>
-          <Image fill alt="logo" src={"/icons/logoSienna.svg"} />
+          <Image
+            width={80}
+            height={80}
+            alt="logo"
+            src={"/icons/logoSienna.svg"}
+          />
         </div>
         {/* <video
           src={"/heraclea-logo-unscreen.gif"}

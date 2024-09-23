@@ -59,9 +59,12 @@
   z-index: 200;
 
   .icon {
-    /* aspect-ratio: 1/1; */
-    margin: 30px auto;
-    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    aspect-ratio: 1/1;
+    margin: auto;
   }
 }
 

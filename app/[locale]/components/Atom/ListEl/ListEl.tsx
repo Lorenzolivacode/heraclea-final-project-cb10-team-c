@@ -14,7 +14,6 @@ export interface IElement {
   iconActive?: string;
 }
 function ListEl({ el }: { el: IElement }) {
-  /* const { pathname } = useRouter(); */
   const pathname = usePathname();
   const t = useTranslations("Footer");
 
@@ -32,10 +31,6 @@ function ListEl({ el }: { el: IElement }) {
           />
         )}
 
-        {/* <img src={el.icon} alt={el.label} className={styles.iconContainer} /> */}
-        {/* <div className={styles.iconContainer}>
-          <div className={styles.iconTest} />
-        </div> */}
         <p>{t(el.label)}</p>
       </Link>
     </li>
