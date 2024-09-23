@@ -25,7 +25,6 @@ function Credits() {
       <h1>{t("title")}</h1>
       <div className={styles.img}>
         <Image
-          layout="responsive"
           width={800}
           height={800}
           src="/assets/7496-sienna.webp"
