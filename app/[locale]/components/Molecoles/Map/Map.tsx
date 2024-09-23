@@ -9,7 +9,6 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import markerIconUrl from "@/public/icons/marker.png";
 import styles from "./Map.module.scss";
-import { Link } from "@/i18n/routing";
 
 const markerIcon = L.icon({
   iconUrl: markerIconUrl.src,

@@ -1,5 +1,4 @@
 "use client";
-import { useRouter } from "@/i18n/routing";
 import { useState, useEffect } from "react";
 import {
   getAuth,
@@ -40,7 +39,7 @@ interface User {
 }
 
 function DataPayment() {
-  const [user, setUser] = useState<User | null>(null);
+  /* const [user, setUser] = useState<User | null>(null); */
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -91,10 +90,10 @@ function DataPayment() {
             email: authenticatedUser.email,
             displayName: authenticatedUser.displayName,
           };
-          setUser(userData);
+          /* setUser(userData); */
           fetchOrders(authenticatedUser.uid); // Fetch ordini all'accesso
         } else {
-          setUser(null);
+          /* setUser(null); */
           setOrders([]);
         }
       }

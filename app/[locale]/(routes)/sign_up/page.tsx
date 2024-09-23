@@ -21,7 +21,6 @@ const SignUp: React.FC = () => {
   const [error, setError] = useState<string>("");
 
   const [isLoginSuccess, setIsLoginSuccess] = useState(false);
-  const [isLoginFailure, setIsLoginFailure] = useState(false);
 
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);

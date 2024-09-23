@@ -16,6 +16,7 @@ import ModalQR from "@/app/[locale]/components/Molecoles/ModalQR/ModalQR";
 import maschera from "@/public/assets/maschera.webp";
 import PasswordToggleButton from "@/app/[locale]/components/Atom/PasswordToggleBtn/PasswordToggleBtn";
 import style from "./account.module.scss";
+import Toast from "../../components/Atom/Toast/Toast";
 
 interface Ticket {
   id: string;
@@ -71,6 +72,9 @@ const AccountPage = () => {
   const [newPassword, setNewPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // Stato per la visibilità della password
   const [error, setError] = useState("");
+
+  const [isToastOpen, setIsToastOpen] = useState(false);
+
   const userName = userData.firstName || "Utente";
   const t = useTranslations("AccountPage");
 
@@ -221,12 +225,19 @@ const AccountPage = () => {
         alert(t("passwordUpdated"));
       } catch (err) {
         setError(t("errorUpdatingPassword"));
+        setIsToastOpen(true);
       }
     }
   };
 
   return (
     <main className={style.main}>
+      <Toast
+        type="error"
+        message={error}
+        isOpen={isToastOpen}
+        onClose={() => setIsToastOpen(false)}
+      />
       <div className={style.profile}>
         <div className={style.profileInfo}>
           <Image

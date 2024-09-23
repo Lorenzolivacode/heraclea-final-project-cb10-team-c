@@ -5,13 +5,10 @@ import styles from "./Home.module.scss";
 import eracleaData from "./data";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/[locale]/firebase/config";
-import { Key, useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
-import Sounder from "./components/Atom/Sounder/Sounder";
-import SwitchLanguage from "./components/Atom/SwitchLanguage/SwitchLanguage";
 
 //error simulation
 // const session = null;
@@ -38,30 +35,13 @@ export default function HomePage() {
     }
   }, [user, loading, router]);
 
-  const languageChangeHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const value = e.currentTarget.value;
-    router.replace(`/${value}`);
-  };
-  /* const pathname = usePathname(); */
-  /* useEffect(() => {
-    console.log("locale", locale);
-    console.log(pathname);
-  }, []); */
-
   return (
     <>
       <main className="main">
         <h1>{t("titleEraclea")}</h1>
         <div className={styles.txt_container}>
           <p className={styles.cit}>{t("citEraclea")}</p>
-          {/* <p className={styles.cit_label}>{labels.citArchiLabel}</p> */}
         </div>
-        {/* <button value="en" onClick={languageChangeHandler}>
-          English
-        </button>
-        <button value="it" onClick={languageChangeHandler}>
-          Italiano
-        </button> */}
 
         {eracleaData.map(
           (point: {
