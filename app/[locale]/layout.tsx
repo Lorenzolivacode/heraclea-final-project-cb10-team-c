@@ -7,9 +7,9 @@ import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-export function generateStaticParams() {
+/* export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
-}
+} */
 
 export const metadata = {
   title: "HeracleApp",

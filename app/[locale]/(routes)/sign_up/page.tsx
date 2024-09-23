@@ -100,7 +100,7 @@ const SignUp: React.FC = () => {
       <InitialPagemodal />
 
       <Toast
-        message={t("loginSuccess")}
+        message={t("registration_success")}
         type="success"
         isOpen={isLoginSuccess}
         onClose={() => setIsLoginSuccess(false)}
