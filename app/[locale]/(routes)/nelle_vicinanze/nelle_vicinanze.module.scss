@@ -1,0 +1,60 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	gap: 10px;
+}
+
+.category {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.category p {
+	color: var(--c-sienna);
+	font-weight: 500;
+}
+
+.carousel {
+	display: flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+}
+
+.card {
+	flex: 0 0 auto;
+	width: 100%;
+	scroll-snap-align: start;
+	transition: opacity 0.5s ease;
+	opacity: 0;
+}
+
+.card.active {
+	opacity: 1;
+}
+
+.dots {
+	text-align: center;
+}
+
+.dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 0 5px;
+	background-color: #ccc;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.activeDot {
+	background-color: #333;
+}
+
+@media (min-width: 768px) {
+	.title {
+		font-size: 3.5rem;
+	}
+}

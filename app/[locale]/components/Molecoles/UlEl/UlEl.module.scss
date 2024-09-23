@@ -1,0 +1,29 @@
+.ul_el {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  background-color: var(--c-sienna);
+}
+
+.container_txt {
+  text-align: start;
+
+  h2 {
+    font-weight: 500;
+  }
+}
+.lineEl {
+  border: 1px solid var(--c-ivory);
+  width: 0px;
+  height: 35px;
+  background-color: var(--c-ivory);
+}
+
+@media screen and (min-width: 768px) {
+  .lineEl {
+    height: 45px;
+  }
+}

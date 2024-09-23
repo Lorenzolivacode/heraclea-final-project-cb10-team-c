@@ -1,0 +1,13 @@
+.select_switch {
+  margin: 20px 0;
+  border-radius: 5px;
+  padding: 5px;
+  max-width: 200px;
+  width: 100%;
+  background-color: var(--c-sienna);
+  color: var(--c-white);
+
+  option {
+    color: var(--c-white);
+  }
+}

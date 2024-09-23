@@ -1,0 +1,25 @@
+.nav {
+  background-color: var(--c-white);
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+
+  justify-content: space-between;
+  z-index: 100;
+
+  .logoContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .span {
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    right: 20px;
+  }
+}

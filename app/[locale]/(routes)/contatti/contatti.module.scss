@@ -1,0 +1,35 @@
+.main {
+  text-align: start;
+
+  .map {
+    border-radius: 8px;
+    box-shadow: 0 10px 12px -5px var(--c-gray-stone), 0 -4px 0 0 var(--c-sienna);
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+}
+
+.ul_container {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .container_txt p {
+    font-size: 1.5rem;
+  }
+
+  .container_txt h2 {
+    font-size: 1.5rem;
+  }
+
+  .ul_container {
+    width: 100%;
+    margin: auto;
+  }
+}

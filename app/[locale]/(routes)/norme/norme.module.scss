@@ -1,0 +1,32 @@
+.main {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 30px;
+padding: 120px 22px;
+min-height: 100dvh; 
+background-color: var(--c-white);   
+}
+
+.title {
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+}
+
+.container:first-of-type{
+    margin-left: 65px;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .container p {
+        font-size: 1.5rem;
+    }
+}
