@@ -159,7 +159,7 @@ const Calendar: React.FC = () => {
 
     // Salva solo se ci sono biglietti
     if (tickets.length > 0) {
-      saveToDatabase(selectedDate!, tickets); // Passa paymentMethod
+      saveToDatabase(selectedDate!, tickets);
       router.push("/acquista_page/dati_transazione");
     } else {
       console.log("Nessun biglietto selezionato.");

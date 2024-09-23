@@ -32,14 +32,7 @@ interface Order {
   timestamp: string;
 }
 
-// interface User {
-//   uid: string;
-//   email: string | null;
-//   displayName?: string | null;
-// }
-
 function DataPayment() {
-  /* const [user, setUser] = useState<User | null>(null); */
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -90,7 +83,6 @@ function DataPayment() {
       (authenticatedUser: FirebaseUser | null) => {
         if (authenticatedUser) {
           fetchOrders(authenticatedUser.uid);
-          // Continua a chiamare fetchOrders
         } else {
           setOrders([]);
         }
@@ -164,7 +156,7 @@ function DataPayment() {
   };
 
   const generateQrCodeForTicket = (orderId: string, ticketId: string) => {
-    return `${orderId}-${ticketId}`; // Genera un valore unico per il QR code
+    return `${orderId}-${ticketId}`;
   };
 
   const saveQrCodeToDatabase = async (
@@ -183,7 +175,7 @@ function DataPayment() {
       orders.forEach((order) => {
         order.tickets.forEach((ticket) => {
           const qrCodeValue = generateQrCodeForTicket(order.id, ticket.id); // Passa orderId e ticketId
-          saveQrCodeToDatabase(order.id, ticket.id, qrCodeValue); // Salva nel DB
+          saveQrCodeToDatabase(order.id, ticket.id, qrCodeValue);
         });
       });
     }

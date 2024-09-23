@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "@/app/[locale]/firebase/config";
 import { useRouter } from "@/i18n/routing";
-//import { useLocale } from "next-intl";
 import style from "/app/[locale]/components/Molecoles/Menu/Menu.module.scss";
 import { useTranslations } from "next-intl";
 import SwitchLanguage from "../../Atom/SwitchLanguage/SwitchLanguage";
@@ -17,7 +16,6 @@ interface MenuProps {
 
 const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
   const router = useRouter();
-  // const locale = useLocale();
   const t = useTranslations("Menu");
 
   const menuItems = [
@@ -36,8 +34,6 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }: MenuProps) => {
     try {
       await signOut(auth);
       console.log("Logged out successfully!");
-
-      // Usa il locale senza duplicazioni
       router.push(`/sign_up`);
     } catch (error) {
       console.error("Errore durante il logout:", error);

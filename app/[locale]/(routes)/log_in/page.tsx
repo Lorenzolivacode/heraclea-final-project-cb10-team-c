@@ -9,7 +9,7 @@ import Toast from "../../components/Atom/Toast/Toast";
 import { useTranslations } from "next-intl";
 
 const SignIn: React.FC = () => {
-  const t = useTranslations("SignIn"); // Hook per le traduzioni
+  const t = useTranslations("SignIn");
 
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -45,7 +45,6 @@ const SignIn: React.FC = () => {
         setIsLoginFailure(true);
         console.error("Errore durante l'accesso:", error.message);
 
-        // Gestione degli errori specifici
         if (error.message.includes("auth/user-not-found")) {
           setError(t("errorUserNotFound"));
           setShowSignUpRedirect(true);

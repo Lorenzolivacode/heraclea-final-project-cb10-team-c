@@ -2,7 +2,7 @@ import { QRCode } from "react-qrcode-logo";
 import style from "./QrCodeGenerator.module.scss";
 
 interface QrCodeGeneratorProps {
-  ticketId: string; // Prop corretta
+  ticketId: string;
 }
 
 const QrCodeGenerator = ({ ticketId }: QrCodeGeneratorProps) => {
@@ -21,7 +21,7 @@ const QrCodeGenerator = ({ ticketId }: QrCodeGeneratorProps) => {
       <div className={style.qrCodeContainer}>
         <QRCode value={uniqueId} size={100} />
         <p>Il codice del tuo biglietto è: {ticketId}</p>
-        <p>{uniqueId}</p> {/* Mostra l'ID unico generato */}
+        <p>{uniqueId}</p>
       </div>
     </div>
   );

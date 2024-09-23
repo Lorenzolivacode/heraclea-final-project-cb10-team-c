@@ -6,17 +6,6 @@ import styles from "./SliderBA.module.scss";
 function SliderBA({ imgA, imgB }: { imgA: string; imgB: string }) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-
-  /*  const handleMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (!isDragging) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-    const perc = Math.max(0, Math.min((x / rect.width) * 100, 100));
-
-    setSliderPosition(perc);
-     e.stopPropagation();
-    e.preventDefault();
-  }; */
   const handleMove = (
     e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
   ) => {
@@ -35,8 +24,6 @@ function SliderBA({ imgA, imgB }: { imgA: string; imgB: string }) {
     const perc = Math.max(0, Math.min((x / rect.width) * 100, 100));
 
     setSliderPosition(perc);
-    /* e.stopPropagation();
-    e.preventDefault(); */
   };
 
   const handleStartDrag = () => {

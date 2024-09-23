@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./credits.module.scss";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import Image from "next/image";
 
 function Credits() {
@@ -13,11 +12,11 @@ function Credits() {
       title: "titleArray3",
       text: "txtArray3",
       team: [
-        { name: "Gennaro Samuele", githubUrl: "samuelegen" },
-        { name: "Nurkovic Lejla", githubUrl: "LejNur" },
-        { name: "Miceli Lidia", githubUrl: "lidiamiceli" },
-        { name: "Miosi Roberta", githubUrl: "RobertaMi89" },
-        { name: "Oliva Lorenzo", githubUrl: "Lorenzolivacode" },
+        { name: "Gennaro Samuele" },
+        { name: "Nurkovic Lejla" },
+        { name: "Miceli Lidia" },
+        { name: "Miosi Roberta" },
+        { name: "Oliva Lorenzo" },
       ],
     },
   ];
@@ -29,7 +28,7 @@ function Credits() {
           layout="responsive"
           width={800}
           height={800}
-          src="/assets/maschera.webp"
+          src="/assets/7496-sienna.webp"
           alt="mask image"
         />
       </div>
@@ -44,30 +43,6 @@ function Credits() {
                 {credit.team.map((member, i) => (
                   <li key={i}>
                     <p className={styles.link_txt}>{member.name}</p>
-                    <div className={styles.link_img}>
-                      <Link
-                        target="_blank"
-                        href={`https://github.com/${member.githubUrl}`}
-                      >
-                        <Image
-                          width={35}
-                          height={35}
-                          src={"/icons/social-icons/github.svg"}
-                          alt={"GitHub"}
-                        />
-                      </Link>
-                      <Link
-                        target="_blank"
-                        href={`https://github.com/${member.githubUrl}`}
-                      >
-                        <Image
-                          width={35}
-                          height={35}
-                          src={"/icons/social-icons/linkedin.svg"}
-                          alt={"LinkedIn"}
-                        />
-                      </Link>
-                    </div>
                   </li>
                 ))}
               </ul>

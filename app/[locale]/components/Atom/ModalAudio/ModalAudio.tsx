@@ -24,7 +24,9 @@ export default function ModalAudio() {
   };
   return (
     <div
-      className={`${styles.modale_audio} ${reduceClass && styles.audio_reduce}`}
+      className={`${styles.modale_audio} ${
+        reduceClass ? styles.audio_reduce : ""
+      }`}
     >
       <div className={`${styles.audio_container}`}>
         <h3>{audioTitle}</h3>

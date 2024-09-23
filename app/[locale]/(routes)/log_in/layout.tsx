@@ -16,13 +16,6 @@ export default function RootLayout({
             src={"/icons/logoSienna.svg"}
           />
         </div>
-        {/* <video
-          src={"/heraclea-logo-unscreen.gif"}
-          autoPlay
-          loop
-          muted
-          className={styles.icon}
-        /> */}
       </header>
       {children};
     </>

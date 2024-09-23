@@ -28,7 +28,6 @@ function Toast({
   const [headerEl, setHeaderEl] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
-    // Cerca l'elemento <header> nel DOM
     const header = document.querySelector("header");
     if (header) {
       setHeaderEl(header);
@@ -75,7 +74,6 @@ function Toast({
 
   setTimeout(() => {
     onClose();
-    console.log("close");
   }, timeout);
 
   return createPortal(

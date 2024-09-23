@@ -14,19 +14,18 @@ function DetailPage({ params }: UserProps) {
   let archeo = false;
 
   const obj = eracleaData
-    .map((category) => category.subcategory) // mappo gli obj di eracleaData con le subcategory
-    .flat() //creo un array di tutte le subcategory
-    .find((item) => item.id === id); // trovo la subcategory all'id di riferimento
+    .map((category) => category.subcategory) // map degli obj di eracleaData con le subcategory
+    .flat() //array di tutte le subcategory
+    .find((item) => item.id === id); //subcategory all'id di riferimento
 
   if (
     eracleaData.some(
-      //scorro gli obj di eracleaData
       (category, index) =>
-        index === 1 && category.subcategory.some((item) => item.id === id) //conftonto l'id di riferimento con gli id presenti nelle subcategori del secondo obj
-      //se trovo una corrispondenza con entrambe le condizioni, vuol dire che l'id di riferimento fa parte della categoria archeo
+        index === 1 && category.subcategory.some((item) => item.id === id) //confronto l'id di riferimento con gli id presenti nelle subcategori del secondo obj
+      //se si trova una corrispondenza con entrambe le condizioni, vuol dire che l'id di riferimento fa parte della categoria archeo
     )
   ) {
-    archeo = true; // quindi, setto archeo a true
+    archeo = true;
   }
 
   if (!obj) {

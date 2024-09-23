@@ -370,13 +370,6 @@ const AccountPage = () => {
                   <h4>
                     {t("date")}: {order.date}
                   </h4>
-                  {/* <p>
-                    {t("total")}: {order.total.toFixed(2)}€
-                  </p>
-                  <p>
-                    {t("paymentMethods")}:{" "}
-                    {order.paymentInfo.paymentMethod || "N/A"}
-                  </p> */}
                   <p>{t("ticket")}:</p>
                   <ul>
                     {order.tickets.map((ticket, index) => (

@@ -28,13 +28,12 @@
 }
 
 .modalOverlay {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: -100px;
   bottom: 0;
   width: 100%;
   height: 100vh;
   background: var(--c-sienna-o94);
-  // background: rgba(102, 99, 91, 0.98);
   overflow-y: auto;
   z-index: 200;
   display: flex;

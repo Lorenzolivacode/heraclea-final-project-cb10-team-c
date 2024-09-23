@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./contatti.module.scss";
-/* import ListEl from "@/app/components/Atom/ListEl/ListEl";
-import { title } from "process"; */
 import UlEl from "@/app/[locale]/components/Molecoles/UlEl/UlEl";
 import { useTranslations } from "next-intl";
 
@@ -69,19 +67,6 @@ function Contacts() {
       <div className={styles.ul_container}>
         <UlEl array={contactArray} />
       </div>
-      {/* <UlEl array={contactArray} /> */}
-      {/* <ul>
-        {contactArray.map((contact, index) => {
-          return (
-            <>
-              <ListEl key={contact.id} el={contact} />
-              {index + 1 !== contactArray.length && (
-                <div className={styles.lineEl} />
-              )}
-            </>
-          );
-        })}
-      </ul> */}
       {descriptionArray.map((description) => {
         return (
           <div key={description.id} className={styles.container_txt}>
