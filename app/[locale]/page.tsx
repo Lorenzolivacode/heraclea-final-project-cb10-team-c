@@ -8,23 +8,13 @@ import { auth } from "@/app/[locale]/firebase/config";
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
-import { useLocale } from "next-intl";
-
-//error simulation
-// const session = null;
 
 export default function HomePage() {
-  const locale = useLocale(); // Ottieni la lingua corrente
-
   const t = useTranslations("HomePage");
   const tCat = useTranslations("eracleaDataCategory");
-  //error simulation
-  // if (!session) throw new Error("Example Error with Session!");
 
   const [user, loading] = useAuthState(auth);
   const router = useRouter();
-
-  /* console.log({ user }); */
 
   useEffect(() => {
     if (!loading && !user) {

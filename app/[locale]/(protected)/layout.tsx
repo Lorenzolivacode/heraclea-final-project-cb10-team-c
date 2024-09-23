@@ -7,10 +7,9 @@ import { useEffect, useState } from "react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 
-const locale = useLocale() as "it" | "en"; // Ottieni la lingua corrente
-const unprotectedRoutes = [`/sign_up`, `/log_in`];
-
 const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
+  const locale = useLocale() as "it" | "en"; // Ottieni la lingua corrente
+  const unprotectedRoutes = [`/sign_up`, `/log_in`];
   const [user, loading] = useAuthState(auth);
   const [isRegistered, setIsRegistered] = useState<boolean | null>(null); // Stato per verificare se l'utente è registrato
   const router = useRouter();
