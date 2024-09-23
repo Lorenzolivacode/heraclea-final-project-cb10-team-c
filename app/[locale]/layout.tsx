@@ -14,6 +14,13 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+export const metadata = {
+  title: "HeracleApp",
+  icons: {
+    icon: "/icons/logoSienna-circle.svg",
+  },
+};
+
 export default async function RootLayout({
   children,
   params: { locale },
@@ -25,10 +32,6 @@ export default async function RootLayout({
   const messages = await getMessages({ locale });
   return (
     <>
-      <Head>
-        <link rel="icon" href="/icons/logoSienna-circle.svg" />
-        <title>HeracleApp</title>
-      </Head>
       <html lang={locale}>
         <body>
           <NextIntlClientProvider messages={messages}>
