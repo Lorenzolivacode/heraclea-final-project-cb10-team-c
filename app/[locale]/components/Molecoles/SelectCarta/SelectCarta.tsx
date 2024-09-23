@@ -47,7 +47,7 @@ function SelectCarta({
   }, []);
 
   return (
-    <div className="max-w-sm mx-auto">
+    <div className="mx-auto">
       <div className="flex relative gap-4" ref={dropdownRef}>
         <button
           id="states-button"

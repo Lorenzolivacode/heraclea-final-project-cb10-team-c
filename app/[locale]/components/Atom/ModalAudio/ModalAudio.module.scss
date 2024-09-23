@@ -49,6 +49,8 @@
     border-radius: 20px;
     background-color: transparent;
     cursor: pointer;
+    max-width: 480px;
+    margin: auto;
   }
 }
 
@@ -65,11 +67,6 @@
     padding: 3px;
     width: 20px;
   }
-
-  // .audio {
-  //   height: 15px;
-  //   max-width: 50%;
-  // }
 }
 
 .audio {
@@ -90,4 +87,7 @@
   &::-webkit-media-controls-volume-slider {
     background-color: var(--c-sienna);
   }
+}
+
+@media screen and (min-width: 768px) {
 }
