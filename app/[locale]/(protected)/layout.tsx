@@ -3,13 +3,13 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/[locale]/firebase/config";
 import { getDatabase, ref, get } from "firebase/database";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 /* import { useLocale } from "next-intl"; */
 import { usePathname, useRouter } from "@/i18n/routing";
 
 const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
   /* const locale = useLocale() as "it" | "en"; */ // Ottieni la lingua corrente
-  const unprotectedRoutes = [`/sign_up`, `/log_in`];
+  const unprotectedRoutes = useMemo(() => [`/sign_up`, `/log_in`], []);
   const [user, loading] = useAuthState(auth);
   const [isRegistered, setIsRegistered] = useState<boolean | null>(null); // Stato per verificare se l'utente è registrato
   const router = useRouter();
@@ -18,10 +18,10 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (loading) return; // Attendere che Firebase determini lo stato di autenticazione
-
+    const locale = pathname.startsWith("/it") ? "it" : "en";
     if (!user && !unprotectedRoutes.includes(pathname)) {
       // Se l'utente non è loggato e sta cercando di accedere a una rotta protetta
-      router.push(`/log_in` /* , { locale } */); // aggiunto locale per far leggere al router di i18n la lingua, NON FUNZIONA
+      router.push(`/${locale}/log_in`); // aggiunto locale per far leggere al router di i18n la lingua, NON FUNZIONA
       return;
     }
 

@@ -77,6 +77,10 @@
     width: 100%;
     margin: 0 auto;
     object-fit: cover;
+
+    img{
+      border-radius: 5px;
+    }
   }
 
   .active {

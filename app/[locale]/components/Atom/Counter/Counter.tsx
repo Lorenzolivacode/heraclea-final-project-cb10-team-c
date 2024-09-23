@@ -15,7 +15,7 @@ const Counter: React.FC<CounterProps> = ({ value, onChange }) => {
   // Esegue l'onChange ogni volta che il valore del contatore cambia
   useEffect(() => {
     onChange(count);
-  }, [count]);
+  }, [count, onChange]);
 
   return (
     <>
