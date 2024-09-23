@@ -18,9 +18,9 @@ function ListEl({ el }: { el: IElement }) {
   const pathname = usePathname();
   const t = useTranslations("Footer");
 
-  const isActive = el.url === pathname;
+  const isActive = pathname.includes(el.url);
   return (
-    <li className={styles.listEl}>
+    <li className={`${styles.listEl} ${isActive ? styles.active : ""}`}>
       <Link href={el.url}>
         {el.icon && (
           <Image

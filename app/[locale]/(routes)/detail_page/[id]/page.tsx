@@ -41,7 +41,7 @@ function DetailPage({ params }: UserProps) {
       {!archeo ? (
         <Carousel images={obj.images} />
       ) : (
-        <SliderBA imgA={obj.images[0]} imgB={obj.images[1]} />
+        <SliderBA imgA={obj.images[0]} imgB={obj.images[2]} />
       )}
       <h1>{t(obj.title)}</h1>
       <p>{t(obj.description)}</p>

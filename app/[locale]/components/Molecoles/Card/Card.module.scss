@@ -26,11 +26,10 @@
     padding-left: 10px;
     padding-right: 10px;
     width: 100%;
-    line-height: 400%;
+    min-height: 30%;
     background-color: var(--c-gray-stone-o5);
     color: var(--c-ivory);
     transition: all 1s ease-in-out;
-    /* text-align: start; */
 
     h2 {
       color: var(--c-ivory);

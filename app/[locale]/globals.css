@@ -17,7 +17,11 @@
 
   --c-sienna-o94: rgba(138, 45, 14, 0.94);
   --c-ivory-o7: rgba(245, 239, 230, 0.7);
+  --c-ivory-o35: rgba(245, 239, 230, 0.35);
+  --c-ivory-o15: rgba(245, 239, 230, 0.15);
+  --c-ivory-o1: rgba(245, 239, 230, 0.1);
   --c-gray-stone-o5: rgba(102, 99, 91, 0.5);
+  --c-gray-stone-o35: rgba(102, 99, 91, 0.35);
 }
 
 * {
@@ -27,6 +31,8 @@
   font-family: "Raleway", sans-serif;
   letter-spacing: 2px;
   color: var(--c-brown-dark);
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-sienna);
 }
 
 h1,
@@ -54,13 +60,11 @@ h2 {
   flex-direction: column;
   gap: 20px;
   justify-content: start;
-  /* justify-content: space-evenly; */
   min-height: calc(100dvh - 178px);
   padding: 150px 22px;
   background-color: var(--c-white);
 }
 
-/* map styles overwritten */
 .leaflet-control-attribution {
   display: none;
 }
@@ -92,6 +96,6 @@ h2 {
 
 @media screen and (min-width: 1024px) {
   .main {
-    width: 25%;
+    width: 55%;
   }
 }

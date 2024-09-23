@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import styles from "./carousel.module.scss";
+import Image from "next/image";
 
 function Carousel({ images }: { images: string[] }) {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -18,7 +19,9 @@ function Carousel({ images }: { images: string[] }) {
       <div ref={carouselRef} className={styles.carousel}>
         {images.map((image) => {
           return (
-            <img
+            <Image
+              width={600}
+              height={400}
               key={crypto.randomUUID()}
               src={image}
               alt="Image"
@@ -33,9 +36,7 @@ function Carousel({ images }: { images: string[] }) {
                 key={crypto.randomUUID()}
                 className={styles.btn}
                 onClick={() => handleCarouselBtn(index)}
-              >
-                {/* {index + 1} */}
-              </button>
+              ></button>
             );
           })}
         </div>

@@ -36,8 +36,8 @@ export const eracleaData = [
         title: "titleArcheo",
         images: [
           "/assets/heraclea-rovine2.jpg",
-          "/assets/house-greek.jpg",
           "/assets/quartiere_ellenistico.webp",
+          "/assets/house-greek.jpg",
         ],
         description: "descriptionArcheo",
       },
@@ -46,8 +46,8 @@ export const eracleaData = [
         title: "titleTheater",
         images: [
           "/assets/teatro-after2.jpg",
-          "/assets/teatro-before2.jpg",
           "/assets/tatro.jpg",
+          "/assets/teatro-before2.jpg",
         ],
         description: "descriptionTheater",
       },
@@ -56,8 +56,8 @@ export const eracleaData = [
         title: "titleAntiquarium",
         images: [
           "/assets/antiquarium.webp",
-          "/assets/antiquarium-b.jpg",
           "/assets/sito-eraclea.jpg",
+          "/assets/antiquarium-b.jpg",
         ],
         description: "descriptionAntiquarium",
       },
