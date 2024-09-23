@@ -32,11 +32,11 @@ interface Order {
   timestamp: string;
 }
 
-interface User {
-  uid: string;
-  email: string | null;
-  displayName?: string | null;
-}
+// interface User {
+//   uid: string;
+//   email: string | null;
+//   displayName?: string | null;
+// }
 
 function DataPayment() {
   /* const [user, setUser] = useState<User | null>(null); */
@@ -62,14 +62,18 @@ function DataPayment() {
             id: orderId,
             date: order.date,
             tickets: Object.entries(order.tickets || {}).map(
-              ([ticketId, ticketData]: [string, any]) => ({
-                id: ticketId,
-                ...ticketData,
-              })
+              ([ticketId, ticketData]: [string, unknown]) => {
+                const ticket = ticketData as Ticket;
+                return {
+                  ...ticket,
+                  id: ticketId,
+                };
+              }
             ),
             timestamp: order.timestamp,
           };
         });
+
         setOrders(orderList);
       } else {
         setOrders([]);
@@ -85,15 +89,9 @@ function DataPayment() {
       auth,
       (authenticatedUser: FirebaseUser | null) => {
         if (authenticatedUser) {
-          const userData: User = {
-            uid: authenticatedUser.uid,
-            email: authenticatedUser.email,
-            displayName: authenticatedUser.displayName,
-          };
-          /* setUser(userData); */
-          fetchOrders(authenticatedUser.uid); // Fetch ordini all'accesso
+          fetchOrders(authenticatedUser.uid);
+          // Continua a chiamare fetchOrders
         } else {
-          /* setUser(null); */
           setOrders([]);
         }
       }

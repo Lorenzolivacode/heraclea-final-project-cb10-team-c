@@ -43,7 +43,7 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
           console.error("Errore nel controllare l'utente nel database:", error);
         });
     }
-  }, [user, loading, pathname, db, router]);
+  }, [user, loading, pathname, db, router, unprotectedRoutes]);
 
   if (loading || isRegistered === null) {
     // Mostra una schermata di caricamento mentre Firebase controlla lo stato dell'utente
