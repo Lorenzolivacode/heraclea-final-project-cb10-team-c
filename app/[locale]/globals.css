@@ -35,6 +35,10 @@
   scrollbar-color: var(--c-sienna);
 }
 
+body {
+  min-height: 100dvh;
+}
+
 h1,
 h2,
 h3,

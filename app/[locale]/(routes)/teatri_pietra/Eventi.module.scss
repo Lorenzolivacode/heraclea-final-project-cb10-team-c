@@ -22,6 +22,13 @@
 
 @media (min-width: 768px) {
   .hero {
-    height: calc(100vh - 225px);
+    width: 60%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    width: 40%;
   }
 }
