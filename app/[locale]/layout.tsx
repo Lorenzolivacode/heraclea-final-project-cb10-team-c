@@ -4,7 +4,6 @@ import ClientWrapper from "@/app/[locale]/components/Organism/ClientWrapper/Clie
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-import { routing } from "@/i18n/routing";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 /* export function generateStaticParams() {
