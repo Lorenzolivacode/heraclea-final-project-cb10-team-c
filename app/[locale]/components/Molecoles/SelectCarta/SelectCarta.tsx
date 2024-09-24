@@ -39,6 +39,19 @@ function SelectCarta({
     }
   };
 
+  const formatCardNumber = (number: string) => {
+    // Rimuove tutti gli spazi e riformatta con spazi ogni 4 cifre
+    return number
+      .replace(/\D/g, "")
+      .replace(/(.{4})/g, "$1 ")
+      .trim();
+  };
+
+  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedNumber = formatCardNumber(e.target.value);
+    setCardNumber(formattedNumber);
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -52,7 +65,7 @@ function SelectCarta({
         <button
           id="states-button"
           data-dropdown-toggle="dropdown-states"
-          className="flex-shrink-0  inline-flex items-center px-4 rounded-md shadow-sm text-sm font-medium text-center text-gray-500 bg-milk border"
+          className="flex-shrink-0 inline-flex items-center px-4 rounded-md shadow-sm text-sm font-medium text-center text-gray-500 bg-milk border"
           type="button"
           onClick={toggleDropdown}
         >
@@ -129,10 +142,11 @@ function SelectCarta({
 
         <input
           className={style.input_field}
-          type="number"
+          type="text"
           placeholder="0000 0000 0000 0000"
           value={cardNumber}
-          onChange={(e) => setCardNumber(e.target.value)}
+          onChange={handleCardNumberChange}
+          maxLength={19} // 16 cifre + 3 spazi
         />
       </div>
     </div>
