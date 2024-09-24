@@ -308,7 +308,7 @@ const Calendar: React.FC = () => {
       {showModal && selectedDate && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="bg-milk w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+          <div className="bg-milk relative top-5 md:max-h-[calc(100%-220px)] w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
             <div className="py-4 px-6">
               <div className="flex justify-between items-center pb-3">
                 <p className="text-xl font-bold text-sienna">
