@@ -7,6 +7,10 @@
   background-color: var(--c-sienna);
   color: var(--c-white);
 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   option {
     color: var(--c-white);
   }
