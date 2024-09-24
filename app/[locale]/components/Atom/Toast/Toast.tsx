@@ -29,11 +29,14 @@ function Toast({
 
   useEffect(() => {
     const header = document.querySelector("header");
-    if (header) {
+    /* if (header) {
       setHeaderEl(header);
-    }
+    } */
+    setTimeout(() => {
+      onClose();
+    }, timeout);
   }, []);
-  if (!headerEl) return null;
+  /* if (!headerEl) return null; */
 
   let typeImg;
   let positionClass;
@@ -72,12 +75,8 @@ function Toast({
       typeImg = "/icons/toast-icons/icon-info-ivory.png";
   }
 
-  setTimeout(() => {
-    onClose();
-  }, timeout);
-
-  return createPortal(
-    <>
+  return (
+    /* createPortal */ <>
       {isOpen && (
         <div
           className={`${styles.toast} ${styles[type as keyof typeof styles]} ${
@@ -116,8 +115,8 @@ function Toast({
           </div>
         </div>
       )}
-    </>,
-    headerEl
+    </> /* ,
+    headerEl */
   );
 }
 
