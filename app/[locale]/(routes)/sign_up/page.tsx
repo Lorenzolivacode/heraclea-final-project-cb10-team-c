@@ -10,7 +10,6 @@ import InitialPagemodal from "@/app/[locale]/components/Organism/modalInitialPag
 import { Link } from "@/i18n/routing";
 import { saveUserData } from "@/app/[locale]/firebase/database";
 import { useTranslations } from "next-intl";
-import Toast from "../../components/Atom/Toast/Toast";
 
 const SignUp: React.FC = () => {
   const t = useTranslations("SignUp");
@@ -19,8 +18,6 @@ const SignUp: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
-
-  const [isLoginSuccess, setIsLoginSuccess] = useState(false);
 
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
@@ -63,11 +60,7 @@ const SignUp: React.FC = () => {
         };
         await saveUserData(res.user.uid, userData);
 
-        alert(t("registration_success"));
-        setIsLoginSuccess(true);
-        setTimeout(() => {
-          router.push("/log_in");
-        }, 4200);
+        router.push("/log_in");
 
         setNome("");
         setCognome("");
@@ -98,13 +91,6 @@ const SignUp: React.FC = () => {
   return (
     <>
       <InitialPagemodal />
-
-      <Toast
-        message={t("registration_success")}
-        type="success"
-        isOpen={isLoginSuccess}
-        onClose={() => setIsLoginSuccess(false)}
-      />
       <div className={style.container}>
         <h1 className={style.title}>{t("sign_up")}</h1>
         <form onSubmit={handleSubmit} className={style.form}>
