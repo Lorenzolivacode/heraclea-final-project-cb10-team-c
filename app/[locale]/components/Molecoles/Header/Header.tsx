@@ -1,5 +1,5 @@
 "use client";
-import { Dispatch, SetStateAction, useContext, useEffect } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { IsModalAudioOpenContext } from "@/app/[locale]/ModalAudioContext/ModalAudioContext";
 import style from "/app/[locale]/components/Molecoles/Header/Header.module.scss";
@@ -39,11 +39,6 @@ const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
 
   const isHomePage =
     pathname === "/" || pathname === "/it" || pathname === "/en";
-
-  useEffect(() => {
-    console.log("modl audio", isAudioOpen);
-    console.log("pathname:", pathname); // Verifica il valore di pathname
-  }, [isAudioOpen, pathname]);
 
   return (
     <div className={style.nav}>

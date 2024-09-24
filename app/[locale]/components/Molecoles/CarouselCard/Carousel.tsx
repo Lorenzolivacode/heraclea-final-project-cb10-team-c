@@ -36,9 +36,7 @@ function Carousel({ children, array }: CarouselProps) {
                 key={crypto.randomUUID()}
                 className={styles.btn}
                 onClick={() => handleCarouselBtn(index)}
-              >
-                {/* {index + 1} */}
-              </button>
+              ></button>
             );
           })}
         </div>

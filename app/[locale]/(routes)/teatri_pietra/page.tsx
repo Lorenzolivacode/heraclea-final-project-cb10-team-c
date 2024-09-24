@@ -27,8 +27,3 @@ export default function TeatriPietra() {
     </section>
   );
 }
-
-{
-  /* <main className={styles.mainPage}>
-</main> */
-}

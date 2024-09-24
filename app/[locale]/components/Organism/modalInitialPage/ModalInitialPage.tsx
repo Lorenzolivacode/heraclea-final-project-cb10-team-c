@@ -179,8 +179,6 @@ function InitialPagemodal() {
             <p>{pages[currentPage].description}</p>
             {currentPage !== 0 && (
               <>
-                {/* <div className={style.btnContainer}>
-                  </div> */}
                 {currentPage === 1 && <SwitchLanguage />}
                 {currentPage === 5 && (
                   <Button text={t("buttonStart")} onClick={handleButtonClick} />

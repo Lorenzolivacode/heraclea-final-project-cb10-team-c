@@ -14,9 +14,8 @@ function CategoryPage({ params }: CategoryProps) {
   const t = useTranslations("eracleaDataSubcategory");
   const tCat = useTranslations("eracleaDataCategory");
   const isArcheo = eracleaData.some(
-    //scorro gli obj di eracleaData
     (category, index) => index === 1 && category.id === id
-    //se trovo una corrispondenza con entrambe le condizioni, vuol dire che l'id di riferimento fa parte della categoria archeo
+    //quando si trova una corrispondenza con entrambe le condizioni, vuol dire che l'id di riferimento fa parte della categoria archeo
   );
 
   const catId = Number(id);
@@ -25,7 +24,7 @@ function CategoryPage({ params }: CategoryProps) {
     categoryIndex = catId - 1;
   }
 
-  const obj = eracleaData.find((item) => item.id === id); // trovo la subcategory all'id di riferimento
+  const obj = eracleaData.find((item) => item.id === id); // subcategory all'id di riferimento
   if (!obj || categoryIndex === undefined) {
     return (
       <main className="main">
