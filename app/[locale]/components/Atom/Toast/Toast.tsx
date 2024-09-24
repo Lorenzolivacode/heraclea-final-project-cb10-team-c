@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import styles from "./Toast.module.scss";
-import { createPortal } from "react-dom";
 
 interface ToastProps {
   message: string;
@@ -25,18 +24,11 @@ function Toast({
   onClose,
   position = "top-right",
 }: ToastProps) {
-  const [headerEl, setHeaderEl] = useState<HTMLElement | null>(null);
-
   useEffect(() => {
-    const header = document.querySelector("header");
-    /* if (header) {
-      setHeaderEl(header);
-    } */
     setTimeout(() => {
       onClose();
     }, timeout);
   }, []);
-  /* if (!headerEl) return null; */
 
   let typeImg;
   let positionClass;
