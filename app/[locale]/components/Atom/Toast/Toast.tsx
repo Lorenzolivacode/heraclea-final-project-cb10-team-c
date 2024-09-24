@@ -26,8 +26,8 @@ function Toast({
 }: ToastProps) {
   useEffect(() => {
     setTimeout(() => {
-      onClose();
-    }, timeout);
+      onClose;
+    }, 4000);
   }, []);
 
   let typeImg;

@@ -37,6 +37,8 @@ const SignIn: React.FC = () => {
         setTimeout(() => {
           router.push(`/`);
         }, 4200);
+      } else {
+        throw new Error();
       }
     } catch (error) {
       console.log("errore");
