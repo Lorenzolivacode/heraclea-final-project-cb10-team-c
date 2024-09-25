@@ -18,9 +18,11 @@ L'obiettivo di **HeracleAPP** è migliorare l'esperienza turistica a **Eraclea M
 
 ## 🔧 Tecnologie Utilizzate
 
-- **🖥️ Frontend**: [Next.js](https://nextjs.org/) & [Typescript](https://www.typescriptlang.org/)
+- **🖥️ Frontend**: [Next.js](https://nextjs.org/) & [Typescript](https://www.typescriptlang.org/) 
 - **🌍 Geolocalizzazione**: [Google Maps API](https://developers.google.com/maps) e [Leaflet](https://leafletjs.com/) per la navigazione e la localizzazione degli utenti nei vari punti d'interesse di Eraclea Minoa.
-- **🔒 Autenticazione e Database**: [NextAuth](https://next-auth.js.org/) per l'autenticazione sicura degli utenti, integrato con [Firebase](https://firebase.google.com/) per la gestione dei dati.
+- **🔒 Autenticazione e Database**: [NextAuth](https://next-auth.js.org/) per l'autenticazione sicura degli utenti, integrato con [Firebase](https://firebase.google.com/) per la gestione dei dati. 
+
+  [![Stack](https://skillicons.dev/icons?i=nextjs,typescript,tailwind,sass,firebase)](https://skillicons.dev)
 
 ## 📍 Eraclea Minoa
 
@@ -39,6 +41,8 @@ Il progetto è stato sviluppato dal Team C, composto da:
 - 👤 [Lidia Miceli](https://github.com/lidiamiceli)
 - 👤 [Lorenzo Oliva](https://github.com/Lorenzolivacode)
 - 👤 [Samuele Maria Gennaro](https://github.com/samuelegen)
+
+## [Visita Heraclea](https://heraclea.vercel.app/) 
 
 ## 📱 Contattaci
 
